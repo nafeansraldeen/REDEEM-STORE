@@ -19,7 +19,6 @@
             background-color: #FFFFFF;
             color: #222;
             padding-bottom: 80px;
-            /* مساحة للشريط السفلي */
             min-height: 100vh;
         }
 
@@ -31,14 +30,17 @@
             right: 0;
             background: #FFFFFF;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            /* توزيع متساوي مع مسافات */
             align-items: center;
             height: 70px;
+            padding: 0 4px;
+            /* مسافة صغيرة جداً للحواف */
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
             border-top: 1px solid #f0f0f0;
             z-index: 999;
-            direction: ltr;
-            /* الأيقونات تبقى من اليسار لليمين */
+            direction: rtl;
+            /* ← الأهم: يجعل الترتيب من اليمين لليسار */
         }
 
         .nav-item {
@@ -51,11 +53,24 @@
             cursor: pointer;
             transition: all 0.25s ease;
             position: relative;
-            padding: 4px 12px;
+            padding: 4px 8px;
             text-decoration: none;
             background: transparent;
             border: none;
-            min-width: 60px;
+            min-width: 55px;
+            flex: 1;
+            /* توزيع متساوي */
+            text-align: center;
+        }
+
+        /* أول عنصر (الرئيسية) يلاصق الحافة اليمنى */
+        .nav-item:first-child {
+            margin-right: 0;
+        }
+
+        /* آخر عنصر (الحساب) يلاصق الحافة اليسرى */
+        .nav-item:last-child {
+            margin-left: 0;
         }
 
         .nav-item i {
@@ -67,11 +82,11 @@
         .nav-item span {
             transition: all 0.25s ease;
             font-weight: 500;
+            font-size: 11px;
         }
 
         .nav-item.active {
             color: #1A73E8;
-            /* الأزرق الأساسي */
         }
 
         .nav-item.active i {
@@ -179,7 +194,6 @@
             right: 0;
             background: #FFFFFF;
             border-radius: 12px;
-            /* ← مستطيل ناعم بدل الدائرة */
             box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
             transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 1;
@@ -193,7 +207,6 @@
             gap: 16px;
             margin-top: 10px;
             direction: rtl;
-            /* ترتيب من اليمين لليسار */
         }
 
         @media (min-width: 600px) {
@@ -395,6 +408,12 @@
             .game-header h2 {
                 font-size: 18px;
             }
+            .nav-item span {
+                font-size: 10px;
+            }
+            .nav-item i {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -428,29 +447,11 @@
         </div>
     </div>
 
-    <!-- صفحة المحفظة -->
-    <div id="page-wallet" class="page">
-        <div class="placeholder-page">
-            <i class="fas fa-wallet"></i>
-            <p>محفظتك الرقمية</p>
-            <span style="font-size:14px; color:#ccc;">0.00 $</span>
-        </div>
-    </div>
-
-    <!-- صفحة الحساب -->
-    <div id="page-account" class="page">
-        <div class="placeholder-page">
-            <i class="fas fa-user-circle"></i>
-            <p>حسابي</p>
-            <span style="font-size:14px; color:#ccc;">تسجيل الدخول</span>
-        </div>
-    </div>
-
-    <!-- صفحة الدعم (PUBG) -->
-    <div id="page-pubg" class="page">
+    <!-- صفحة الخدمات (PUBG) -->
+    <div id="page-services" class="page">
         <div class="game-header">
             <img src="https://i.imgur.com/7VYdLgF.png" alt="PUBG Mobile" />
-            <h2>PUBG Mobile</h2>
+            <h2>خدمات الشحن</h2>
         </div>
 
         <div class="packs-grid" id="packsGrid">
@@ -472,16 +473,38 @@
         </div>
     </div>
 
+    <!-- صفحة المحفظة -->
+    <div id="page-wallet" class="page">
+        <div class="placeholder-page">
+            <i class="fas fa-wallet"></i>
+            <p>محفظتك الرقمية</p>
+            <span style="font-size:14px; color:#ccc;">0.00 $</span>
+        </div>
+    </div>
+
+    <!-- صفحة الحساب -->
+    <div id="page-account" class="page">
+        <div class="placeholder-page">
+            <i class="fas fa-user-circle"></i>
+            <p>حسابي</p>
+            <span style="font-size:14px; color:#ccc;">تسجيل الدخول</span>
+        </div>
+    </div>
+
     <!-- ============================================= -->
-    <!-- شريط التنقل السفلي (مرتب من اليمين لليسار) -->
+    <!-- شريط التنقل السفلي (من اليمين لليسار) -->
     <!-- ============================================= -->
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-indicator" id="navIndicator"></div>
 
-        <!-- من اليمين إلى اليسار: الرئيسية ← المحفظة ← الحساب ← الدعم -->
+        <!-- من اليمين إلى اليسار: الرئيسية ← الخدمات ← المحفظة ← الحساب -->
         <button class="nav-item active" data-page="page-home">
             <i class="fas fa-home"></i>
             <span>الرئيسية</span>
+        </button>
+        <button class="nav-item" data-page="page-services">
+            <i class="fas fa-headset"></i>
+            <span>الخدمات</span>
         </button>
         <button class="nav-item" data-page="page-wallet">
             <i class="fas fa-wallet"></i>
@@ -490,10 +513,6 @@
         <button class="nav-item" data-page="page-account">
             <i class="fas fa-user"></i>
             <span>الحساب</span>
-        </button>
-        <button class="nav-item" data-page="page-pubg">
-            <i class="fas fa-headset"></i>
-            <span>الدعم</span>
         </button>
     </nav>
 
@@ -534,11 +553,11 @@
                     <h4>${game.name}</h4>
                     <div class="price-tag">${game.price}</div>
                 `;
-                // عند الضغط على بطاقة PUBG نفتح صفحتها
+                // عند الضغط على بطاقة PUBG نفتح صفحة الخدمات
                 if (game.name === 'PUBG Mobile') {
                     card.addEventListener('click', () => {
-                        switchPage('page-pubg');
-                        updateNavActive('page-pubg');
+                        switchPage('page-services');
+                        updateNavActive('page-services');
                     });
                 }
                 productsGrid.appendChild(card);
@@ -553,13 +572,10 @@
         const tabBtns = document.querySelectorAll('.tab-btn');
         const tabSlider = document.getElementById('tabSlider');
 
-        // محاكاة تغيير المحتوى حسب التصنيف (فقط عرض توضيحي)
         function filterProducts(category) {
-            // هنا تقدر تضيف منطق تصفية حقيقي، لكن نكتفي بتأثير بصري
             productsGrid.style.opacity = '0.6';
             productsGrid.style.transform = 'translateY(8px)';
             setTimeout(() => {
-                // نعيد ترتيب الألعاب عشوائياً كتأثير (أو تتركها كما هي)
                 productsGrid.style.opacity = '1';
                 productsGrid.style.transform = 'translateY(0)';
             }, 250);
@@ -567,15 +583,12 @@
 
         tabBtns.forEach((btn, index) => {
             btn.addEventListener('click', () => {
-                // إزالة النشاط عن الكل
                 tabBtns.forEach(b => b.classList.remove('active'));
                 btn.classList.add('active');
 
-                // تحريك المؤشر (Slider) بناءً على ترتيب الزر
                 const percent = index * 25;
                 tabSlider.style.right = percent + '%';
 
-                // تأثير التلاشي على المنتجات
                 filterProducts(btn.dataset.tab);
             });
         });
@@ -587,9 +600,7 @@
         const navIndicator = document.getElementById('navIndicator');
 
         function switchPage(pageId) {
-            // إخفاء كل الصفحات
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            // إظهار الصفحة المطلوبة
             const target = document.getElementById(pageId);
             if (target) target.classList.add('active');
         }
@@ -601,7 +612,7 @@
                     item.classList.add('active');
                 }
             });
-            // تحريك المؤشر إلى العنصر النشط
+
             const activeItem = document.querySelector('.nav-item.active');
             if (activeItem) {
                 const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
@@ -613,7 +624,6 @@
             }
         }
 
-        // عند النقر على أي عنصر في الشريط السفلي
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 const pageId = item.dataset.page;
@@ -624,13 +634,12 @@
             });
         });
 
-        // تفعيل المؤشر عند التحميل
         setTimeout(() => {
             updateNavActive('page-home');
         }, 100);
 
         // ========================
-        // 5. باقات PUBG (اختيار الباقة)
+        // 5. باقات الخدمات (اختيار الباقة)
         // ========================
         const packBtns = document.querySelectorAll('.pack-btn');
         let selectedPack = null;
@@ -667,7 +676,7 @@
         });
 
         // ========================
-        // 7. (اختياري) تحديد أول باقة افتراضياً
+        // 7. تحديد أول باقة افتراضياً
         // ========================
         if (packBtns.length) {
             packBtns[0].classList.add('selected');
@@ -675,7 +684,7 @@
         }
 
         // ========================
-        // 8. منع إعادة تحميل الصفحة عند النقر على الأزرار
+        // 8. منع إعادة تحميل الصفحة
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
