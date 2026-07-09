@@ -38,7 +38,6 @@
             border-top: 1px solid #f0f0f0;
             z-index: 999;
             direction: rtl;
-            /* ترتيب من اليمين لليسار */
         }
 
         .nav-item {
@@ -93,7 +92,6 @@
             color: #1A73E8;
         }
 
-        /* المؤشر المنزلق (Sliding Indicator) */
         .nav-indicator {
             position: absolute;
             top: 0;
@@ -150,7 +148,7 @@
             color: #00BCD4;
         }
 
-        /* ===== CATEGORIES TABS ===== */
+        /* ===== CATEGORIES TABS - IMPROVED ===== */
         .tabs-wrapper {
             position: relative;
             background: #f8f9fa;
@@ -165,7 +163,7 @@
         .tab-btn {
             flex: 1;
             text-align: center;
-            padding: 10px 0;
+            padding: 12px 0;
             border: none;
             background: transparent;
             font-size: 15px;
@@ -176,6 +174,8 @@
             border-radius: 40px;
             z-index: 2;
             position: relative;
+            letter-spacing: 0.3px;
+            /* تحسين المسافات بين الحروف */
         }
 
         .tab-btn.active {
@@ -255,7 +255,7 @@
             margin-top: 4px;
         }
 
-        /* ===== SUPPORT PAGE (الدعم) ===== */
+        /* ===== SUPPORT PAGE ===== */
         .game-header {
             display: flex;
             align-items: center;
@@ -370,7 +370,7 @@
             box-shadow: 0 3px 10px rgba(26, 115, 232, 0.2);
         }
 
-        /* ===== WALLET & ACCOUNT (محتوى تجريبي) ===== */
+        /* ===== WALLET & ACCOUNT ===== */
         .placeholder-page {
             display: flex;
             flex-direction: column;
@@ -394,7 +394,7 @@
             }
             .tab-btn {
                 font-size: 13px;
-                padding: 8px 0;
+                padding: 10px 0;
             }
             .pack-btn {
                 font-size: 13px;
@@ -410,6 +410,9 @@
                 font-size: 20px;
             }
         }
+
+        /* ===== TAB NAMES WITHOUT EMOJIS ===== */
+        /* تم إزالة جميع الإيموجيات من الـ HTML مباشرة */
     </style>
 </head>
 <body>
@@ -425,13 +428,13 @@
             <span class="cyan">STORE</span>
         </div>
 
-        <!-- التصنيفات -->
+        <!-- التصنيفات - بدون إيموجيات -->
         <div class="tabs-wrapper" id="tabsContainer">
             <div class="tab-slider" id="tabSlider" style="right:0%;"></div>
-            <button class="tab-btn active" data-tab="games">🎮 الألعاب</button>
-            <button class="tab-btn" data-tab="subscriptions">📦 الإشتراكات</button>
-            <button class="tab-btn" data-tab="stores">🛒 المتاجر</button>
-            <button class="tab-btn" data-tab="services">⭐ خدمات مميزة</button>
+            <button class="tab-btn active" data-tab="games">الألعاب</button>
+            <button class="tab-btn" data-tab="subscriptions">الاشتراكات</button>
+            <button class="tab-btn" data-tab="stores">المتاجر</button>
+            <button class="tab-btn" data-tab="services">خدمات مميزة</button>
         </div>
 
         <!-- شبكة المنتجات -->
@@ -451,7 +454,7 @@
         </div>
     </div>
 
-    <!-- صفحة الدعم (خدمات الشحن) -->
+    <!-- صفحة الدعم -->
     <div id="page-support" class="page">
         <div class="game-header">
             <img src="https://i.imgur.com/7VYdLgF.png" alt="PUBG Mobile" />
@@ -487,12 +490,11 @@
     </div>
 
     <!-- ============================================= -->
-    <!-- شريط التنقل السفلي (من اليمين لليسار) -->
+    <!-- شريط التنقل السفلي -->
     <!-- ============================================= -->
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-indicator" id="navIndicator"></div>
 
-        <!-- من اليمين إلى اليسار: الرئيسية ← المحفظة ← الدعم ← الحساب -->
         <button class="nav-item active" data-page="page-home">
             <i class="fas fa-home"></i>
             <span>الرئيسية</span>
@@ -516,7 +518,7 @@
     <!-- ============================================= -->
     <script>
         // ========================
-        // 1. قائمة الألعاب (من اليمين لليسار)
+        // 1. قائمة الألعاب
         // ========================
         const gamesList = [
             { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png', price: '3.00 $' },
@@ -534,7 +536,7 @@
         ];
 
         // ========================
-        // 2. عرض الألعاب في الشبكة
+        // 2. عرض الألعاب
         // ========================
         const productsGrid = document.getElementById('productsGrid');
 
@@ -548,7 +550,6 @@
                     <h4>${game.name}</h4>
                     <div class="price-tag">${game.price}</div>
                 `;
-                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم
                 if (game.name === 'PUBG Mobile') {
                     card.addEventListener('click', () => {
                         switchPage('page-support');
@@ -561,7 +562,7 @@
         renderGames();
 
         // ========================
-        // 3. التصنيفات (Tabs) مع Slider
+        // 3. التصنيفات (Tabs)
         // ========================
         const tabsContainer = document.getElementById('tabsContainer');
         const tabBtns = document.querySelectorAll('.tab-btn');
@@ -589,7 +590,7 @@
         });
 
         // ========================
-        // 4. شريط التنقل السفلي + التنقل بين الصفحات
+        // 4. شريط التنقل
         // ========================
         const navItems = document.querySelectorAll('.nav-item');
         const navIndicator = document.getElementById('navIndicator');
@@ -634,7 +635,7 @@
         }, 100);
 
         // ========================
-        // 5. باقات الدعم (اختيار الباقة)
+        // 5. باقات الدعم
         // ========================
         const packBtns = document.querySelectorAll('.pack-btn');
         let selectedPack = null;
@@ -648,7 +649,7 @@
         });
 
         // ========================
-        // 6. زر "شراء الآن"
+        // 6. زر الشراء
         // ========================
         document.getElementById('buyNowBtn').addEventListener('click', () => {
             const gameId = document.getElementById('gameIdInput').value.trim();
@@ -671,7 +672,7 @@
         });
 
         // ========================
-        // 7. تحديد أول باقة افتراضياً
+        // 7. تحديد أول باقة
         // ========================
         if (packBtns.length) {
             packBtns[0].classList.add('selected');
@@ -679,7 +680,7 @@
         }
 
         // ========================
-        // 8. منع إعادة تحميل الصفحة
+        // 8. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
