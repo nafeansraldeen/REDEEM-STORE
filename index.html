@@ -31,16 +31,14 @@
             background: #FFFFFF;
             display: flex;
             justify-content: space-between;
-            /* توزيع متساوي مع مسافات */
             align-items: center;
             height: 70px;
             padding: 0 4px;
-            /* مسافة صغيرة جداً للحواف */
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
             border-top: 1px solid #f0f0f0;
             z-index: 999;
             direction: rtl;
-            /* ← الأهم: يجعل الترتيب من اليمين لليسار */
+            /* ترتيب من اليمين لليسار */
         }
 
         .nav-item {
@@ -59,16 +57,13 @@
             border: none;
             min-width: 55px;
             flex: 1;
-            /* توزيع متساوي */
             text-align: center;
         }
 
-        /* أول عنصر (الرئيسية) يلاصق الحافة اليمنى */
         .nav-item:first-child {
             margin-right: 0;
         }
 
-        /* آخر عنصر (الحساب) يلاصق الحافة اليسرى */
         .nav-item:last-child {
             margin-left: 0;
         }
@@ -260,7 +255,7 @@
             margin-top: 4px;
         }
 
-        /* ===== PUBG PAGE ===== */
+        /* ===== SUPPORT PAGE (الدعم) ===== */
         .game-header {
             display: flex;
             align-items: center;
@@ -447,11 +442,20 @@
         </div>
     </div>
 
-    <!-- صفحة الخدمات (PUBG) -->
-    <div id="page-services" class="page">
+    <!-- صفحة المحفظة -->
+    <div id="page-wallet" class="page">
+        <div class="placeholder-page">
+            <i class="fas fa-wallet"></i>
+            <p>محفظتك الرقمية</p>
+            <span style="font-size:14px; color:#ccc;">0.00 $</span>
+        </div>
+    </div>
+
+    <!-- صفحة الدعم (خدمات الشحن) -->
+    <div id="page-support" class="page">
         <div class="game-header">
             <img src="https://i.imgur.com/7VYdLgF.png" alt="PUBG Mobile" />
-            <h2>خدمات الشحن</h2>
+            <h2>خدمات الدعم</h2>
         </div>
 
         <div class="packs-grid" id="packsGrid">
@@ -473,15 +477,6 @@
         </div>
     </div>
 
-    <!-- صفحة المحفظة -->
-    <div id="page-wallet" class="page">
-        <div class="placeholder-page">
-            <i class="fas fa-wallet"></i>
-            <p>محفظتك الرقمية</p>
-            <span style="font-size:14px; color:#ccc;">0.00 $</span>
-        </div>
-    </div>
-
     <!-- صفحة الحساب -->
     <div id="page-account" class="page">
         <div class="placeholder-page">
@@ -497,18 +492,18 @@
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-indicator" id="navIndicator"></div>
 
-        <!-- من اليمين إلى اليسار: الرئيسية ← الخدمات ← المحفظة ← الحساب -->
+        <!-- من اليمين إلى اليسار: الرئيسية ← المحفظة ← الدعم ← الحساب -->
         <button class="nav-item active" data-page="page-home">
             <i class="fas fa-home"></i>
             <span>الرئيسية</span>
         </button>
-        <button class="nav-item" data-page="page-services">
-            <i class="fas fa-headset"></i>
-            <span>الخدمات</span>
-        </button>
         <button class="nav-item" data-page="page-wallet">
             <i class="fas fa-wallet"></i>
             <span>المحفظة</span>
+        </button>
+        <button class="nav-item" data-page="page-support">
+            <i class="fas fa-headset"></i>
+            <span>الدعم</span>
         </button>
         <button class="nav-item" data-page="page-account">
             <i class="fas fa-user"></i>
@@ -553,11 +548,11 @@
                     <h4>${game.name}</h4>
                     <div class="price-tag">${game.price}</div>
                 `;
-                // عند الضغط على بطاقة PUBG نفتح صفحة الخدمات
+                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم
                 if (game.name === 'PUBG Mobile') {
                     card.addEventListener('click', () => {
-                        switchPage('page-services');
-                        updateNavActive('page-services');
+                        switchPage('page-support');
+                        updateNavActive('page-support');
                     });
                 }
                 productsGrid.appendChild(card);
@@ -639,7 +634,7 @@
         }, 100);
 
         // ========================
-        // 5. باقات الخدمات (اختيار الباقة)
+        // 5. باقات الدعم (اختيار الباقة)
         // ========================
         const packBtns = document.querySelectorAll('.pack-btn');
         let selectedPack = null;
