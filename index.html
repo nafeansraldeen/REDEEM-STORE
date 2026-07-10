@@ -175,7 +175,6 @@
             z-index: 2;
             position: relative;
             letter-spacing: 0.3px;
-            /* تحسين المسافات بين الحروف */
         }
 
         .tab-btn.active {
@@ -248,12 +247,7 @@
             color: #222;
         }
 
-        .product-card .price-tag {
-            font-size: 13px;
-            color: #1A73E8;
-            font-weight: 600;
-            margin-top: 4px;
-        }
+        /* تم إزالة .price-tag بالكامل */
 
         /* ===== SUPPORT PAGE ===== */
         .game-header {
@@ -410,9 +404,6 @@
                 font-size: 20px;
             }
         }
-
-        /* ===== TAB NAMES WITHOUT EMOJIS ===== */
-        /* تم إزالة جميع الإيموجيات من الـ HTML مباشرة */
     </style>
 </head>
 <body>
@@ -518,25 +509,25 @@
     <!-- ============================================= -->
     <script>
         // ========================
-        // 1. قائمة الألعاب
+        // 1. قائمة الألعاب (بدون أسعار)
         // ========================
         const gamesList = [
-            { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png', price: '3.00 $' },
-            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', price: '2.00 $' },
-            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', price: '4.00 $' },
-            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', price: '3.50 $' },
-            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', price: '2.50 $' },
-            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', price: '3.00 $' },
-            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', price: '2.00 $' },
-            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', price: '2.50 $' },
-            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', price: '5.00 $' },
-            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', price: '3.00 $' },
-            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', price: '1.50 $' },
-            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', price: '6.00 $' }
+            { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png' },
+            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png' },
+            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png' },
+            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png' },
+            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png' },
+            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png' },
+            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png' },
+            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png' },
+            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png' },
+            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png' },
+            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png' },
+            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png' }
         ];
 
         // ========================
-        // 2. عرض الألعاب
+        // 2. عرض الألعاب (بدون أسعار)
         // ========================
         const productsGrid = document.getElementById('productsGrid');
 
@@ -548,8 +539,8 @@
                 card.innerHTML = `
                     <img src="${game.img}" alt="${game.name}" loading="lazy" />
                     <h4>${game.name}</h4>
-                    <div class="price-tag">${game.price}</div>
                 `;
+                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم
                 if (game.name === 'PUBG Mobile') {
                     card.addEventListener('click', () => {
                         switchPage('page-support');
