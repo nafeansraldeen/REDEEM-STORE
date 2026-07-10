@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>REDEEM STORE - الدعم</title>
+    <title>REDEEM STORE - PUBG Mobile</title>
     <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
@@ -288,10 +288,186 @@
         }
 
         /* ============================================ */
-        /* ===== SUPPORT PAGE - NEW DESIGN ===== */
+        /* ===== PUBG PAGE - NEW DESIGN ===== */
         /* ============================================ */
 
-        /* عنوان الصفحة */
+        /* Header */
+        .pubg-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .pubg-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .pubg-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .pubg-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+        }
+
+        /* Packs Grid */
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        .pack-btn {
+            background: #f8f9fa;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .pack-btn:active {
+            transform: scale(0.96);
+        }
+
+        .pack-btn .uc-amount {
+            display: block;
+            font-size: 18px;
+            font-weight: 800;
+            color: #222;
+            margin-bottom: 4px;
+        }
+
+        .pack-btn .price-amount {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .pack-btn.selected {
+            border-color: #1A73E8;
+            background: #e8f0fe;
+            color: #1A73E8;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+        }
+
+        .pack-btn.selected .uc-amount {
+            color: #1A73E8;
+        }
+
+        .pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.12);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* Shipping Form */
+        .shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            animation: fadeUp 0.3s ease;
+            transition: all 0.3s ease;
+        }
+
+        .shipping-form.hidden {
+            display: none;
+        }
+
+        .shipping-form label {
+            display: block;
+            font-weight: 600;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            color: #444;
+        }
+
+        .shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            direction: ltr;
+        }
+
+        .shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 700;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        .btn-buy .ripple-btn {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ===== SUPPORT PAGE ===== */
         .support-header {
             text-align: center;
             padding: 10px 0 6px;
@@ -312,7 +488,6 @@
             line-height: 1.6;
         }
 
-        /* البطاقة الرئيسية */
         .support-card {
             background: #FFFFFF;
             border-radius: 24px;
@@ -358,7 +533,6 @@
             margin-right: auto;
         }
 
-        /* زر بدء المحادثة */
         .btn-support {
             width: 100%;
             padding: 16px 24px;
@@ -390,7 +564,7 @@
             pointer-events: none;
         }
 
-        /* ===== ACCORDION - FAQ ===== */
+        /* ===== FAQ - ACCORDION ===== */
         .faq-section {
             margin-top: 8px;
         }
@@ -475,7 +649,6 @@
 
         .faq-answer.open {
             max-height: 200px;
-            /* كبير بما يكفي للمحتوى */
             opacity: 1;
             transform: translateY(0);
             padding: 0 20px 16px;
@@ -488,7 +661,6 @@
             margin: 0;
         }
 
-        /* ===== FOOTER NOTE ===== */
         .support-footer {
             text-align: center;
             padding: 30px 0 10px;
@@ -529,6 +701,33 @@
                 font-size: 13px;
                 padding: 10px 0;
             }
+            .pubg-header {
+                padding: 14px 16px;
+            }
+            .pubg-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .pubg-header .game-info h2 {
+                font-size: 20px;
+            }
+            .packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .pack-btn .uc-amount {
+                font-size: 16px;
+            }
+            .pack-btn .price-amount {
+                font-size: 12px;
+            }
+            .shipping-form {
+                padding: 18px 16px;
+            }
             .support-header h1 {
                 font-size: 28px;
             }
@@ -547,6 +746,13 @@
             }
             .nav-item i {
                 font-size: 20px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
             }
         }
     </style>
@@ -586,17 +792,13 @@
         </div>
     </div>
 
-    <!-- ============================================ -->
-    <!-- صفحة الدعم - التصميم الجديد -->
-    <!-- ============================================ -->
+    <!-- صفحة الدعم -->
     <div id="page-support" class="page">
-        <!-- العنوان -->
         <div class="support-header">
             <h1>الدعم</h1>
             <p>نحن هنا لمساعدتك والإجابة على جميع استفساراتك.</p>
         </div>
 
-        <!-- البطاقة الرئيسية -->
         <div class="support-card">
             <div class="icon-wrapper">
                 <i class="fas fa-headset"></i>
@@ -608,7 +810,6 @@
             </button>
         </div>
 
-        <!-- الأسئلة الشائعة -->
         <div class="faq-section">
             <div class="faq-title">الأسئلة الشائعة</div>
 
@@ -663,7 +864,6 @@
             </div>
         </div>
 
-        <!-- تذييل الصفحة -->
         <div class="support-footer">
             <i class="fas fa-heart"></i>
             نسعى دائمًا لتقديم أفضل تجربة دعم ممكنة.
@@ -677,6 +877,55 @@
             <i class="fas fa-user-circle"></i>
             <p>حسابي</p>
             <span style="font-size:14px; color:#ccc;">تسجيل الدخول</span>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة PUBG Mobile -->
+    <!-- ============================================ -->
+    <div id="page-pubg" class="page">
+        <!-- Header -->
+        <div class="pubg-header">
+            <img src="https://i.imgur.com/7VYdLgF.png" alt="PUBG Mobile" />
+            <div class="game-info">
+                <h2>PUBG Mobile</h2>
+                <p>اختر باقة الشحن المناسبة</p>
+            </div>
+        </div>
+
+        <!-- Packs Grid -->
+        <div class="packs-grid" id="packsGrid">
+            <button class="pack-btn" data-uc="60" data-price="3.00">
+                <span class="uc-amount">60 UC</span>
+                <span class="price-amount">3.00 $</span>
+            </button>
+            <button class="pack-btn" data-uc="325" data-price="12.00">
+                <span class="uc-amount">325 UC</span>
+                <span class="price-amount">12.00 $</span>
+            </button>
+            <button class="pack-btn" data-uc="660" data-price="22.00">
+                <span class="uc-amount">660 UC</span>
+                <span class="price-amount">22.00 $</span>
+            </button>
+            <button class="pack-btn" data-uc="3850" data-price="110.00">
+                <span class="uc-amount">3.850 UC</span>
+                <span class="price-amount">110.00 $</span>
+            </button>
+            <button class="pack-btn" data-uc="16200" data-price="420.00">
+                <span class="uc-amount">16.200 UC</span>
+                <span class="price-amount">420.00 $</span>
+            </button>
+        </div>
+
+        <!-- Shipping Form -->
+        <div class="shipping-form hidden" id="shippingForm">
+            <label>🆔 ID اللعبة</label>
+            <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
+
+            <label>📱 رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 501234567" id="whatsappInput" />
+
+            <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
         </div>
     </div>
 
@@ -752,6 +1001,23 @@
             setTimeout(() => ripple.remove(), 600);
         }
 
+        function createRipplePack(e, element) {
+            const rect = element.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-pack';
+
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+
         function createRippleBtn(e, element) {
             const rect = element.getBoundingClientRect();
             const ripple = document.createElement('span');
@@ -812,9 +1078,10 @@
                     createRipple(e, card);
 
                     if (game.name === 'PUBG Mobile') {
+                        // فتح صفحة PUBG مع بقاء زر "الرئيسية" نشطاً
                         setTimeout(() => {
-                            switchPage('page-support');
-                            updateNavActive('page-support');
+                            switchPage('page-pubg');
+                            updateNavActive('page-home'); // نبقى على الرئيسية
                         }, 150);
                     } else {
                         card.classList.add('fade-out');
@@ -901,30 +1168,98 @@
         }, 100);
 
         // ========================
-        // 7. زر بدء المحادثة
+        // 7. باقات PUBG
         // ========================
-        const startChatBtn = document.getElementById('startChatBtn');
+        const packBtns = document.querySelectorAll('.pack-btn');
+        const shippingForm = document.getElementById('shippingForm');
+        let selectedPack = null;
+        let selectedPrice = null;
 
-        startChatBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, startChatBtn);
+        packBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
 
-            // تأثير Fade على البطاقة
-            const card = startChatBtn.closest('.support-card');
-            card.style.transition = 'all 0.25s ease';
-            card.style.opacity = '0.7';
-            card.style.transform = 'scale(0.98)';
+                // إزالة التحديد عن الكل
+                packBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
 
-            setTimeout(() => {
-                openWhatsApp();
+                selectedPack = btn.dataset.uc;
+                selectedPrice = btn.dataset.price;
+
+                // إظهار نموذج الشحن مع تأثير سلس
+                shippingForm.classList.remove('hidden');
+                shippingForm.style.opacity = '0';
+                shippingForm.style.transform = 'translateY(8px)';
                 setTimeout(() => {
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                }, 150);
-            }, 250);
+                    shippingForm.style.opacity = '1';
+                    shippingForm.style.transform = 'translateY(0)';
+                }, 50);
+            });
         });
 
         // ========================
-        // 8. الأسئلة الشائعة (Accordion)
+        // 8. زر الشراء
+        // ========================
+        document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+
+            const gameId = document.getElementById('gameIdInput').value.trim();
+            const whatsapp = document.getElementById('whatsappInput').value.trim();
+
+            if (!selectedPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!gameId) {
+                alert('⚠️ يرجى إدخال ID اللعبة.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            // تأثير نجاح على الزر
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: ${selectedPrice} $\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+
+                // فتح واتساب تلقائياً بعد التأكيد
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 9. زر بدء المحادثة (الدعم)
+        // ========================
+        const startChatBtn = document.getElementById('startChatBtn');
+
+        if (startChatBtn) {
+            startChatBtn.addEventListener('click', (e) => {
+                createRippleBtn(e, startChatBtn);
+
+                const card = startChatBtn.closest('.support-card');
+                card.style.transition = 'all 0.25s ease';
+                card.style.opacity = '0.7';
+                card.style.transform = 'scale(0.98)';
+
+                setTimeout(() => {
+                    openWhatsApp();
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                }, 250);
+            });
+        }
+
+        // ========================
+        // 10. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -937,7 +1272,6 @@
                 const answer = document.getElementById(targetId);
                 const icon = btn.querySelector('.faq-icon');
 
-                // إذا كان السؤال مفتوحاً، نغلقه
                 if (openFaq === targetId) {
                     answer.classList.remove('open');
                     btn.classList.remove('active');
@@ -946,7 +1280,6 @@
                     return;
                 }
 
-                // إغلاق السؤال المفتوح سابقاً
                 if (openFaq) {
                     const prevAnswer = document.getElementById(openFaq);
                     const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
@@ -956,7 +1289,6 @@
                     prevIcon.style.transform = 'rotate(0deg)';
                 }
 
-                // فتح السؤال الجديد
                 answer.classList.add('open');
                 btn.classList.add('active');
                 icon.style.transform = 'rotate(180deg)';
@@ -965,12 +1297,12 @@
         });
 
         // ========================
-        // 9. منع إعادة التحميل
+        // 11. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
                 if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
-                    b.id === 'startChatBtn') {
+                    b.closest('.pack-btn') || b.id === 'startChatBtn' || b.id === 'buyNowBtn') {
                     e.preventDefault();
                 }
             });
