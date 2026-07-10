@@ -983,6 +983,124 @@
         }
 
         /* ============================================ */
+        /* ===== eFOOTBALL PAGE ===== */
+        /* ============================================ */
+
+        .efootball-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .efootball-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .efootball-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .efootball-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .efootball-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 600px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .efootball-pack-btn {
+            background: #f8f9fa;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            color: #222;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .efootball-pack-btn:active {
+            transform: scale(0.96);
+        }
+
+        .efootball-pack-btn .fc-amount {
+            display: block;
+            font-size: 17px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 3px;
+        }
+
+        .efootball-pack-btn .price-amount {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .efootball-pack-btn.selected {
+            border-color: #1A73E8;
+            background: #e8f0fe;
+            color: #1A73E8;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+        }
+
+        .efootball-pack-btn.selected .fc-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.12);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
         /* ===== SUPPORT PAGE ===== */
         /* ============================================ */
         .support-header {
@@ -1304,6 +1422,30 @@
             .ml-pack-btn .price-amount {
                 font-size: 12px;
             }
+            .efootball-header {
+                padding: 14px 16px;
+            }
+            .efootball-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .efootball-header .game-info h2 {
+                font-size: 20px;
+            }
+            .efootball-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .efootball-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .efootball-pack-btn .fc-amount {
+                font-size: 16px;
+            }
+            .efootball-pack-btn .price-amount {
+                font-size: 12px;
+            }
             .shipping-form {
                 padding: 18px 16px;
             }
@@ -1367,6 +1509,17 @@
                 gap: 16px;
             }
             .ml-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .efootball-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
@@ -1624,7 +1777,6 @@
             </div>
         </div>
 
-        <!-- الباقات الأساسية -->
         <div class="ml-packs-grid" id="mlPacksGrid">
             <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
                 <span class="diamond-amount">
@@ -1683,13 +1835,11 @@
             </button>
         </div>
 
-        <!-- زر "عرض جميع الباقات" -->
         <button class="btn-show-more" id="showMoreMlPacksBtn">
             <i class="fas fa-chevron-down"></i>
             عرض جميع الباقات
         </button>
 
-        <!-- الباقات الإضافية -->
         <div class="ml-extra-packs" id="mlExtraPacks">
             <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
                 <span class="diamond-amount">
@@ -1737,7 +1887,6 @@
             </button>
         </div>
 
-        <!-- نموذج الشحن -->
         <div class="shipping-form hidden" id="mlShippingForm">
             <div class="ml-form-label">
                 <span>معرف الحساب</span>
@@ -1751,6 +1900,60 @@
             <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
 
             <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة eFootball -->
+    <!-- ============================================ -->
+    <div id="page-efootball" class="page">
+        <div class="efootball-header">
+            <img src="https://i.imgur.com/1mzLqjP.png" alt="eFootball" />
+            <div class="game-info">
+                <h2>eFootball</h2>
+                <p>اختر باقة FC المناسبة</p>
+            </div>
+        </div>
+
+        <div class="efootball-packs-grid" id="efootballPacksGrid">
+            <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
+                <span class="fc-amount">40 FC</span>
+                <span class="price-amount">1.00 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
+                <span class="fc-amount">100 FC</span>
+                <span class="price-amount">2.50 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
+                <span class="fc-amount">520 FC</span>
+                <span class="price-amount">12.00 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
+                <span class="fc-amount">1,070 FC</span>
+                <span class="price-amount">25.00 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
+                <span class="fc-amount">2,200 FC</span>
+                <span class="price-amount">50.00 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
+                <span class="fc-amount">5,750 FC</span>
+                <span class="price-amount">130.00 $</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
+                <span class="fc-amount">12,000 FC</span>
+                <span class="price-amount">270.00 $</span>
+            </button>
+        </div>
+
+        <div class="shipping-form hidden" id="efootballShippingForm">
+            <label>معرف UID الخاص بك</label>
+            <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
+
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
+
+            <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
         </div>
     </div>
 
@@ -1812,14 +2015,14 @@
         const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
         // ========================
-        // 1. قائمة الألعاب (مرتبة حسب المطلوب)
+        // 1. قائمة الألعاب
         // ========================
         const gamesList = [
             { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png', page: 'page-pubg' },
             { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
             { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
             { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
-            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: null },
+            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: 'page-efootball' },
             { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: null },
             { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
             { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
@@ -2284,7 +2487,79 @@
         });
 
         // ========================
-        // 14. زر بدء المحادثة (الدعم)
+        // 14. باقات eFootball
+        // ========================
+        const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+        const efootballShippingForm = document.getElementById('efootballShippingForm');
+        let selectedEfootballPack = null;
+        let selectedEfootballPrice = null;
+
+        function selectEfootballPack(btn) {
+            efootballPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedEfootballPack = btn.dataset.fc;
+            selectedEfootballPrice = btn.dataset.price;
+
+            efootballShippingForm.classList.remove('hidden');
+            efootballShippingForm.style.opacity = '0';
+            efootballShippingForm.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+                efootballShippingForm.style.opacity = '1';
+                efootballShippingForm.style.transform = 'translateY(0)';
+            }, 50);
+        }
+
+        efootballPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectEfootballPack(btn);
+            });
+        });
+
+        // تحديد أول باقة افتراضياً لـ eFootball
+        if (efootballPackBtns.length) {
+            setTimeout(() => {
+                selectEfootballPack(efootballPackBtns[0]);
+            }, 100);
+        }
+
+        // ========================
+        // 15. زر شراء eFootball
+        // ========================
+        document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+
+            const uid = document.getElementById('efootballUidInput').value.trim();
+            const whatsapp = document.getElementById('efootballWhatsappInput').value.trim();
+
+            if (!selectedEfootballPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!uid) {
+                alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: ${selectedEfootballPrice} $\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 16. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -2308,7 +2583,7 @@
         }
 
         // ========================
-        // 15. الأسئلة الشائعة (Accordion)
+        // 17. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -2346,7 +2621,7 @@
         });
 
         // ========================
-        // 16. Modal للمساعدة في Mobile Legends
+        // 18. Modal للمساعدة في Mobile Legends
         // ========================
         const modalOverlay = document.getElementById('mlHelpModal');
         const modalCloseBtn = document.getElementById('mlModalCloseBtn');
@@ -2382,14 +2657,16 @@
         });
 
         // ========================
-        // 17. منع إعادة التحميل
+        // 19. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
                 if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
                     b.closest('.pack-btn') || b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
+                    b.closest('.efootball-pack-btn') ||
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
-                    b.id === 'mlBuyNowBtn' || b.id === 'showMorePacksBtn' || b.id === 'showMoreMlPacksBtn' ||
+                    b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
+                    b.id === 'showMorePacksBtn' || b.id === 'showMoreMlPacksBtn' ||
                     b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn') {
                     e.preventDefault();
                 }
@@ -2397,8 +2674,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم ترتيب الألعاب حسب القائمة المطلوبة.');
-        console.log('✅ تم حذف الألعاب غير الموجودة في القائمة.');
+        console.log('✅ تم إضافة صفحة eFootball مع باقات FC.');
+        console.log('✅ الباقات: 40 FC, 100 FC, 520 FC, 1,070 FC, 2,200 FC, 5,750 FC, 12,000 FC.');
     </script>
 
 </body>
