@@ -288,7 +288,7 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE (تم التعديل) ===== */
+        /* ===== PUBG PAGE ===== */
         /* ============================================ */
 
         .pubg-header {
@@ -659,6 +659,161 @@
             pointer-events: none;
         }
 
+        /* ============================================ */
+        /* ===== MOBILE LEGENDS PAGE ===== */
+        /* ============================================ */
+
+        .ml-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .ml-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .ml-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .ml-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .ml-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 12px;
+        }
+
+        @media (min-width: 600px) {
+            .ml-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .ml-pack-btn {
+            background: #f8f9fa;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ml-pack-btn:active {
+            transform: scale(0.96);
+        }
+
+        .ml-pack-btn .diamond-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 18px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        .ml-pack-btn .diamond-amount svg {
+            width: 20px;
+            height: 20px;
+            fill: none;
+            stroke: #000000;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: stroke 0.25s ease;
+        }
+
+        .ml-pack-btn .price-amount {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .ml-pack-btn.selected {
+            border-color: #1A73E8;
+            background: #e8f0fe;
+            color: #1A73E8;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+        }
+
+        .ml-pack-btn.selected .diamond-amount {
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .diamond-amount svg {
+            stroke: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.12);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ===== ML Extra Packs ===== */
+        .ml-extra-packs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .ml-extra-packs.open {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .ml-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
         /* ===== SUPPORT PAGE ===== */
         .support-header {
             text-align: center;
@@ -947,6 +1102,38 @@
             .cod-pack-btn .price-amount {
                 font-size: 12px;
             }
+            .ml-header {
+                padding: 14px 16px;
+            }
+            .ml-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .ml-header .game-info h2 {
+                font-size: 20px;
+            }
+            .ml-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .ml-extra-packs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .ml-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .ml-pack-btn .diamond-amount {
+                font-size: 16px;
+            }
+            .ml-pack-btn .diamond-amount svg {
+                width: 16px;
+                height: 16px;
+            }
+            .ml-pack-btn .price-amount {
+                font-size: 12px;
+            }
             .shipping-form {
                 padding: 18px 16px;
             }
@@ -989,6 +1176,14 @@
                 gap: 16px;
             }
             .cod-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .ml-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+            .ml-extra-packs {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
@@ -1119,7 +1314,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile (تم التعديل) -->
+    <!-- صفحة PUBG Mobile -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
@@ -1234,6 +1429,143 @@
         </div>
     </div>
 
+    <!-- ============================================ -->
+    <!-- صفحة Mobile Legends -->
+    <!-- ============================================ -->
+    <div id="page-ml" class="page">
+        <div class="ml-header">
+            <img src="https://i.imgur.com/9WqUj3H.png" alt="Mobile Legends" />
+            <div class="game-info">
+                <h2>Mobile Legends</h2>
+                <p>اختر باقة الألماس المناسبة</p>
+            </div>
+        </div>
+
+        <!-- الباقات الأساسية -->
+        <div class="ml-packs-grid" id="mlPacksGrid">
+            <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
+                <span class="diamond-amount">
+                    74
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">1.50 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
+                <span class="diamond-amount">
+                    296
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">6.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
+                <span class="diamond-amount">
+                    741
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">15.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
+                <span class="diamond-amount">
+                    1,186
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">24.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
+                <span class="diamond-amount">
+                    1,471
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">30.00 $</span>
+            </button>
+        </div>
+
+        <!-- زر "عرض جميع الباقات" -->
+        <button class="btn-show-more" id="showMoreMlPacksBtn">
+            <i class="fas fa-chevron-down"></i>
+            عرض جميع الباقات
+        </button>
+
+        <!-- الباقات الإضافية -->
+        <div class="ml-extra-packs" id="mlExtraPacks">
+            <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
+                <span class="diamond-amount">
+                    2,205
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">45.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
+                <span class="diamond-amount">
+                    4,527
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">92.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
+                <span class="diamond-amount">
+                    7,707
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">157.00 $</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
+                <span class="diamond-amount">
+                    11,559
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" />
+                        <path d="M2 17l10 5 10-5" />
+                        <path d="M2 12l10 5 10-5" />
+                    </svg>
+                </span>
+                <span class="price-amount">235.00 $</span>
+            </button>
+        </div>
+
+        <!-- نموذج الشحن -->
+        <div class="shipping-form hidden" id="mlShippingForm">
+            <label>معرف الحساب</label>
+            <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
+
+            <label>معرف المنطقة</label>
+            <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
+
+            <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
     <!-- ============================================= -->
     <!-- شريط التنقل السفلي -->
     <!-- ============================================= -->
@@ -1275,7 +1607,7 @@
             { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png', page: 'page-pubg' },
             { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
             { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
-            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: null },
+            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
             { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: null },
             { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: null },
             { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
@@ -1534,6 +1866,22 @@
             }, 500);
         });
 
+        // تحديد أول باقة افتراضياً لـ PUBG
+        if (packBtns.length) {
+            setTimeout(() => {
+                packBtns[0].classList.add('selected');
+                selectedPack = packBtns[0].dataset.uc;
+                selectedPrice = packBtns[0].dataset.price;
+                shippingForm.classList.remove('hidden');
+                shippingForm.style.opacity = '0';
+                shippingForm.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    shippingForm.style.opacity = '1';
+                    shippingForm.style.transform = 'translateY(0)';
+                }, 50);
+            }, 100);
+        }
+
         // ========================
         // 8. باقات Call of Duty
         // ========================
@@ -1564,6 +1912,13 @@
                 selectCodPack(btn);
             });
         });
+
+        // تحديد أول باقة افتراضياً لـ COD
+        if (codPackBtns.length) {
+            setTimeout(() => {
+                selectCodPack(codPackBtns[0]);
+            }, 100);
+        }
 
         // ========================
         // 9. زر "عرض جميع الباقات" لـ COD
@@ -1623,7 +1978,102 @@
         });
 
         // ========================
-        // 11. زر بدء المحادثة (الدعم)
+        // 11. باقات Mobile Legends
+        // ========================
+        const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+        const mlShippingForm = document.getElementById('mlShippingForm');
+        let selectedMlPack = null;
+        let selectedMlPrice = null;
+
+        function selectMlPack(btn) {
+            mlPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedMlPack = btn.dataset.diamond;
+            selectedMlPrice = btn.dataset.price;
+
+            mlShippingForm.classList.remove('hidden');
+            mlShippingForm.style.opacity = '0';
+            mlShippingForm.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+                mlShippingForm.style.opacity = '1';
+                mlShippingForm.style.transform = 'translateY(0)';
+            }, 50);
+        }
+
+        mlPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectMlPack(btn);
+            });
+        });
+
+        // تحديد أول باقة افتراضياً لـ ML
+        if (mlPackBtns.length) {
+            setTimeout(() => {
+                selectMlPack(mlPackBtns[0]);
+            }, 100);
+        }
+
+        // ========================
+        // 12. زر "عرض جميع الباقات" لـ ML
+        // ========================
+        const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
+        const mlExtraPacks = document.getElementById('mlExtraPacks');
+        let mlExtraPacksVisible = false;
+
+        showMoreMlBtn.addEventListener('click', (e) => {
+            createRippleBtn(e, showMoreMlBtn);
+
+            mlExtraPacksVisible = !mlExtraPacksVisible;
+
+            if (mlExtraPacksVisible) {
+                mlExtraPacks.classList.add('open');
+                showMoreMlBtn.classList.add('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
+            } else {
+                mlExtraPacks.classList.remove('open');
+                showMoreMlBtn.classList.remove('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
+            }
+        });
+
+        // ========================
+        // 13. زر شراء ML
+        // ========================
+        document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+
+            const accountId = document.getElementById('mlAccountIdInput').value.trim();
+            const regionId = document.getElementById('mlRegionIdInput').value.trim();
+
+            if (!selectedMlPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!accountId) {
+                alert('⚠️ يرجى إدخال معرف الحساب.');
+                return;
+            }
+            if (!regionId) {
+                alert('⚠️ يرجى إدخال معرف المنطقة.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: ${selectedMlPrice} $\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 14. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -1647,7 +2097,7 @@
         }
 
         // ========================
-        // 12. الأسئلة الشائعة (Accordion)
+        // 15. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -1685,47 +2135,23 @@
         });
 
         // ========================
-        // 13. تحديد أول باقة افتراضياً لـ COD
-        // ========================
-        if (codPackBtns.length) {
-            setTimeout(() => {
-                selectCodPack(codPackBtns[0]);
-            }, 100);
-        }
-
-        // تحديد أول باقة افتراضياً لـ PUBG
-        if (packBtns.length) {
-            setTimeout(() => {
-                packBtns[0].classList.add('selected');
-                selectedPack = packBtns[0].dataset.uc;
-                selectedPrice = packBtns[0].dataset.price;
-                shippingForm.classList.remove('hidden');
-                shippingForm.style.opacity = '0';
-                shippingForm.style.transform = 'translateY(8px)';
-                setTimeout(() => {
-                    shippingForm.style.opacity = '1';
-                    shippingForm.style.transform = 'translateY(0)';
-                }, 50);
-            }, 100);
-        }
-
-        // ========================
-        // 14. منع إعادة التحميل
+        // 16. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
                 if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
-                    b.closest('.pack-btn') || b.closest('.cod-pack-btn') ||
+                    b.closest('.pack-btn') || b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
-                    b.id === 'showMorePacksBtn') {
+                    b.id === 'mlBuyNowBtn' || b.id === 'showMorePacksBtn' || b.id === 'showMoreMlPacksBtn') {
                     e.preventDefault();
                 }
             });
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تعديل تنسيق باقات PUBG إلى: 60UC, 325UC, 660UC, 3,850UC, 16,200UC (بدون مسافات وبفواصل)');
-        console.log('✅ تم تحديد أول باقة تلقائياً في PUBG مثل COD.');
+        console.log('✅ تم إضافة صفحة Mobile Legends مع أيقونة ألماس SVG.');
+        console.log('✅ الباقات: 74, 296, 741, 1,186, 1,471, 2,205, 4,527, 7,707, 11,559');
+        console.log('✅ حقول الإدخال: معرف الحساب، معرف المنطقة.');
     </script>
 
 </body>
