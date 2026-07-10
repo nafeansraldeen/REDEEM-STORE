@@ -288,7 +288,7 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE ===== */
+        /* ===== PUBG PAGE (تم التعديل) ===== */
         /* ============================================ */
 
         .pubg-header {
@@ -1119,36 +1119,36 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile -->
+    <!-- صفحة PUBG Mobile (تم التعديل) -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
             <img src="https://i.imgur.com/7VYdLgF.png" alt="PUBG Mobile" />
             <div class="game-info">
                 <h2>PUBG Mobile</h2>
-                <p>اختر باقة الشحن المناسبة</p>
+                <p>اختر باقة UC المناسبة</p>
             </div>
         </div>
 
         <div class="packs-grid" id="packsGrid">
             <button class="pack-btn" data-uc="60" data-price="3.00">
-                <span class="uc-amount">60 UC</span>
+                <span class="uc-amount">60UC</span>
                 <span class="price-amount">3.00 $</span>
             </button>
             <button class="pack-btn" data-uc="325" data-price="12.00">
-                <span class="uc-amount">325 UC</span>
+                <span class="uc-amount">325UC</span>
                 <span class="price-amount">12.00 $</span>
             </button>
             <button class="pack-btn" data-uc="660" data-price="22.00">
-                <span class="uc-amount">660 UC</span>
+                <span class="uc-amount">660UC</span>
                 <span class="price-amount">22.00 $</span>
             </button>
             <button class="pack-btn" data-uc="3850" data-price="110.00">
-                <span class="uc-amount">3.850 UC</span>
+                <span class="uc-amount">3,850UC</span>
                 <span class="price-amount">110.00 $</span>
             </button>
             <button class="pack-btn" data-uc="16200" data-price="420.00">
-                <span class="uc-amount">16.200 UC</span>
+                <span class="uc-amount">16,200UC</span>
                 <span class="price-amount">420.00 $</span>
             </button>
         </div>
@@ -1165,7 +1165,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty (تم التعديل) -->
+    <!-- صفحة Call of Duty -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1176,7 +1176,6 @@
             </div>
         </div>
 
-        <!-- الباقات الأساسية -->
         <div class="cod-packs-grid" id="codPacksGrid">
             <button class="cod-pack-btn" data-cp="88" data-price="1.50">
                 <span class="cp-amount">88CP</span>
@@ -1200,13 +1199,11 @@
             </button>
         </div>
 
-        <!-- زر "المزيد من الباقات" -->
         <button class="btn-show-more" id="showMorePacksBtn">
             <i class="fas fa-chevron-down"></i>
             عرض جميع الباقات
         </button>
 
-        <!-- الباقات الإضافية (مخفية) -->
         <div class="cod-extra-packs" id="codExtraPacks">
             <button class="cod-pack-btn" data-cp="528" data-price="9.00">
                 <span class="cp-amount">528CP</span>
@@ -1226,7 +1223,6 @@
             </button>
         </div>
 
-        <!-- نموذج الشحن -->
         <div class="shipping-form hidden" id="codShippingForm">
             <label>معرف اللاعب</label>
             <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
@@ -1697,6 +1693,22 @@
             }, 100);
         }
 
+        // تحديد أول باقة افتراضياً لـ PUBG
+        if (packBtns.length) {
+            setTimeout(() => {
+                packBtns[0].classList.add('selected');
+                selectedPack = packBtns[0].dataset.uc;
+                selectedPrice = packBtns[0].dataset.price;
+                shippingForm.classList.remove('hidden');
+                shippingForm.style.opacity = '0';
+                shippingForm.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    shippingForm.style.opacity = '1';
+                    shippingForm.style.transform = 'translateY(0)';
+                }, 50);
+            }, 100);
+        }
+
         // ========================
         // 14. منع إعادة التحميل
         // ========================
@@ -1712,7 +1724,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تعديل تنسيق باقات CP في صفحة Call of Duty إلى: 88CP, 176CP, 264CP, 352CP, 440CP, 528CP, 616CP, 704CP, 880CP');
+        console.log('✅ تم تعديل تنسيق باقات PUBG إلى: 60UC, 325UC, 660UC, 3,850UC, 16,200UC (بدون مسافات وبفواصل)');
+        console.log('✅ تم تحديد أول باقة تلقائياً في PUBG مثل COD.');
     </script>
 
 </body>
