@@ -742,11 +742,16 @@
             margin-bottom: 4px;
         }
 
-        .ml-pack-btn .diamond-amount i {
-            font-size: 16px;
-            color: inherit;
-            display: inline-flex;
-            align-items: center;
+        .ml-pack-btn .diamond-amount svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+            transition: stroke 0.25s ease, color 0.25s ease;
         }
 
         .ml-pack-btn .price-amount {
@@ -767,7 +772,8 @@
             color: #1A73E8;
         }
 
-        .ml-pack-btn.selected .diamond-amount i {
+        .ml-pack-btn.selected .diamond-amount svg {
+            stroke: #1A73E8;
             color: #1A73E8;
         }
 
@@ -1123,8 +1129,9 @@
             .ml-pack-btn .diamond-amount {
                 font-size: 16px;
             }
-            .ml-pack-btn .diamond-amount i {
-                font-size: 14px;
+            .ml-pack-btn .diamond-amount svg {
+                width: 18px;
+                height: 18px;
             }
             .ml-pack-btn .price-amount {
                 font-size: 12px;
@@ -1425,7 +1432,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends (مع أيقونة ألماس) -->
+    <!-- صفحة Mobile Legends (مع أيقونة Gem SVG) -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -1441,35 +1448,55 @@
             <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
                 <span class="diamond-amount">
                     74
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">1.50 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
                 <span class="diamond-amount">
                     296
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">6.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
                 <span class="diamond-amount">
                     741
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">15.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
                 <span class="diamond-amount">
                     1,186
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">24.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
                 <span class="diamond-amount">
                     1,471
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">30.00 $</span>
             </button>
@@ -1486,28 +1513,44 @@
             <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
                 <span class="diamond-amount">
                     2,205
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">45.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
                 <span class="diamond-amount">
                     4,527
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">92.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
                 <span class="diamond-amount">
                     7,707
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">157.00 $</span>
             </button>
             <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
                 <span class="diamond-amount">
                     11,559
-                    <i class="fa-regular fa-gem"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gem-icon lucide-gem">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
                 </span>
                 <span class="price-amount">235.00 $</span>
             </button>
@@ -2108,8 +2151,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم استبدال أيقونة الألماس بأيقونة Diamond من Font Awesome (fa-regular fa-gem).');
-        console.log('✅ الباقات: 74, 296, 741, 1,186, 1,471, 2,205, 4,527, 7,707, 11,559');
+        console.log('✅ تم استبدال أيقونة الألماس بأيقونة Gem SVG الرسمية في صفحة Mobile Legends.');
+        console.log('✅ حجم الأيقونة 20px ومتناسق مع النص.');
     </script>
 
 </body>
