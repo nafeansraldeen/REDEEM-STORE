@@ -247,8 +247,6 @@
             color: #222;
         }
 
-        /* تم إزالة .price-tag بالكامل */
-
         /* ===== SUPPORT PAGE ===== */
         .game-header {
             display: flex;
@@ -540,11 +538,12 @@
                     <img src="${game.img}" alt="${game.name}" loading="lazy" />
                     <h4>${game.name}</h4>
                 `;
-                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم
+                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم مع بقاء زر "الرئيسية" نشطاً
                 if (game.name === 'PUBG Mobile') {
                     card.addEventListener('click', () => {
                         switchPage('page-support');
-                        updateNavActive('page-support');
+                        // نبقى زر "الرئيسية" هو النشط لأن صفحة الدعم امتداد للرئيسية
+                        updateNavActive('page-home');
                     });
                 }
                 productsGrid.appendChild(card);
