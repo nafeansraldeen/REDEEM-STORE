@@ -359,7 +359,7 @@
             transform: scale(0.96);
         }
 
-        .pack-btn .cp-amount {
+        .pack-btn .uc-amount {
             display: block;
             font-size: 18px;
             font-weight: 900;
@@ -381,7 +381,7 @@
             box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
         }
 
-        .pack-btn.selected .cp-amount {
+        .pack-btn.selected .uc-amount {
             color: #1A73E8;
         }
 
@@ -593,7 +593,7 @@
             pointer-events: none;
         }
 
-        /* ===== COD Extra Packs (مخفية في البداية) ===== */
+        /* ===== COD Extra Packs ===== */
         .cod-extra-packs {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -1165,7 +1165,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty -->
+    <!-- صفحة Call of Duty (تم التعديل) -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1179,23 +1179,23 @@
         <!-- الباقات الأساسية -->
         <div class="cod-packs-grid" id="codPacksGrid">
             <button class="cod-pack-btn" data-cp="88" data-price="1.50">
-                <span class="cp-amount">88 CP</span>
+                <span class="cp-amount">88CP</span>
                 <span class="price-amount">1.50 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="176" data-price="3.00">
-                <span class="cp-amount">176 CP</span>
+                <span class="cp-amount">176CP</span>
                 <span class="price-amount">3.00 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="264" data-price="4.50">
-                <span class="cp-amount">264 CP</span>
+                <span class="cp-amount">264CP</span>
                 <span class="price-amount">4.50 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="352" data-price="6.00">
-                <span class="cp-amount">352 CP</span>
+                <span class="cp-amount">352CP</span>
                 <span class="price-amount">6.00 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="440" data-price="7.50">
-                <span class="cp-amount">440 CP</span>
+                <span class="cp-amount">440CP</span>
                 <span class="price-amount">7.50 $</span>
             </button>
         </div>
@@ -1209,19 +1209,19 @@
         <!-- الباقات الإضافية (مخفية) -->
         <div class="cod-extra-packs" id="codExtraPacks">
             <button class="cod-pack-btn" data-cp="528" data-price="9.00">
-                <span class="cp-amount">528 CP</span>
+                <span class="cp-amount">528CP</span>
                 <span class="price-amount">9.00 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="616" data-price="10.50">
-                <span class="cp-amount">616 CP</span>
+                <span class="cp-amount">616CP</span>
                 <span class="price-amount">10.50 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="704" data-price="12.00">
-                <span class="cp-amount">704 CP</span>
+                <span class="cp-amount">704CP</span>
                 <span class="price-amount">12.00 $</span>
             </button>
             <button class="cod-pack-btn" data-cp="880" data-price="15.00">
-                <span class="cp-amount">880 CP</span>
+                <span class="cp-amount">880CP</span>
                 <span class="price-amount">15.00 $</span>
             </button>
         </div>
@@ -1387,13 +1387,11 @@
                     createRipple(e, card);
 
                     if (game.page) {
-                        // فتح صفحة اللعبة مع بقاء "الرئيسية" نشطة
                         setTimeout(() => {
                             switchPage(game.page);
                             updateNavActive('page-home');
                         }, 150);
                     } else {
-                        // فتح واتساب
                         card.classList.add('fade-out');
                         setTimeout(() => {
                             openWhatsApp();
@@ -1548,7 +1546,6 @@
         let selectedCodPack = null;
         let selectedCodPrice = null;
 
-        // دالة لتحديث اختيار الباقة في COD
         function selectCodPack(btn) {
             codPackBtns.forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
@@ -1695,7 +1692,6 @@
         // 13. تحديد أول باقة افتراضياً لـ COD
         // ========================
         if (codPackBtns.length) {
-            // نختار أول باقة تلقائياً
             setTimeout(() => {
                 selectCodPack(codPackBtns[0]);
             }, 100);
@@ -1716,7 +1712,7 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إضافة صفحة Call of Duty مع باقات CP وميزة عرض جميع الباقات.');
+        console.log('✅ تم تعديل تنسيق باقات CP في صفحة Call of Duty إلى: 88CP, 176CP, 264CP, 352CP, 440CP, 528CP, 616CP, 704CP, 880CP');
     </script>
 
 </body>
