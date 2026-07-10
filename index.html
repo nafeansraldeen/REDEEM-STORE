@@ -288,10 +288,9 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE - NEW DESIGN ===== */
+        /* ===== PUBG PAGE ===== */
         /* ============================================ */
 
-        /* Header */
         .pubg-header {
             display: flex;
             align-items: center;
@@ -325,12 +324,18 @@
             margin-top: 2px;
         }
 
-        /* Packs Grid */
         .packs-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin: 16px 0 20px;
+        }
+
+        @media (min-width: 600px) {
+            .packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
         }
 
         .pack-btn {
@@ -392,7 +397,7 @@
             pointer-events: none;
         }
 
-        /* Shipping Form */
+        /* ===== SHIPPING FORM ===== */
         .shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -412,6 +417,7 @@
             margin: 12px 0 6px;
             font-size: 14px;
             color: #444;
+            text-align: right;
         }
 
         .shipping-form label:first-of-type {
@@ -426,7 +432,13 @@
             font-size: 16px;
             background: #FFFFFF;
             transition: all 0.25s ease;
-            direction: ltr;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
         }
 
         .shipping-form input:focus {
@@ -748,13 +760,6 @@
                 font-size: 20px;
             }
         }
-
-        @media (min-width: 600px) {
-            .packs-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 16px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -917,13 +922,13 @@
             </button>
         </div>
 
-        <!-- Shipping Form -->
+        <!-- Shipping Form - بدون إيموجيات -->
         <div class="shipping-form hidden" id="shippingForm">
-            <label>🆔 ID اللعبة</label>
+            <label>ID اللعبة</label>
             <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
 
-            <label>📱 رقم واتساب</label>
-            <input type="tel" placeholder="مثال: 501234567" id="whatsappInput" />
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
 
             <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
         </div>
@@ -1078,10 +1083,9 @@
                     createRipple(e, card);
 
                     if (game.name === 'PUBG Mobile') {
-                        // فتح صفحة PUBG مع بقاء زر "الرئيسية" نشطاً
                         setTimeout(() => {
                             switchPage('page-pubg');
-                            updateNavActive('page-home'); // نبقى على الرئيسية
+                            updateNavActive('page-home');
                         }, 150);
                     } else {
                         card.classList.add('fade-out');
@@ -1179,14 +1183,12 @@
             btn.addEventListener('click', (e) => {
                 createRipplePack(e, btn);
 
-                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
 
                 selectedPack = btn.dataset.uc;
                 selectedPrice = btn.dataset.price;
 
-                // إظهار نموذج الشحن مع تأثير سلس
                 shippingForm.classList.remove('hidden');
                 shippingForm.style.opacity = '0';
                 shippingForm.style.transform = 'translateY(8px)';
@@ -1219,7 +1221,6 @@
                 return;
             }
 
-            // تأثير نجاح على الزر
             const btn = e.target;
             btn.textContent = 'جاري المعالجة...';
             btn.style.opacity = '0.7';
@@ -1228,8 +1229,6 @@
                 alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: ${selectedPrice} $\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
                 btn.textContent = 'شراء الآن';
                 btn.style.opacity = '1';
-
-                // فتح واتساب تلقائياً بعد التأكيد
                 openWhatsApp();
             }, 500);
         });
