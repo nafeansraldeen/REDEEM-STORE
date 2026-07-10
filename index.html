@@ -224,32 +224,10 @@
             transition: all 0.2s;
             border: 1px solid #f0f0f0;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            /* لاحتواء الـ Ripple */
-            -webkit-tap-highlight-color: transparent;
-            /* إزالة الـ highlight على الجوال */
         }
 
         .product-card:active {
-            transform: scale(0.98);
-        }
-
-        /* ===== RIPPLE EFFECT ===== */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.15);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        @keyframes rippleAnim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
+            transform: scale(0.96);
         }
 
         .product-card img {
@@ -261,32 +239,12 @@
             margin-bottom: 8px;
             border-radius: 12px;
             background: #fafafa;
-            position: relative;
-            z-index: 1;
         }
 
         .product-card h4 {
             font-size: 14px;
             font-weight: 700;
             color: #222;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* ===== FADE OUT ANIMATION ===== */
-        .fade-out {
-            animation: fadeOut 0.25s ease forwards;
-        }
-
-        @keyframes fadeOut {
-            0% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: scale(0.95);
-            }
         }
 
         /* ===== SUPPORT PAGE ===== */
@@ -549,12 +507,6 @@
     <!-- ============================================= -->
     <script>
         // ========================
-        // رقم واتساب (مخفي في الكود)
-        // ========================
-        const WHATSAPP_NUMBER = '249901839168';
-        const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-
-        // ========================
         // 1. قائمة الألعاب (بدون أسعار)
         // ========================
         const gamesList = [
@@ -573,50 +525,7 @@
         ];
 
         // ========================
-        // 2. دالة إنشاء Ripple
-        // ========================
-        function createRipple(e, card) {
-            const rect = card.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            card.appendChild(ripple);
-
-            // إزالة الـ Ripple بعد انتهاء الأنيميشن
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        }
-
-        // ========================
-        // 3. دالة فتح واتساب مع Fade Out
-        // ========================
-        function openWhatsApp(card) {
-            // إضافة تأثير Fade Out
-            card.classList.add('fade-out');
-
-            // بعد انتهاء الـ Fade Out (250ms) نفتح واتساب
-            setTimeout(() => {
-                // فتح واتساب
-                window.open(WHATSAPP_URL, '_blank');
-
-                // إزالة تأثير Fade Out بعد الفتح
-                setTimeout(() => {
-                    card.classList.remove('fade-out');
-                }, 100);
-            }, 250);
-        }
-
-        // ========================
-        // 4. عرض الألعاب
+        // 2. عرض الألعاب (بدون أسعار)
         // ========================
         const productsGrid = document.getElementById('productsGrid');
 
@@ -629,31 +538,21 @@
                     <img src="${game.img}" alt="${game.name}" loading="lazy" />
                     <h4>${game.name}</h4>
                 `;
-
-                // معالجة النقر على البطاقة
-                card.addEventListener('click', (e) => {
-                    // إنشاء تأثير Ripple
-                    createRipple(e, card);
-
-                    if (game.name === 'PUBG Mobile') {
-                        // PUBG: تفتح صفحة الدعم مع بقاء زر "الرئيسية" نشطاً
-                        setTimeout(() => {
-                            switchPage('page-support');
-                            updateNavActive('page-home');
-                        }, 150);
-                    } else {
-                        // باقي الألعاب: تفتح واتساب مع Fade Out
-                        openWhatsApp(card);
-                    }
-                });
-
+                // عند الضغط على بطاقة PUBG نفتح صفحة الدعم مع بقاء زر "الرئيسية" نشطاً
+                if (game.name === 'PUBG Mobile') {
+                    card.addEventListener('click', () => {
+                        switchPage('page-support');
+                        // نبقى زر "الرئيسية" هو النشط لأن صفحة الدعم امتداد للرئيسية
+                        updateNavActive('page-home');
+                    });
+                }
                 productsGrid.appendChild(card);
             });
         }
         renderGames();
 
         // ========================
-        // 5. التصنيفات (Tabs)
+        // 3. التصنيفات (Tabs)
         // ========================
         const tabsContainer = document.getElementById('tabsContainer');
         const tabBtns = document.querySelectorAll('.tab-btn');
@@ -681,7 +580,7 @@
         });
 
         // ========================
-        // 6. شريط التنقل
+        // 4. شريط التنقل
         // ========================
         const navItems = document.querySelectorAll('.nav-item');
         const navIndicator = document.getElementById('navIndicator');
@@ -726,7 +625,7 @@
         }, 100);
 
         // ========================
-        // 7. باقات الدعم
+        // 5. باقات الدعم
         // ========================
         const packBtns = document.querySelectorAll('.pack-btn');
         let selectedPack = null;
@@ -740,7 +639,7 @@
         });
 
         // ========================
-        // 8. زر الشراء
+        // 6. زر الشراء
         // ========================
         document.getElementById('buyNowBtn').addEventListener('click', () => {
             const gameId = document.getElementById('gameIdInput').value.trim();
@@ -763,7 +662,7 @@
         });
 
         // ========================
-        // 9. تحديد أول باقة
+        // 7. تحديد أول باقة
         // ========================
         if (packBtns.length) {
             packBtns[0].classList.add('selected');
@@ -771,7 +670,7 @@
         }
 
         // ========================
-        // 10. منع إعادة التحميل
+        // 8. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
