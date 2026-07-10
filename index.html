@@ -148,7 +148,7 @@
             color: #00BCD4;
         }
 
-        /* ===== CATEGORIES TABS - IMPROVED ===== */
+        /* ===== CATEGORIES TABS ===== */
         .tabs-wrapper {
             position: relative;
             background: #f8f9fa;
@@ -359,11 +359,11 @@
             transform: scale(0.96);
         }
 
-        .pack-btn .uc-amount {
+        .pack-btn .cp-amount {
             display: block;
             font-size: 18px;
-            font-weight: 900;   /* ← عريض جداً */
-            color: #000000;     /* ← أسود خالص */
+            font-weight: 900;
+            color: #000000;
             margin-bottom: 4px;
         }
 
@@ -381,8 +381,8 @@
             box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
         }
 
-        .pack-btn.selected .uc-amount {
-            color: #1A73E8;   /* عند التحديد يصبح أزرق */
+        .pack-btn.selected .cp-amount {
+            color: #1A73E8;
         }
 
         .pack-btn.selected .price-amount {
@@ -414,8 +414,8 @@
 
         .shipping-form label {
             display: block;
-            font-weight: 900;   /* ← عريض جداً */
-            color: #000000;     /* ← أسود خالص */
+            font-weight: 900;
+            color: #000000;
             margin: 12px 0 6px;
             font-size: 14px;
             text-align: right;
@@ -477,6 +477,183 @@
             position: absolute;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.25);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
+        /* ===== CALL OF DUTY PAGE ===== */
+        /* ============================================ */
+
+        .cod-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .cod-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .cod-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .cod-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .cod-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 12px;
+        }
+
+        @media (min-width: 600px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .cod-pack-btn {
+            background: #f8f9fa;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cod-pack-btn:active {
+            transform: scale(0.96);
+        }
+
+        .cod-pack-btn .cp-amount {
+            display: block;
+            font-size: 18px;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 4px;
+        }
+
+        .cod-pack-btn .price-amount {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #888;
+        }
+
+        .cod-pack-btn.selected {
+            border-color: #1A73E8;
+            background: #e8f0fe;
+            color: #1A73E8;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+        }
+
+        .cod-pack-btn.selected .cp-amount {
+            color: #1A73E8;
+        }
+
+        .cod-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .cod-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.12);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ===== COD Extra Packs (مخفية في البداية) ===== */
+        .cod-extra-packs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .cod-extra-packs.open {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .cod-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* ===== زر "المزيد من الباقات" ===== */
+        .btn-show-more {
+            width: 100%;
+            padding: 14px 24px;
+            background: #f0f0f0;
+            color: #555;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-show-more:active {
+            transform: scale(0.97);
+        }
+
+        .btn-show-more i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-show-more.active i {
+            transform: rotate(180deg);
+        }
+
+        .btn-show-more .ripple-btn {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -742,6 +919,34 @@
             .pack-btn .price-amount {
                 font-size: 12px;
             }
+            .cod-header {
+                padding: 14px 16px;
+            }
+            .cod-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .cod-header .game-info h2 {
+                font-size: 20px;
+            }
+            .cod-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .cod-extra-packs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .cod-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .cod-pack-btn .cp-amount {
+                font-size: 16px;
+            }
+            .cod-pack-btn .price-amount {
+                font-size: 12px;
+            }
             .shipping-form {
                 padding: 18px 16px;
             }
@@ -771,6 +976,21 @@
             .btn-support {
                 font-size: 16px;
                 padding: 14px 20px;
+            }
+            .btn-show-more {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+            .cod-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
             }
         }
     </style>
@@ -899,7 +1119,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile (تابعة للرئيسية) -->
+    <!-- صفحة PUBG Mobile -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
@@ -944,6 +1164,80 @@
         </div>
     </div>
 
+    <!-- ============================================ -->
+    <!-- صفحة Call of Duty -->
+    <!-- ============================================ -->
+    <div id="page-cod" class="page">
+        <div class="cod-header">
+            <img src="https://i.imgur.com/5f7zH1O.png" alt="Call of Duty" />
+            <div class="game-info">
+                <h2>Call of Duty</h2>
+                <p>اختر باقة CP المناسبة</p>
+            </div>
+        </div>
+
+        <!-- الباقات الأساسية -->
+        <div class="cod-packs-grid" id="codPacksGrid">
+            <button class="cod-pack-btn" data-cp="88" data-price="1.50">
+                <span class="cp-amount">88 CP</span>
+                <span class="price-amount">1.50 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="176" data-price="3.00">
+                <span class="cp-amount">176 CP</span>
+                <span class="price-amount">3.00 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="264" data-price="4.50">
+                <span class="cp-amount">264 CP</span>
+                <span class="price-amount">4.50 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="352" data-price="6.00">
+                <span class="cp-amount">352 CP</span>
+                <span class="price-amount">6.00 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="440" data-price="7.50">
+                <span class="cp-amount">440 CP</span>
+                <span class="price-amount">7.50 $</span>
+            </button>
+        </div>
+
+        <!-- زر "المزيد من الباقات" -->
+        <button class="btn-show-more" id="showMorePacksBtn">
+            <i class="fas fa-chevron-down"></i>
+            عرض جميع الباقات
+        </button>
+
+        <!-- الباقات الإضافية (مخفية) -->
+        <div class="cod-extra-packs" id="codExtraPacks">
+            <button class="cod-pack-btn" data-cp="528" data-price="9.00">
+                <span class="cp-amount">528 CP</span>
+                <span class="price-amount">9.00 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="616" data-price="10.50">
+                <span class="cp-amount">616 CP</span>
+                <span class="price-amount">10.50 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="704" data-price="12.00">
+                <span class="cp-amount">704 CP</span>
+                <span class="price-amount">12.00 $</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="880" data-price="15.00">
+                <span class="cp-amount">880 CP</span>
+                <span class="price-amount">15.00 $</span>
+            </button>
+        </div>
+
+        <!-- نموذج الشحن -->
+        <div class="shipping-form hidden" id="codShippingForm">
+            <label>معرف اللاعب</label>
+            <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
+
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
+
+            <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
     <!-- ============================================= -->
     <!-- شريط التنقل السفلي -->
     <!-- ============================================= -->
@@ -982,18 +1276,18 @@
         // 1. قائمة الألعاب
         // ========================
         const gamesList = [
-            { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png' },
-            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png' },
-            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png' },
-            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png' },
-            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png' },
-            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png' },
-            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png' },
-            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png' },
-            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png' },
-            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png' },
-            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png' },
-            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png' }
+            { name: 'PUBG Mobile', img: 'https://i.imgur.com/7VYdLgF.png', page: 'page-pubg' },
+            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
+            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
+            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: null },
+            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: null },
+            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: null },
+            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
+            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
+            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', page: null },
+            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', page: null },
+            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', page: null },
+            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', page: null }
         ];
 
         // ========================
@@ -1092,12 +1386,14 @@
                 card.addEventListener('click', (e) => {
                     createRipple(e, card);
 
-                    if (game.name === 'PUBG Mobile') {
+                    if (game.page) {
+                        // فتح صفحة اللعبة مع بقاء "الرئيسية" نشطة
                         setTimeout(() => {
-                            switchPage('page-pubg');
+                            switchPage(game.page);
                             updateNavActive('page-home');
                         }, 150);
                     } else {
+                        // فتح واتساب
                         card.classList.add('fade-out');
                         setTimeout(() => {
                             openWhatsApp();
@@ -1188,7 +1484,7 @@
         // ========================
         // 7. باقات PUBG
         // ========================
-        const packBtns = document.querySelectorAll('.pack-btn');
+        const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
         let selectedPack = null;
         let selectedPrice = null;
@@ -1213,9 +1509,6 @@
             });
         });
 
-        // ========================
-        // 8. زر الشراء
-        // ========================
         document.getElementById('buyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
 
@@ -1248,7 +1541,96 @@
         });
 
         // ========================
-        // 9. زر بدء المحادثة (الدعم)
+        // 8. باقات Call of Duty
+        // ========================
+        const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+        const codShippingForm = document.getElementById('codShippingForm');
+        let selectedCodPack = null;
+        let selectedCodPrice = null;
+
+        // دالة لتحديث اختيار الباقة في COD
+        function selectCodPack(btn) {
+            codPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedCodPack = btn.dataset.cp;
+            selectedCodPrice = btn.dataset.price;
+
+            codShippingForm.classList.remove('hidden');
+            codShippingForm.style.opacity = '0';
+            codShippingForm.style.transform = 'translateY(8px)';
+            setTimeout(() => {
+                codShippingForm.style.opacity = '1';
+                codShippingForm.style.transform = 'translateY(0)';
+            }, 50);
+        }
+
+        codPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectCodPack(btn);
+            });
+        });
+
+        // ========================
+        // 9. زر "عرض جميع الباقات" لـ COD
+        // ========================
+        const showMoreBtn = document.getElementById('showMorePacksBtn');
+        const extraPacks = document.getElementById('codExtraPacks');
+        let extraPacksVisible = false;
+
+        showMoreBtn.addEventListener('click', (e) => {
+            createRippleBtn(e, showMoreBtn);
+
+            extraPacksVisible = !extraPacksVisible;
+
+            if (extraPacksVisible) {
+                extraPacks.classList.add('open');
+                showMoreBtn.classList.add('active');
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
+            } else {
+                extraPacks.classList.remove('open');
+                showMoreBtn.classList.remove('active');
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
+            }
+        });
+
+        // ========================
+        // 10. زر شراء COD
+        // ========================
+        document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+
+            const playerId = document.getElementById('codPlayerIdInput').value.trim();
+            const whatsapp = document.getElementById('codWhatsappInput').value.trim();
+
+            if (!selectedCodPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!playerId) {
+                alert('⚠️ يرجى إدخال معرف اللاعب.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: ${selectedCodPrice} $\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 11. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -1272,7 +1654,7 @@
         }
 
         // ========================
-        // 10. الأسئلة الشائعة (Accordion)
+        // 12. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -1310,20 +1692,32 @@
         });
 
         // ========================
-        // 11. منع إعادة التحميل
+        // 13. تحديد أول باقة افتراضياً لـ COD
+        // ========================
+        if (codPackBtns.length) {
+            // نختار أول باقة تلقائياً
+            setTimeout(() => {
+                selectCodPack(codPackBtns[0]);
+            }, 100);
+        }
+
+        // ========================
+        // 14. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
                 if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
-                    b.closest('.pack-btn') || b.id === 'startChatBtn' || b.id === 'buyNowBtn') {
+                    b.closest('.pack-btn') || b.closest('.cod-pack-btn') ||
+                    b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
+                    b.id === 'showMorePacksBtn') {
                     e.preventDefault();
                 }
             });
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم جعل أرقام UC وعناوين الحقول بخط عريض جداً (900) وأسود خالص (#000).');
+        console.log('✅ تم إضافة صفحة Call of Duty مع باقات CP وميزة عرض جميع الباقات.');
     </script>
 
 </body>
-    </html>
+</html>
