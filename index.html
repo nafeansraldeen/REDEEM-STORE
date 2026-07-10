@@ -1030,4 +1030,305 @@
             ripple.style.width = ripple.style.height = size + 'px';
 
             const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        function createRippleBtn(e, element) {
+            const rect = element.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-btn';
+
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        function createRippleFaq(e, element) {
+            const rect = element.getBoundingClientRect();
+            const ripple = document.createElement('span');
+            ripple.className = 'ripple-faq';
+
+            const size = Math.max(rect.width, rect.height);
+            ripple.style.width = ripple.style.height = size + 'px';
+
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+
+            element.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 600);
+        }
+
+        // ========================
+        // 3. دالة فتح واتساب
+        // ========================
+        function openWhatsApp() {
+            window.open(WHATSAPP_URL, '_blank');
+        }
+
+        // ========================
+        // 4. عرض الألعاب
+        // ========================
+        const productsGrid = document.getElementById('productsGrid');
+
+        function renderGames() {
+            productsGrid.innerHTML = '';
+            gamesList.forEach(game => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <img src="${game.img}" alt="${game.name}" loading="lazy" />
+                    <h4>${game.name}</h4>
+                `;
+
+                card.addEventListener('click', (e) => {
+                    createRipple(e, card);
+
+                    if (game.name === 'PUBG Mobile') {
+                        setTimeout(() => {
+                            switchPage('page-pubg');
+                            updateNavActive('page-home');
+                        }, 150);
+                    } else {
+                        card.classList.add('fade-out');
+                        setTimeout(() => {
+                            openWhatsApp();
+                            setTimeout(() => {
+                                card.classList.remove('fade-out');
+                            }, 100);
+                        }, 250);
+                    }
+                });
+
+                productsGrid.appendChild(card);
+            });
+        }
+        renderGames();
+
+        // ========================
+        // 5. التصنيفات
+        // ========================
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabSlider = document.getElementById('tabSlider');
+
+        tabBtns.forEach((btn, index) => {
+            btn.addEventListener('click', () => {
+                tabBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const percent = index * 25;
+                tabSlider.style.right = percent + '%';
+
+                productsGrid.style.opacity = '0.6';
+                productsGrid.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    productsGrid.style.opacity = '1';
+                    productsGrid.style.transform = 'translateY(0)';
+                }, 250);
+            });
+        });
+
+        // ========================
+        // 6. شريط التنقل
+        // ========================
+        const navItems = document.querySelectorAll('.nav-item');
+        const navIndicator = document.getElementById('navIndicator');
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageId);
+            if (target) target.classList.add('active');
+        }
+
+        function updateNavActive(pageId) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.dataset.page === pageId) {
+                    item.classList.add('active');
+                }
+            });
+
+            const activeItem = document.querySelector('.nav-item.active');
+            if (activeItem) {
+                const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                const itemRect = activeItem.getBoundingClientRect();
+                const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                navIndicator.style.left = leftPos + 'px';
+                navIndicator.style.width = '30px';
+                navIndicator.classList.add('show');
+            }
+        }
+
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const pageId = item.dataset.page;
+
+                if (pageId === 'page-wallet' || pageId === 'page-support' || pageId === 'page-account') {
+                    switchPage(pageId);
+                    updateNavActive(pageId);
+                } else if (pageId === 'page-home') {
+                    switchPage(pageId);
+                    updateNavActive(pageId);
+                }
+            });
+        });
+
+        setTimeout(() => {
+            updateNavActive('page-home');
+        }, 100);
+
+        // ========================
+        // 7. باقات PUBG
+        // ========================
+        const packBtns = document.querySelectorAll('.pack-btn');
+        const shippingForm = document.getElementById('shippingForm');
+        let selectedPack = null;
+        let selectedPrice = null;
+
+        packBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+
+                packBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+
+                selectedPack = btn.dataset.uc;
+                selectedPrice = btn.dataset.price;
+
+                shippingForm.classList.remove('hidden');
+                shippingForm.style.opacity = '0';
+                shippingForm.style.transform = 'translateY(8px)';
+                setTimeout(() => {
+                    shippingForm.style.opacity = '1';
+                    shippingForm.style.transform = 'translateY(0)';
+                }, 50);
+            });
+        });
+
+        // ========================
+        // 8. زر الشراء
+        // ========================
+        document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+
+            const gameId = document.getElementById('gameIdInput').value.trim();
+            const whatsapp = document.getElementById('whatsappInput').value.trim();
+
+            if (!selectedPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!gameId) {
+                alert('⚠️ يرجى إدخال ID اللعبة.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: ${selectedPrice} $\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 9. زر بدء المحادثة (الدعم)
+        // ========================
+        const startChatBtn = document.getElementById('startChatBtn');
+
+        if (startChatBtn) {
+            startChatBtn.addEventListener('click', (e) => {
+                createRippleBtn(e, startChatBtn);
+
+                const card = startChatBtn.closest('.support-card');
+                card.style.transition = 'all 0.25s ease';
+                card.style.opacity = '0.7';
+                card.style.transform = 'scale(0.98)';
+
+                setTimeout(() => {
+                    openWhatsApp();
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                }, 250);
+            });
+        }
+
+        // ========================
+        // 10. الأسئلة الشائعة (Accordion)
+        // ========================
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        let openFaq = null;
+
+        faqQuestions.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRippleFaq(e, btn);
+
+                const targetId = btn.dataset.target;
+                const answer = document.getElementById(targetId);
+                const icon = btn.querySelector('.faq-icon');
+
+                if (openFaq === targetId) {
+                    answer.classList.remove('open');
+                    btn.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                    openFaq = null;
+                    return;
+                }
+
+                if (openFaq) {
+                    const prevAnswer = document.getElementById(openFaq);
+                    const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
+                    const prevIcon = prevBtn.querySelector('.faq-icon');
+                    prevAnswer.classList.remove('open');
+                    prevBtn.classList.remove('active');
+                    prevIcon.style.transform = 'rotate(0deg)';
+                }
+
+                answer.classList.add('open');
+                btn.classList.add('active');
+                icon.style.transform = 'rotate(180deg)';
+                openFaq = targetId;
+            });
+        });
+
+        // ========================
+        // 11. منع إعادة التحميل
+        // ========================
+        document.querySelectorAll('button').forEach(b => {
+            b.addEventListener('click', (e) => {
+                if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
+                    b.closest('.pack-btn') || b.id === 'startChatBtn' || b.id === 'buyNowBtn') {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        console.log('🚀 REDEEM STORE جاهز بالكامل!');
+        console.log('✅ تم إرجاع تشبع الخط (Font Weight) إلى حالته الأصلية في صفحة PUBG.');
+    </script>
+
+</body>
+    </html>
