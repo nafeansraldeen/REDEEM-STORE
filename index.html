@@ -346,6 +346,7 @@
             }
         }
 
+        /* ===== PUBG PACK CARD ===== */
         .pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -411,96 +412,6 @@
             pointer-events: none;
         }
 
-        /* ===== SHIPPING FORM ===== */
-        .shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .shipping-form.hidden {
-            display: none;
-        }
-
-        .shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        .btn-buy {
-            width: 100%;
-            padding: 16px 24px;
-            background: #1A73E8;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-buy:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        .btn-buy .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
         /* ============================================ */
         /* ===== CALL OF DUTY PAGE ===== */
         /* ============================================ */
@@ -553,9 +464,10 @@
             }
         }
 
+        /* ===== COD PACK CARD ===== */
         .cod-pack-btn {
-            background: #f8f9fa;
-            border: 2px solid #eaeaea;
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
             border-radius: 16px;
             padding: 16px 8px;
             text-align: center;
@@ -563,22 +475,24 @@
             font-size: 16px;
             color: #222;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .cod-pack-btn:active {
-            transform: scale(0.96);
+            transform: none;
         }
 
         .cod-pack-btn .cp-amount {
             display: block;
             font-size: 18px;
             font-weight: 900;
-            color: #000000;
+            color: #1A1A1A;
             margin-bottom: 4px;
+            transition: color 0.25s ease;
         }
 
         .cod-pack-btn .price-amount {
@@ -586,13 +500,14 @@
             font-size: 14px;
             font-weight: 400;
             color: #888;
+            transition: color 0.25s ease;
         }
 
         .cod-pack-btn.selected {
             border-color: #1A73E8;
-            background: #e8f0fe;
-            color: #1A73E8;
-            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
         }
 
         .cod-pack-btn.selected .cp-amount {
@@ -606,7 +521,7 @@
         .cod-pack-btn .ripple-pack {
             position: absolute;
             border-radius: 50%;
-            background: rgba(26, 115, 232, 0.12);
+            background: rgba(26, 115, 232, 0.08);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -728,9 +643,10 @@
             }
         }
 
+        /* ===== ML PACK CARD ===== */
         .ml-pack-btn {
-            background: #f8f9fa;
-            border: 2px solid #eaeaea;
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
             border-radius: 16px;
             padding: 16px 8px;
             text-align: center;
@@ -738,14 +654,15 @@
             font-size: 16px;
             color: #222;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .ml-pack-btn:active {
-            transform: scale(0.96);
+            transform: none;
         }
 
         .ml-pack-btn .diamond-amount {
@@ -755,8 +672,9 @@
             gap: 6px;
             font-size: 18px;
             font-weight: 900;
-            color: #000000;
+            color: #1A1A1A;
             margin-bottom: 4px;
+            transition: color 0.25s ease;
         }
 
         .ml-pack-btn .diamond-amount svg {
@@ -776,13 +694,14 @@
             font-size: 14px;
             font-weight: 400;
             color: #888;
+            transition: color 0.25s ease;
         }
 
         .ml-pack-btn.selected {
             border-color: #1A73E8;
-            background: #e8f0fe;
-            color: #1A73E8;
-            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
         }
 
         .ml-pack-btn.selected .diamond-amount {
@@ -801,7 +720,7 @@
         .ml-pack-btn .ripple-pack {
             position: absolute;
             border-radius: 50%;
-            background: rgba(26, 115, 232, 0.12);
+            background: rgba(26, 115, 232, 0.08);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -1056,9 +975,10 @@
             }
         }
 
+        /* ===== eFootball PACK CARD ===== */
         .efootball-pack-btn {
-            background: #f8f9fa;
-            border: 2px solid #eaeaea;
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
             border-radius: 16px;
             padding: 16px 8px;
             text-align: center;
@@ -1066,22 +986,24 @@
             font-size: 15px;
             color: #222;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .efootball-pack-btn:active {
-            transform: scale(0.96);
+            transform: none;
         }
 
         .efootball-pack-btn .fc-amount {
             display: block;
             font-size: 17px;
             font-weight: 900;
-            color: #000000;
+            color: #1A1A1A;
             margin-bottom: 3px;
+            transition: color 0.25s ease;
         }
 
         .efootball-pack-btn .price-amount {
@@ -1089,13 +1011,14 @@
             font-size: 13px;
             font-weight: 400;
             color: #888;
+            transition: color 0.25s ease;
         }
 
         .efootball-pack-btn.selected {
             border-color: #1A73E8;
-            background: #e8f0fe;
-            color: #1A73E8;
-            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
         }
 
         .efootball-pack-btn.selected .fc-amount {
@@ -1109,7 +1032,100 @@
         .efootball-pack-btn .ripple-pack {
             position: absolute;
             border-radius: 50%;
-            background: rgba(26, 115, 232, 0.12);
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
+        /* ===== SHIPPING FORM ===== */
+        /* ============================================ */
+
+        .shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shipping-form.hidden {
+            display: none;
+        }
+
+        .shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        .btn-buy .ripple-btn {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -1118,6 +1134,7 @@
         /* ============================================ */
         /* ===== SUPPORT PAGE ===== */
         /* ============================================ */
+
         .support-header {
             text-align: center;
             padding: 10px 0 6px;
@@ -1739,7 +1756,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty (مع التمرير المحسّن) -->
+    <!-- صفحة Call of Duty (مع التأثير الموحد) -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1753,23 +1770,23 @@
         <div class="cod-packs-grid" id="codPacksGrid">
             <button class="cod-pack-btn" data-cp="88" data-price="1.50">
                 <span class="cp-amount">88CP</span>
-                <span class="price-amount">1.50 $</span>
+                <span class="price-amount">$1.50</span>
             </button>
             <button class="cod-pack-btn" data-cp="176" data-price="3.00">
                 <span class="cp-amount">176CP</span>
-                <span class="price-amount">3.00 $</span>
+                <span class="price-amount">$3.00</span>
             </button>
             <button class="cod-pack-btn" data-cp="264" data-price="4.50">
                 <span class="cp-amount">264CP</span>
-                <span class="price-amount">4.50 $</span>
+                <span class="price-amount">$4.50</span>
             </button>
             <button class="cod-pack-btn" data-cp="352" data-price="6.00">
                 <span class="cp-amount">352CP</span>
-                <span class="price-amount">6.00 $</span>
+                <span class="price-amount">$6.00</span>
             </button>
             <button class="cod-pack-btn" data-cp="440" data-price="7.50">
                 <span class="cp-amount">440CP</span>
-                <span class="price-amount">7.50 $</span>
+                <span class="price-amount">$7.50</span>
             </button>
         </div>
 
@@ -1781,19 +1798,19 @@
         <div class="cod-extra-packs" id="codExtraPacks">
             <button class="cod-pack-btn" data-cp="528" data-price="9.00">
                 <span class="cp-amount">528CP</span>
-                <span class="price-amount">9.00 $</span>
+                <span class="price-amount">$9.00</span>
             </button>
             <button class="cod-pack-btn" data-cp="616" data-price="10.50">
                 <span class="cp-amount">616CP</span>
-                <span class="price-amount">10.50 $</span>
+                <span class="price-amount">$10.50</span>
             </button>
             <button class="cod-pack-btn" data-cp="704" data-price="12.00">
                 <span class="cp-amount">704CP</span>
-                <span class="price-amount">12.00 $</span>
+                <span class="price-amount">$12.00</span>
             </button>
             <button class="cod-pack-btn" data-cp="880" data-price="15.00">
                 <span class="cp-amount">880CP</span>
-                <span class="price-amount">15.00 $</span>
+                <span class="price-amount">$15.00</span>
             </button>
         </div>
 
@@ -1809,7 +1826,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends (مع التمرير المحسّن) -->
+    <!-- صفحة Mobile Legends (مع التأثير الموحد) -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -1830,7 +1847,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">1.50 $</span>
+                <span class="price-amount">$1.50</span>
             </button>
             <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
                 <span class="diamond-amount">
@@ -1841,7 +1858,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">6.00 $</span>
+                <span class="price-amount">$6.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
                 <span class="diamond-amount">
@@ -1852,7 +1869,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">15.00 $</span>
+                <span class="price-amount">$15.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
                 <span class="diamond-amount">
@@ -1863,7 +1880,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">24.00 $</span>
+                <span class="price-amount">$24.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
                 <span class="diamond-amount">
@@ -1874,7 +1891,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">30.00 $</span>
+                <span class="price-amount">$30.00</span>
             </button>
         </div>
 
@@ -1893,7 +1910,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">45.00 $</span>
+                <span class="price-amount">$45.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
                 <span class="diamond-amount">
@@ -1904,7 +1921,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">92.00 $</span>
+                <span class="price-amount">$92.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
                 <span class="diamond-amount">
@@ -1915,7 +1932,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">157.00 $</span>
+                <span class="price-amount">$157.00</span>
             </button>
             <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
                 <span class="diamond-amount">
@@ -1926,7 +1943,7 @@
                         <path d="M2 9h20"/>
                     </svg>
                 </span>
-                <span class="price-amount">235.00 $</span>
+                <span class="price-amount">$235.00</span>
             </button>
         </div>
 
@@ -1947,7 +1964,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة eFootball (مع التمرير المحسّن) -->
+    <!-- صفحة eFootball (مع التأثير الموحد) -->
     <!-- ============================================ -->
     <div id="page-efootball" class="page">
         <div class="efootball-header">
@@ -1961,31 +1978,31 @@
         <div class="efootball-packs-grid" id="efootballPacksGrid">
             <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
                 <span class="fc-amount">40 FC</span>
-                <span class="price-amount">1.00 $</span>
+                <span class="price-amount">$1.00</span>
             </button>
             <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
                 <span class="fc-amount">100 FC</span>
-                <span class="price-amount">2.50 $</span>
+                <span class="price-amount">$2.50</span>
             </button>
             <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
                 <span class="fc-amount">520 FC</span>
-                <span class="price-amount">12.00 $</span>
+                <span class="price-amount">$12.00</span>
             </button>
             <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
                 <span class="fc-amount">1,070 FC</span>
-                <span class="price-amount">25.00 $</span>
+                <span class="price-amount">$25.00</span>
             </button>
             <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
                 <span class="fc-amount">2,200 FC</span>
-                <span class="price-amount">50.00 $</span>
+                <span class="price-amount">$50.00</span>
             </button>
             <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
                 <span class="fc-amount">5,750 FC</span>
-                <span class="price-amount">130.00 $</span>
+                <span class="price-amount">$130.00</span>
             </button>
             <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
                 <span class="fc-amount">12,000 FC</span>
-                <span class="price-amount">270.00 $</span>
+                <span class="price-amount">$270.00</span>
             </button>
         </div>
 
@@ -2268,37 +2285,30 @@
         // 7. دالة التمرير إلى قسم بيانات الشحن (محسّنة مع تأخير focus)
         // ========================
         function scrollToShippingFormWithDelay(shippingFormElement, firstInputElement, delay = 150) {
-            // إذا كان القسم مخفياً، أظهره أولاً
             if (shippingFormElement.classList.contains('hidden')) {
                 shippingFormElement.classList.remove('hidden');
-                // نضيف الكلاس visible مع تأخير بسيط للحركة
                 setTimeout(() => {
                     shippingFormElement.classList.add('visible');
                 }, 50);
             }
 
-            // ننتظر delay (150ms) ثم نبدأ التمرير
             setTimeout(() => {
-                // التمرير السلس إلى القسم
                 shippingFormElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start',
                     inline: 'nearest'
                 });
 
-                // ⚠️ ننتظر حتى انتهاء التمرير (400ms) + تأخير إضافي (200ms)
-                // المجموع: 600ms قبل تنفيذ focus()
-                // هذا يمنع ظهور لوحة المفاتيح أثناء التمرير
                 setTimeout(() => {
                     if (firstInputElement) {
                         firstInputElement.focus();
                     }
-                }, 600); // ← 400ms للتمرير + 200ms تأخير إضافي
+                }, 600);
             }, delay);
         }
 
         // ========================
-        // 8. باقات PUBG (مع التمرير المحسّن)
+        // 8. باقات PUBG
         // ========================
         const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
@@ -2306,50 +2316,32 @@
         const whatsappInput = document.getElementById('whatsappInput');
         let selectedPack = null;
         let selectedPrice = null;
-
-        // حفظ البيانات المدخلة
         let savedGameId = '';
         let savedWhatsapp = '';
 
         packBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                // إزالة الـ Ripple القديم (إذا كان موجوداً)
                 const oldRipple = btn.querySelector('.ripple-pack');
                 if (oldRipple) oldRipple.remove();
 
-                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
-
-                // تحديد البطاقة الجديدة
                 btn.classList.add('selected');
 
                 selectedPack = btn.dataset.uc;
                 selectedPrice = btn.dataset.price;
 
-                // استعادة البيانات المدخلة (إذا كانت موجودة)
                 if (savedGameId) gameIdInput.value = savedGameId;
                 if (savedWhatsapp) whatsappInput.value = savedWhatsapp;
 
-                // التمرير إلى قسم بيانات الشحن مع تأخير 150ms
                 scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
             });
         });
 
-        // حفظ البيانات عند تغيير الحقول
-        gameIdInput.addEventListener('input', () => {
-            savedGameId = gameIdInput.value;
-        });
+        gameIdInput.addEventListener('input', () => { savedGameId = gameIdInput.value; });
+        whatsappInput.addEventListener('input', () => { savedWhatsapp = whatsappInput.value; });
 
-        whatsappInput.addEventListener('input', () => {
-            savedWhatsapp = whatsappInput.value;
-        });
-
-        // ========================
-        // 9. زر الشراء PUBG
-        // ========================
         document.getElementById('buyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
-
             const gameId = gameIdInput.value.trim();
             const whatsapp = whatsappInput.value.trim();
 
@@ -2378,27 +2370,19 @@
             }, 500);
         });
 
-        // ========================
-        // 10. تحديد أول باقة افتراضياً
-        // ========================
         if (packBtns.length) {
             setTimeout(() => {
                 packBtns[0].classList.add('selected');
                 selectedPack = packBtns[0].dataset.uc;
                 selectedPrice = packBtns[0].dataset.price;
                 shippingForm.classList.remove('hidden');
-                setTimeout(() => {
-                    shippingForm.classList.add('visible');
-                }, 50);
-                // focus بعد 600ms (التمرير + تأخير)
-                setTimeout(() => {
-                    gameIdInput.focus();
-                }, 600);
+                setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                setTimeout(() => { gameIdInput.focus(); }, 600);
             }, 200);
         }
 
         // ========================
-        // 11. باقات Call of Duty (مع التمرير المحسّن)
+        // 9. باقات Call of Duty
         // ========================
         const codPackBtns = document.querySelectorAll('.cod-pack-btn');
         const codShippingForm = document.getElementById('codShippingForm');
@@ -2429,26 +2413,15 @@
             });
         });
 
-        codPlayerIdInput.addEventListener('input', () => {
-            savedCodPlayerId = codPlayerIdInput.value;
-        });
-
-        codWhatsappInput.addEventListener('input', () => {
-            savedCodWhatsapp = codWhatsappInput.value;
-        });
+        codPlayerIdInput.addEventListener('input', () => { savedCodPlayerId = codPlayerIdInput.value; });
+        codWhatsappInput.addEventListener('input', () => { savedCodWhatsapp = codWhatsappInput.value; });
 
         if (codPackBtns.length) {
-            setTimeout(() => {
-                selectCodPack(codPackBtns[0]);
-            }, 100);
+            setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
         }
 
-        // ========================
-        // 12. زر شراء COD
-        // ========================
         document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
-
             const playerId = codPlayerIdInput.value.trim();
             const whatsapp = codWhatsappInput.value.trim();
 
@@ -2470,7 +2443,7 @@
             btn.style.opacity = '0.7';
 
             setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: ${selectedCodPrice} $\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
                 btn.textContent = 'شراء الآن';
                 btn.style.opacity = '1';
                 openWhatsApp();
@@ -2478,7 +2451,7 @@
         });
 
         // ========================
-        // 13. زر "عرض جميع الباقات" لـ COD
+        // 10. زر "عرض جميع الباقات" لـ COD
         // ========================
         const showMoreBtn = document.getElementById('showMorePacksBtn');
         const extraPacks = document.getElementById('codExtraPacks');
@@ -2486,7 +2459,6 @@
 
         showMoreBtn.addEventListener('click', (e) => {
             createRippleBtn(e, showMoreBtn);
-
             extraPacksVisible = !extraPacksVisible;
 
             if (extraPacksVisible) {
@@ -2501,7 +2473,7 @@
         });
 
         // ========================
-        // 14. باقات Mobile Legends (مع التمرير المحسّن)
+        // 11. باقات Mobile Legends
         // ========================
         const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
         const mlShippingForm = document.getElementById('mlShippingForm');
@@ -2532,26 +2504,15 @@
             });
         });
 
-        mlAccountIdInput.addEventListener('input', () => {
-            savedMlAccountId = mlAccountIdInput.value;
-        });
-
-        mlRegionIdInput.addEventListener('input', () => {
-            savedMlRegionId = mlRegionIdInput.value;
-        });
+        mlAccountIdInput.addEventListener('input', () => { savedMlAccountId = mlAccountIdInput.value; });
+        mlRegionIdInput.addEventListener('input', () => { savedMlRegionId = mlRegionIdInput.value; });
 
         if (mlPackBtns.length) {
-            setTimeout(() => {
-                selectMlPack(mlPackBtns[0]);
-            }, 100);
+            setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
         }
 
-        // ========================
-        // 15. زر شراء ML
-        // ========================
         document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
-
             const accountId = mlAccountIdInput.value.trim();
             const regionId = mlRegionIdInput.value.trim();
 
@@ -2573,7 +2534,7 @@
             btn.style.opacity = '0.7';
 
             setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: ${selectedMlPrice} $\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
                 btn.textContent = 'شراء الآن';
                 btn.style.opacity = '1';
                 openWhatsApp();
@@ -2581,7 +2542,29 @@
         });
 
         // ========================
-        // 16. باقات eFootball (مع التمرير المحسّن)
+        // 12. زر "عرض جميع الباقات" لـ ML
+        // ========================
+        const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
+        const mlExtraPacks = document.getElementById('mlExtraPacks');
+        let mlExtraPacksVisible = false;
+
+        showMoreMlBtn.addEventListener('click', (e) => {
+            createRippleBtn(e, showMoreMlBtn);
+            mlExtraPacksVisible = !mlExtraPacksVisible;
+
+            if (mlExtraPacksVisible) {
+                mlExtraPacks.classList.add('open');
+                showMoreMlBtn.classList.add('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
+            } else {
+                mlExtraPacks.classList.remove('open');
+                showMoreMlBtn.classList.remove('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
+            }
+        });
+
+        // ========================
+        // 13. باقات eFootball
         // ========================
         const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
         const efootballShippingForm = document.getElementById('efootballShippingForm');
@@ -2612,26 +2595,15 @@
             });
         });
 
-        efootballUidInput.addEventListener('input', () => {
-            savedEfootballUid = efootballUidInput.value;
-        });
-
-        efootballWhatsappInput.addEventListener('input', () => {
-            savedEfootballWhatsapp = efootballWhatsappInput.value;
-        });
+        efootballUidInput.addEventListener('input', () => { savedEfootballUid = efootballUidInput.value; });
+        efootballWhatsappInput.addEventListener('input', () => { savedEfootballWhatsapp = efootballWhatsappInput.value; });
 
         if (efootballPackBtns.length) {
-            setTimeout(() => {
-                selectEfootballPack(efootballPackBtns[0]);
-            }, 100);
+            setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
         }
 
-        // ========================
-        // 17. زر شراء eFootball
-        // ========================
         document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
-
             const uid = efootballUidInput.value.trim();
             const whatsapp = efootballWhatsappInput.value.trim();
 
@@ -2653,7 +2625,7 @@
             btn.style.opacity = '0.7';
 
             setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: ${selectedEfootballPrice} $\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
                 btn.textContent = 'شراء الآن';
                 btn.style.opacity = '1';
                 openWhatsApp();
@@ -2661,37 +2633,13 @@
         });
 
         // ========================
-        // 18. زر "عرض جميع الباقات" لـ ML
-        // ========================
-        const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
-        const mlExtraPacks = document.getElementById('mlExtraPacks');
-        let mlExtraPacksVisible = false;
-
-        showMoreMlBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, showMoreMlBtn);
-
-            mlExtraPacksVisible = !mlExtraPacksVisible;
-
-            if (mlExtraPacksVisible) {
-                mlExtraPacks.classList.add('open');
-                showMoreMlBtn.classList.add('active');
-                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
-            } else {
-                mlExtraPacks.classList.remove('open');
-                showMoreMlBtn.classList.remove('active');
-                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
-            }
-        });
-
-        // ========================
-        // 19. زر بدء المحادثة (الدعم)
+        // 14. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
         if (startChatBtn) {
             startChatBtn.addEventListener('click', (e) => {
                 createRippleBtn(e, startChatBtn);
-
                 const card = startChatBtn.closest('.support-card');
                 card.style.transition = 'all 0.25s ease';
                 card.style.opacity = '0.7';
@@ -2708,7 +2656,7 @@
         }
 
         // ========================
-        // 20. الأسئلة الشائعة (Accordion)
+        // 15. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -2746,7 +2694,7 @@
         });
 
         // ========================
-        // 21. Modal للمساعدة في Mobile Legends
+        // 16. Modal للمساعدة في Mobile Legends
         // ========================
         const modalOverlay = document.getElementById('mlHelpModal');
         const modalCloseBtn = document.getElementById('mlModalCloseBtn');
@@ -2782,7 +2730,7 @@
         });
 
         // ========================
-        // 22. منع إعادة التحميل
+        // 17. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -2799,13 +2747,13 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم توحيد سلوك التمرير و focus في جميع صفحات الألعاب:');
+        console.log('✅ تم توحيد تأثير اختيار الباقة في جميع صفحات الألعاب:');
         console.log('   - PUBG Mobile');
         console.log('   - Call of Duty');
         console.log('   - Mobile Legends');
         console.log('   - eFootball');
-        console.log('✅ التسلسل: اختيار باقة → تمرير (400ms) → تأخير (200ms) → focus');
-        console.log('✅ لوحة المفاتيح تظهر بعد استقرار الصفحة.');
+        console.log('✅ التأثير: تغيير لون الإطار والنص فقط، بدون أي حركة للبطاقة.');
+        console.log('✅ سماكة الإطار: 2px مع توهج خفيف بلون الهوية.');
     </script>
 
 </body>
