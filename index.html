@@ -288,6 +288,629 @@
         }
 
         /* ============================================ */
+        /* ===== PUBG PAGE ===== */
+        /* ============================================ */
+
+        .pubg-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .pubg-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .pubg-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .pubg-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pack-btn:active {
+            transform: none;
+        }
+
+        .pack-btn .uc-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .pack-btn.selected .uc-amount {
+            color: #1A73E8;
+        }
+
+        .pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
+        /* ===== CALL OF DUTY PAGE ===== */
+        /* ============================================ */
+
+        .cod-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .cod-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .cod-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .cod-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .cod-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 12px;
+        }
+
+        @media (min-width: 600px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .cod-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .cod-pack-btn:active {
+            transform: none;
+        }
+
+        .cod-pack-btn .cp-amount {
+            display: block;
+            font-size: 18px;
+            font-weight: 900;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .cod-pack-btn .price-amount {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #888;
+            transition: color 0.25s ease;
+        }
+
+        .cod-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .cod-pack-btn.selected .cp-amount {
+            color: #1A73E8;
+        }
+
+        .cod-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .cod-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .cod-extra-packs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .cod-extra-packs.open {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .cod-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .btn-show-more {
+            width: 100%;
+            padding: 14px 24px;
+            background: #f0f0f0;
+            color: #555;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            margin-top: 8px;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-show-more:active {
+            transform: scale(0.97);
+        }
+
+        .btn-show-more i {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-show-more.active i {
+            transform: rotate(180deg);
+        }
+
+        .btn-show-more .ripple-btn {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
+        /* ===== MOBILE LEGENDS PAGE ===== */
+        /* ============================================ */
+
+        .ml-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .ml-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .ml-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .ml-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .ml-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 12px;
+        }
+
+        @media (min-width: 600px) {
+            .ml-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .ml-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .ml-pack-btn:active {
+            transform: none;
+        }
+
+        .ml-pack-btn .diamond-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 18px;
+            font-weight: 900;
+            color: #1A1A1A;
+            margin-bottom: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .ml-pack-btn .diamond-amount svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+            transition: stroke 0.25s ease, color 0.25s ease;
+        }
+
+        .ml-pack-btn .price-amount {
+            display: block;
+            font-size: 14px;
+            font-weight: 400;
+            color: #888;
+            transition: color 0.25s ease;
+        }
+
+        .ml-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .ml-pack-btn.selected .diamond-amount {
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .diamond-amount svg {
+            stroke: #1A73E8;
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .ml-extra-packs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                margin 0.3s ease;
+            opacity: 0;
+            margin-top: 0;
+        }
+
+        .ml-extra-packs.open {
+            max-height: 400px;
+            opacity: 1;
+            margin-top: 12px;
+        }
+
+        @media (min-width: 600px) {
+            .ml-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .ml-form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .ml-form-label:first-of-type {
+            margin-top: 0;
+        }
+
+        .ml-help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e8f0fe;
+            color: #1A73E8;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .ml-help-icon:active {
+            transform: scale(0.9);
+        }
+
+        .ml-help-icon:hover {
+            background: #d2e3fc;
+        }
+
+        /* ============================================ */
+        /* ===== eFOOTBALL PAGE ===== */
+        /* ============================================ */
+
+        .efootball-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .efootball-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .efootball-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .efootball-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .efootball-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 600px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+        }
+
+        .efootball-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 16px;
+            padding: 16px 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .efootball-pack-btn:active {
+            transform: none;
+        }
+
+        .efootball-pack-btn .fc-amount {
+            display: block;
+            font-size: 17px;
+            font-weight: 900;
+            color: #1A1A1A;
+            margin-bottom: 3px;
+            transition: color 0.25s ease;
+        }
+
+        .efootball-pack-btn .price-amount {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: #888;
+            transition: color 0.25s ease;
+        }
+
+        .efootball-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .efootball-pack-btn.selected .fc-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-pack-btn .ripple-pack {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.08);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        /* ============================================ */
         /* ===== CLASH OF CLANS PAGE ===== */
         /* ============================================ */
 
@@ -325,7 +948,6 @@
             font-weight: 400;
         }
 
-        /* ===== COC PACKS GRID (2 Columns on mobile) ===== */
         .coc-packs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -347,7 +969,6 @@
             }
         }
 
-        /* ===== COC PACK CARD ===== */
         .coc-pack-btn {
             background: #FFFFFF;
             border: 1.5px solid #e8eaed;
@@ -401,7 +1022,6 @@
             transition: color 0.25s ease;
         }
 
-        /* ===== SELECTED STATE ===== */
         .coc-pack-btn.selected {
             border-color: #1A73E8;
             border-width: 2px;
@@ -753,6 +1373,130 @@
             margin-bottom: 16px;
         }
 
+        /* ===== MODAL ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-overlay.open .modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: #FFFFFF;
+            border-radius: 24px;
+            max-width: 420px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 24px 20px 20px;
+            transform: scale(0.9);
+            opacity: 0;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.3s ease;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            background: #f0f0f0;
+            color: #555;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            z-index: 10;
+        }
+
+        .modal-close-btn:active {
+            transform: scale(0.9);
+            background: #e0e0e0;
+        }
+
+        .modal-image {
+            width: 100%;
+            border-radius: 16px;
+            margin-bottom: 16px;
+            background: #f8f9fa;
+            border: 1px solid #f0f0f0;
+        }
+
+        .modal-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .modal-instructions {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .modal-instructions li {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.7;
+            padding: 6px 0;
+            padding-right: 20px;
+            position: relative;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .modal-instructions li:last-child {
+            border-bottom: none;
+        }
+
+        .modal-instructions li::before {
+            content: "•";
+            position: absolute;
+            right: 0;
+            color: #1A73E8;
+            font-weight: 700;
+        }
+
+        .modal-instructions li strong {
+            color: #1A73E8;
+        }
+
+        .modal-instructions li .highlight {
+            background: #e8f0fe;
+            padding: 0 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #1A73E8;
+        }
+
         /* ============================================ */
         /* ===== RESPONSIVE ===== */
         /* ============================================ */
@@ -764,6 +1508,114 @@
             .tab-btn {
                 font-size: 13px;
                 padding: 10px 0;
+            }
+            .pubg-header {
+                padding: 14px 16px;
+            }
+            .pubg-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .pubg-header .game-info h2 {
+                font-size: 20px;
+            }
+            .packs-grid {
+                gap: 10px;
+            }
+            .pack-btn {
+                padding: 16px 10px;
+                min-height: 85px;
+                border-radius: 14px;
+            }
+            .pack-btn .uc-amount {
+                font-size: 18px;
+            }
+            .pack-btn .price-amount {
+                font-size: 13px;
+            }
+            .cod-header {
+                padding: 14px 16px;
+            }
+            .cod-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .cod-header .game-info h2 {
+                font-size: 20px;
+            }
+            .cod-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .cod-extra-packs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .cod-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .cod-pack-btn .cp-amount {
+                font-size: 16px;
+            }
+            .cod-pack-btn .price-amount {
+                font-size: 12px;
+            }
+            .ml-header {
+                padding: 14px 16px;
+            }
+            .ml-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .ml-header .game-info h2 {
+                font-size: 20px;
+            }
+            .ml-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .ml-extra-packs {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .ml-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .ml-pack-btn .diamond-amount {
+                font-size: 16px;
+            }
+            .ml-pack-btn .diamond-amount svg {
+                width: 18px;
+                height: 18px;
+            }
+            .ml-pack-btn .price-amount {
+                font-size: 12px;
+            }
+            .efootball-header {
+                padding: 14px 16px;
+            }
+            .efootball-header img {
+                width: 60px;
+                height: 60px;
+            }
+            .efootball-header .game-info h2 {
+                font-size: 20px;
+            }
+            .efootball-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
+            }
+            .efootball-pack-btn {
+                padding: 12px 6px;
+                font-size: 14px;
+            }
+            .efootball-pack-btn .fc-amount {
+                font-size: 16px;
+            }
+            .efootball-pack-btn .price-amount {
+                font-size: 12px;
             }
             .coc-header {
                 padding: 14px 16px;
@@ -821,6 +1673,50 @@
             .btn-support {
                 font-size: 16px;
                 padding: 14px 20px;
+            }
+            .btn-show-more {
+                font-size: 14px;
+                padding: 12px 16px;
+            }
+            .modal-content {
+                padding: 16px 16px 16px;
+                margin: 10px;
+            }
+            .modal-instructions li {
+                font-size: 13px;
+                padding: 5px 16px 5px 0;
+            }
+            .ml-help-icon {
+                width: 18px;
+                height: 18px;
+                font-size: 11px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+            .cod-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .ml-packs-grid {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+            }
+            .ml-extra-packs {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .coc-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
             }
         }
     </style>
@@ -949,6 +1845,342 @@
     </div>
 
     <!-- ============================================ -->
+    <!-- صفحة PUBG Mobile -->
+    <!-- ============================================ -->
+    <div id="page-pubg" class="page">
+        <div class="pubg-header">
+            <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
+            <div class="game-info">
+                <h2>PUBG Mobile</h2>
+                <p>اختر باقة UC المناسبة</p>
+            </div>
+        </div>
+
+        <div class="packs-grid" id="packsGrid">
+            <button class="pack-btn" data-uc="60" data-price="0.93">
+                <span class="uc-amount">60UC</span>
+                <span class="price-amount">$0.93</span>
+            </button>
+            <button class="pack-btn" data-uc="325" data-price="4.65">
+                <span class="uc-amount">325UC</span>
+                <span class="price-amount">$4.65</span>
+            </button>
+            <button class="pack-btn" data-uc="660" data-price="9.30">
+                <span class="uc-amount">660UC</span>
+                <span class="price-amount">$9.30</span>
+            </button>
+            <button class="pack-btn" data-uc="985" data-price="14.65">
+                <span class="uc-amount">985UC</span>
+                <span class="price-amount">$14.65</span>
+            </button>
+            <button class="pack-btn" data-uc="1320" data-price="19.50">
+                <span class="uc-amount">1,320UC</span>
+                <span class="price-amount">$19.50</span>
+            </button>
+            <button class="pack-btn" data-uc="1800" data-price="23.95">
+                <span class="uc-amount">1,800UC</span>
+                <span class="price-amount">$23.95</span>
+            </button>
+            <button class="pack-btn" data-uc="2460" data-price="33.50">
+                <span class="uc-amount">2,460UC</span>
+                <span class="price-amount">$33.50</span>
+            </button>
+            <button class="pack-btn" data-uc="3850" data-price="47.50">
+                <span class="uc-amount">3,850UC</span>
+                <span class="price-amount">$47.50</span>
+            </button>
+            <button class="pack-btn" data-uc="5650" data-price="70.50">
+                <span class="uc-amount">5,650UC</span>
+                <span class="price-amount">$70.50</span>
+            </button>
+            <button class="pack-btn" data-uc="8100" data-price="93.50">
+                <span class="uc-amount">8,100UC</span>
+                <span class="price-amount">$93.50</span>
+            </button>
+            <button class="pack-btn" data-uc="11950" data-price="150.00">
+                <span class="uc-amount">11,950UC</span>
+                <span class="price-amount">$150.00</span>
+            </button>
+            <button class="pack-btn" data-uc="16200" data-price="200.00">
+                <span class="uc-amount">16,200UC</span>
+                <span class="price-amount">$200.00</span>
+            </button>
+        </div>
+
+        <div class="shipping-form hidden" id="shippingForm">
+            <label>ID اللعبة</label>
+            <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
+
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
+
+            <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة Call of Duty -->
+    <!-- ============================================ -->
+    <div id="page-cod" class="page">
+        <div class="cod-header">
+            <img src="https://i.imgur.com/5f7zH1O.png" alt="Call of Duty" />
+            <div class="game-info">
+                <h2>Call of Duty</h2>
+                <p>اختر باقة CP المناسبة</p>
+            </div>
+        </div>
+
+        <div class="cod-packs-grid" id="codPacksGrid">
+            <button class="cod-pack-btn" data-cp="88" data-price="1.50">
+                <span class="cp-amount">88CP</span>
+                <span class="price-amount">$1.50</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="176" data-price="3.00">
+                <span class="cp-amount">176CP</span>
+                <span class="price-amount">$3.00</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="264" data-price="4.50">
+                <span class="cp-amount">264CP</span>
+                <span class="price-amount">$4.50</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="352" data-price="6.00">
+                <span class="cp-amount">352CP</span>
+                <span class="price-amount">$6.00</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="440" data-price="7.50">
+                <span class="cp-amount">440CP</span>
+                <span class="price-amount">$7.50</span>
+            </button>
+        </div>
+
+        <button class="btn-show-more" id="showMorePacksBtn">
+            <i class="fas fa-chevron-down"></i>
+            عرض جميع الباقات
+        </button>
+
+        <div class="cod-extra-packs" id="codExtraPacks">
+            <button class="cod-pack-btn" data-cp="528" data-price="9.00">
+                <span class="cp-amount">528CP</span>
+                <span class="price-amount">$9.00</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="616" data-price="10.50">
+                <span class="cp-amount">616CP</span>
+                <span class="price-amount">$10.50</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="704" data-price="12.00">
+                <span class="cp-amount">704CP</span>
+                <span class="price-amount">$12.00</span>
+            </button>
+            <button class="cod-pack-btn" data-cp="880" data-price="15.00">
+                <span class="cp-amount">880CP</span>
+                <span class="price-amount">$15.00</span>
+            </button>
+        </div>
+
+        <div class="shipping-form hidden" id="codShippingForm">
+            <label>معرف اللاعب</label>
+            <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
+
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
+
+            <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة Mobile Legends -->
+    <!-- ============================================ -->
+    <div id="page-ml" class="page">
+        <div class="ml-header">
+            <img src="https://i.imgur.com/9WqUj3H.png" alt="Mobile Legends" />
+            <div class="game-info">
+                <h2>Mobile Legends</h2>
+                <p>اختر باقة الألماس المناسبة</p>
+            </div>
+        </div>
+
+        <div class="ml-packs-grid" id="mlPacksGrid">
+            <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
+                <span class="diamond-amount">
+                    74
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$1.50</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
+                <span class="diamond-amount">
+                    296
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$6.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
+                <span class="diamond-amount">
+                    741
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$15.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
+                <span class="diamond-amount">
+                    1,186
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$24.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
+                <span class="diamond-amount">
+                    1,471
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$30.00</span>
+            </button>
+        </div>
+
+        <button class="btn-show-more" id="showMoreMlPacksBtn">
+            <i class="fas fa-chevron-down"></i>
+            عرض جميع الباقات
+        </button>
+
+        <div class="ml-extra-packs" id="mlExtraPacks">
+            <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
+                <span class="diamond-amount">
+                    2,205
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$45.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
+                <span class="diamond-amount">
+                    4,527
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$92.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
+                <span class="diamond-amount">
+                    7,707
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$157.00</span>
+            </button>
+            <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
+                <span class="diamond-amount">
+                    11,559
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
+                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
+                        <path d="M2 9h20"/>
+                    </svg>
+                </span>
+                <span class="price-amount">$235.00</span>
+            </button>
+        </div>
+
+        <div class="shipping-form hidden" id="mlShippingForm">
+            <div class="ml-form-label">
+                <span>معرف الحساب</span>
+                <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
+                    <i class="fas fa-question"></i>
+                </button>
+            </div>
+            <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
+
+            <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
+            <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
+
+            <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة eFootball -->
+    <!-- ============================================ -->
+    <div id="page-efootball" class="page">
+        <div class="efootball-header">
+            <img src="https://i.imgur.com/1mzLqjP.png" alt="eFootball" />
+            <div class="game-info">
+                <h2>eFootball</h2>
+                <p>اختر باقة FC المناسبة</p>
+            </div>
+        </div>
+
+        <div class="efootball-packs-grid" id="efootballPacksGrid">
+            <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
+                <span class="fc-amount">40 FC</span>
+                <span class="price-amount">$1.00</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
+                <span class="fc-amount">100 FC</span>
+                <span class="price-amount">$2.50</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
+                <span class="fc-amount">520 FC</span>
+                <span class="price-amount">$12.00</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
+                <span class="fc-amount">1,070 FC</span>
+                <span class="price-amount">$25.00</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
+                <span class="fc-amount">2,200 FC</span>
+                <span class="price-amount">$50.00</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
+                <span class="fc-amount">5,750 FC</span>
+                <span class="price-amount">$130.00</span>
+            </button>
+            <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
+                <span class="fc-amount">12,000 FC</span>
+                <span class="price-amount">$270.00</span>
+            </button>
+        </div>
+
+        <div class="shipping-form hidden" id="efootballShippingForm">
+            <label>معرف UID الخاص بك</label>
+            <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
+
+            <label>رقم واتساب</label>
+            <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
+
+            <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
     <!-- صفحة Clash of Clans -->
     <!-- ============================================ -->
     <div id="page-coc" class="page">
@@ -960,7 +2192,6 @@
             </div>
         </div>
 
-        <!-- الباقات -->
         <div class="coc-packs-grid" id="cocPacksGrid">
             <button class="coc-pack-btn" data-gems="80" data-price="0.65">
                 <span class="coc-amount-wrapper">
@@ -1006,7 +2237,6 @@
             </button>
         </div>
 
-        <!-- نموذج الشحن -->
         <div class="shipping-form hidden" id="cocShippingForm">
             <label>حساب Supercell</label>
             <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
@@ -1015,6 +2245,29 @@
             <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
 
             <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- Modal للمساعدة -->
+    <!-- ============================================ -->
+    <div class="modal-overlay" id="mlHelpModal">
+        <div class="modal-content">
+            <button class="modal-close-btn" id="mlModalCloseBtn">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
+
+            <ol class="modal-instructions">
+                <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
+                <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
+                    <span class="highlight">ID: XXXXXXXX (XXXX)</span>
+                </li>
+                <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
+                <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
+                <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
+            </ol>
         </div>
     </div>
 
@@ -1053,7 +2306,7 @@
         const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
         // ========================
-        // 1. قائمة الألعاب (مع إضافة Clash of Clans)
+        // 1. قائمة الألعاب
         // ========================
         const gamesList = [
             { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
@@ -1286,7 +2539,332 @@
         }, 100);
 
         // ========================
-        // 8. باقات Clash of Clans
+        // 8. باقات PUBG
+        // ========================
+        const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+        const shippingForm = document.getElementById('shippingForm');
+        const gameIdInput = document.getElementById('gameIdInput');
+        const whatsappInput = document.getElementById('whatsappInput');
+        let selectedPack = null;
+        let selectedPrice = null;
+        let savedGameId = '';
+        let savedWhatsapp = '';
+
+        packBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const oldRipple = btn.querySelector('.ripple-pack');
+                if (oldRipple) oldRipple.remove();
+
+                packBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+
+                selectedPack = btn.dataset.uc;
+                selectedPrice = btn.dataset.price;
+
+                if (savedGameId) gameIdInput.value = savedGameId;
+                if (savedWhatsapp) whatsappInput.value = savedWhatsapp;
+
+                scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
+            });
+        });
+
+        gameIdInput.addEventListener('input', () => { savedGameId = gameIdInput.value; });
+        whatsappInput.addEventListener('input', () => { savedWhatsapp = whatsappInput.value; });
+
+        document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+            const gameId = gameIdInput.value.trim();
+            const whatsapp = whatsappInput.value.trim();
+
+            if (!selectedPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!gameId) {
+                alert('⚠️ يرجى إدخال ID اللعبة.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: $${selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        if (packBtns.length) {
+            setTimeout(() => {
+                packBtns[0].classList.add('selected');
+                selectedPack = packBtns[0].dataset.uc;
+                selectedPrice = packBtns[0].dataset.price;
+                shippingForm.classList.remove('hidden');
+                setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                setTimeout(() => { gameIdInput.focus(); }, 600);
+            }, 200);
+        }
+
+        // ========================
+        // 9. باقات Call of Duty
+        // ========================
+        const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+        const codShippingForm = document.getElementById('codShippingForm');
+        const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+        const codWhatsappInput = document.getElementById('codWhatsappInput');
+        let selectedCodPack = null;
+        let selectedCodPrice = null;
+        let savedCodPlayerId = '';
+        let savedCodWhatsapp = '';
+
+        function selectCodPack(btn) {
+            codPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedCodPack = btn.dataset.cp;
+            selectedCodPrice = btn.dataset.price;
+
+            if (savedCodPlayerId) codPlayerIdInput.value = savedCodPlayerId;
+            if (savedCodWhatsapp) codWhatsappInput.value = savedCodWhatsapp;
+
+            scrollToShippingFormWithDelay(codShippingForm, codPlayerIdInput, 150);
+        }
+
+        codPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectCodPack(btn);
+            });
+        });
+
+        codPlayerIdInput.addEventListener('input', () => { savedCodPlayerId = codPlayerIdInput.value; });
+        codWhatsappInput.addEventListener('input', () => { savedCodWhatsapp = codWhatsappInput.value; });
+
+        if (codPackBtns.length) {
+            setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
+        }
+
+        document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+            const playerId = codPlayerIdInput.value.trim();
+            const whatsapp = codWhatsappInput.value.trim();
+
+            if (!selectedCodPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!playerId) {
+                alert('⚠️ يرجى إدخال معرف اللاعب.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 10. زر "عرض جميع الباقات" لـ COD
+        // ========================
+        const showMoreBtn = document.getElementById('showMorePacksBtn');
+        const extraPacks = document.getElementById('codExtraPacks');
+        let extraPacksVisible = false;
+
+        showMoreBtn.addEventListener('click', (e) => {
+            createRippleBtn(e, showMoreBtn);
+            extraPacksVisible = !extraPacksVisible;
+
+            if (extraPacksVisible) {
+                extraPacks.classList.add('open');
+                showMoreBtn.classList.add('active');
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
+            } else {
+                extraPacks.classList.remove('open');
+                showMoreBtn.classList.remove('active');
+                showMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
+            }
+        });
+
+        // ========================
+        // 11. باقات Mobile Legends
+        // ========================
+        const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+        const mlShippingForm = document.getElementById('mlShippingForm');
+        const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+        const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+        let selectedMlPack = null;
+        let selectedMlPrice = null;
+        let savedMlAccountId = '';
+        let savedMlRegionId = '';
+
+        function selectMlPack(btn) {
+            mlPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedMlPack = btn.dataset.diamond;
+            selectedMlPrice = btn.dataset.price;
+
+            if (savedMlAccountId) mlAccountIdInput.value = savedMlAccountId;
+            if (savedMlRegionId) mlRegionIdInput.value = savedMlRegionId;
+
+            scrollToShippingFormWithDelay(mlShippingForm, mlAccountIdInput, 150);
+        }
+
+        mlPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectMlPack(btn);
+            });
+        });
+
+        mlAccountIdInput.addEventListener('input', () => { savedMlAccountId = mlAccountIdInput.value; });
+        mlRegionIdInput.addEventListener('input', () => { savedMlRegionId = mlRegionIdInput.value; });
+
+        if (mlPackBtns.length) {
+            setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
+        }
+
+        document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+            const accountId = mlAccountIdInput.value.trim();
+            const regionId = mlRegionIdInput.value.trim();
+
+            if (!selectedMlPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!accountId) {
+                alert('⚠️ يرجى إدخال معرف الحساب.');
+                return;
+            }
+            if (!regionId) {
+                alert('⚠️ يرجى إدخال معرف المنطقة.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 12. زر "عرض جميع الباقات" لـ ML
+        // ========================
+        const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
+        const mlExtraPacks = document.getElementById('mlExtraPacks');
+        let mlExtraPacksVisible = false;
+
+        showMoreMlBtn.addEventListener('click', (e) => {
+            createRippleBtn(e, showMoreMlBtn);
+            mlExtraPacksVisible = !mlExtraPacksVisible;
+
+            if (mlExtraPacksVisible) {
+                mlExtraPacks.classList.add('open');
+                showMoreMlBtn.classList.add('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
+            } else {
+                mlExtraPacks.classList.remove('open');
+                showMoreMlBtn.classList.remove('active');
+                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
+            }
+        });
+
+        // ========================
+        // 13. باقات eFootball
+        // ========================
+        const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+        const efootballShippingForm = document.getElementById('efootballShippingForm');
+        const efootballUidInput = document.getElementById('efootballUidInput');
+        const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+        let selectedEfootballPack = null;
+        let selectedEfootballPrice = null;
+        let savedEfootballUid = '';
+        let savedEfootballWhatsapp = '';
+
+        function selectEfootballPack(btn) {
+            efootballPackBtns.forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            selectedEfootballPack = btn.dataset.fc;
+            selectedEfootballPrice = btn.dataset.price;
+
+            if (savedEfootballUid) efootballUidInput.value = savedEfootballUid;
+            if (savedEfootballWhatsapp) efootballWhatsappInput.value = savedEfootballWhatsapp;
+
+            scrollToShippingFormWithDelay(efootballShippingForm, efootballUidInput, 150);
+        }
+
+        efootballPackBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                createRipplePack(e, btn);
+                selectEfootballPack(btn);
+            });
+        });
+
+        efootballUidInput.addEventListener('input', () => { savedEfootballUid = efootballUidInput.value; });
+        efootballWhatsappInput.addEventListener('input', () => { savedEfootballWhatsapp = efootballWhatsappInput.value; });
+
+        if (efootballPackBtns.length) {
+            setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
+        }
+
+        document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
+            createRippleBtn(e, e.target);
+            const uid = efootballUidInput.value.trim();
+            const whatsapp = efootballWhatsappInput.value.trim();
+
+            if (!selectedEfootballPack) {
+                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                return;
+            }
+            if (!uid) {
+                alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                return;
+            }
+            if (!whatsapp) {
+                alert('⚠️ يرجى إدخال رقم واتساب.');
+                return;
+            }
+
+            const btn = e.target;
+            btn.textContent = 'جاري المعالجة...';
+            btn.style.opacity = '0.7';
+
+            setTimeout(() => {
+                alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                btn.textContent = 'شراء الآن';
+                btn.style.opacity = '1';
+                openWhatsApp();
+            }, 500);
+        });
+
+        // ========================
+        // 14. باقات Clash of Clans
         // ========================
         const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
         const cocShippingForm = document.getElementById('cocShippingForm');
@@ -1317,26 +2895,15 @@
             });
         });
 
-        cocSupercellInput.addEventListener('input', () => {
-            savedCocSupercell = cocSupercellInput.value;
-        });
-
-        cocWhatsappInput.addEventListener('input', () => {
-            savedCocWhatsapp = cocWhatsappInput.value;
-        });
+        cocSupercellInput.addEventListener('input', () => { savedCocSupercell = cocSupercellInput.value; });
+        cocWhatsappInput.addEventListener('input', () => { savedCocWhatsapp = cocWhatsappInput.value; });
 
         if (cocPackBtns.length) {
-            setTimeout(() => {
-                selectCocPack(cocPackBtns[0]);
-            }, 100);
+            setTimeout(() => { selectCocPack(cocPackBtns[0]); }, 100);
         }
 
-        // ========================
-        // 9. زر شراء Clash of Clans
-        // ========================
         document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
-
             const supercell = cocSupercellInput.value.trim();
             const whatsapp = cocWhatsappInput.value.trim();
 
@@ -1366,14 +2933,13 @@
         });
 
         // ========================
-        // 10. زر بدء المحادثة (الدعم)
+        // 15. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
         if (startChatBtn) {
             startChatBtn.addEventListener('click', (e) => {
                 createRippleBtn(e, startChatBtn);
-
                 const card = startChatBtn.closest('.support-card');
                 card.style.transition = 'all 0.25s ease';
                 card.style.opacity = '0.7';
@@ -1390,7 +2956,7 @@
         }
 
         // ========================
-        // 11. الأسئلة الشائعة (Accordion)
+        // 16. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -1428,23 +2994,62 @@
         });
 
         // ========================
-        // 12. منع إعادة التحميل
+        // 17. Modal للمساعدة في Mobile Legends
+        // ========================
+        const modalOverlay = document.getElementById('mlHelpModal');
+        const modalCloseBtn = document.getElementById('mlModalCloseBtn');
+        const helpBtn = document.getElementById('mlHelpBtn');
+
+        function openModal() {
+            modalOverlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            modalOverlay.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        helpBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            openModal();
+        });
+
+        modalCloseBtn.addEventListener('click', closeModal);
+
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                closeModal();
+            }
+        });
+
+        // ========================
+        // 18. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
                 if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
-                    b.closest('.coc-pack-btn') ||
-                    b.id === 'startChatBtn' || b.id === 'cocBuyNowBtn') {
+                    b.closest('.pack-btn') || b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
+                    b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
+                    b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
+                    b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
+                    b.id === 'showMorePacksBtn' || b.id === 'showMoreMlPacksBtn' ||
+                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn') {
                     e.preventDefault();
                 }
             });
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إضافة صفحة Clash of Clans مع تصميم البطاقات الطويلة (Portrait).');
-        console.log('✅ الباقات: 80, 500, 1,200, 2,500, 6,500, 14,000 جوهرة.');
-        console.log('✅ التأثير: تغيير لون الإطار والنص فقط مع خلفية زرقاء فاتحة.');
+        console.log('✅ جميع صفحات الألعاب موجودة: PUBG, Call of Duty, Mobile Legends, eFootball, Clash of Clans.');
+        console.log('✅ تم إضافة صفحة Clash of Clans بتصميم البطاقات الطويلة (Portrait).');
     </script>
 
 </body>
-</html>
+    </html>
