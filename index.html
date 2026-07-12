@@ -288,7 +288,7 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE - NEW DESIGN ===== */
+        /* ===== PUBG PAGE ===== */
         /* ============================================ */
 
         .pubg-header {
@@ -382,7 +382,6 @@
             transition: color 0.25s ease;
         }
 
-        /* ===== SELECTED STATE ===== */
         .pack-btn.selected {
             border-color: #1A73E8;
             background: #e8f0fe;
@@ -412,8 +411,14 @@
             border-radius: 24px;
             padding: 24px 20px;
             margin-top: 20px;
-            animation: fadeUp 0.3s ease;
             transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .shipping-form.hidden {
@@ -1656,7 +1661,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile (تم التعديل) -->
+    <!-- صفحة PUBG Mobile (مع Smooth Scroll) -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
@@ -2258,38 +2263,64 @@
         }, 100);
 
         // ========================
-        // 7. باقات PUBG (بالتصميم الجديد)
+        // 7. باقات PUBG (مع Smooth Scroll)
         // ========================
         const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
+        const gameIdInput = document.getElementById('gameIdInput');
+        const whatsappInput = document.getElementById('whatsappInput');
         let selectedPack = null;
         let selectedPrice = null;
+
+        // دالة التمرير السلس إلى قسم بيانات الشحن
+        function scrollToShippingForm() {
+            shippingForm.classList.remove('hidden');
+            // ننتظر 50ms ثم نضيف الكلاس visible للظهور المتحرك
+            setTimeout(() => {
+                shippingForm.classList.add('visible');
+            }, 50);
+
+            // التمرير السلس إلى القسم
+            shippingForm.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start',
+                inline: 'nearest'
+            });
+
+            // التركيز على أول حقل إدخال بعد 400ms (بعد انتهاء التمرير)
+            setTimeout(() => {
+                gameIdInput.focus();
+            }, 400);
+        }
 
         packBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
                 createRipplePack(e, btn);
 
+                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
 
+                // تحديث الباقة المختارة (الحفاظ على البيانات الموجودة)
                 selectedPack = btn.dataset.uc;
                 selectedPrice = btn.dataset.price;
 
-                shippingForm.classList.remove('hidden');
-                shippingForm.style.opacity = '0';
-                shippingForm.style.transform = 'translateY(8px)';
-                setTimeout(() => {
-                    shippingForm.style.opacity = '1';
-                    shippingForm.style.transform = 'translateY(0)';
-                }, 50);
+                // إذا كانت البيانات موجودة مسبقاً، لا نمسحها
+                // فقط نعرض القسم إذا كان مخفياً
+                if (shippingForm.classList.contains('hidden')) {
+                    scrollToShippingForm();
+                }
             });
         });
 
+        // ========================
+        // 8. زر الشراء
+        // ========================
         document.getElementById('buyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
 
-            const gameId = document.getElementById('gameIdInput').value.trim();
-            const whatsapp = document.getElementById('whatsappInput').value.trim();
+            const gameId = gameIdInput.value.trim();
+            const whatsapp = whatsappInput.value.trim();
 
             if (!selectedPack) {
                 alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
@@ -2316,24 +2347,27 @@
             }, 500);
         });
 
-        // تحديد أول باقة افتراضياً
+        // ========================
+        // 9. تحديد أول باقة افتراضياً
+        // ========================
         if (packBtns.length) {
             setTimeout(() => {
                 packBtns[0].classList.add('selected');
                 selectedPack = packBtns[0].dataset.uc;
                 selectedPrice = packBtns[0].dataset.price;
+                // إظهار القسم مع تأثير
                 shippingForm.classList.remove('hidden');
-                shippingForm.style.opacity = '0';
-                shippingForm.style.transform = 'translateY(8px)';
                 setTimeout(() => {
-                    shippingForm.style.opacity = '1';
-                    shippingForm.style.transform = 'translateY(0)';
+                    shippingForm.classList.add('visible');
                 }, 50);
-            }, 100);
+                setTimeout(() => {
+                    gameIdInput.focus();
+                }, 100);
+            }, 200);
         }
 
         // ========================
-        // 8. باقات Call of Duty
+        // 10. باقات Call of Duty
         // ========================
         const codPackBtns = document.querySelectorAll('.cod-pack-btn');
         const codShippingForm = document.getElementById('codShippingForm');
@@ -2370,7 +2404,7 @@
         }
 
         // ========================
-        // 9. زر "عرض جميع الباقات" لـ COD
+        // 11. زر "عرض جميع الباقات" لـ COD
         // ========================
         const showMoreBtn = document.getElementById('showMorePacksBtn');
         const extraPacks = document.getElementById('codExtraPacks');
@@ -2393,7 +2427,7 @@
         });
 
         // ========================
-        // 10. زر شراء COD
+        // 12. زر شراء COD
         // ========================
         document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
@@ -2427,7 +2461,7 @@
         });
 
         // ========================
-        // 11. باقات Mobile Legends
+        // 13. باقات Mobile Legends
         // ========================
         const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
         const mlShippingForm = document.getElementById('mlShippingForm');
@@ -2464,7 +2498,7 @@
         }
 
         // ========================
-        // 12. زر "عرض جميع الباقات" لـ ML
+        // 14. زر "عرض جميع الباقات" لـ ML
         // ========================
         const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
         const mlExtraPacks = document.getElementById('mlExtraPacks');
@@ -2487,7 +2521,7 @@
         });
 
         // ========================
-        // 13. زر شراء ML
+        // 15. زر شراء ML
         // ========================
         document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
@@ -2521,7 +2555,7 @@
         });
 
         // ========================
-        // 14. باقات eFootball
+        // 16. باقات eFootball
         // ========================
         const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
         const efootballShippingForm = document.getElementById('efootballShippingForm');
@@ -2558,7 +2592,7 @@
         }
 
         // ========================
-        // 15. زر شراء eFootball
+        // 17. زر شراء eFootball
         // ========================
         document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
             createRippleBtn(e, e.target);
@@ -2592,7 +2626,7 @@
         });
 
         // ========================
-        // 16. زر بدء المحادثة (الدعم)
+        // 18. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -2616,7 +2650,7 @@
         }
 
         // ========================
-        // 17. الأسئلة الشائعة (Accordion)
+        // 19. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -2654,7 +2688,7 @@
         });
 
         // ========================
-        // 18. Modal للمساعدة في Mobile Legends
+        // 20. Modal للمساعدة في Mobile Legends
         // ========================
         const modalOverlay = document.getElementById('mlHelpModal');
         const modalCloseBtn = document.getElementById('mlModalCloseBtn');
@@ -2690,7 +2724,7 @@
         });
 
         // ========================
-        // 19. منع إعادة التحميل
+        // 21. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -2707,7 +2741,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تحديث تصميم باقات PUBG: 12 باقة مرتبة تصاعدياً، 4 أعمدة، مع لون المتجر الأزرق عند التحديد.');
+        console.log('✅ تم إضافة Smooth Scroll إلى قسم بيانات الشحن مع Auto Focus.');
+        console.log('✅ الحفاظ على البيانات المدخلة عند تغيير الباقة.');
     </script>
 
 </body>
