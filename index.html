@@ -1739,7 +1739,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty -->
+    <!-- صفحة Call of Duty (مع التمرير المحسّن) -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1809,7 +1809,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends -->
+    <!-- صفحة Mobile Legends (مع التمرير المحسّن) -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -1947,7 +1947,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة eFootball -->
+    <!-- صفحة eFootball (مع التمرير المحسّن) -->
     <!-- ============================================ -->
     <div id="page-efootball" class="page">
         <div class="efootball-header">
@@ -2799,8 +2799,13 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إصلاح خطأ focus: الآن يتم تنفيذ focus() فقط بعد انتهاء التمرير (600ms).');
-        console.log('✅ لوحة المفاتيح تظهر بعد استقرار الصفحة، وليس أثناء التمرير.');
+        console.log('✅ تم تطبيق التمرير المحسّن مع تأخير focus على جميع صفحات الألعاب:');
+        console.log('   - PUBG Mobile');
+        console.log('   - Call of Duty');
+        console.log('   - Mobile Legends');
+        console.log('   - eFootball');
+        console.log('✅ focus() يتم بعد 600ms من بدء التمرير (400ms تمرير + 200ms تأخير).');
+        console.log('✅ لوحة المفاتيح تظهر بعد استقرار الصفحة.');
     </script>
 
 </body>
