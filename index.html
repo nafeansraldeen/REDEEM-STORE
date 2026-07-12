@@ -347,15 +347,15 @@
             }
         }
 
-        /* ===== NEW PACK CARD ===== */
+        /* ===== NEW PACK CARD - بدون Scale ===== */
         .pack-btn {
             background: #FFFFFF;
-            border: 1.5px solid #e8eaed;
+            border: 2px solid #e8eaed;
             border-radius: 18px;
             padding: 20px 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
@@ -368,7 +368,7 @@
         }
 
         .pack-btn:active {
-            transform: scale(0.97);
+            transform: none;  /* ← إزالة Scale */
         }
 
         .pack-btn .uc-amount {
@@ -392,8 +392,8 @@
         /* ===== SELECTED STATE ===== */
         .pack-btn.selected {
             border-color: #1A73E8;
-            border-width: 2.5px;
-            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.15);
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);  /* ← توهج خفيف جدًا */
             background: #FFFFFF;
         }
 
@@ -1672,7 +1672,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile (بتصميم البطاقات الجديد) -->
+    <!-- صفحة PUBG Mobile (بتأثير التحديد الجديد) -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
@@ -1683,7 +1683,7 @@
             </div>
         </div>
 
-        <!-- الباقات - تصميم جديد -->
+        <!-- الباقات -->
         <div class="packs-grid" id="packsGrid">
             <button class="pack-btn" data-uc="60" data-price="0.93">
                 <span class="uc-amount">60UC</span>
@@ -2274,7 +2274,7 @@
         }, 100);
 
         // ========================
-        // 7. باقات PUBG (بتصميم جديد + Smooth Scroll)
+        // 7. باقات PUBG (تأثير التحديد الجديد)
         // ========================
         const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
@@ -2307,9 +2307,14 @@
 
         packBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
+                // إزالة الـ Ripple القديم (إذا كان موجوداً)
+                const oldRipple = btn.querySelector('.ripple-pack');
+                if (oldRipple) oldRipple.remove();
 
+                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
+
+                // تحديد البطاقة الجديدة
                 btn.classList.add('selected');
 
                 selectedPack = btn.dataset.uc;
@@ -2761,8 +2766,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إعادة تصميم بطاقات PUBG: 2 أعمدة على الجوال، تصميم حديث ونظيف.');
-        console.log('✅ Smooth Scroll + Auto Focus + الحفاظ على البيانات المدخلة.');
+        console.log('✅ تأثير التحديد الجديد: فقط تغيير لون الإطار والنص، بدون أي حركة للبطاقة.');
+        console.log('✅ توهج خفيف جداً بلون الهوية عند التحديد.');
     </script>
 
 </body>
