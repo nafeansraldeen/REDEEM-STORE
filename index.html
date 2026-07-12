@@ -288,7 +288,7 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE ===== */
+        /* ===== PUBG PAGE - NEW CARD DESIGN ===== */
         /* ============================================ */
 
         .pubg-header {
@@ -325,40 +325,46 @@
             font-weight: 400;
         }
 
-        /* ===== PUBG PACKS GRID (4 Columns) ===== */
+        /* ===== NEW PUBG PACKS GRID (2 Columns on mobile) ===== */
         .packs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
+            gap: 14px;
             margin: 16px 0 20px;
         }
 
         @media (min-width: 500px) {
             .packs-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 14px;
+                gap: 16px;
             }
         }
 
         @media (min-width: 768px) {
             .packs-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
+                gap: 18px;
             }
         }
 
-        /* ===== PUBG PACK BUTTON ===== */
+        /* ===== NEW PACK CARD ===== */
         .pack-btn {
             background: #FFFFFF;
-            border: 1.5px solid #e8e8e8;
-            border-radius: 14px;
-            padding: 16px 8px 14px;
+            border: 1.5px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .pack-btn:active {
@@ -367,25 +373,28 @@
 
         .pack-btn .uc-amount {
             display: block;
-            font-size: 18px;
+            font-size: 22px;
             font-weight: 800;
             color: #1A1A1A;
-            margin-bottom: 4px;
+            line-height: 1.2;
             transition: color 0.25s ease;
         }
 
         .pack-btn .price-amount {
             display: block;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             color: #888;
+            margin-top: 4px;
             transition: color 0.25s ease;
         }
 
+        /* ===== SELECTED STATE ===== */
         .pack-btn.selected {
             border-color: #1A73E8;
-            background: #e8f0fe;
-            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.12);
+            border-width: 2.5px;
+            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.15);
+            background: #FFFFFF;
         }
 
         .pack-btn.selected .uc-amount {
@@ -399,7 +408,7 @@
         .pack-btn .ripple-pack {
             position: absolute;
             border-radius: 50%;
-            background: rgba(26, 115, 232, 0.12);
+            background: rgba(26, 115, 232, 0.08);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -1362,16 +1371,18 @@
                 font-size: 20px;
             }
             .packs-grid {
-                gap: 8px;
+                gap: 10px;
             }
             .pack-btn {
-                padding: 12px 6px;
+                padding: 16px 10px;
+                min-height: 85px;
+                border-radius: 14px;
             }
             .pack-btn .uc-amount {
-                font-size: 16px;
+                font-size: 18px;
             }
             .pack-btn .price-amount {
-                font-size: 12px;
+                font-size: 13px;
             }
             .cod-header {
                 padding: 14px 16px;
@@ -1661,7 +1672,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile (مع Smooth Scroll) -->
+    <!-- صفحة PUBG Mobile (بتصميم البطاقات الجديد) -->
     <!-- ============================================ -->
     <div id="page-pubg" class="page">
         <div class="pubg-header">
@@ -1672,7 +1683,7 @@
             </div>
         </div>
 
-        <!-- الباقات مرتبة تصاعدياً - 4 أعمدة -->
+        <!-- الباقات - تصميم جديد -->
         <div class="packs-grid" id="packsGrid">
             <button class="pack-btn" data-uc="60" data-price="0.93">
                 <span class="uc-amount">60UC</span>
@@ -2263,7 +2274,7 @@
         }, 100);
 
         // ========================
-        // 7. باقات PUBG (مع Smooth Scroll)
+        // 7. باقات PUBG (بتصميم جديد + Smooth Scroll)
         // ========================
         const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
@@ -2272,22 +2283,23 @@
         let selectedPack = null;
         let selectedPrice = null;
 
+        // حفظ البيانات المدخلة
+        let savedGameId = '';
+        let savedWhatsapp = '';
+
         // دالة التمرير السلس إلى قسم بيانات الشحن
         function scrollToShippingForm() {
             shippingForm.classList.remove('hidden');
-            // ننتظر 50ms ثم نضيف الكلاس visible للظهور المتحرك
             setTimeout(() => {
                 shippingForm.classList.add('visible');
             }, 50);
 
-            // التمرير السلس إلى القسم
             shippingForm.scrollIntoView({
                 behavior: 'smooth',
                 block: 'start',
                 inline: 'nearest'
             });
 
-            // التركيز على أول حقل إدخال بعد 400ms (بعد انتهاء التمرير)
             setTimeout(() => {
                 gameIdInput.focus();
             }, 400);
@@ -2297,20 +2309,29 @@
             btn.addEventListener('click', (e) => {
                 createRipplePack(e, btn);
 
-                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
 
-                // تحديث الباقة المختارة (الحفاظ على البيانات الموجودة)
                 selectedPack = btn.dataset.uc;
                 selectedPrice = btn.dataset.price;
 
-                // إذا كانت البيانات موجودة مسبقاً، لا نمسحها
-                // فقط نعرض القسم إذا كان مخفياً
+                // استعادة البيانات المدخلة (إذا كانت موجودة)
+                if (savedGameId) gameIdInput.value = savedGameId;
+                if (savedWhatsapp) whatsappInput.value = savedWhatsapp;
+
                 if (shippingForm.classList.contains('hidden')) {
                     scrollToShippingForm();
                 }
             });
+        });
+
+        // حفظ البيانات عند تغيير الحقول
+        gameIdInput.addEventListener('input', () => {
+            savedGameId = gameIdInput.value;
+        });
+
+        whatsappInput.addEventListener('input', () => {
+            savedWhatsapp = whatsappInput.value;
         });
 
         // ========================
@@ -2355,7 +2376,6 @@
                 packBtns[0].classList.add('selected');
                 selectedPack = packBtns[0].dataset.uc;
                 selectedPrice = packBtns[0].dataset.price;
-                // إظهار القسم مع تأثير
                 shippingForm.classList.remove('hidden');
                 setTimeout(() => {
                     shippingForm.classList.add('visible');
@@ -2741,8 +2761,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إضافة Smooth Scroll إلى قسم بيانات الشحن مع Auto Focus.');
-        console.log('✅ الحفاظ على البيانات المدخلة عند تغيير الباقة.');
+        console.log('✅ تم إعادة تصميم بطاقات PUBG: 2 أعمدة على الجوال، تصميم حديث ونظيف.');
+        console.log('✅ Smooth Scroll + Auto Focus + الحفاظ على البيانات المدخلة.');
     </script>
 
 </body>
