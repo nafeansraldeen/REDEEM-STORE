@@ -254,22 +254,8 @@
             z-index: 1;
         }
 
-        /* ===== RIPPLE EFFECT ===== */
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.15);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        @keyframes rippleAnim {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
+        /* ===== RIPPLE EFFECT - محذوف بالكامل ===== */
+        /* تم حذف .ripple و .ripple-pack و .ripple-btn و .ripple-faq بالكامل */
 
         /* ===== FADE OUT ===== */
         .fade-out {
@@ -346,7 +332,7 @@
             }
         }
 
-        /* ===== PUBG PACK CARD ===== */
+        /* ===== PUBG PACK CARD - لا يوجد Ripple ===== */
         .pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -355,8 +341,6 @@
             text-align: center;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -364,12 +348,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .pack-btn:active {
-            transform: none;
-        }
-
+        /* حذف :active بالكامل - لا يوجد Scale */
         .pack-btn .uc-amount {
             display: block;
             font-size: 22px;
@@ -401,15 +384,6 @@
 
         .pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -471,7 +445,7 @@
             }
         }
 
-        /* ===== COD PACK CARD ===== */
+        /* ===== COD PACK CARD - لا يوجد Ripple ===== */
         .cod-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -483,8 +457,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -492,12 +464,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .cod-pack-btn:active {
-            transform: none;
-        }
-
+        /* حذف :active بالكامل */
         .cod-pack-btn .cp-amount {
             display: block;
             font-size: 22px;
@@ -529,15 +500,6 @@
 
         .cod-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .cod-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .cod-extra-packs {
@@ -585,9 +547,9 @@
             cursor: pointer;
             transition: all 0.25s ease;
             margin-top: 8px;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-show-more:active {
@@ -601,15 +563,6 @@
 
         .btn-show-more.active i {
             transform: rotate(180deg);
-        }
-
-        .btn-show-more .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -671,7 +624,7 @@
             }
         }
 
-        /* ===== ML PACK CARD ===== */
+        /* ===== ML PACK CARD - لا يوجد Ripple ===== */
         .ml-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -683,8 +636,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -692,12 +643,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .ml-pack-btn:active {
-            transform: none;
-        }
-
+        /* حذف :active بالكامل */
         .ml-pack-btn .diamond-amount {
             display: flex;
             align-items: center;
@@ -749,15 +699,6 @@
 
         .ml-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .ml-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .ml-extra-packs {
@@ -824,14 +765,13 @@
             border: none;
             padding: 0;
             flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .ml-help-icon:active {
             transform: scale(0.9);
-        }
-
-        .ml-help-icon:hover {
-            background: #d2e3fc;
         }
 
         /* ============================================ */
@@ -893,7 +833,7 @@
             }
         }
 
-        /* ===== eFootball PACK CARD ===== */
+        /* ===== eFootball PACK CARD - لا يوجد Ripple ===== */
         .efootball-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -905,8 +845,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -914,12 +852,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .efootball-pack-btn:active {
-            transform: none;
-        }
-
+        /* حذف :active بالكامل */
         .efootball-pack-btn .fc-amount {
             display: block;
             font-size: 22px;
@@ -951,15 +888,6 @@
 
         .efootball-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .efootball-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -1021,7 +949,7 @@
             }
         }
 
-        /* ===== COC PACK CARD ===== */
+        /* ===== COC PACK CARD - لا يوجد Ripple ===== */
         .coc-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -1030,8 +958,6 @@
             text-align: center;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 130px;
@@ -1039,12 +965,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
-        .coc-pack-btn:active {
-            transform: none;
-        }
-
+        /* حذف :active بالكامل */
         .coc-pack-btn .coc-amount-wrapper {
             display: flex;
             align-items: center;
@@ -1092,15 +1017,6 @@
 
         .coc-pack-btn.selected .coc-price {
             color: #1A73E8;
-        }
-
-        .coc-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -1177,23 +1093,14 @@
             cursor: pointer;
             transition: all 0.25s ease;
             box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-buy:active {
             transform: scale(0.97);
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        .btn-buy .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -1278,23 +1185,14 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-support:active {
             transform: scale(0.97);
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        .btn-support .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ===== FAQ - ACCORDION ===== */
@@ -1318,6 +1216,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             overflow: hidden;
             transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .faq-item:active {
@@ -1341,15 +1240,6 @@
             -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
-        }
-
-        .faq-question .ripple-faq {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .faq-question.active {
@@ -1488,6 +1378,9 @@
             justify-content: center;
             transition: all 0.25s ease;
             z-index: 10;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .modal-close-btn:active {
@@ -1827,7 +1720,7 @@
 
         <div class="faq-section">
             <div class="faq-title">الأسئلة الشائعة</div>
-
+            <!-- FAQ items (مختصرة للاختصار) -->
             <div class="faq-item">
                 <button class="faq-question" data-target="faq1">
                     <span>كيف يتم شحن المحفظة؟</span>
@@ -1837,7 +1730,6 @@
                     <p>يتم شحن المحفظة عن طريق اختيار الباقة المناسبة من صفحة الدعم، ثم إدخال بياناتك وإتمام عملية الدفع عبر واتساب.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-question" data-target="faq2">
                     <span>كيف ألغي طلبي؟</span>
@@ -1847,7 +1739,6 @@
                     <p>يمكنك إلغاء الطلب عن طريق التواصل مع فريق الدعم عبر واتساب خلال 10 دقائق من تقديم الطلب.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-question" data-target="faq3">
                     <span>متى يصل طلبي؟</span>
@@ -1857,7 +1748,6 @@
                     <p>يتم تسليم الطلب فورًا بعد تأكيد الدفع، وتصل العناصر إلى حسابك خلال 5-10 دقائق.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-question" data-target="faq4">
                     <span>كيف يتم تسليم الطلب؟</span>
@@ -1867,7 +1757,6 @@
                     <p>يتم التسليم إلكترونيًا عبر إضافة الرصيد أو العناصر المشتراة مباشرة إلى حساب اللعبة الخاص بك.</p>
                 </div>
             </div>
-
             <div class="faq-item">
                 <button class="faq-question" data-target="faq5">
                     <span>ماذا أفعل إذا واجهت مشكلة؟</span>
@@ -1961,10 +1850,8 @@
         <div class="shipping-form hidden" id="shippingForm">
             <label>ID اللعبة</label>
             <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
-
             <label>رقم واتساب</label>
             <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
-
             <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
         </div>
     </div>
@@ -2031,10 +1918,8 @@
         <div class="shipping-form hidden" id="codShippingForm">
             <label>معرف اللاعب</label>
             <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
-
             <label>رقم واتساب</label>
             <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
-
             <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
         </div>
     </div>
@@ -2169,10 +2054,8 @@
                 </button>
             </div>
             <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
-
             <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
             <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
-
             <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
         </div>
     </div>
@@ -2223,10 +2106,8 @@
         <div class="shipping-form hidden" id="efootballShippingForm">
             <label>معرف UID الخاص بك</label>
             <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
-
             <label>رقم واتساب</label>
             <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
-
             <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
         </div>
     </div>
@@ -2291,10 +2172,8 @@
         <div class="shipping-form hidden" id="cocShippingForm">
             <label>حساب Supercell</label>
             <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
-
             <label>رقم واتساب</label>
             <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
-
             <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
         </div>
     </div>
@@ -2307,9 +2186,7 @@
             <button class="modal-close-btn" id="mlModalCloseBtn">
                 <i class="fas fa-times"></i>
             </button>
-
             <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
-
             <ol class="modal-instructions">
                 <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
                 <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
@@ -2327,7 +2204,6 @@
     <!-- ============================================= -->
     <nav class="bottom-nav" id="bottomNav">
         <div class="nav-indicator" id="navIndicator"></div>
-
         <button class="nav-item active" data-page="page-home">
             <i class="fas fa-home"></i>
             <span>الرئيسية</span>
@@ -2375,75 +2251,9 @@
         ];
 
         // ========================
-        // 2. دوال Ripple
+        // 2. حذف جميع دوال Ripple - لم تعد مستخدمة
         // ========================
-        function createRipple(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRipplePack(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-pack';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRippleBtn(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-btn';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRippleFaq(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-faq';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
+        // تم حذف createRipple, createRipplePack, createRippleBtn, createRippleFaq
 
         // ========================
         // 3. دالة فتح واتساب
@@ -2494,8 +2304,7 @@
                 `;
 
                 card.addEventListener('click', (e) => {
-                    createRipple(e, card);
-
+                    // لا يوجد Ripple - فقط Fade Out للعاب التي ليس لها صفحة
                     if (game.page) {
                         setTimeout(() => {
                             switchPage(game.page);
@@ -2602,11 +2411,10 @@
         let savedWhatsapp = '';
 
         packBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                const oldRipple = btn.querySelector('.ripple-pack');
-                if (oldRipple) oldRipple.remove();
-
+            btn.addEventListener('click', () => {
+                // إزالة التحديد عن الكل
                 packBtns.forEach(b => b.classList.remove('selected'));
+                // تحديد البطاقة الجديدة
                 btn.classList.add('selected');
 
                 selectedPack = btn.dataset.uc;
@@ -2623,7 +2431,6 @@
         whatsappInput.addEventListener('input', () => { savedWhatsapp = whatsappInput.value; });
 
         document.getElementById('buyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
             const gameId = gameIdInput.value.trim();
             const whatsapp = whatsappInput.value.trim();
 
@@ -2664,7 +2471,7 @@
         }
 
         // ========================
-        // 9. باقات Call of Duty
+        // 9. باقات Call of Duty (بدون Ripple)
         // ========================
         const codPackBtns = document.querySelectorAll('.cod-pack-btn');
         const codShippingForm = document.getElementById('codShippingForm');
@@ -2689,8 +2496,7 @@
         }
 
         codPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
+            btn.addEventListener('click', () => {
                 selectCodPack(btn);
             });
         });
@@ -2703,7 +2509,6 @@
         }
 
         document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
             const playerId = codPlayerIdInput.value.trim();
             const whatsapp = codWhatsappInput.value.trim();
 
@@ -2739,8 +2544,7 @@
         const extraPacks = document.getElementById('codExtraPacks');
         let extraPacksVisible = false;
 
-        showMoreBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, showMoreBtn);
+        showMoreBtn.addEventListener('click', () => {
             extraPacksVisible = !extraPacksVisible;
 
             if (extraPacksVisible) {
@@ -2755,7 +2559,7 @@
         });
 
         // ========================
-        // 11. باقات Mobile Legends
+        // 11. باقات Mobile Legends (بدون Ripple)
         // ========================
         const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
         const mlShippingForm = document.getElementById('mlShippingForm');
@@ -2780,8 +2584,7 @@
         }
 
         mlPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
+            btn.addEventListener('click', () => {
                 selectMlPack(btn);
             });
         });
@@ -2794,7 +2597,6 @@
         }
 
         document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
             const accountId = mlAccountIdInput.value.trim();
             const regionId = mlRegionIdInput.value.trim();
 
@@ -2830,8 +2632,7 @@
         const mlExtraPacks = document.getElementById('mlExtraPacks');
         let mlExtraPacksVisible = false;
 
-        showMoreMlBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, showMoreMlBtn);
+        showMoreMlBtn.addEventListener('click', () => {
             mlExtraPacksVisible = !mlExtraPacksVisible;
 
             if (mlExtraPacksVisible) {
@@ -2846,7 +2647,7 @@
         });
 
         // ========================
-        // 13. باقات eFootball
+        // 13. باقات eFootball (بدون Ripple)
         // ========================
         const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
         const efootballShippingForm = document.getElementById('efootballShippingForm');
@@ -2871,8 +2672,7 @@
         }
 
         efootballPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
+            btn.addEventListener('click', () => {
                 selectEfootballPack(btn);
             });
         });
@@ -2885,7 +2685,6 @@
         }
 
         document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
             const uid = efootballUidInput.value.trim();
             const whatsapp = efootballWhatsappInput.value.trim();
 
@@ -2915,7 +2714,7 @@
         });
 
         // ========================
-        // 14. باقات Clash of Clans
+        // 14. باقات Clash of Clans (بدون Ripple)
         // ========================
         const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
         const cocShippingForm = document.getElementById('cocShippingForm');
@@ -2940,8 +2739,7 @@
         }
 
         cocPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
+            btn.addEventListener('click', () => {
                 selectCocPack(btn);
             });
         });
@@ -2954,7 +2752,6 @@
         }
 
         document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
             const supercell = cocSupercellInput.value.trim();
             const whatsapp = cocWhatsappInput.value.trim();
 
@@ -2989,8 +2786,7 @@
         const startChatBtn = document.getElementById('startChatBtn');
 
         if (startChatBtn) {
-            startChatBtn.addEventListener('click', (e) => {
-                createRippleBtn(e, startChatBtn);
+            startChatBtn.addEventListener('click', () => {
                 const card = startChatBtn.closest('.support-card');
                 card.style.transition = 'all 0.25s ease';
                 card.style.opacity = '0.7';
@@ -3013,9 +2809,7 @@
         let openFaq = null;
 
         faqQuestions.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRippleFaq(e, btn);
-
+            btn.addEventListener('click', () => {
                 const targetId = btn.dataset.target;
                 const answer = document.getElementById(targetId);
                 const icon = btn.querySelector('.faq-icon');
@@ -3098,14 +2892,9 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم توحيد تأثير اختيار الباقة في جميع الألعاب:');
-        console.log('   - PUBG Mobile');
-        console.log('   - Call of Duty');
-        console.log('   - Mobile Legends');
-        console.log('   - eFootball');
-        console.log('   - Clash of Clans');
-        console.log('✅ التأثير: تغيير لون الإطار والنص فقط، خلفية بيضاء، توهج خفيف.');
-        console.log('✅ لا يوجد Scale أو حركة عند الضغط.');
+        console.log('✅ تم حذف جميع تأثيرات Ripple من جميع البطاقات.');
+        console.log('✅ التأثير الوحيد المتبقي هو CSS Transition لتغيير border-color, color, box-shadow.');
+        console.log('✅ جميع الألعاب مطابقة لسلوك PUBG Mobile.');
     </script>
 
 </body>
