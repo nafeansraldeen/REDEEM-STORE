@@ -4,22 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>REDEEM STORE</title>
-    <!-- Google Fonts - Cairo -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
         /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Cairo', 'Segoe UI', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            background-color: #F6FEFE;
-            color: #0B2E3A;
+            background-color: #FFFFFF;
+            color: #222;
             padding-bottom: 80px;
             min-height: 100vh;
         }
@@ -32,15 +30,14 @@
             right: 0;
             background: #FFFFFF;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
-            height: 72px;
-            padding: 0 8px;
-            box-shadow: 0 -4px 24px rgba(11, 46, 58, 0.06);
-            border-top: 1px solid rgba(11, 46, 58, 0.04);
-            z-index: 100;
-            backdrop-filter: blur(8px);
-            background: rgba(255, 255, 255, 0.96);
+            height: 70px;
+            padding: 0 4px;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.06);
+            border-top: 1px solid #f0f0f0;
+            z-index: 999;
+            direction: rtl;
         }
 
         .nav-item {
@@ -48,55 +45,66 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 2px;
-            background: none;
-            border: none;
+            font-size: 12px;
+            color: #999;
             cursor: pointer;
-            padding: 4px 12px;
-            font-family: 'Cairo', sans-serif;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.25s ease;
             position: relative;
-            min-width: 56px;
+            padding: 4px 8px;
             text-decoration: none;
+            background: transparent;
+            border: none;
+            min-width: 55px;
+            flex: 1;
+            text-align: center;
         }
 
-        .nav-item:active {
-            transform: scale(0.92);
+        .nav-item:first-child {
+            margin-right: 0;
+        }
+
+        .nav-item:last-child {
+            margin-left: 0;
         }
 
         .nav-item i {
             font-size: 22px;
-            color: #bbb;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            margin-bottom: 2px;
+            transition: all 0.25s ease;
         }
 
         .nav-item span {
+            transition: all 0.25s ease;
+            font-weight: 500;
             font-size: 11px;
-            font-weight: 600;
-            color: #bbb;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-item.active {
+            color: #1A73E8;
         }
 
         .nav-item.active i {
-            color: #16C6C6;
+            transform: translateY(-4px) scale(1.1);
+            color: #1A73E8;
         }
 
         .nav-item.active span {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
-        .nav-item .nav-indicator {
+        .nav-indicator {
             position: absolute;
-            top: -1px;
-            width: 24px;
+            top: 0;
             height: 3px;
-            background: #16C6C6;
+            background: #1A73E8;
             border-radius: 4px;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 30px;
+            left: 0;
             opacity: 0;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .nav-item.active .nav-indicator {
+        .nav-indicator.show {
             opacity: 1;
         }
 
@@ -133,11 +141,11 @@
         }
 
         .store-title .blue {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .store-title .cyan {
-            color: #0F8F9C;
+            color: #00BCD4;
         }
 
         /* ===== CATEGORIES TABS ===== */
@@ -167,11 +175,10 @@
             z-index: 2;
             position: relative;
             letter-spacing: 0.3px;
-            font-family: 'Cairo', sans-serif;
         }
 
         .tab-btn.active {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .tab-slider {
@@ -181,7 +188,7 @@
             right: 0;
             background: #FFFFFF;
             border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(22, 198, 198, 0.15);
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.15);
             transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             z-index: 1;
             width: 25%;
@@ -242,7 +249,7 @@
         .product-card h4 {
             font-size: 14px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             position: relative;
             z-index: 1;
         }
@@ -251,7 +258,7 @@
         .ripple {
             position: absolute;
             border-radius: 50%;
-            background: rgba(22, 198, 198, 0.15);
+            background: rgba(26, 115, 232, 0.15);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -307,7 +314,7 @@
         .pubg-header .game-info h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             letter-spacing: 0.3px;
         }
 
@@ -377,22 +384,22 @@
         }
 
         .pack-btn.selected {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             border-width: 2px;
-            box-shadow: 0 2px 12px rgba(22, 198, 198, 0.12);
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
             background: #FFFFFF;
         }
 
         .pack-btn.selected .uc-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .pack-btn.selected .price-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         /* ============================================ */
-        /* ===== CALL OF DUTY PAGE ===== */
+        /* ===== CALL OF DUTY PAGE - بدون زر عرض الكل ===== */
         /* ============================================ */
 
         .cod-header {
@@ -418,7 +425,7 @@
         .cod-header .game-info h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             letter-spacing: 0.3px;
         }
 
@@ -458,7 +465,7 @@
             text-align: center;
             font-weight: 600;
             font-size: 16px;
-            color: #0B2E3A;
+            color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
@@ -491,22 +498,22 @@
         }
 
         .cod-pack-btn.selected {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             border-width: 2px;
-            box-shadow: 0 2px 12px rgba(22, 198, 198, 0.12);
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
             background: #FFFFFF;
         }
 
         .cod-pack-btn.selected .cp-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .cod-pack-btn.selected .price-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         /* ============================================ */
-        /* ===== MOBILE LEGENDS PAGE ===== */
+        /* ===== MOBILE LEGENDS PAGE - بدون زر عرض الكل ===== */
         /* ============================================ */
 
         .ml-header {
@@ -532,7 +539,7 @@
         .ml-header .game-info h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             letter-spacing: 0.3px;
         }
 
@@ -572,7 +579,7 @@
             text-align: center;
             font-weight: 600;
             font-size: 16px;
-            color: #0B2E3A;
+            color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
@@ -620,23 +627,23 @@
         }
 
         .ml-pack-btn.selected {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             border-width: 2px;
-            box-shadow: 0 2px 12px rgba(22, 198, 198, 0.12);
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
             background: #FFFFFF;
         }
 
         .ml-pack-btn.selected .diamond-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .ml-pack-btn.selected .diamond-amount svg {
-            stroke: #16C6C6;
-            color: #16C6C6;
+            stroke: #1A73E8;
+            color: #1A73E8;
         }
 
         .ml-pack-btn.selected .price-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .ml-form-label {
@@ -662,7 +669,7 @@
             height: 20px;
             border-radius: 50%;
             background: #e8f0fe;
-            color: #16C6C6;
+            color: #1A73E8;
             font-size: 12px;
             font-weight: 700;
             cursor: pointer;
@@ -707,7 +714,7 @@
         .efootball-header .game-info h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             letter-spacing: 0.3px;
         }
 
@@ -747,7 +754,7 @@
             text-align: center;
             font-weight: 600;
             font-size: 16px;
-            color: #0B2E3A;
+            color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
@@ -780,18 +787,18 @@
         }
 
         .efootball-pack-btn.selected {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             border-width: 2px;
-            box-shadow: 0 2px 12px rgba(22, 198, 198, 0.12);
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
             background: #FFFFFF;
         }
 
         .efootball-pack-btn.selected .fc-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .efootball-pack-btn.selected .price-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         /* ============================================ */
@@ -821,7 +828,7 @@
         .coc-header .game-info h2 {
             font-size: 24px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             letter-spacing: 0.3px;
         }
 
@@ -904,22 +911,22 @@
         }
 
         .coc-pack-btn.selected {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             border-width: 2px;
-            box-shadow: 0 2px 12px rgba(22, 198, 198, 0.12);
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
             background-color: #FFFFFF;
         }
 
         .coc-pack-btn.selected .coc-amount {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .coc-pack-btn.selected .coc-icon {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .coc-pack-btn.selected .coc-price {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         /* ============================================ */
@@ -969,7 +976,6 @@
             transition: all 0.25s ease;
             text-align: right;
             direction: rtl;
-            font-family: 'Cairo', sans-serif;
         }
 
         .shipping-form input::placeholder {
@@ -979,15 +985,15 @@
         }
 
         .shipping-form input:focus {
-            border-color: #16C6C6;
+            border-color: #1A73E8;
             outline: none;
-            box-shadow: 0 0 0 4px rgba(22, 198, 198, 0.08);
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
         }
 
         .btn-buy {
             width: 100%;
             padding: 16px 24px;
-            background: linear-gradient(135deg, #16C6C6, #0F8F9C);
+            background: #1A73E8;
             color: #fff;
             border: none;
             border-radius: 50px;
@@ -996,16 +1002,15 @@
             margin-top: 20px;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 6px 20px rgba(22, 198, 198, 0.25);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
-            font-family: 'Cairo', sans-serif;
         }
 
         .btn-buy:active {
             transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(22, 198, 198, 0.15);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
         }
 
         .btn-buy .ripple-btn {
@@ -1029,7 +1034,7 @@
         .support-header h1 {
             font-size: 32px;
             font-weight: 800;
-            color: #16C6C6;
+            color: #1A73E8;
             letter-spacing: 0.5px;
         }
 
@@ -1066,13 +1071,13 @@
 
         .support-card .icon-wrapper i {
             font-size: 32px;
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .support-card h2 {
             font-size: 22px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             margin-bottom: 10px;
         }
 
@@ -1090,7 +1095,7 @@
         .btn-support {
             width: 100%;
             padding: 16px 24px;
-            background: linear-gradient(135deg, #16C6C6, #0F8F9C);
+            background: #1A73E8;
             color: #fff;
             border: none;
             border-radius: 50px;
@@ -1098,16 +1103,15 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s;
-            box-shadow: 0 6px 20px rgba(22, 198, 198, 0.25);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
-            font-family: 'Cairo', sans-serif;
         }
 
         .btn-support:active {
             transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(22, 198, 198, 0.15);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
         }
 
         .btn-support .ripple-btn {
@@ -1127,7 +1131,7 @@
         .faq-section .faq-title {
             font-size: 20px;
             font-weight: 700;
-            color: #0B2E3A;
+            color: #222;
             text-align: center;
             margin-bottom: 20px;
         }
@@ -1158,25 +1162,24 @@
             text-align: right;
             font-size: 15px;
             font-weight: 600;
-            color: #0B2E3A;
+            color: #222;
             transition: all 0.25s ease;
             -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
-            font-family: 'Cairo', sans-serif;
         }
 
         .faq-question .ripple-faq {
             position: absolute;
             border-radius: 50%;
-            background: rgba(22, 198, 198, 0.08);
+            background: rgba(26, 115, 232, 0.08);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
         }
 
         .faq-question.active {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .faq-question .faq-icon {
@@ -1188,7 +1191,7 @@
         }
 
         .faq-question.active .faq-icon {
-            color: #16C6C6;
+            color: #1A73E8;
             transform: rotate(180deg);
         }
 
@@ -1228,368 +1231,11 @@
         }
 
         .support-footer i {
-            color: #16C6C6;
+            color: #1A73E8;
             margin: 0 4px;
         }
 
-        /* ============================================ */
-        /* ===== WALLET PAGE - مع البطاقة الجديدة ===== */
-        /* ============================================ */
-
-        .wallet-header {
-            padding: 10px 0 6px;
-        }
-
-        .wallet-header h1 {
-            font-size: 24px;
-            font-weight: 800;
-            color: #0B2E3A;
-        }
-
-        .wallet-header h1 span {
-            color: #16C6C6;
-        }
-
-        .wallet-header p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 4px;
-            font-weight: 400;
-        }
-
-        /* ===== البطاقة الجديدة - مطابقة للصورة ===== */
-        .balance-card-wallet {
-            background: linear-gradient(145deg, #0B2E3A, #143A4A);
-            border-radius: 20px;
-            padding: 24px 20px 20px;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(11, 46, 58, 0.20);
-            margin-bottom: 20px;
-        }
-
-        .balance-card-wallet::before {
-            content: '';
-            position: absolute;
-            top: -40%;
-            right: -20%;
-            width: 180px;
-            height: 180px;
-            background: radial-gradient(circle, rgba(22, 198, 198, 0.10), transparent 70%);
-            border-radius: 50%;
-        }
-
-        .balance-label-wallet {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 14px;
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-        }
-
-        .balance-amount-wallet {
-            font-size: 36px;
-            font-weight: 900;
-            color: white;
-            line-height: 1.2;
-            position: relative;
-            z-index: 2;
-            margin-top: 4px;
-        }
-
-        .balance-amount-wallet .currency {
-            font-size: 24px;
-            font-weight: 700;
-            color: rgba(255, 255, 255, 0.4);
-            margin-left: 4px;
-        }
-
-        .balance-sub-wallet {
-            color: rgba(255, 255, 255, 0.35);
-            font-size: 13px;
-            font-weight: 400;
-            position: relative;
-            z-index: 2;
-            margin-top: 2px;
-            margin-bottom: 16px;
-        }
-
-        .balance-actions-wallet {
-            display: flex;
-            gap: 12px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .balance-actions-wallet .btn {
-            flex: 1;
-            padding: 12px 16px;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            font-family: 'Cairo', sans-serif;
-        }
-
-        .balance-actions-wallet .btn:active {
-            transform: scale(0.96);
-        }
-
-        .btn-deposit-wallet {
-            background: linear-gradient(135deg, #16C6C6, #0F8F9C);
-            color: white;
-            box-shadow: 0 4px 16px rgba(22, 198, 198, 0.25);
-        }
-
-        .btn-withdraw-wallet {
-            background: rgba(255, 255, 255, 0.08);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.08) !important;
-            backdrop-filter: blur(4px);
-        }
-
-        .wallet-section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #0B2E3A;
-            margin-bottom: 10px;
-        }
-
-        .redeem-card-wallet {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 4px 16px rgba(11, 46, 58, 0.06);
-            margin-bottom: 24px;
-            border: 1px solid rgba(11, 46, 58, 0.04);
-        }
-
-        .redeem-label-wallet {
-            font-size: 13px;
-            font-weight: 600;
-            color: #0B2E3A;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .redeem-input-group-wallet {
-            display: flex;
-            gap: 10px;
-        }
-
-        .redeem-input-group-wallet input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 2px solid rgba(11, 46, 58, 0.08);
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 400;
-            background: #F6FEFE;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-            color: #0B2E3A;
-            direction: ltr;
-            text-align: left;
-        }
-
-        .redeem-input-group-wallet input::placeholder {
-            color: #aaa;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-        .redeem-input-group-wallet input:focus {
-            outline: none;
-            border-color: #16C6C6;
-            box-shadow: 0 0 0 4px rgba(22, 198, 198, 0.08);
-            background: white;
-        }
-
-        .btn-redeem-wallet {
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #16C6C6, #0F8F9C);
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Cairo', sans-serif;
-            white-space: nowrap;
-        }
-
-        .btn-redeem-wallet:active {
-            transform: scale(0.94);
-        }
-
-        .transactions-header-wallet {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-
-        .transactions-header-wallet .wallet-section-title {
-            margin-bottom: 0;
-        }
-
-        .filter-scroll-wallet {
-            display: flex;
-            gap: 8px;
-            overflow-x: auto;
-            padding: 2px 0 12px;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .filter-scroll-wallet::-webkit-scrollbar {
-            display: none;
-        }
-
-        .filter-btn-wallet {
-            padding: 8px 18px;
-            border: none;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            background: #FFFFFF;
-            color: #0B2E3A;
-            box-shadow: 0 2px 8px rgba(11, 46, 58, 0.06);
-            font-family: 'Cairo', sans-serif;
-            white-space: nowrap;
-            border: 1px solid rgba(11, 46, 58, 0.04);
-        }
-
-        .filter-btn-wallet:active {
-            transform: scale(0.94);
-        }
-
-        .filter-btn-wallet.active {
-            background: linear-gradient(135deg, #16C6C6, #0F8F9C);
-            color: white;
-            box-shadow: 0 4px 12px rgba(22, 198, 198, 0.20);
-            border-color: transparent;
-        }
-
-        .transactions-list-wallet {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px 0;
-            box-shadow: 0 4px 16px rgba(11, 46, 58, 0.06);
-            border: 1px solid rgba(11, 46, 58, 0.04);
-            min-height: 140px;
-        }
-
-        .empty-state-wallet {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 30px 20px;
-            color: #aaa;
-        }
-
-        .empty-state-wallet i {
-            font-size: 40px;
-            color: #ddd;
-            margin-bottom: 10px;
-        }
-
-        .empty-state-wallet p {
-            font-size: 14px;
-            font-weight: 400;
-        }
-
-        .transaction-item-wallet {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 12px 16px;
-            border-bottom: 1px solid rgba(11, 46, 58, 0.04);
-            transition: all 0.3s ease;
-        }
-
-        .transaction-item-wallet:last-child {
-            border-bottom: none;
-        }
-
-        .transaction-item-wallet:active {
-            background: rgba(11, 46, 58, 0.02);
-        }
-
-        .transaction-left-wallet {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .transaction-icon-wallet {
-            width: 38px;
-            height: 38px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            flex-shrink: 0;
-        }
-
-        .transaction-icon-wallet.deposit {
-            background: rgba(22, 198, 198, 0.12);
-            color: #16C6C6;
-        }
-
-        .transaction-icon-wallet.withdraw {
-            background: rgba(239, 68, 68, 0.10);
-            color: #EF4444;
-        }
-
-        .transaction-icon-wallet.purchase {
-            background: rgba(110, 243, 232, 0.12);
-            color: #0F8F9C;
-        }
-
-        .transaction-icon-wallet.refund {
-            background: rgba(251, 191, 36, 0.12);
-            color: #F59E0B;
-        }
-
-        .transaction-info-wallet h4 {
-            font-size: 14px;
-            font-weight: 700;
-            color: #0B2E3A;
-        }
-
-        .transaction-info-wallet span {
-            font-size: 12px;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .transaction-amount-wallet {
-            font-size: 15px;
-            font-weight: 700;
-            text-align: left;
-        }
-
-        .transaction-amount-wallet.positive {
-            color: #16C6C6;
-        }
-
-        .transaction-amount-wallet.negative {
-            color: #EF4444;
-        }
-
-        /* ===== ACCOUNT PAGE ===== */
+        /* ===== WALLET & ACCOUNT ===== */
         .placeholder-page {
             display: flex;
             flex-direction: column;
@@ -1714,12 +1360,12 @@
             content: "•";
             position: absolute;
             right: 0;
-            color: #16C6C6;
+            color: #1A73E8;
             font-weight: 700;
         }
 
         .modal-instructions li strong {
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         .modal-instructions li .highlight {
@@ -1727,7 +1373,7 @@
             padding: 0 6px;
             border-radius: 4px;
             font-weight: 600;
-            color: #16C6C6;
+            color: #1A73E8;
         }
 
         /* ============================================ */
@@ -1912,42 +1558,6 @@
                 height: 18px;
                 font-size: 11px;
             }
-            .balance-amount-wallet {
-                font-size: 30px;
-            }
-            .balance-actions-wallet .btn {
-                font-size: 13px;
-                padding: 10px 12px;
-            }
-            .redeem-input-group-wallet input {
-                font-size: 14px;
-                padding: 10px 14px;
-            }
-            .btn-redeem-wallet {
-                font-size: 14px;
-                padding: 10px 16px;
-            }
-            .filter-btn-wallet {
-                font-size: 12px;
-                padding: 6px 14px;
-            }
-            .transaction-item-wallet {
-                padding: 10px 12px;
-            }
-            .transaction-icon-wallet {
-                width: 34px;
-                height: 34px;
-                font-size: 14px;
-            }
-            .transaction-info-wallet h4 {
-                font-size: 13px;
-            }
-            .transaction-amount-wallet {
-                font-size: 14px;
-            }
-            .wallet-header h1 {
-                font-size: 20px;
-            }
         }
 
         @media (min-width: 600px) {
@@ -1967,27 +1577,6 @@
                 grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
-        }
-
-        @media (min-width: 768px) {
-            .balance-amount-wallet {
-                font-size: 42px;
-            }
-        }
-
-        /* ========== SCROLLBAR ========== */
-        ::-webkit-scrollbar {
-            width: 4px;
-            height: 4px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #16C6C6;
-            border-radius: 10px;
         }
     </style>
 </head>
@@ -2019,57 +1608,10 @@
 
     <!-- صفحة المحفظة -->
     <div id="page-wallet" class="page">
-        <div class="wallet-header">
-            <h1>المحفظة <span>الرقمية</span></h1>
-            <p>إشحن وأنت مطمئن</p>
-        </div>
-
-        <!-- ===== بطاقة الرصيد - نفس حجم الصورة المرجعية ===== -->
-        <div class="balance-card-wallet">
-            <div class="balance-label-wallet">رصيد المحفظة</div>
-            <div class="balance-amount-wallet">
-                <span class="currency">$</span><span id="walletBalance">0.00</span>
-            </div>
-            <div class="balance-sub-wallet">الرصيد المتاح</div>
-            <div class="balance-actions-wallet">
-                <button class="btn btn-deposit-wallet" id="depositBtn">
-                    <i class="fas fa-arrow-down"></i> إيداع
-                </button>
-                <button class="btn btn-withdraw-wallet" id="withdrawBtn">
-                    <i class="fas fa-arrow-up"></i> سحب
-                </button>
-            </div>
-        </div>
-
-        <!-- تفعيل كود الشحن -->
-        <div class="wallet-section-title">تفعيل كود الشحن</div>
-        <div class="redeem-card-wallet">
-            <label class="redeem-label-wallet">أدخل كود الشحن لإضافة رصيد إلى محفظتك</label>
-            <div class="redeem-input-group-wallet">
-                <input type="text" placeholder="أدخل كود الشحن (مثال: 23XYZ)" id="redeemInput" />
-                <button class="btn-redeem-wallet" id="redeemBtn">تفعيل</button>
-            </div>
-        </div>
-
-        <!-- المعاملات -->
-        <div class="transactions-header-wallet">
-            <div class="wallet-section-title">المعاملات</div>
-        </div>
-
-        <div class="filter-scroll-wallet" id="filterContainer">
-            <button class="filter-btn-wallet active" data-filter="all">الكل</button>
-            <button class="filter-btn-wallet" data-filter="deposit">إيداع</button>
-            <button class="filter-btn-wallet" data-filter="withdraw">سحب</button>
-            <button class="filter-btn-wallet" data-filter="purchase">شراء</button>
-            <button class="filter-btn-wallet" data-filter="refund">استرداد</button>
-        </div>
-
-        <div class="transactions-list-wallet" id="transactionsList">
-            <div class="empty-state-wallet" id="emptyState">
-                <i class="fas fa-inbox"></i>
-                <p>لا توجد معاملات</p>
-            </div>
-            <div id="transactionsContainer"></div>
+        <div class="placeholder-page">
+            <i class="fas fa-wallet"></i>
+            <p>محفظتك الرقمية</p>
+            <span style="font-size:14px; color:#ccc;">0.00 $</span>
         </div>
     </div>
 
@@ -2236,7 +1778,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty -->
+    <!-- صفحة Call of Duty - بدون زر عرض الكل -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -2298,7 +1840,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends -->
+    <!-- صفحة Mobile Legends - بدون زر عرض الكل -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -2576,27 +2118,23 @@
     <!-- شريط التنقل السفلي -->
     <!-- ============================================= -->
     <nav class="bottom-nav" id="bottomNav">
-        <div class="nav-indicator"></div>
+        <div class="nav-indicator" id="navIndicator"></div>
 
         <button class="nav-item active" data-page="page-home">
             <i class="fas fa-home"></i>
             <span>الرئيسية</span>
-            <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-page="page-wallet">
             <i class="fas fa-wallet"></i>
             <span>المحفظة</span>
-            <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-page="page-support">
             <i class="fas fa-headset"></i>
             <span>الدعم</span>
-            <div class="nav-indicator"></div>
         </button>
         <button class="nav-item" data-page="page-account">
             <i class="fas fa-user"></i>
             <span>الحساب</span>
-            <div class="nav-indicator"></div>
         </button>
     </nav>
 
@@ -2605,7 +2143,7 @@
     <!-- ============================================= -->
     <script>
         // ========================
-        // رقم واتساب
+        // رقم واتساب (مخفي في الكود)
         // ========================
         const WHATSAPP_NUMBER = '249901839168';
         const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
@@ -2781,6 +2319,7 @@
         // 7. شريط التنقل
         // ========================
         const navItems = document.querySelectorAll('.nav-item');
+        const navIndicator = document.getElementById('navIndicator');
 
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
@@ -2795,15 +2334,35 @@
                     item.classList.add('active');
                 }
             });
+
+            const activeItem = document.querySelector('.nav-item.active');
+            if (activeItem) {
+                const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                const itemRect = activeItem.getBoundingClientRect();
+                const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                navIndicator.style.left = leftPos + 'px';
+                navIndicator.style.width = '30px';
+                navIndicator.classList.add('show');
+            }
         }
 
         navItems.forEach(item => {
             item.addEventListener('click', () => {
                 const pageId = item.dataset.page;
-                switchPage(pageId);
-                updateNavActive(pageId);
+
+                if (pageId === 'page-wallet' || pageId === 'page-support' || pageId === 'page-account') {
+                    switchPage(pageId);
+                    updateNavActive(pageId);
+                } else if (pageId === 'page-home') {
+                    switchPage(pageId);
+                    updateNavActive(pageId);
+                }
             });
         });
+
+        setTimeout(() => {
+            updateNavActive('page-home');
+        }, 100);
 
         // ========================
         // 8. باقات PUBG
@@ -3212,154 +2771,7 @@
         });
 
         // ========================
-        // 16. صفحة المحفظة - JavaScript
-        // ========================
-        (function() {
-            'use strict';
-
-            const redeemInput = document.getElementById('redeemInput');
-            const redeemBtn = document.getElementById('redeemBtn');
-            const filterBtns = document.querySelectorAll('.filter-btn-wallet');
-            const transactionsContainer = document.getElementById('transactionsContainer');
-            const emptyState = document.getElementById('emptyState');
-            const balanceElement = document.getElementById('walletBalance');
-
-            let transactions = [
-                { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال', date: '2026-07-13 14:30' },
-                { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG', date: '2026-07-12 22:15' },
-                { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة', date: '2026-07-11 09:45' },
-                { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة', date: '2026-07-10 18:20' },
-                { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان', date: '2026-07-09 12:00' },
-            ];
-
-            let currentFilter = 'all';
-
-            function updateBalance() {
-                const total = transactions.reduce((sum, t) => {
-                    if (t.type === 'deposit' || t.type === 'refund') {
-                        return sum + t.amount;
-                    } else {
-                        return sum - t.amount;
-                    }
-                }, 0);
-                balanceElement.textContent = total.toFixed(2);
-            }
-
-            function renderTransactions(filter) {
-                let filtered = transactions;
-                if (filter !== 'all') {
-                    filtered = transactions.filter(t => t.type === filter);
-                }
-
-                filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                if (filtered.length === 0) {
-                    transactionsContainer.innerHTML = '';
-                    emptyState.style.display = 'flex';
-                    return;
-                }
-
-                emptyState.style.display = 'none';
-                transactionsContainer.innerHTML = filtered.map(t => {
-                    const isPositive = t.type === 'deposit' || t.type === 'refund';
-                    const sign = isPositive ? '+' : '-';
-                    const amountClass = isPositive ? 'positive' : 'negative';
-                    const iconMap = {
-                        deposit: 'fa-arrow-down',
-                        withdraw: 'fa-arrow-up',
-                        purchase: 'fa-shopping-cart',
-                        refund: 'fa-undo'
-                    };
-                    const labelMap = {
-                        deposit: 'إيداع',
-                        withdraw: 'سحب',
-                        purchase: 'شراء',
-                        refund: 'استرداد'
-                    };
-                    const icon = iconMap[t.type] || 'fa-circle';
-                    const label = labelMap[t.type] || t.type;
-
-                    return `
-                        <div class="transaction-item-wallet">
-                            <div class="transaction-left-wallet">
-                                <div class="transaction-icon-wallet ${t.type}">
-                                    <i class="fas ${icon}"></i>
-                                </div>
-                                <div class="transaction-info-wallet">
-                                    <h4>${t.description}</h4>
-                                    <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
-                                </div>
-                            </div>
-                            <div class="transaction-amount-wallet ${amountClass}">
-                                ${sign}$${t.amount.toFixed(2)}
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            // فلتر
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.dataset.filter;
-                    renderTransactions(currentFilter);
-                });
-            });
-
-            // تفعيل كود
-            redeemBtn.addEventListener('click', function() {
-                const code = redeemInput.value.trim();
-                if (!code) {
-                    alert('⚠️ يرجى إدخال كود الشحن.');
-                    return;
-                }
-
-                this.textContent = 'جاري...';
-                this.disabled = true;
-                this.style.opacity = '0.7';
-
-                setTimeout(() => {
-                    const amount = (Math.random() * 20 + 5).toFixed(2);
-                    const newTransaction = {
-                        id: Date.now(),
-                        type: 'deposit',
-                        amount: parseFloat(amount),
-                        description: `تفعيل كود: ${code}`,
-                        date: new Date().toISOString().replace('T', ' ').slice(0, 16)
-                    };
-                    transactions.push(newTransaction);
-                    updateBalance();
-                    renderTransactions(currentFilter);
-
-                    alert(`✅ تم تفعيل الكود بنجاح!\n💰 تم إضافة $${amount} إلى رصيدك.`);
-
-                    this.textContent = 'تفعيل';
-                    this.disabled = false;
-                    this.style.opacity = '1';
-                    redeemInput.value = '';
-                }, 800);
-            });
-
-            // إيداع وسحب
-            document.getElementById('depositBtn').addEventListener('click', function() {
-                alert('💳 سيتم توجيهك إلى بوابة الإيداع قريباً.');
-            });
-
-            document.getElementById('withdrawBtn').addEventListener('click', function() {
-                alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
-            });
-
-            // التهيئة
-            updateBalance();
-            renderTransactions('all');
-
-            console.log('💎 REDEEM STORE | Wallet page loaded.');
-        })();
-
-        // ========================
-        // 17. منع إعادة التحميل
+        // 16. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -3368,15 +2780,14 @@
                     b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                     b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                    b.id === 'depositBtn' || b.id === 'withdrawBtn' || b.id === 'redeemBtn') {
+                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn') {
                     e.preventDefault();
                 }
             });
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تحديث بطاقة الرصيد في المحفظة بنفس حجم الصورة المرجعية.');
+        console.log('✅ تم إزالة زر "عرض جميع الباقات" من Call of Duty و Mobile Legends.');
     </script>
 
 </body>
