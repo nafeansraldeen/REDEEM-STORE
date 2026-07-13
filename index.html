@@ -399,7 +399,7 @@
         }
 
         /* ============================================ */
-        /* ===== CALL OF DUTY PAGE ===== */
+        /* ===== CALL OF DUTY PAGE - بدون زر عرض الكل ===== */
         /* ============================================ */
 
         .cod-header {
@@ -440,7 +440,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 14px;
-            margin: 16px 0 12px;
+            margin: 16px 0 20px;
         }
 
         @media (min-width: 500px) {
@@ -512,71 +512,8 @@
             color: #1A73E8;
         }
 
-        .cod-extra-packs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease,
-                margin 0.3s ease;
-            opacity: 0;
-            margin-top: 0;
-        }
-
-        .cod-extra-packs.open {
-            max-height: 400px;
-            opacity: 1;
-            margin-top: 12px;
-        }
-
-        @media (min-width: 500px) {
-            .cod-extra-packs {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .cod-extra-packs {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .btn-show-more {
-            width: 100%;
-            padding: 14px 24px;
-            background: #f0f0f0;
-            color: #555;
-            border: none;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            margin-top: 8px;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-show-more:active {
-            transform: scale(0.97);
-        }
-
-        .btn-show-more i {
-            margin-right: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn-show-more.active i {
-            transform: rotate(180deg);
-        }
-
         /* ============================================ */
-        /* ===== MOBILE LEGENDS PAGE ===== */
+        /* ===== MOBILE LEGENDS PAGE - بدون زر عرض الكل ===== */
         /* ============================================ */
 
         .ml-header {
@@ -617,7 +554,7 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 14px;
-            margin: 16px 0 12px;
+            margin: 16px 0 20px;
         }
 
         @media (min-width: 500px) {
@@ -707,39 +644,6 @@
 
         .ml-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .ml-extra-packs {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s ease,
-                margin 0.3s ease;
-            opacity: 0;
-            margin-top: 0;
-        }
-
-        .ml-extra-packs.open {
-            max-height: 400px;
-            opacity: 1;
-            margin-top: 12px;
-        }
-
-        @media (min-width: 500px) {
-            .ml-extra-packs {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .ml-extra-packs {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
         }
 
         .ml-form-label {
@@ -898,7 +802,7 @@
         }
 
         /* ============================================ */
-        /* ===== CLASH OF CLANS PAGE - المطابق لـ PUBG ===== */
+        /* ===== CLASH OF CLANS PAGE ===== */
         /* ============================================ */
 
         .coc-header {
@@ -973,7 +877,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* الخلفية دائماً بيضاء مثل PUBG */
             background-color: #FFFFFF;
         }
 
@@ -1007,7 +910,6 @@
             transition: color 0.25s ease;
         }
 
-        /* حالة التحديد - مطابقة تماماً لـ PUBG */
         .coc-pack-btn.selected {
             border-color: #1A73E8;
             border-width: 2px;
@@ -1534,9 +1436,6 @@
             .cod-pack-btn .price-amount {
                 font-size: 13px;
             }
-            .cod-extra-packs {
-                gap: 10px;
-            }
             .ml-header {
                 padding: 14px 16px;
             }
@@ -1564,9 +1463,6 @@
             }
             .ml-pack-btn .price-amount {
                 font-size: 13px;
-            }
-            .ml-extra-packs {
-                gap: 10px;
             }
             .efootball-header {
                 padding: 14px 16px;
@@ -1649,10 +1545,6 @@
                 font-size: 16px;
                 padding: 14px 20px;
             }
-            .btn-show-more {
-                font-size: 14px;
-                padding: 12px 16px;
-            }
             .modal-content {
                 padding: 16px 16px 16px;
                 margin: 10px;
@@ -1673,16 +1565,8 @@
                 grid-template-columns: repeat(5, 1fr);
                 gap: 16px;
             }
-            .cod-extra-packs {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
             .ml-packs-grid {
                 grid-template-columns: repeat(5, 1fr);
-                gap: 16px;
-            }
-            .ml-extra-packs {
-                grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
             .efootball-packs-grid {
@@ -1894,7 +1778,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty -->
+    <!-- صفحة Call of Duty - بدون زر عرض الكل -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1926,14 +1810,6 @@
                 <span class="cp-amount">440CP</span>
                 <span class="price-amount">$7.50</span>
             </button>
-        </div>
-
-        <button class="btn-show-more" id="showMorePacksBtn">
-            <i class="fas fa-chevron-down"></i>
-            عرض جميع الباقات
-        </button>
-
-        <div class="cod-extra-packs" id="codExtraPacks">
             <button class="cod-pack-btn" data-cp="528" data-price="9.00">
                 <span class="cp-amount">528CP</span>
                 <span class="price-amount">$9.00</span>
@@ -1964,7 +1840,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends -->
+    <!-- صفحة Mobile Legends - بدون زر عرض الكل -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -2031,14 +1907,6 @@
                 </span>
                 <span class="price-amount">$30.00</span>
             </button>
-        </div>
-
-        <button class="btn-show-more" id="showMoreMlPacksBtn">
-            <i class="fas fa-chevron-down"></i>
-            عرض جميع الباقات
-        </button>
-
-        <div class="ml-extra-packs" id="mlExtraPacks">
             <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
                 <span class="diamond-amount">
                     2,205
@@ -2156,7 +2024,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Clash of Clans - المطابقة لـ PUBG -->
+    <!-- صفحة Clash of Clans -->
     <!-- ============================================ -->
     <div id="page-coc" class="page">
         <div class="coc-header">
@@ -2622,30 +2490,7 @@
         });
 
         // ========================
-        // 10. زر "عرض جميع الباقات" لـ COD
-        // ========================
-        const showMoreBtn = document.getElementById('showMorePacksBtn');
-        const extraPacks = document.getElementById('codExtraPacks');
-        let extraPacksVisible = false;
-
-        showMoreBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, showMoreBtn);
-
-            extraPacksVisible = !extraPacksVisible;
-
-            if (extraPacksVisible) {
-                extraPacks.classList.add('open');
-                showMoreBtn.classList.add('active');
-                showMoreBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
-            } else {
-                extraPacks.classList.remove('open');
-                showMoreBtn.classList.remove('active');
-                showMoreBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
-            }
-        });
-
-        // ========================
-        // 11. باقات Mobile Legends
+        // 10. باقات Mobile Legends
         // ========================
         const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
         const mlShippingForm = document.getElementById('mlShippingForm');
@@ -2706,30 +2551,7 @@
         });
 
         // ========================
-        // 12. زر "عرض جميع الباقات" لـ ML
-        // ========================
-        const showMoreMlBtn = document.getElementById('showMoreMlPacksBtn');
-        const mlExtraPacks = document.getElementById('mlExtraPacks');
-        let mlExtraPacksVisible = false;
-
-        showMoreMlBtn.addEventListener('click', (e) => {
-            createRippleBtn(e, showMoreMlBtn);
-
-            mlExtraPacksVisible = !mlExtraPacksVisible;
-
-            if (mlExtraPacksVisible) {
-                mlExtraPacks.classList.add('open');
-                showMoreMlBtn.classList.add('active');
-                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-up"></i> إخفاء الباقات';
-            } else {
-                mlExtraPacks.classList.remove('open');
-                showMoreMlBtn.classList.remove('active');
-                showMoreMlBtn.innerHTML = '<i class="fas fa-chevron-down"></i> عرض جميع الباقات';
-            }
-        });
-
-        // ========================
-        // 13. باقات eFootball
+        // 11. باقات eFootball
         // ========================
         const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
         const efootballShippingForm = document.getElementById('efootballShippingForm');
@@ -2790,7 +2612,7 @@
         });
 
         // ========================
-        // 14. باقات Clash of Clans - مطابقة تماماً لـ PUBG
+        // 12. باقات Clash of Clans
         // ========================
         const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
         const cocShippingForm = document.getElementById('cocShippingForm');
@@ -2851,7 +2673,7 @@
         });
 
         // ========================
-        // 15. زر بدء المحادثة (الدعم)
+        // 13. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -2875,7 +2697,7 @@
         }
 
         // ========================
-        // 16. الأسئلة الشائعة (Accordion)
+        // 14. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -2913,7 +2735,7 @@
         });
 
         // ========================
-        // 17. Modal للمساعدة في Mobile Legends
+        // 15. Modal للمساعدة في Mobile Legends
         // ========================
         const modalOverlay = document.getElementById('mlHelpModal');
         const modalCloseBtn = document.getElementById('mlModalCloseBtn');
@@ -2949,7 +2771,7 @@
         });
 
         // ========================
-        // 18. منع إعادة التحميل
+        // 16. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -2958,7 +2780,6 @@
                     b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                     b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                    b.id === 'showMorePacksBtn' || b.id === 'showMoreMlPacksBtn' ||
                     b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn') {
                     e.preventDefault();
                 }
@@ -2966,8 +2787,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تطبيق نفس تأثير PUBG على صفحة Clash of Clans.');
+        console.log('✅ تم إزالة زر "عرض جميع الباقات" من Call of Duty و Mobile Legends.');
     </script>
 
 </body>
-    </html>
+</html>
