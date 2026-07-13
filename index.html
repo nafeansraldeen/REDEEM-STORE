@@ -254,7 +254,7 @@
             z-index: 1;
         }
 
-        /* ===== RIPPLE EFFECT (محذوف من البطاقات، يبقى فقط للأزرار الأخرى) ===== */
+        /* ===== RIPPLE EFFECT ===== */
         .ripple {
             position: absolute;
             border-radius: 50%;
@@ -898,7 +898,7 @@
         }
 
         /* ============================================ */
-        /* ===== CLASH OF CLANS PAGE ===== */
+        /* ===== CLASH OF CLANS PAGE - المعدل ===== */
         /* ============================================ */
 
         .coc-header {
@@ -963,7 +963,7 @@
             padding: 24px 12px 20px;
             text-align: center;
             cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
@@ -973,6 +973,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            /* الخلفية دائماً بيضاء */
+            background-color: #FFFFFF;
         }
 
         .coc-pack-btn .coc-amount-wrapper {
@@ -1005,11 +1007,12 @@
             transition: color 0.25s ease;
         }
 
+        /* حالة التحديد - فقط إطار ونص، بدون أي خلفية ملونة */
         .coc-pack-btn.selected {
             border-color: #1A73E8;
-            border-width: 2px;
-            background-color: #f0f7ff;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.10);
+            border-width: 3px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background-color: #FFFFFF;
         }
 
         .coc-pack-btn.selected .coc-amount {
@@ -2153,7 +2156,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Clash of Clans -->
+    <!-- صفحة Clash of Clans - المعدلة -->
     <!-- ============================================ -->
     <div id="page-coc" class="page">
         <div class="coc-header">
@@ -2296,7 +2299,7 @@
         ];
 
         // ========================
-        // 2. دوال Ripple (محذوفة من البطاقات)
+        // 2. دوال Ripple
         // ========================
         function createRipple(e, element) {
             const rect = element.getBoundingClientRect();
@@ -2504,8 +2507,7 @@
         let selectedPrice = null;
 
         packBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // لا يوجد Ripple هنا - فقط تغيير الحالة
+            btn.addEventListener('click', () => {
                 packBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
 
@@ -2579,8 +2581,7 @@
         }
 
         codPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // لا يوجد Ripple هنا - فقط تغيير الحالة
+            btn.addEventListener('click', () => {
                 selectCodPack(btn);
             });
         });
@@ -2664,8 +2665,7 @@
         }
 
         mlPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // لا يوجد Ripple هنا - فقط تغيير الحالة
+            btn.addEventListener('click', () => {
                 selectMlPack(btn);
             });
         });
@@ -2749,8 +2749,7 @@
         }
 
         efootballPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // لا يوجد Ripple هنا - فقط تغيير الحالة
+            btn.addEventListener('click', () => {
                 selectEfootballPack(btn);
             });
         });
@@ -2811,8 +2810,7 @@
         }
 
         cocPackBtns.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                // لا يوجد Ripple هنا - فقط تغيير الحالة
+            btn.addEventListener('click', () => {
                 selectCocPack(btn);
             });
         });
@@ -2951,7 +2949,7 @@
         });
 
         // ========================
-        // 18. منع إعادة التحميل للعناصر التي قد تسبب مشاكل
+        // 18. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -2968,9 +2966,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إزالة جميع تأثيرات Ripple من بطاقات الباقات.');
-        console.log('✅ سلوك الضغط موحد في جميع صفحات الألعاب مثل PUBG.');
+        console.log('✅ تم تعديل صفحة Clash of Clans: البطاقة المحددة تبقى بيضاء مع إطار أزرق فقط.');
     </script>
 
 </body>
-</html>
+                    </html>
