@@ -1301,7 +1301,7 @@
         }
 
         /* ============================================ */
-        /* ===== WALLET PAGE - مع العملة الجديدة ===== */
+        /* ===== WALLET PAGE - بدون علامة تمييز ===== */
         /* ============================================ */
 
         /* إزالة الهوامش الجانبية من صفحة المحفظة مع الاحتفاظ بالمسافات */
@@ -1317,7 +1317,7 @@
             width: 100%;
         }
 
-        /* ===== البطاقة - شبه مربعة (أطول قليلاً) ===== */
+        /* ===== البطاقة - شبه مربعة ===== */
         .wallet-balance-card {
             width: 100%;
             max-width: 360px;
@@ -1404,7 +1404,7 @@
             letter-spacing: 0.2px;
         }
 
-        /* ===== قيمة الرصاص - مع العملة الجديدة ===== */
+        /* ===== قيمة الرصيد - بدون علامة تمييز ===== */
         .wallet-balance-amount {
             font-size: 40px;
             font-weight: 900;
@@ -1424,15 +1424,9 @@
         }
 
         .wallet-balance-amount .currency-symbol {
-            font-size: 36px;
+            font-size: 40px;
             font-weight: 900;
-            color: #6EF3E8;
-            background: rgba(110, 243, 232, 0.15);
-            padding: 2px 10px;
-            border-radius: 8px;
-            border: 1px solid rgba(110, 243, 232, 0.20);
-            letter-spacing: 0.5px;
-            display: inline-block;
+            color: #FFFFFF;
         }
 
         .wallet-balance-amount .amount-number {
@@ -2065,8 +2059,7 @@
                 font-size: 34px;
             }
             .wallet-balance-amount .currency-symbol {
-                font-size: 30px;
-                padding: 2px 8px;
+                font-size: 34px;
             }
             .wallet-balance-icon {
                 width: 38px;
@@ -2159,8 +2152,7 @@
                 font-size: 44px;
             }
             .wallet-balance-amount .currency-symbol {
-                font-size: 38px;
-                padding: 2px 12px;
+                font-size: 44px;
             }
             .wallet-card-wrapper {
                 padding: 20px 20px 0 20px;
@@ -3606,7 +3598,8 @@
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
         console.log('✅ تم تغيير العملة إلى الجنيه السوداني (ج.س)');
         console.log('✅ تم وضع العملة في الجهة اليسرى (عكس الدولار)');
-        console.log('✅ تم إضافة علامة تمييز للعملة (خلفية شفافة + لون فيروزي)');
+        console.log('✅ تم حذف علامة التمييز (الخلفية الشفافة واللون الفيروزي)');
+        console.log('✅ أصبح نص العملة بنفس لون المبلغ (أبيض)');
         console.log('✅ تم ضبط الرصيد إلى 0.00');
     </script>
 
