@@ -346,6 +346,7 @@
             }
         }
 
+        /* ===== PUBG PACK CARD ===== */
         .pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -354,8 +355,6 @@
             text-align: center;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -363,6 +362,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .pack-btn:active {
@@ -400,15 +401,6 @@
 
         .pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -470,6 +462,7 @@
             }
         }
 
+        /* ===== COD PACK CARD ===== */
         .cod-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -481,8 +474,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -490,6 +481,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .cod-pack-btn:active {
@@ -527,15 +520,6 @@
 
         .cod-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .cod-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .cod-extra-packs {
@@ -583,9 +567,9 @@
             cursor: pointer;
             transition: all 0.25s ease;
             margin-top: 8px;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-show-more:active {
@@ -599,15 +583,6 @@
 
         .btn-show-more.active i {
             transform: rotate(180deg);
-        }
-
-        .btn-show-more .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -669,6 +644,7 @@
             }
         }
 
+        /* ===== ML PACK CARD ===== */
         .ml-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -680,8 +656,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -689,6 +663,8 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .ml-pack-btn:active {
@@ -746,15 +722,6 @@
 
         .ml-pack-btn.selected .price-amount {
             color: #1A73E8;
-        }
-
-        .ml-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .ml-extra-packs {
@@ -821,18 +788,17 @@
             border: none;
             padding: 0;
             flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .ml-help-icon:active {
             transform: scale(0.9);
         }
 
-        .ml-help-icon:hover {
-            background: #d2e3fc;
-        }
-
         /* ============================================ */
-        /* ===== eFOOTBALL PAGE - تعديل عرض FC ===== */
+        /* ===== eFOOTBALL PAGE ===== */
         /* ============================================ */
 
         .efootball-header {
@@ -890,6 +856,7 @@
             }
         }
 
+        /* ===== eFootball PACK CARD ===== */
         .efootball-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -901,8 +868,6 @@
             color: #222;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 100px;
@@ -910,13 +875,14 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .efootball-pack-btn:active {
             transform: none;
         }
 
-        /* الرقم + FC مع مسافة */
         .efootball-pack-btn .fc-amount {
             display: block;
             font-size: 22px;
@@ -950,17 +916,8 @@
             color: #1A73E8;
         }
 
-        .efootball-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
         /* ============================================ */
-        /* ===== CLASH OF CLANS PAGE ===== */
+        /* ===== CLASH OF CLANS PAGE - مطابق لـ PUBG ===== */
         /* ============================================ */
 
         .coc-header {
@@ -1018,6 +975,7 @@
             }
         }
 
+        /* ===== COC PACK CARD - مطابق لـ PUBG ===== */
         .coc-pack-btn {
             background: #FFFFFF;
             border: 2px solid #e8eaed;
@@ -1026,8 +984,6 @@
             text-align: center;
             cursor: pointer;
             transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             min-height: 130px;
@@ -1035,8 +991,11 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
+        /* حذف :active بالكامل - لا يوجد Scale */
         .coc-pack-btn:active {
             transform: none;
         }
@@ -1071,6 +1030,7 @@
             transition: color 0.25s ease;
         }
 
+        /* ===== COC SELECTED STATE ===== */
         .coc-pack-btn.selected {
             border-color: #1A73E8;
             border-width: 2px;
@@ -1088,15 +1048,6 @@
 
         .coc-pack-btn.selected .coc-price {
             color: #1A73E8;
-        }
-
-        .coc-pack-btn .ripple-pack {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -1173,23 +1124,14 @@
             cursor: pointer;
             transition: all 0.25s ease;
             box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-buy:active {
             transform: scale(0.97);
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        .btn-buy .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ============================================ */
@@ -1274,23 +1216,14 @@
             cursor: pointer;
             transition: all 0.2s;
             box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .btn-support:active {
             transform: scale(0.97);
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        .btn-support .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         /* ===== FAQ - ACCORDION ===== */
@@ -1314,6 +1247,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             overflow: hidden;
             transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .faq-item:active {
@@ -1337,15 +1271,6 @@
             -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
-        }
-
-        .faq-question .ripple-faq {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
         }
 
         .faq-question.active {
@@ -1484,6 +1409,9 @@
             justify-content: center;
             transition: all 0.25s ease;
             z-index: 10;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
         }
 
         .modal-close-btn:active {
@@ -2174,7 +2102,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة eFootball (مع عرض FC المعدل) -->
+    <!-- صفحة eFootball -->
     <!-- ============================================ -->
     <div id="page-efootball" class="page">
         <div class="efootball-header">
@@ -2228,7 +2156,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Clash of Clans -->
+    <!-- صفحة Clash of Clans (مطابقة لـ PUBG) -->
     <!-- ============================================ -->
     <div id="page-coc" class="page">
         <div class="coc-header">
@@ -2884,7 +2812,7 @@
         });
 
         // ========================
-        // 14. باقات Clash of Clans
+        // 14. باقات Clash of Clans (بدون Ripple)
         // ========================
         const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
         const cocShippingForm = document.getElementById('cocShippingForm');
@@ -2905,8 +2833,14 @@
 
         cocPackBtns.forEach(btn => {
             btn.addEventListener('click', (e) => {
-                createRipplePack(e, btn);
-                selectCocPack(btn);
+                // لا يوجد Ripple - فقط تغيير التحديد
+                cocPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+
+                selectedCocPack = btn.dataset.gems;
+                selectedCocPrice = btn.dataset.price;
+
+                scrollToShippingFormWithDelay(cocShippingForm, cocSupercellInput, 150);
             });
         });
 
@@ -3061,7 +2995,9 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تعديل عرض FC في صفحة eFootball: الرقم أولاً ثم FC (40 FC, 100 FC, 520 FC, إلخ).');
+        console.log('✅ تم تعديل صفحة Clash of Clans لتكون مطابقة لـ PUBG في سلوك الضغط.');
+        console.log('✅ لا يوجد Ripple أو Scale أو أي تأثير عند الضغط.');
+        console.log('✅ التأثير الوحيد: CSS Transition لتغيير border-color, color, box-shadow.');
     </script>
 
 </body>
