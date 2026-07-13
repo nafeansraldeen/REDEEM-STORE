@@ -1236,28 +1236,35 @@
         }
 
         /* ============================================ */
-        /* ===== WALLET PAGE - بطاقة ممتدة للعرض ===== */
+        /* ===== WALLET PAGE - بطاقة داخل حاوية ===== */
         /* ============================================ */
 
-        /* ===== البطاقة الممتدة للعرض بالكامل ===== */
+        /* حاوية البطاقة - مسافات منظمة */
+        .wallet-card-wrapper {
+            padding: 16px 12px 0 12px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* ===== البطاقة - مقاس 360px × 186px مع هوامش ===== */
         .wallet-balance-card {
             width: 100%;
-            max-width: 100%;
+            max-width: 360px;
+            height: 186px;
             background: linear-gradient(145deg, #0B3D2E, #1A5C4A);
-            border-radius: 0 0 24px 24px;
+            border-radius: 24px;
             padding: 22px 24px 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-shadow: 0 12px 40px rgba(11, 61, 46, 0.30);
-            margin: 0 0 20px 0;
             position: relative;
             overflow: hidden;
             direction: rtl;
-            min-height: 170px;
         }
 
-        /* إزالة الهوامش الجانبية من صفحة المحفظة */
+        /* إزالة الهوامش الجانبية من صفحة المحفظة مع الاحتفاظ بالمسافات */
         #page-wallet {
             padding: 0 !important;
         }
@@ -1354,7 +1361,7 @@
         .wallet-actions {
             display: flex;
             gap: 12px;
-            margin: 0 16px 20px 16px;
+            margin: 16px 16px 20px 16px;
         }
 
         .wallet-actions .btn {
@@ -1949,10 +1956,14 @@
                 height: 18px;
                 font-size: 11px;
             }
+            .wallet-card-wrapper {
+                padding: 12px 8px 0 8px;
+            }
             .wallet-balance-card {
-                min-height: 155px;
+                max-width: 100%;
+                height: 170px;
                 padding: 18px 18px 16px;
-                border-radius: 0 0 20px 20px;
+                border-radius: 20px;
             }
             .wallet-balance-title {
                 font-size: 16px;
@@ -1969,7 +1980,7 @@
                 font-size: 17px;
             }
             .wallet-actions {
-                margin: 0 12px 16px 12px;
+                margin: 12px 12px 16px 12px;
             }
             .wallet-actions .btn {
                 font-size: 13px;
@@ -2039,9 +2050,10 @@
                 gap: 16px;
             }
             .wallet-balance-card {
-                min-height: 190px;
-                padding: 26px 30px 24px;
-                border-radius: 0 0 28px 28px;
+                max-width: 400px;
+                height: 200px;
+                padding: 26px 28px 24px;
+                border-radius: 28px;
             }
             .wallet-balance-title {
                 font-size: 20px;
@@ -2051,6 +2063,18 @@
             }
             .wallet-balance-amount span {
                 font-size: 44px;
+            }
+            .wallet-card-wrapper {
+                padding: 20px 20px 0 20px;
+            }
+        }
+
+        @media (min-width: 900px) {
+            .wallet-card-wrapper {
+                padding: 24px 24px 0 24px;
+            }
+            .wallet-balance-card {
+                max-width: 420px;
             }
         }
     </style>
@@ -2084,19 +2108,21 @@
     <!-- صفحة المحفظة -->
     <div id="page-wallet" class="page">
 
-        <!-- ===== بطاقة الرصيد - ممتدة للعرض بالكامل ===== -->
-        <div class="wallet-balance-card">
-            <div class="wallet-balance-top">
-                <div class="wallet-balance-icon">
-                    <i class="fas fa-wallet"></i>
+        <!-- ===== حاوية البطاقة مع المسافات المنظمة ===== -->
+        <div class="wallet-card-wrapper">
+            <div class="wallet-balance-card">
+                <div class="wallet-balance-top">
+                    <div class="wallet-balance-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="wallet-balance-header">
+                        <h2 class="wallet-balance-title">رصيد المحفظة</h2>
+                        <span class="wallet-balance-sub">الرصيد المتاح</span>
+                    </div>
                 </div>
-                <div class="wallet-balance-header">
-                    <h2 class="wallet-balance-title">رصيد المحفظة</h2>
-                    <span class="wallet-balance-sub">الرصيد المتاح</span>
+                <div class="wallet-balance-amount">
+                    $ <span id="walletBalanceDisplay">0.00</span>
                 </div>
-            </div>
-            <div class="wallet-balance-amount">
-                $ <span id="walletBalanceDisplay">0.00</span>
             </div>
         </div>
 
@@ -3462,9 +3488,9 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم حذف العنوان "المحفظة الرقمية" و"إشحن وأنت مطمئن".');
-        console.log('✅ البطاقة أصبحت في أعلى الصفحة.');
+        console.log('✅ تم تعديل تموضع البطاقة: مسافة علوية صغيرة + هوامش جانبية رقيقة.');
+        console.log('✅ البطاقة داخل حاوية مع مسافات منظمة مثل تطبيقات المتاجر الحديثة.');
     </script>
 
 </body>
-</html>
+    </html>
