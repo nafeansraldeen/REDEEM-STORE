@@ -399,7 +399,7 @@
         }
 
         /* ============================================ */
-        /* ===== CALL OF DUTY PAGE - بدون زر عرض الكل ===== */
+        /* ===== CALL OF DUTY PAGE ===== */
         /* ============================================ */
 
         .cod-header {
@@ -513,7 +513,7 @@
         }
 
         /* ============================================ */
-        /* ===== MOBILE LEGENDS PAGE - بدون زر عرض الكل ===== */
+        /* ===== MOBILE LEGENDS PAGE ===== */
         /* ============================================ */
 
         .ml-header {
@@ -1235,7 +1235,411 @@
             margin: 0 4px;
         }
 
-        /* ===== WALLET & ACCOUNT ===== */
+        /* ============================================ */
+        /* ===== WALLET PAGE ===== */
+        /* ============================================ */
+
+        .wallet-header {
+            text-align: center;
+            padding: 10px 0 6px;
+        }
+
+        .wallet-header h1 {
+            font-size: 24px;
+            font-weight: 800;
+            color: #222;
+        }
+
+        .wallet-header h1 span {
+            color: #1A73E8;
+        }
+
+        .wallet-header p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 4px;
+            font-weight: 400;
+        }
+
+        /* ===== بطاقة المحفظة الجديدة ===== */
+        .wallet-balance-card {
+            width: 100%;
+            max-width: 360px;
+            height: 186px;
+            background: linear-gradient(145deg, #0B3D2E, #1A5C4A);
+            border-radius: 24px;
+            padding: 20px 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 12px 40px rgba(11, 61, 46, 0.30);
+            margin: 0 auto 20px;
+            position: relative;
+            overflow: hidden;
+            direction: rtl;
+        }
+
+        .wallet-balance-card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .wallet-balance-card::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .wallet-balance-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wallet-balance-icon {
+            width: 42px;
+            height: 42px;
+            background: rgba(255, 255, 255, 0.10);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #FFFFFF;
+            flex-shrink: 0;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .wallet-balance-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+
+        .wallet-balance-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin: 0;
+            letter-spacing: 0.3px;
+        }
+
+        .wallet-balance-sub {
+            font-size: 12px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.55);
+            letter-spacing: 0.2px;
+        }
+
+        .wallet-balance-amount {
+            font-size: 40px;
+            font-weight: 900;
+            color: #FFFFFF;
+            line-height: 1;
+            position: relative;
+            z-index: 2;
+            text-align: right;
+            padding-right: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        .wallet-balance-amount span {
+            font-size: 40px;
+            font-weight: 900;
+        }
+
+        /* ===== أزرار المحفظة ===== */
+        .wallet-actions {
+            display: flex;
+            gap: 12px;
+            margin: 0 auto 20px;
+            max-width: 360px;
+        }
+
+        .wallet-actions .btn {
+            flex: 1;
+            padding: 14px 16px;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .wallet-actions .btn:active {
+            transform: scale(0.96);
+        }
+
+        .btn-deposit-wallet {
+            background: #1A73E8;
+            color: white;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25);
+        }
+
+        .btn-withdraw-wallet {
+            background: #f0f0f0;
+            color: #555;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* ===== تفعيل كود الشحن ===== */
+        .wallet-section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .redeem-card-wallet {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            margin-bottom: 24px;
+            border: 1px solid #f0f0f0;
+        }
+
+        .redeem-label-wallet {
+            font-size: 13px;
+            font-weight: 600;
+            color: #222;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .redeem-input-group-wallet {
+            display: flex;
+            gap: 10px;
+        }
+
+        .redeem-input-group-wallet input {
+            flex: 1;
+            padding: 12px 16px;
+            border: 2px solid #e8eaed;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 400;
+            background: #f8f9fa;
+            transition: all 0.25s ease;
+            color: #222;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .redeem-input-group-wallet input::placeholder {
+            color: #aaa;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .redeem-input-group-wallet input:focus {
+            outline: none;
+            border-color: #1A73E8;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+            background: white;
+        }
+
+        .btn-redeem-wallet {
+            padding: 12px 24px;
+            background: #1A73E8;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+        }
+
+        .btn-redeem-wallet:active {
+            transform: scale(0.94);
+        }
+
+        /* ===== المعاملات ===== */
+        .transactions-header-wallet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .transactions-header-wallet .wallet-section-title {
+            margin-bottom: 0;
+        }
+
+        .filter-scroll-wallet {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 0 12px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .filter-scroll-wallet::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filter-btn-wallet {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: #FFFFFF;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            white-space: nowrap;
+            border: 1px solid #f0f0f0;
+        }
+
+        .filter-btn-wallet:active {
+            transform: scale(0.94);
+        }
+
+        .filter-btn-wallet.active {
+            background: #1A73E8;
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.20);
+            border-color: transparent;
+        }
+
+        .transactions-list-wallet {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            min-height: 140px;
+        }
+
+        .empty-state-wallet {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 30px 20px;
+            color: #aaa;
+        }
+
+        .empty-state-wallet i {
+            font-size: 40px;
+            color: #ddd;
+            margin-bottom: 10px;
+        }
+
+        .empty-state-wallet p {
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .transaction-item-wallet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            transition: all 0.25s ease;
+        }
+
+        .transaction-item-wallet:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-item-wallet:active {
+            background: #f8f9fa;
+        }
+
+        .transaction-left-wallet {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .transaction-icon-wallet {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .transaction-icon-wallet.deposit {
+            background: rgba(26, 115, 232, 0.12);
+            color: #1A73E8;
+        }
+
+        .transaction-icon-wallet.withdraw {
+            background: rgba(239, 68, 68, 0.10);
+            color: #EF4444;
+        }
+
+        .transaction-icon-wallet.purchase {
+            background: rgba(0, 188, 212, 0.12);
+            color: #00BCD4;
+        }
+
+        .transaction-icon-wallet.refund {
+            background: rgba(251, 191, 36, 0.12);
+            color: #F59E0B;
+        }
+
+        .transaction-info-wallet h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .transaction-info-wallet span {
+            font-size: 12px;
+            color: #999;
+            font-weight: 400;
+        }
+
+        .transaction-amount-wallet {
+            font-size: 15px;
+            font-weight: 700;
+            text-align: left;
+        }
+
+        .transaction-amount-wallet.positive {
+            color: #1A73E8;
+        }
+
+        .transaction-amount-wallet.negative {
+            color: #EF4444;
+        }
+
+        /* ===== ACCOUNT PAGE ===== */
         .placeholder-page {
             display: flex;
             flex-direction: column;
@@ -1558,6 +1962,56 @@
                 height: 18px;
                 font-size: 11px;
             }
+            .wallet-balance-card {
+                max-width: 100%;
+                height: 170px;
+                padding: 16px 18px;
+                border-radius: 20px;
+            }
+            .wallet-balance-title {
+                font-size: 16px;
+            }
+            .wallet-balance-amount {
+                font-size: 34px;
+            }
+            .wallet-balance-amount span {
+                font-size: 34px;
+            }
+            .wallet-balance-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 17px;
+            }
+            .wallet-actions .btn {
+                font-size: 13px;
+                padding: 12px 12px;
+            }
+            .redeem-input-group-wallet input {
+                font-size: 14px;
+                padding: 10px 14px;
+            }
+            .btn-redeem-wallet {
+                font-size: 14px;
+                padding: 10px 16px;
+            }
+            .filter-btn-wallet {
+                font-size: 12px;
+                padding: 6px 14px;
+            }
+            .transaction-item-wallet {
+                padding: 10px 12px;
+            }
+            .transaction-icon-wallet {
+                width: 34px;
+                height: 34px;
+                font-size: 14px;
+            }
+            .transaction-info-wallet h4 {
+                font-size: 13px;
+            }
+            .transaction-amount-wallet {
+                font-size: 14px;
+            }
         }
 
         @media (min-width: 600px) {
@@ -1576,6 +2030,20 @@
             .coc-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
+            }
+            .wallet-balance-card {
+                max-width: 400px;
+                height: 200px;
+                padding: 24px 28px;
+            }
+            .wallet-balance-title {
+                font-size: 20px;
+            }
+            .wallet-balance-amount {
+                font-size: 44px;
+            }
+            .wallet-balance-amount span {
+                font-size: 44px;
             }
         }
     </style>
@@ -1608,10 +2076,66 @@
 
     <!-- صفحة المحفظة -->
     <div id="page-wallet" class="page">
-        <div class="placeholder-page">
-            <i class="fas fa-wallet"></i>
-            <p>محفظتك الرقمية</p>
-            <span style="font-size:14px; color:#ccc;">0.00 $</span>
+        <div class="wallet-header">
+            <h1>المحفظة <span>الرقمية</span></h1>
+            <p>إشحن وأنت مطمئن</p>
+        </div>
+
+        <!-- ===== بطاقة الرصيد الجديدة ===== -->
+        <div class="wallet-balance-card">
+            <div class="wallet-balance-top">
+                <div class="wallet-balance-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="wallet-balance-header">
+                    <h2 class="wallet-balance-title">رصيد المحفظة</h2>
+                    <span class="wallet-balance-sub">الرصيد المتاح</span>
+                </div>
+            </div>
+            <div class="wallet-balance-amount">
+                $ <span id="walletBalanceDisplay">0.00</span>
+            </div>
+        </div>
+
+        <!-- ===== أزرار الإيداع والسحب ===== -->
+        <div class="wallet-actions">
+            <button class="btn btn-deposit-wallet" id="depositBtn">
+                <i class="fas fa-arrow-down"></i> إيداع
+            </button>
+            <button class="btn btn-withdraw-wallet" id="withdrawBtn">
+                <i class="fas fa-arrow-up"></i> سحب
+            </button>
+        </div>
+
+        <!-- ===== تفعيل كود الشحن ===== -->
+        <div class="wallet-section-title">تفعيل كود الشحن</div>
+        <div class="redeem-card-wallet">
+            <label class="redeem-label-wallet">أدخل كود الشحن لإضافة رصيد إلى محفظتك</label>
+            <div class="redeem-input-group-wallet">
+                <input type="text" placeholder="أدخل كود الشحن (مثال: 23XYZ)" id="redeemInput" />
+                <button class="btn-redeem-wallet" id="redeemBtn">تفعيل</button>
+            </div>
+        </div>
+
+        <!-- ===== المعاملات ===== -->
+        <div class="transactions-header-wallet">
+            <div class="wallet-section-title">المعاملات</div>
+        </div>
+
+        <div class="filter-scroll-wallet" id="filterContainer">
+            <button class="filter-btn-wallet active" data-filter="all">الكل</button>
+            <button class="filter-btn-wallet" data-filter="deposit">إيداع</button>
+            <button class="filter-btn-wallet" data-filter="withdraw">سحب</button>
+            <button class="filter-btn-wallet" data-filter="purchase">شراء</button>
+            <button class="filter-btn-wallet" data-filter="refund">استرداد</button>
+        </div>
+
+        <div class="transactions-list-wallet" id="transactionsList">
+            <div class="empty-state-wallet" id="emptyState">
+                <i class="fas fa-inbox"></i>
+                <p>لا توجد معاملات</p>
+            </div>
+            <div id="transactionsContainer"></div>
         </div>
     </div>
 
@@ -1778,7 +2302,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Call of Duty - بدون زر عرض الكل -->
+    <!-- صفحة Call of Duty -->
     <!-- ============================================ -->
     <div id="page-cod" class="page">
         <div class="cod-header">
@@ -1840,7 +2364,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة Mobile Legends - بدون زر عرض الكل -->
+    <!-- صفحة Mobile Legends -->
     <!-- ============================================ -->
     <div id="page-ml" class="page">
         <div class="ml-header">
@@ -2771,7 +3295,154 @@
         });
 
         // ========================
-        // 16. منع إعادة التحميل
+        // 16. صفحة المحفظة - JavaScript
+        // ========================
+        (function() {
+            'use strict';
+
+            const redeemInput = document.getElementById('redeemInput');
+            const redeemBtn = document.getElementById('redeemBtn');
+            const filterBtns = document.querySelectorAll('.filter-btn-wallet');
+            const transactionsContainer = document.getElementById('transactionsContainer');
+            const emptyState = document.getElementById('emptyState');
+            const balanceDisplay = document.getElementById('walletBalanceDisplay');
+
+            let transactions = [
+                { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال', date: '2026-07-13 14:30' },
+                { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG', date: '2026-07-12 22:15' },
+                { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة', date: '2026-07-11 09:45' },
+                { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة', date: '2026-07-10 18:20' },
+                { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان', date: '2026-07-09 12:00' },
+            ];
+
+            let currentFilter = 'all';
+
+            function updateBalance() {
+                const total = transactions.reduce((sum, t) => {
+                    if (t.type === 'deposit' || t.type === 'refund') {
+                        return sum + t.amount;
+                    } else {
+                        return sum - t.amount;
+                    }
+                }, 0);
+                balanceDisplay.textContent = total.toFixed(2);
+            }
+
+            function renderTransactions(filter) {
+                let filtered = transactions;
+                if (filter !== 'all') {
+                    filtered = transactions.filter(t => t.type === filter);
+                }
+
+                filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+
+                if (filtered.length === 0) {
+                    transactionsContainer.innerHTML = '';
+                    emptyState.style.display = 'flex';
+                    return;
+                }
+
+                emptyState.style.display = 'none';
+                transactionsContainer.innerHTML = filtered.map(t => {
+                    const isPositive = t.type === 'deposit' || t.type === 'refund';
+                    const sign = isPositive ? '+' : '-';
+                    const amountClass = isPositive ? 'positive' : 'negative';
+                    const iconMap = {
+                        deposit: 'fa-arrow-down',
+                        withdraw: 'fa-arrow-up',
+                        purchase: 'fa-shopping-cart',
+                        refund: 'fa-undo'
+                    };
+                    const labelMap = {
+                        deposit: 'إيداع',
+                        withdraw: 'سحب',
+                        purchase: 'شراء',
+                        refund: 'استرداد'
+                    };
+                    const icon = iconMap[t.type] || 'fa-circle';
+                    const label = labelMap[t.type] || t.type;
+
+                    return `
+                        <div class="transaction-item-wallet">
+                            <div class="transaction-left-wallet">
+                                <div class="transaction-icon-wallet ${t.type}">
+                                    <i class="fas ${icon}"></i>
+                                </div>
+                                <div class="transaction-info-wallet">
+                                    <h4>${t.description}</h4>
+                                    <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
+                                </div>
+                            </div>
+                            <div class="transaction-amount-wallet ${amountClass}">
+                                ${sign}$${t.amount.toFixed(2)}
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // فلتر
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+                    renderTransactions(currentFilter);
+                });
+            });
+
+            // تفعيل كود
+            redeemBtn.addEventListener('click', function() {
+                const code = redeemInput.value.trim();
+                if (!code) {
+                    alert('⚠️ يرجى إدخال كود الشحن.');
+                    return;
+                }
+
+                this.textContent = 'جاري...';
+                this.disabled = true;
+                this.style.opacity = '0.7';
+
+                setTimeout(() => {
+                    const amount = (Math.random() * 20 + 5).toFixed(2);
+                    const newTransaction = {
+                        id: Date.now(),
+                        type: 'deposit',
+                        amount: parseFloat(amount),
+                        description: `تفعيل كود: ${code}`,
+                        date: new Date().toISOString().replace('T', ' ').slice(0, 16)
+                    };
+                    transactions.push(newTransaction);
+                    updateBalance();
+                    renderTransactions(currentFilter);
+
+                    alert(`✅ تم تفعيل الكود بنجاح!\n💰 تم إضافة $${amount} إلى رصيدك.`);
+
+                    this.textContent = 'تفعيل';
+                    this.disabled = false;
+                    this.style.opacity = '1';
+                    redeemInput.value = '';
+                }, 800);
+            });
+
+            // إيداع وسحب
+            document.getElementById('depositBtn').addEventListener('click', function() {
+                alert('💳 سيتم توجيهك إلى بوابة الإيداع قريباً.');
+            });
+
+            document.getElementById('withdrawBtn').addEventListener('click', function() {
+                alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
+            });
+
+            // التهيئة
+            updateBalance();
+            renderTransactions('all');
+
+            console.log('💎 REDEEM STORE | Wallet page loaded.');
+        })();
+
+        // ========================
+        // 17. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -2780,14 +3451,15 @@
                     b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                     b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn') {
+                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
+                    b.id === 'depositBtn' || b.id === 'withdrawBtn' || b.id === 'redeemBtn') {
                     e.preventDefault();
                 }
             });
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إزالة زر "عرض جميع الباقات" من Call of Duty و Mobile Legends.');
+        console.log('✅ تم دمج المتجر مع بطاقة المحفظة الجديدة.');
     </script>
 
 </body>
