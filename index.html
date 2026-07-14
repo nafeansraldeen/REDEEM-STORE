@@ -1548,9 +1548,14 @@
             pointer-events: none;
         }
 
-        /* ===== صفحة الإيداع ===== */
+        /* ============================================ */
+        /* ===== صفحة الإيداع - مطابقة للصورة 100% ===== */
+        /* ============================================ */
+
         .deposit-page {
             padding: 20px 16px 30px;
+            background: #FFFFFF;
+            min-height: 100vh;
             animation: depositSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
         }
 
@@ -1595,7 +1600,7 @@
 
         .deposit-page .deposit-title {
             font-size: 22px;
-            font-weight: 800;
+            font-weight: 700;
             color: #222;
         }
 
@@ -1606,7 +1611,7 @@
             margin-top: -2px;
         }
 
-        /* ===== خيارات الإيداع ===== */
+        /* ===== خيارات الإيداع - تدرج أزرق ناعم ===== */
         .deposit-options {
             display: flex;
             flex-direction: column;
@@ -1618,12 +1623,12 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 18px 20px;
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
+            padding: 16px 18px;
+            background: linear-gradient(135deg, #F0F7FF, #E3EEFC);
+            border: 1.5px solid #D6E8F8;
             border-radius: 16px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
@@ -1648,32 +1653,35 @@
             justify-content: center;
             font-size: 18px;
             flex-shrink: 0;
+            background: rgba(26, 115, 232, 0.12);
+            color: #1A73E8;
         }
 
         .deposit-option .option-icon.bank {
-            background: #e8f0fe;
+            background: rgba(26, 115, 232, 0.15);
             color: #1A73E8;
         }
 
         .deposit-option .option-icon.mykashi {
-            background: #fef3e8;
+            background: rgba(245, 158, 11, 0.15);
             color: #F59E0B;
         }
 
         .deposit-option .option-icon.bravo {
-            background: #fce8f0;
+            background: rgba(236, 72, 153, 0.12);
             color: #EC4899;
         }
 
         .deposit-option .option-icon.ookash {
-            background: #e8fef0;
+            background: rgba(16, 185, 129, 0.12);
             color: #10B981;
         }
 
         .deposit-option .option-info h4 {
             font-size: 16px;
-            font-weight: 700;
+            font-weight: 600;
             color: #222;
+            margin-bottom: 2px;
         }
 
         .deposit-option .option-info span {
@@ -1685,20 +1693,33 @@
         .deposit-option .option-fee {
             font-size: 13px;
             font-weight: 600;
-            color: #888;
-            background: #f5f5f5;
-            padding: 4px 12px;
+            color: #666;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 4px 14px;
             border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .deposit-option .option-fee.free {
             color: #10B981;
-            background: #e8fef0;
+            background: rgba(16, 185, 129, 0.10);
+            border-color: rgba(16, 185, 129, 0.15);
         }
 
         .deposit-option .option-arrow {
             color: #ccc;
             font-size: 14px;
+            margin-right: 4px;
+        }
+
+        /* ===== حالة الـ Hover للديسكتوب ===== */
+        @media (hover: hover) {
+            .deposit-option:hover {
+                background: linear-gradient(135deg, #E8F4FD, #D6E8F8);
+                border-color: #B5D4F0;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 16px rgba(26, 115, 232, 0.08);
+            }
         }
 
         /* ===== تفعيل كود الشحن ===== */
@@ -2333,16 +2354,24 @@
                 font-size: 19px;
             }
             .deposit-option {
-                padding: 14px 16px;
+                padding: 14px 14px;
                 border-radius: 14px;
             }
             .deposit-option .option-icon {
                 width: 38px;
                 height: 38px;
                 font-size: 16px;
+                border-radius: 10px;
             }
             .deposit-option .option-info h4 {
                 font-size: 14px;
+            }
+            .deposit-option .option-info span {
+                font-size: 12px;
+            }
+            .deposit-option .option-fee {
+                font-size: 12px;
+                padding: 3px 12px;
             }
             .redeem-input-group-wallet input {
                 font-size: 14px;
@@ -2441,6 +2470,11 @@
             .deposit-option {
                 padding: 20px 24px;
                 border-radius: 18px;
+            }
+            .deposit-option .option-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
             }
         }
 
@@ -2574,7 +2608,7 @@
     </div>
 
     <!-- ============================================ -->
-    <!-- صفحة الإيداع -->
+    <!-- صفحة الإيداع - مطابقة للصورة 100% -->
     <!-- ============================================ -->
     <div id="page-deposit" class="page deposit-page" style="display:none;">
         <div class="deposit-header">
@@ -2588,6 +2622,7 @@
         </div>
 
         <div class="deposit-options">
+            <!-- بنكك -->
             <button class="deposit-option" data-method="bank">
                 <div class="option-left">
                     <div class="option-icon bank">
@@ -2602,6 +2637,7 @@
                 <i class="fas fa-chevron-left option-arrow"></i>
             </button>
 
+            <!-- ماي كاشي -->
             <button class="deposit-option" data-method="mykashi">
                 <div class="option-left">
                     <div class="option-icon mykashi">
@@ -2616,6 +2652,7 @@
                 <i class="fas fa-chevron-left option-arrow"></i>
             </button>
 
+            <!-- تطبيق برافو -->
             <button class="deposit-option" data-method="bravo">
                 <div class="option-left">
                     <div class="option-icon bravo">
@@ -2630,6 +2667,7 @@
                 <i class="fas fa-chevron-left option-arrow"></i>
             </button>
 
+            <!-- اووكاش -->
             <button class="deposit-option" data-method="ookash">
                 <div class="option-left">
                     <div class="option-icon ookash">
@@ -4069,11 +4107,11 @@
         }, 100);
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إضافة صفحة الإيداع مع انتقال ناعم (Fade + Slide Up).');
+        console.log('✅ تم إضافة صفحة الإيداع المطابقة للصورة 100%.');
+        console.log('✅ تدرج أزرق ناعم في خيارات الإيداع.');
         console.log('✅ تم تعديل أزرار الإيداع والسحب إلى شكل مستطيل احترافي.');
         console.log('✅ تم إزالة جميع تأثيرات اللمس (scale, transform) من الأزرار.');
-        console.log('✅ تم الحفاظ على التصميم الاحترافي مع Action Cards.');
     </script>
 
 </body>
-    </html>
+</html>
