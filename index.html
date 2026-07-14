@@ -1548,6 +1548,159 @@
             pointer-events: none;
         }
 
+        /* ===== صفحة الإيداع ===== */
+        .deposit-page {
+            padding: 20px 16px 30px;
+            animation: depositSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        @keyframes depositSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .deposit-page .deposit-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 28px;
+            padding: 0 4px;
+        }
+
+        .deposit-page .deposit-back-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            background: #f0f0f0;
+            color: #333;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .deposit-page .deposit-back-btn:active {
+            transform: scale(0.95);
+        }
+
+        .deposit-page .deposit-title {
+            font-size: 22px;
+            font-weight: 800;
+            color: #222;
+        }
+
+        .deposit-page .deposit-sub {
+            font-size: 14px;
+            color: #888;
+            font-weight: 400;
+            margin-top: -2px;
+        }
+
+        /* ===== خيارات الإيداع ===== */
+        .deposit-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 8px;
+        }
+
+        .deposit-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 18px 20px;
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .deposit-option:active {
+            transform: scale(0.98);
+        }
+
+        .deposit-option .option-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .deposit-option .option-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .deposit-option .option-icon.bank {
+            background: #e8f0fe;
+            color: #1A73E8;
+        }
+
+        .deposit-option .option-icon.mykashi {
+            background: #fef3e8;
+            color: #F59E0B;
+        }
+
+        .deposit-option .option-icon.bravo {
+            background: #fce8f0;
+            color: #EC4899;
+        }
+
+        .deposit-option .option-icon.ookash {
+            background: #e8fef0;
+            color: #10B981;
+        }
+
+        .deposit-option .option-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .deposit-option .option-info span {
+            font-size: 13px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .deposit-option .option-fee {
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            background: #f5f5f5;
+            padding: 4px 12px;
+            border-radius: 20px;
+        }
+
+        .deposit-option .option-fee.free {
+            color: #10B981;
+            background: #e8fef0;
+        }
+
+        .deposit-option .option-arrow {
+            color: #ccc;
+            font-size: 14px;
+        }
+
         /* ===== تفعيل كود الشحن ===== */
         .wallet-section-title {
             font-size: 16px;
@@ -2176,6 +2329,21 @@
             .wallet-actions .action-card .card-sub {
                 font-size: 11px;
             }
+            .deposit-page .deposit-title {
+                font-size: 19px;
+            }
+            .deposit-option {
+                padding: 14px 16px;
+                border-radius: 14px;
+            }
+            .deposit-option .option-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+            .deposit-option .option-info h4 {
+                font-size: 14px;
+            }
             .redeem-input-group-wallet input {
                 font-size: 14px;
                 padding: 10px 14px;
@@ -2269,6 +2437,10 @@
                 width: 52px;
                 height: 52px;
                 font-size: 22px;
+            }
+            .deposit-option {
+                padding: 20px 24px;
+                border-radius: 18px;
             }
         }
 
@@ -2398,6 +2570,79 @@
                 <p>لا توجد معاملات</p>
             </div>
             <div id="transactionsContainer"></div>
+        </div>
+    </div>
+
+    <!-- ============================================ -->
+    <!-- صفحة الإيداع -->
+    <!-- ============================================ -->
+    <div id="page-deposit" class="page deposit-page" style="display:none;">
+        <div class="deposit-header">
+            <button class="deposit-back-btn" id="depositBackBtn">
+                <i class="fas fa-arrow-right"></i>
+            </button>
+            <div>
+                <div class="deposit-title">إيداع رصيد</div>
+                <div class="deposit-sub">اختر طريقة الإيداع</div>
+            </div>
+        </div>
+
+        <div class="deposit-options">
+            <button class="deposit-option" data-method="bank">
+                <div class="option-left">
+                    <div class="option-icon bank">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>بنكك</h4>
+                        <span>تحويل بنكي مباشر</span>
+                    </div>
+                </div>
+                <span class="option-fee free">مجاني</span>
+                <i class="fas fa-chevron-left option-arrow"></i>
+            </button>
+
+            <button class="deposit-option" data-method="mykashi">
+                <div class="option-left">
+                    <div class="option-icon mykashi">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>ماي كاشي</h4>
+                        <span>تحويل عبر ماي كاشي</span>
+                    </div>
+                </div>
+                <span class="option-fee">3%</span>
+                <i class="fas fa-chevron-left option-arrow"></i>
+            </button>
+
+            <button class="deposit-option" data-method="bravo">
+                <div class="option-left">
+                    <div class="option-icon bravo">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>تطبيق "برافو"</h4>
+                        <span>دفع عبر تطبيق برافو</span>
+                    </div>
+                </div>
+                <span class="option-fee">5%</span>
+                <i class="fas fa-chevron-left option-arrow"></i>
+            </button>
+
+            <button class="deposit-option" data-method="ookash">
+                <div class="option-left">
+                    <div class="option-icon ookash">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="option-info">
+                        <h4>اووكاش</h4>
+                        <span>تحويل عبر اووكاش</span>
+                    </div>
+                </div>
+                <span class="option-fee">2%</span>
+                <i class="fas fa-chevron-left option-arrow"></i>
+            </button>
         </div>
     </div>
 
@@ -3126,8 +3371,13 @@
 
         function switchPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+            
             const target = document.getElementById(pageId);
-            if (target) target.classList.add('active');
+            if (target) {
+                target.style.display = 'block';
+                target.classList.add('active');
+            }
         }
 
         function updateNavActive(pageId) {
@@ -3153,22 +3403,95 @@
             item.addEventListener('click', () => {
                 const pageId = item.dataset.page;
 
-                if (pageId === 'page-wallet' || pageId === 'page-support' || pageId === 'page-account') {
-                    switchPage(pageId);
-                    updateNavActive(pageId);
-                } else if (pageId === 'page-home') {
+                if (pageId === 'page-wallet' || pageId === 'page-support' || pageId === 'page-account' || pageId === 'page-home') {
                     switchPage(pageId);
                     updateNavActive(pageId);
                 }
             });
         });
 
-        setTimeout(() => {
-            updateNavActive('page-home');
-        }, 100);
+        // ========================
+        // 8. زر الإيداع - فتح صفحة الإيداع
+        // ========================
+        const depositBtn = document.getElementById('depositBtn');
+        const depositPage = document.getElementById('page-deposit');
+        const depositBackBtn = document.getElementById('depositBackBtn');
+
+        if (depositBtn) {
+            depositBtn.addEventListener('click', function(e) {
+                // تأثير الضغط على الزر
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                // إخفاء جميع الصفحات
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                
+                // إظهار صفحة الإيداع مع تأثير ناعم
+                depositPage.style.display = 'block';
+                // إعادة تشغيل الأنيميشن
+                depositPage.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    depositPage.style.animation = 'depositSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                });
+                depositPage.classList.add('active');
+                
+                // تحديث شريط التنقل (إلغاء التحديد)
+                navItems.forEach(item => item.classList.remove('active'));
+                navIndicator.classList.remove('show');
+            });
+        }
+
+        // زر الرجوع من صفحة الإيداع
+        if (depositBackBtn) {
+            depositBackBtn.addEventListener('click', function(e) {
+                // تأثير الضغط على الزر
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                // العودة إلى صفحة المحفظة
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                
+                const walletPage = document.getElementById('page-wallet');
+                walletPage.style.display = 'block';
+                walletPage.classList.add('active');
+                
+                // تحديث شريط التنقل
+                updateNavActive('page-wallet');
+            });
+        }
+
+        // خيارات الإيداع - عند النقر تفتح واتساب
+        document.querySelectorAll('.deposit-option').forEach(option => {
+            option.addEventListener('click', function(e) {
+                // تأثير الضغط
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                const method = this.dataset.method;
+                const methodNames = {
+                    bank: 'بنكك',
+                    mykashi: 'ماي كاشي',
+                    bravo: 'تطبيق برافو',
+                    ookash: 'اووكاش'
+                };
+                
+                setTimeout(() => {
+                    alert(`💳 سيتم توجيهك إلى طريقة الدفع عبر ${methodNames[method] || method}`);
+                    openWhatsApp();
+                }, 300);
+            });
+        });
 
         // ========================
-        // 8. باقات PUBG
+        // 9. باقات PUBG
         // ========================
         const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
         const shippingForm = document.getElementById('shippingForm');
@@ -3232,7 +3555,7 @@
         }
 
         // ========================
-        // 9. باقات Call of Duty
+        // 10. باقات Call of Duty
         // ========================
         const codPackBtns = document.querySelectorAll('.cod-pack-btn');
         const codShippingForm = document.getElementById('codShippingForm');
@@ -3293,7 +3616,7 @@
         });
 
         // ========================
-        // 10. باقات Mobile Legends
+        // 11. باقات Mobile Legends
         // ========================
         const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
         const mlShippingForm = document.getElementById('mlShippingForm');
@@ -3354,7 +3677,7 @@
         });
 
         // ========================
-        // 11. باقات eFootball
+        // 12. باقات eFootball
         // ========================
         const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
         const efootballShippingForm = document.getElementById('efootballShippingForm');
@@ -3415,7 +3738,7 @@
         });
 
         // ========================
-        // 12. باقات Clash of Clans
+        // 13. باقات Clash of Clans
         // ========================
         const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
         const cocShippingForm = document.getElementById('cocShippingForm');
@@ -3476,7 +3799,7 @@
         });
 
         // ========================
-        // 13. زر بدء المحادثة (الدعم)
+        // 14. زر بدء المحادثة (الدعم)
         // ========================
         const startChatBtn = document.getElementById('startChatBtn');
 
@@ -3500,7 +3823,7 @@
         }
 
         // ========================
-        // 14. الأسئلة الشائعة (Accordion)
+        // 15. الأسئلة الشائعة (Accordion)
         // ========================
         const faqQuestions = document.querySelectorAll('.faq-question');
         let openFaq = null;
@@ -3538,7 +3861,7 @@
         });
 
         // ========================
-        // 15. Modal للمساعدة في Mobile Legends
+        // 16. Modal للمساعدة في Mobile Legends
         // ========================
         const modalOverlay = document.getElementById('mlHelpModal');
         const modalCloseBtn = document.getElementById('mlModalCloseBtn');
@@ -3574,7 +3897,7 @@
         });
 
         // ========================
-        // 16. صفحة المحفظة - JavaScript
+        // 17. صفحة المحفظة - JavaScript
         // ========================
         (function() {
             'use strict';
@@ -3706,7 +4029,7 @@
 
             // إيداع وسحب
             document.getElementById('depositBtn').addEventListener('click', function() {
-                alert('💳 سيتم توجيهك إلى بوابة الإيداع قريباً.');
+                // تم التعامل معه في القسم الخاص بزر الإيداع أعلاه
             });
 
             document.getElementById('withdrawBtn').addEventListener('click', function() {
@@ -3721,7 +4044,7 @@
         })();
 
         // ========================
-        // 17. منع إعادة التحميل
+        // 18. منع إعادة التحميل
         // ========================
         document.querySelectorAll('button').forEach(b => {
             b.addEventListener('click', (e) => {
@@ -3731,17 +4054,26 @@
                     b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                     b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
                     b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                    b.id === 'depositBtn' || b.id === 'withdrawBtn' || b.id === 'redeemBtn') {
+                    b.id === 'depositBtn' || b.id === 'withdrawBtn' || b.id === 'redeemBtn' ||
+                    b.id === 'depositBackBtn') {
                     e.preventDefault();
                 }
             });
         });
 
+        // ========================
+        // 19. تحديث شريط التنقل عند تحميل الصفحة
+        // ========================
+        setTimeout(() => {
+            updateNavActive('page-home');
+        }, 100);
+
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
+        console.log('✅ تم إضافة صفحة الإيداع مع انتقال ناعم (Fade + Slide Up).');
         console.log('✅ تم تعديل أزرار الإيداع والسحب إلى شكل مستطيل احترافي.');
         console.log('✅ تم إزالة جميع تأثيرات اللمس (scale, transform) من الأزرار.');
         console.log('✅ تم الحفاظ على التصميم الاحترافي مع Action Cards.');
     </script>
 
 </body>
-</html>
+    </html>
