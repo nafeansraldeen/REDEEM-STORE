@@ -4,10 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>REDEEM STORE</title>
-    <!-- Font Awesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <style>
+        /* ============================================ */
         /* ===== RESET & BASE ===== */
+        /* ============================================ */
         * {
             margin: 0;
             padding: 0;
@@ -16,13 +17,29 @@
         }
 
         body {
-            background-color: #FFFFFF;
+            background-color: #F5F7FA;
             color: #222;
             padding-bottom: 80px;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
+        /* ============================================ */
+        /* ===== PAGE CONTAINER ===== */
+        /* ============================================ */
+        .page-container {
+            max-width: 480px;
+            margin: 0 auto;
+            background: #FFFFFF;
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+        }
+
+        /* ============================================ */
         /* ===== HEADER ===== */
+        /* ============================================ */
         .app-header {
             background: #1A73E8;
             padding: 14px 16px 12px;
@@ -87,7 +104,9 @@
             color: rgba(255, 255, 255, 0.6);
         }
 
+        /* ============================================ */
         /* ===== BOTTOM NAVIGATION ===== */
+        /* ============================================ */
         .bottom-nav {
             position: fixed;
             bottom: 0;
@@ -103,6 +122,8 @@
             border-top: 1px solid #f0f0f0;
             z-index: 999;
             direction: rtl;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         .nav-item {
@@ -122,14 +143,6 @@
             min-width: 55px;
             flex: 1;
             text-align: center;
-        }
-
-        .nav-item:first-child {
-            margin-right: 0;
-        }
-
-        .nav-item:last-child {
-            margin-left: 0;
         }
 
         .nav-item i {
@@ -173,7 +186,9 @@
             opacity: 1;
         }
 
+        /* ============================================ */
         /* ===== PAGES ===== */
+        /* ============================================ */
         .page {
             display: none;
             padding: 20px 16px 30px;
@@ -195,7 +210,9 @@
             }
         }
 
+        /* ============================================ */
         /* ===== HOME PAGE ===== */
+        /* ============================================ */
         .store-title {
             text-align: center;
             font-size: 32px;
@@ -213,7 +230,6 @@
             color: #00BCD4;
         }
 
-        /* ===== CATEGORIES TABS ===== */
         .tabs-wrapper {
             position: relative;
             background: #f8f9fa;
@@ -259,7 +275,6 @@
             width: 25%;
         }
 
-        /* ===== PRODUCTS GRID ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -319,8 +334,28 @@
             z-index: 1;
         }
 
-        /* ===== RIPPLE EFFECT ===== */
+        /* ============================================ */
+        /* ===== RIPPLE EFFECTS ===== */
+        /* ============================================ */
         .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(26, 115, 232, 0.15);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .ripple-btn {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(0);
+            animation: rippleAnim 0.6s ease-out forwards;
+            pointer-events: none;
+        }
+
+        .ripple-effect {
             position: absolute;
             border-radius: 50%;
             background: rgba(26, 115, 232, 0.15);
@@ -336,7 +371,6 @@
             }
         }
 
-        /* ===== FADE OUT ===== */
         .fade-out {
             animation: fadeOut 0.25s ease forwards;
         }
@@ -355,7 +389,6 @@
         /* ============================================ */
         /* ===== PUBG PAGE ===== */
         /* ============================================ */
-
         .pubg-header {
             display: flex;
             align-items: center;
@@ -466,7 +499,6 @@
         /* ============================================ */
         /* ===== CALL OF DUTY PAGE ===== */
         /* ============================================ */
-
         .cod-header {
             display: flex;
             align-items: center;
@@ -580,7 +612,6 @@
         /* ============================================ */
         /* ===== MOBILE LEGENDS PAGE ===== */
         /* ============================================ */
-
         .ml-header {
             display: flex;
             align-items: center;
@@ -755,7 +786,6 @@
         /* ============================================ */
         /* ===== eFOOTBALL PAGE ===== */
         /* ============================================ */
-
         .efootball-header {
             display: flex;
             align-items: center;
@@ -869,7 +899,6 @@
         /* ============================================ */
         /* ===== CLASH OF CLANS PAGE ===== */
         /* ============================================ */
-
         .coc-header {
             display: flex;
             align-items: center;
@@ -997,7 +1026,6 @@
         /* ============================================ */
         /* ===== SHIPPING FORM ===== */
         /* ============================================ */
-
         .shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -1078,19 +1106,9 @@
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
         }
 
-        .btn-buy .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
         /* ============================================ */
         /* ===== SUPPORT PAGE ===== */
         /* ============================================ */
-
         .support-header {
             text-align: center;
             padding: 10px 0 6px;
@@ -1179,16 +1197,7 @@
             box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
         }
 
-        .btn-support .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        /* ===== FAQ - ACCORDION ===== */
+        /* ===== FAQ ===== */
         .faq-section {
             margin-top: 8px;
         }
@@ -1303,13 +1312,10 @@
         /* ============================================ */
         /* ===== WALLET PAGE ===== */
         /* ============================================ */
-
-        /* إزالة الهوامش الجانبية من صفحة المحفظة مع الاحتفاظ بالمسافات */
         #page-wallet {
             padding: 0 !important;
         }
 
-        /* حاوية البطاقة */
         .wallet-card-wrapper {
             padding: 16px 16px 0 16px;
             display: flex;
@@ -1317,7 +1323,6 @@
             width: 100%;
         }
 
-        /* ===== البطاقة ===== */
         .wallet-balance-card {
             width: 100%;
             max-width: 360px;
@@ -1435,7 +1440,7 @@
             color: #FFFFFF;
         }
 
-        /* ===== أزرار الإيداع والسحب - تصميم مستطيل احترافي ===== */
+        /* ===== أزرار الإيداع والسحب ===== */
         .wallet-actions {
             display: flex;
             gap: 14px;
@@ -1467,7 +1472,6 @@
             min-height: 100px;
         }
 
-        /* تأثير hover للديسكتوب */
         @media (hover: hover) {
             .wallet-actions .action-card:hover {
                 border-color: #1A73E8;
@@ -1476,13 +1480,11 @@
             }
         }
 
-        /* إزالة تأثير الضغط (scale) */
         .wallet-actions .action-card:active {
             transform: none !important;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
         }
 
-        /* زر الإيداع - لون أزرق فاتح */
         .wallet-actions .action-card.deposit-card {
             background: linear-gradient(145deg, #E8F0FE, #D2E3FC);
             border-color: #1A73E8;
@@ -1497,7 +1499,6 @@
             color: #1A73E8;
         }
 
-        /* زر السحب - لون رمادي أنيق */
         .wallet-actions .action-card.withdraw-card {
             background: linear-gradient(145deg, #F8F9FA, #EEF0F2);
             border-color: #D1D5DB;
@@ -1512,7 +1513,6 @@
             color: #374151;
         }
 
-        /* أيقونة البطاقة */
         .wallet-actions .action-card .card-icon {
             width: 48px;
             height: 48px;
@@ -1524,7 +1524,6 @@
             transition: all 0.3s ease;
         }
 
-        /* عناوين البطاقة */
         .wallet-actions .action-card .card-title {
             font-size: 16px;
             font-weight: 700;
@@ -1538,191 +1537,7 @@
             margin-top: -2px;
         }
 
-        /* تأثير Ripple للأزرار */
-        .wallet-actions .action-card .ripple-btn {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        /* ============================================ */
-        /* ===== صفحة الإيداع - مطابقة للصورة 100% ===== */
-        /* ============================================ */
-
-        .deposit-page {
-            padding: 20px 16px 30px;
-            background: #FFFFFF;
-            min-height: 100vh;
-            animation: depositSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        @keyframes depositSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .deposit-page .deposit-header {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            margin-bottom: 28px;
-            padding: 0 4px;
-        }
-
-        .deposit-page .deposit-back-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            border: none;
-            background: #f0f0f0;
-            color: #333;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-        }
-
-        .deposit-page .deposit-back-btn:active {
-            transform: scale(0.95);
-        }
-
-        .deposit-page .deposit-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: #222;
-        }
-
-        .deposit-page .deposit-sub {
-            font-size: 14px;
-            color: #888;
-            font-weight: 400;
-            margin-top: -2px;
-        }
-
-        /* ===== خيارات الإيداع - تدرج أزرق ناعم ===== */
-        .deposit-options {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 8px;
-        }
-
-        .deposit-option {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 18px;
-            background: linear-gradient(135deg, #F0F7FF, #E3EEFC);
-            border: 1.5px solid #D6E8F8;
-            border-radius: 16px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .deposit-option:active {
-            transform: scale(0.98);
-        }
-
-        .deposit-option .option-left {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .deposit-option .option-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-            background: rgba(26, 115, 232, 0.12);
-            color: #1A73E8;
-        }
-
-        .deposit-option .option-icon.bank {
-            background: rgba(26, 115, 232, 0.15);
-            color: #1A73E8;
-        }
-
-        .deposit-option .option-icon.mykashi {
-            background: rgba(245, 158, 11, 0.15);
-            color: #F59E0B;
-        }
-
-        .deposit-option .option-icon.bravo {
-            background: rgba(236, 72, 153, 0.12);
-            color: #EC4899;
-        }
-
-        .deposit-option .option-icon.ookash {
-            background: rgba(16, 185, 129, 0.12);
-            color: #10B981;
-        }
-
-        .deposit-option .option-info h4 {
-            font-size: 16px;
-            font-weight: 600;
-            color: #222;
-            margin-bottom: 2px;
-        }
-
-        .deposit-option .option-info span {
-            font-size: 13px;
-            color: #888;
-            font-weight: 400;
-        }
-
-        .deposit-option .option-fee {
-            font-size: 13px;
-            font-weight: 600;
-            color: #666;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 4px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .deposit-option .option-fee.free {
-            color: #10B981;
-            background: rgba(16, 185, 129, 0.10);
-            border-color: rgba(16, 185, 129, 0.15);
-        }
-
-        .deposit-option .option-arrow {
-            color: #ccc;
-            font-size: 14px;
-            margin-right: 4px;
-        }
-
-        /* ===== حالة الـ Hover للديسكتوب ===== */
-        @media (hover: hover) {
-            .deposit-option:hover {
-                background: linear-gradient(135deg, #E8F4FD, #D6E8F8);
-                border-color: #B5D4F0;
-                transform: translateY(-1px);
-                box-shadow: 0 4px 16px rgba(26, 115, 232, 0.08);
-            }
-        }
-
-        /* ===== تفعيل كود الشحن ===== */
+        /* ===== تفعيل كود ===== */
         .wallet-section-title {
             font-size: 16px;
             font-weight: 700;
@@ -1797,7 +1612,6 @@
             outline: none;
         }
 
-        /* إزالة تأثير الضغط من زر التفعيل */
         .btn-redeem-wallet:active {
             transform: none !important;
         }
@@ -1848,7 +1662,6 @@
             outline: none;
         }
 
-        /* إزالة تأثير الضغط من أزرار الفلتر */
         .filter-btn-wallet:active {
             transform: none !important;
         }
@@ -1970,7 +1783,522 @@
             color: #EF4444;
         }
 
+        /* ============================================ */
+        /* ===== DEPOSIT PAGE ===== */
+        /* ============================================ */
+        .deposit-page {
+            display: none;
+            padding: 0;
+            background: #FFFFFF;
+            min-height: 100vh;
+            position: relative;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .deposit-page.active {
+            display: block;
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        .deposit-page.slide-out {
+            transform: translateX(-30%);
+            opacity: 0;
+        }
+
+        .deposit-header {
+            background: #1A73E8;
+            padding: 20px 20px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.20);
+        }
+
+        .deposit-header .header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .deposit-header .back-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: none;
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            backdrop-filter: blur(4px);
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .deposit-header .back-btn:active {
+            transform: scale(0.92);
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .deposit-header .header-title {
+            color: #FFFFFF;
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+        }
+
+        .deposit-header .header-sub {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 13px;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .deposit-body {
+            padding: 20px 16px 30px;
+        }
+
+        .method-selection .section-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 16px;
+            padding-right: 4px;
+        }
+
+        .method-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .method-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            background: linear-gradient(135deg, #F0F7FF, #E8F0FE);
+            border: 1.5px solid #D6E8F8;
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .method-item:active {
+            transform: scale(0.98);
+        }
+
+        .method-item .method-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .method-item .method-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .method-item .method-icon.bank {
+            background: rgba(26, 115, 232, 0.15);
+            color: #1A73E8;
+        }
+
+        .method-item .method-icon.mykashi {
+            background: rgba(245, 158, 11, 0.15);
+            color: #F59E0B;
+        }
+
+        .method-item .method-icon.bravo {
+            background: rgba(236, 72, 153, 0.12);
+            color: #EC4899;
+        }
+
+        .method-item .method-icon.ookash {
+            background: rgba(16, 185, 129, 0.12);
+            color: #10B981;
+        }
+
+        .method-item .method-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .method-item .method-info span {
+            font-size: 12px;
+            color: #888;
+            font-weight: 400;
+        }
+
+        .method-item .method-arrow {
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        .method-item .method-fee {
+            font-size: 12px;
+            font-weight: 600;
+            color: #666;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 3px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            margin-left: 8px;
+        }
+
+        .method-item .method-fee.free {
+            color: #10B981;
+            background: rgba(16, 185, 129, 0.10);
+            border-color: rgba(16, 185, 129, 0.15);
+        }
+
+        /* ===== صفحة تفاصيل الإيداع ===== */
+        .deposit-detail {
+            display: none;
+            animation: detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        .deposit-detail.active {
+            display: block;
+        }
+
+        @keyframes detailSlideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .deposit-detail .detail-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1A73E8;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.25s ease;
+            border: none;
+            background: none;
+            padding: 4px 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .deposit-detail .detail-back:active {
+            transform: scale(0.95);
+        }
+
+        .deposit-detail .detail-back i {
+            font-size: 14px;
+        }
+
+        .account-card {
+            background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid #E8EAED;
+            margin-bottom: 20px;
+        }
+
+        .account-card .account-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #888;
+            margin-bottom: 6px;
+        }
+
+        .account-card .account-number-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .account-card .account-number {
+            font-size: 18px;
+            font-weight: 700;
+            color: #222;
+            direction: ltr;
+            text-align: left;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 1px;
+            word-break: break-all;
+        }
+
+        .account-card .copy-btn {
+            padding: 8px 16px;
+            background: #1A73E8;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-shrink: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .account-card .copy-btn:active {
+            transform: scale(0.95);
+        }
+
+        .account-card .copy-btn.copied {
+            background: #10B981;
+        }
+
+        .account-card .copy-btn i {
+            font-size: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+            margin-bottom: 6px;
+        }
+
+        .form-group label .required {
+            color: #EF4444;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #E8EAED;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 500;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            color: #222;
+            direction: rtl;
+        }
+
+        .form-group input::placeholder {
+            color: #aaa;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .form-group input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .form-group input.input-ltr {
+            direction: ltr;
+            text-align: left;
+        }
+
+        .file-upload-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .file-upload-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .file-upload-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 18px;
+            border: 2px dashed #D6E8F8;
+            border-radius: 14px;
+            background: #F8FAFC;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            color: #888;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .file-upload-box i {
+            font-size: 22px;
+            color: #1A73E8;
+        }
+
+        .file-upload-box.has-file {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.06);
+            color: #10B981;
+        }
+
+        .file-upload-box .file-name {
+            font-weight: 600;
+            color: #222;
+            max-width: 150px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .btn-confirm {
+            width: 100%;
+            padding: 16px 24px;
+            background: linear-gradient(135deg, #1A73E8, #1557B0);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 24px rgba(26, 115, 232, 0.30);
+            position: relative;
+            overflow: hidden;
+            margin-top: 8px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-confirm:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        .btn-confirm.loading {
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .btn-confirm .loader {
+            display: none;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-confirm.loading .loader {
+            display: flex;
+        }
+
+        .btn-confirm.loading .btn-text {
+            display: none;
+        }
+
+        .loader-spinner {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #FFFFFF;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .success-message.active {
+            display: block;
+        }
+
+        @keyframes successPop {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .success-message .success-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: #10B981;
+        }
+
+        .success-message h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #222;
+            margin-bottom: 8px;
+        }
+
+        .success-message p {
+            font-size: 15px;
+            color: #888;
+            line-height: 1.7;
+            max-width: 320px;
+            margin: 0 auto 24px;
+        }
+
+        .btn-back-home {
+            padding: 14px 32px;
+            background: #1A73E8;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-back-home:active {
+            transform: scale(0.95);
+        }
+
+        /* ============================================ */
         /* ===== ACCOUNT PAGE ===== */
+        /* ============================================ */
         .placeholder-page {
             display: flex;
             flex-direction: column;
@@ -1987,7 +2315,9 @@
             margin-bottom: 16px;
         }
 
+        /* ============================================ */
         /* ===== MODAL ===== */
+        /* ============================================ */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -2060,21 +2390,6 @@
             background: #f0f0f0 !important;
         }
 
-        .modal-image {
-            width: 100%;
-            border-radius: 16px;
-            margin-bottom: 16px;
-            background: #f8f9fa;
-            border: 1px solid #f0f0f0;
-        }
-
-        .modal-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-        }
-
         .modal-instructions {
             list-style: none;
             padding: 0;
@@ -2118,7 +2433,6 @@
         /* ============================================ */
         /* ===== RESPONSIVE ===== */
         /* ============================================ */
-
         @media (max-width: 420px) {
             .app-header .logo {
                 font-size: 17px;
@@ -2133,178 +2447,50 @@
                 font-size: 13px;
                 padding: 10px 0;
             }
-            .pubg-header {
-                padding: 14px 16px;
-            }
-            .pubg-header img {
-                width: 60px;
-                height: 60px;
-            }
-            .pubg-header .game-info h2 {
-                font-size: 20px;
-            }
-            .packs-grid {
-                gap: 10px;
-            }
-            .pack-btn {
-                padding: 16px 10px;
-                min-height: 85px;
-                border-radius: 14px;
-            }
-            .pack-btn .uc-amount {
+            .deposit-header .header-title {
                 font-size: 18px;
             }
-            .pack-btn .price-amount {
-                font-size: 13px;
+            .deposit-body {
+                padding: 16px 12px 24px;
             }
-            .cod-header {
-                padding: 14px 16px;
+            .deposit-header {
+                padding: 16px 16px 20px;
             }
-            .cod-header img {
-                width: 60px;
-                height: 60px;
-            }
-            .cod-header .game-info h2 {
-                font-size: 20px;
-            }
-            .cod-packs-grid {
-                gap: 10px;
-            }
-            .cod-pack-btn {
-                padding: 16px 10px;
-                min-height: 85px;
+            .method-item {
+                padding: 14px 14px;
                 border-radius: 14px;
             }
-            .cod-pack-btn .cp-amount {
-                font-size: 18px;
-            }
-            .cod-pack-btn .price-amount {
-                font-size: 13px;
-            }
-            .ml-header {
-                padding: 14px 16px;
-            }
-            .ml-header img {
-                width: 60px;
-                height: 60px;
-            }
-            .ml-header .game-info h2 {
-                font-size: 20px;
-            }
-            .ml-packs-grid {
-                gap: 10px;
-            }
-            .ml-pack-btn {
-                padding: 16px 10px;
-                min-height: 85px;
-                border-radius: 14px;
-            }
-            .ml-pack-btn .diamond-amount {
-                font-size: 18px;
-            }
-            .ml-pack-btn .diamond-amount svg {
-                width: 18px;
-                height: 18px;
-            }
-            .ml-pack-btn .price-amount {
-                font-size: 13px;
-            }
-            .efootball-header {
-                padding: 14px 16px;
-            }
-            .efootball-header img {
-                width: 60px;
-                height: 60px;
-            }
-            .efootball-header .game-info h2 {
-                font-size: 20px;
-            }
-            .efootball-packs-grid {
-                gap: 10px;
-            }
-            .efootball-pack-btn {
-                padding: 16px 10px;
-                min-height: 85px;
-                border-radius: 14px;
-            }
-            .efootball-pack-btn .fc-amount {
-                font-size: 18px;
-            }
-            .efootball-pack-btn .price-amount {
-                font-size: 13px;
-            }
-            .coc-header {
-                padding: 14px 16px;
-            }
-            .coc-header img {
-                width: 60px;
-                height: 60px;
-            }
-            .coc-header .game-info h2 {
-                font-size: 20px;
-            }
-            .coc-packs-grid {
-                gap: 10px;
-            }
-            .coc-pack-btn {
-                padding: 20px 10px 16px;
-                min-height: 110px;
-                border-radius: 14px;
-            }
-            .coc-pack-btn .coc-amount {
-                font-size: 28px;
-            }
-            .coc-pack-btn .coc-icon {
-                font-size: 24px;
-            }
-            .coc-pack-btn .coc-price {
+            .method-item .method-icon {
+                width: 38px;
+                height: 38px;
                 font-size: 16px;
+                border-radius: 10px;
             }
-            .shipping-form {
-                padding: 18px 16px;
-            }
-            .support-header h1 {
-                font-size: 28px;
-            }
-            .support-card {
-                padding: 24px 16px;
-            }
-            .support-card h2 {
-                font-size: 20px;
-            }
-            .faq-question {
+            .method-item .method-info h4 {
                 font-size: 14px;
-                padding: 14px 16px;
             }
-            .nav-item span {
-                font-size: 10px;
+            .account-card .account-number {
+                font-size: 16px;
             }
-            .nav-item i {
-                font-size: 20px;
+            .account-card .copy-btn {
+                font-size: 12px;
+                padding: 6px 12px;
             }
-            .btn-buy {
+            .form-group input {
+                padding: 12px 14px;
+                font-size: 15px;
+            }
+            .btn-confirm {
                 font-size: 16px;
                 padding: 14px 20px;
             }
-            .btn-support {
-                font-size: 16px;
-                padding: 14px 20px;
+            .success-message .success-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 32px;
             }
-            .modal-content {
-                padding: 16px 16px 16px;
-                margin: 10px;
-            }
-            .modal-instructions li {
-                font-size: 13px;
-                padding: 5px 16px 5px 0;
-            }
-            .ml-help-icon {
-                width: 18px;
-                height: 18px;
-                font-size: 11px;
-            }
-            .wallet-card-wrapper {
-                padding: 12px 12px 0 12px;
+            .success-message h2 {
+                font-size: 19px;
             }
             .wallet-balance-card {
                 max-width: 100%;
@@ -2350,36 +2536,23 @@
             .wallet-actions .action-card .card-sub {
                 font-size: 11px;
             }
-            .deposit-page .deposit-title {
-                font-size: 19px;
-            }
-            .deposit-option {
-                padding: 14px 14px;
-                border-radius: 14px;
-            }
-            .deposit-option .option-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-                border-radius: 10px;
-            }
-            .deposit-option .option-info h4 {
+            .wallet-section-title {
+                padding-right: 12px;
                 font-size: 14px;
             }
-            .deposit-option .option-info span {
-                font-size: 12px;
+            .redeem-card-wallet {
+                margin: 0 12px 20px 12px;
+                padding: 14px;
             }
-            .deposit-option .option-fee {
-                font-size: 12px;
-                padding: 3px 12px;
+            .transactions-header-wallet {
+                padding-right: 12px;
             }
-            .redeem-input-group-wallet input {
-                font-size: 14px;
-                padding: 10px 14px;
+            .filter-scroll-wallet {
+                padding: 2px 12px 10px 12px;
             }
-            .btn-redeem-wallet {
-                font-size: 14px;
-                padding: 10px 16px;
+            .transactions-list-wallet {
+                margin: 0 12px;
+                padding: 12px 0;
             }
             .filter-btn-wallet {
                 font-size: 12px;
@@ -2398,24 +2571,6 @@
             }
             .transaction-amount-wallet {
                 font-size: 14px;
-            }
-            .wallet-section-title {
-                padding-right: 12px;
-                font-size: 14px;
-            }
-            .redeem-card-wallet {
-                margin: 0 12px 20px 12px;
-                padding: 14px;
-            }
-            .transactions-header-wallet {
-                padding-right: 12px;
-            }
-            .filter-scroll-wallet {
-                padding: 2px 12px 10px 12px;
-            }
-            .transactions-list-wallet {
-                margin: 0 12px;
-                padding: 12px 0;
             }
         }
 
@@ -2436,6 +2591,13 @@
                 grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
             }
+            .deposit-body {
+                padding: 24px 24px 30px;
+            }
+            .method-item {
+                padding: 18px 22px;
+                border-radius: 18px;
+            }
             .wallet-balance-card {
                 max-width: 400px;
                 height: 220px;
@@ -2454,9 +2616,6 @@
             .wallet-balance-amount .amount-number {
                 font-size: 44px;
             }
-            .wallet-card-wrapper {
-                padding: 20px 20px 0 20px;
-            }
             .wallet-actions .action-card {
                 padding: 22px 20px;
                 border-radius: 14px;
@@ -2467,21 +2626,9 @@
                 height: 52px;
                 font-size: 22px;
             }
-            .deposit-option {
-                padding: 20px 24px;
-                border-radius: 18px;
-            }
-            .deposit-option .option-icon {
-                width: 48px;
-                height: 48px;
-                font-size: 20px;
-            }
         }
 
         @media (min-width: 900px) {
-            .wallet-card-wrapper {
-                padding: 24px 24px 0 24px;
-            }
             .wallet-balance-card {
                 max-width: 420px;
                 height: 230px;
@@ -2495,804 +2642,756 @@
 </head>
 <body>
 
-    <!-- ===== HEADER ===== -->
-    <header class="app-header">
-        <div class="header-left">
-            <i class="fas fa-bars menu-icon"></i>
-            <span class="logo">RE<span>DEM</span></span>
-        </div>
-        <div class="header-right">
-            <div class="search-box">
-                <i class="fas fa-search"></i>
-                <span>بحث عن المنتجات...</span>
+    <div class="page-container">
+
+        <!-- ===== HEADER ===== -->
+        <header class="app-header">
+            <div class="header-left">
+                <i class="fas fa-bars menu-icon"></i>
+                <span class="logo">RE<span>DEM</span></span>
             </div>
-            <i class="fas fa-shopping-cart"></i>
-            <i class="fas fa-bell"></i>
-        </div>
-    </header>
-
-    <!-- ============================================= -->
-    <!-- الصفحات -->
-    <!-- ============================================= -->
-
-    <!-- الصفحة الرئيسية -->
-    <div id="page-home" class="page active">
-        <div class="store-title">
-            <span class="blue">REDEEM</span>
-            <span class="cyan">STORE</span>
-        </div>
-
-        <div class="tabs-wrapper" id="tabsContainer">
-            <div class="tab-slider" id="tabSlider" style="right:0%;"></div>
-            <button class="tab-btn active" data-tab="games">الألعاب</button>
-            <button class="tab-btn" data-tab="subscriptions">الاشتراكات</button>
-            <button class="tab-btn" data-tab="stores">المتاجر</button>
-            <button class="tab-btn" data-tab="services">خدمات مميزة</button>
-        </div>
-
-        <div id="productsContainer">
-            <div class="products-grid" id="productsGrid"></div>
-        </div>
-    </div>
-
-    <!-- صفحة المحفظة -->
-    <div id="page-wallet" class="page">
-
-        <!-- ===== حاوية البطاقة ===== -->
-        <div class="wallet-card-wrapper">
-            <div class="wallet-balance-card">
-                <div class="wallet-balance-top">
-                    <div class="wallet-balance-icon">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="wallet-balance-header">
-                        <h2 class="wallet-balance-title">رصيد المحفظة</h2>
-                        <span class="wallet-balance-sub">الرصيد المتاح</span>
-                    </div>
+            <div class="header-right">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <span>بحث عن المنتجات...</span>
                 </div>
-                <div class="wallet-balance-amount">
-                    <span class="currency-symbol">ج.س</span>
-                    <span class="amount-number" id="walletBalanceDisplay">0.00</span>
-                </div>
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-bell"></i>
+            </div>
+        </header>
+
+        <!-- ============================================= -->
+        <!-- ===== الصفحات ===== -->
+        <!-- ============================================= -->
+
+        <!-- الصفحة الرئيسية -->
+        <div id="page-home" class="page active">
+            <div class="store-title">
+                <span class="blue">REDEEM</span>
+                <span class="cyan">STORE</span>
+            </div>
+
+            <div class="tabs-wrapper" id="tabsContainer">
+                <div class="tab-slider" id="tabSlider" style="right:0%;"></div>
+                <button class="tab-btn active" data-tab="games">الألعاب</button>
+                <button class="tab-btn" data-tab="subscriptions">الاشتراكات</button>
+                <button class="tab-btn" data-tab="stores">المتاجر</button>
+                <button class="tab-btn" data-tab="services">خدمات مميزة</button>
+            </div>
+
+            <div id="productsContainer">
+                <div class="products-grid" id="productsGrid"></div>
             </div>
         </div>
 
-        <!-- ===== أزرار الإيداع والسحب - Action Cards مستطيلة ===== -->
-        <div class="wallet-actions">
-            <button class="action-card deposit-card" id="depositBtn">
-                <div class="card-icon">
-                    <i class="fas fa-arrow-down"></i>
+        <!-- صفحة المحفظة -->
+        <div id="page-wallet" class="page">
+            <div class="wallet-card-wrapper">
+                <div class="wallet-balance-card">
+                    <div class="wallet-balance-top">
+                        <div class="wallet-balance-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="wallet-balance-header">
+                            <h2 class="wallet-balance-title">رصيد المحفظة</h2>
+                            <span class="wallet-balance-sub">الرصيد المتاح</span>
+                        </div>
+                    </div>
+                    <div class="wallet-balance-amount">
+                        <span class="currency-symbol">ج.س</span>
+                        <span class="amount-number" id="walletBalanceDisplay">0.00</span>
+                    </div>
                 </div>
-                <span class="card-title">إيداع</span>
-                <span class="card-sub">أضف رصيد</span>
-            </button>
-            <button class="action-card withdraw-card" id="withdrawBtn">
-                <div class="card-icon">
-                    <i class="fas fa-arrow-up"></i>
-                </div>
-                <span class="card-title">سحب</span>
-                <span class="card-sub">اسحب رصيد</span>
-            </button>
-        </div>
+            </div>
 
-        <!-- ===== تفعيل كود الشحن ===== -->
-        <div class="wallet-section-title">تفعيل كود الشحن</div>
-        <div class="redeem-card-wallet">
-            <label class="redeem-label-wallet">أدخل كود الشحن لإضافة رصيد إلى محفظتك</label>
-            <div class="redeem-input-group-wallet">
-                <input type="text" placeholder="أدخل كود الشحن (مثال: 23XYZ)" id="redeemInput" />
-                <button class="btn-redeem-wallet" id="redeemBtn">تفعيل</button>
+            <div class="wallet-actions">
+                <button class="action-card deposit-card" id="depositBtn">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <span class="card-title">إيداع</span>
+                    <span class="card-sub">أضف رصيد</span>
+                </button>
+                <button class="action-card withdraw-card" id="withdrawBtn">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <span class="card-title">سحب</span>
+                    <span class="card-sub">اسحب رصيد</span>
+                </button>
+            </div>
+
+            <div class="wallet-section-title">تفعيل كود الشحن</div>
+            <div class="redeem-card-wallet">
+                <label class="redeem-label-wallet">أدخل كود الشحن لإضافة رصيد إلى محفظتك</label>
+                <div class="redeem-input-group-wallet">
+                    <input type="text" placeholder="أدخل كود الشحن (مثال: 23XYZ)" id="redeemInput" />
+                    <button class="btn-redeem-wallet" id="redeemBtn">تفعيل</button>
+                </div>
+            </div>
+
+            <div class="transactions-header-wallet">
+                <div class="wallet-section-title">المعاملات</div>
+            </div>
+
+            <div class="filter-scroll-wallet" id="filterContainer">
+                <button class="filter-btn-wallet active" data-filter="all">الكل</button>
+                <button class="filter-btn-wallet" data-filter="deposit">إيداع</button>
+                <button class="filter-btn-wallet" data-filter="withdraw">سحب</button>
+                <button class="filter-btn-wallet" data-filter="purchase">شراء</button>
+                <button class="filter-btn-wallet" data-filter="refund">استرداد</button>
+            </div>
+
+            <div class="transactions-list-wallet" id="transactionsList">
+                <div class="empty-state-wallet" id="emptyState">
+                    <i class="fas fa-inbox"></i>
+                    <p>لا توجد معاملات</p>
+                </div>
+                <div id="transactionsContainer"></div>
             </div>
         </div>
 
-        <!-- ===== المعاملات ===== -->
-        <div class="transactions-header-wallet">
-            <div class="wallet-section-title">المعاملات</div>
-        </div>
-
-        <div class="filter-scroll-wallet" id="filterContainer">
-            <button class="filter-btn-wallet active" data-filter="all">الكل</button>
-            <button class="filter-btn-wallet" data-filter="deposit">إيداع</button>
-            <button class="filter-btn-wallet" data-filter="withdraw">سحب</button>
-            <button class="filter-btn-wallet" data-filter="purchase">شراء</button>
-            <button class="filter-btn-wallet" data-filter="refund">استرداد</button>
-        </div>
-
-        <div class="transactions-list-wallet" id="transactionsList">
-            <div class="empty-state-wallet" id="emptyState">
-                <i class="fas fa-inbox"></i>
-                <p>لا توجد معاملات</p>
+        <!-- ============================================ -->
+        <!-- ===== صفحة الإيداع ===== -->
+        <!-- ============================================ -->
+        <div class="deposit-page" id="depositPage">
+            <div class="deposit-header">
+                <div class="header-top">
+                    <button class="back-btn" id="depositBackBtn">
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div>
+                        <div class="header-title">إيداع الرصيد</div>
+                        <div class="header-sub">أضف أموال إلى محفظتك</div>
+                    </div>
+                </div>
             </div>
-            <div id="transactionsContainer"></div>
-        </div>
-    </div>
 
-    <!-- ============================================ -->
-    <!-- صفحة الإيداع - مطابقة للصورة 100% -->
-    <!-- ============================================ -->
-    <div id="page-deposit" class="page deposit-page" style="display:none;">
-        <div class="deposit-header">
-            <button class="deposit-back-btn" id="depositBackBtn">
-                <i class="fas fa-arrow-right"></i>
-            </button>
-            <div>
-                <div class="deposit-title">إيداع رصيد</div>
-                <div class="deposit-sub">اختر طريقة الإيداع</div>
+            <div class="deposit-body">
+                <!-- صفحة اختيار الطريقة -->
+                <div class="method-selection" id="methodSelection">
+                    <div class="section-title">اختر طريقة الإيداع</div>
+                    <div class="method-list">
+                        <button class="method-item" data-method="bank">
+                            <div class="method-left">
+                                <div class="method-icon bank">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>بنكك</h4>
+                                    <span>تحويل بنكي مباشر</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;">
+                                <span class="method-fee free">مجاني</span>
+                                <i class="fas fa-chevron-left method-arrow"></i>
+                            </div>
+                        </button>
+
+                        <button class="method-item" data-method="mykashi">
+                            <div class="method-left">
+                                <div class="method-icon mykashi">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>ماي كاشي</h4>
+                                    <span>تحويل عبر ماي كاشي</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;">
+                                <span class="method-fee">3%</span>
+                                <i class="fas fa-chevron-left method-arrow"></i>
+                            </div>
+                        </button>
+
+                        <button class="method-item" data-method="bravo">
+                            <div class="method-left">
+                                <div class="method-icon bravo">
+                                    <i class="fas fa-play-circle"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>تطبيق "برافو"</h4>
+                                    <span>دفع عبر تطبيق برافو</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;">
+                                <span class="method-fee">5%</span>
+                                <i class="fas fa-chevron-left method-arrow"></i>
+                            </div>
+                        </button>
+
+                        <button class="method-item" data-method="ookash">
+                            <div class="method-left">
+                                <div class="method-icon ookash">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <div class="method-info">
+                                    <h4>اووكاش</h4>
+                                    <span>تحويل عبر اووكاش</span>
+                                </div>
+                            </div>
+                            <div style="display:flex;align-items:center;">
+                                <span class="method-fee">2%</span>
+                                <i class="fas fa-chevron-left method-arrow"></i>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- صفحة تفاصيل الإيداع -->
+                <div class="deposit-detail" id="depositDetail">
+                    <button class="detail-back" id="detailBackBtn">
+                        <i class="fas fa-arrow-right"></i>
+                        العودة للخيارات
+                    </button>
+
+                    <div class="account-card">
+                        <div class="account-label">رقم الحساب / المحفظة</div>
+                        <div class="account-number-wrapper">
+                            <span class="account-number" id="accountNumber">SA12 3456 7890 1234 5678</span>
+                            <button class="copy-btn" id="copyBtn">
+                                <i class="fas fa-copy"></i>
+                                نسخ
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>المبلغ <span class="required">*</span></label>
+                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>رقم العملية أو التحويل <span class="required">*</span></label>
+                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInput" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>صورة الإيصال</label>
+                        <div class="file-upload-wrapper">
+                            <input type="file" accept="image/*" id="receiptInput" />
+                            <div class="file-upload-box" id="fileUploadBox">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <span>اضغط لرفع صورة الإيصال</span>
+                                <span class="file-name" id="fileName"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-confirm" id="confirmBtn">
+                        <span class="btn-text">تأكيد الإيداع</span>
+                        <span class="loader">
+                            <span class="loader-spinner"></span>
+                            جاري المعالجة...
+                        </span>
+                    </button>
+
+                    <div class="success-message" id="successMessage">
+                        <div class="success-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h2>تم الإيداع بنجاح! 🎉</h2>
+                        <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
+                        <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="deposit-options">
-            <!-- بنكك -->
-            <button class="deposit-option" data-method="bank">
-                <div class="option-left">
-                    <div class="option-icon bank">
-                        <i class="fas fa-university"></i>
-                    </div>
-                    <div class="option-info">
-                        <h4>بنكك</h4>
-                        <span>تحويل بنكي مباشر</span>
-                    </div>
-                </div>
-                <span class="option-fee free">مجاني</span>
-                <i class="fas fa-chevron-left option-arrow"></i>
-            </button>
+        <!-- صفحة الدعم -->
+        <div id="page-support" class="page">
+            <div class="support-header">
+                <h1>الدعم</h1>
+                <p>نحن هنا لمساعدتك والإجابة على جميع استفساراتك.</p>
+            </div>
 
-            <!-- ماي كاشي -->
-            <button class="deposit-option" data-method="mykashi">
-                <div class="option-left">
-                    <div class="option-icon mykashi">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <div class="option-info">
-                        <h4>ماي كاشي</h4>
-                        <span>تحويل عبر ماي كاشي</span>
-                    </div>
+            <div class="support-card">
+                <div class="icon-wrapper">
+                    <i class="fas fa-headset"></i>
                 </div>
-                <span class="option-fee">3%</span>
-                <i class="fas fa-chevron-left option-arrow"></i>
-            </button>
+                <h2>تواصل مع الدعم</h2>
+                <p>إذا واجهت أي مشكلة أو كان لديك أي استفسار، يسعد فريق الدعم بمساعدتك.</p>
+                <button class="btn-support" id="startChatBtn">
+                    بدء المحادثة
+                </button>
+            </div>
 
-            <!-- تطبيق برافو -->
-            <button class="deposit-option" data-method="bravo">
-                <div class="option-left">
-                    <div class="option-icon bravo">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <div class="option-info">
-                        <h4>تطبيق "برافو"</h4>
-                        <span>دفع عبر تطبيق برافو</span>
-                    </div>
-                </div>
-                <span class="option-fee">5%</span>
-                <i class="fas fa-chevron-left option-arrow"></i>
-            </button>
+            <div class="faq-section">
+                <div class="faq-title">الأسئلة الشائعة</div>
 
-            <!-- اووكاش -->
-            <button class="deposit-option" data-method="ookash">
-                <div class="option-left">
-                    <div class="option-icon ookash">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="option-info">
-                        <h4>اووكاش</h4>
-                        <span>تحويل عبر اووكاش</span>
+                <div class="faq-item">
+                    <button class="faq-question" data-target="faq1">
+                        <span>كيف يتم شحن المحفظة؟</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq1">
+                        <p>يتم شحن المحفظة عن طريق اختيار الباقة المناسبة من صفحة الدعم، ثم إدخال بياناتك وإتمام عملية الدفع عبر واتساب.</p>
                     </div>
                 </div>
-                <span class="option-fee">2%</span>
-                <i class="fas fa-chevron-left option-arrow"></i>
-            </button>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-target="faq2">
+                        <span>كيف ألغي طلبي؟</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq2">
+                        <p>يمكنك إلغاء الطلب عن طريق التواصل مع فريق الدعم عبر واتساب خلال 10 دقائق من تقديم الطلب.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-target="faq3">
+                        <span>متى يصل طلبي؟</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq3">
+                        <p>يتم تسليم الطلب فورًا بعد تأكيد الدفع، وتصل العناصر إلى حسابك خلال 5-10 دقائق.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-target="faq4">
+                        <span>كيف يتم تسليم الطلب؟</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq4">
+                        <p>يتم التسليم إلكترونيًا عبر إضافة الرصيد أو العناصر المشتراة مباشرة إلى حساب اللعبة الخاص بك.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" data-target="faq5">
+                        <span>ماذا أفعل إذا واجهت مشكلة؟</span>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </button>
+                    <div class="faq-answer" id="faq5">
+                        <p>تواصل مع فريق الدعم فورًا عبر زر "بدء المحادثة"، وسنقوم بحل مشكلتك في أسرع وقت.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="support-footer">
+                <i class="fas fa-heart"></i>
+                نسعى دائمًا لتقديم أفضل تجربة دعم ممكنة.
+                <i class="fas fa-heart"></i>
+            </div>
         </div>
-    </div>
 
-    <!-- صفحة الدعم -->
-    <div id="page-support" class="page">
-        <div class="support-header">
-            <h1>الدعم</h1>
-            <p>نحن هنا لمساعدتك والإجابة على جميع استفساراتك.</p>
+        <!-- صفحة الحساب -->
+        <div id="page-account" class="page">
+            <div class="placeholder-page">
+                <i class="fas fa-user-circle"></i>
+                <p>حسابي</p>
+                <span style="font-size:14px; color:#ccc;">تسجيل الدخول</span>
+            </div>
         </div>
 
-        <div class="support-card">
-            <div class="icon-wrapper">
+        <!-- ============================================ -->
+        <!-- ===== صفحات الألعاب ===== -->
+        <!-- ============================================ -->
+
+        <!-- PUBG Mobile -->
+        <div id="page-pubg" class="page">
+            <div class="pubg-header">
+                <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
+                <div class="game-info">
+                    <h2>PUBG Mobile</h2>
+                    <p>اختر باقة UC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="packs-grid" id="packsGrid">
+                <button class="pack-btn" data-uc="60" data-price="0.93">
+                    <span class="uc-amount">60UC</span>
+                    <span class="price-amount">$0.93</span>
+                </button>
+                <button class="pack-btn" data-uc="325" data-price="4.65">
+                    <span class="uc-amount">325UC</span>
+                    <span class="price-amount">$4.65</span>
+                </button>
+                <button class="pack-btn" data-uc="660" data-price="9.30">
+                    <span class="uc-amount">660UC</span>
+                    <span class="price-amount">$9.30</span>
+                </button>
+                <button class="pack-btn" data-uc="985" data-price="14.65">
+                    <span class="uc-amount">985UC</span>
+                    <span class="price-amount">$14.65</span>
+                </button>
+                <button class="pack-btn" data-uc="1320" data-price="19.50">
+                    <span class="uc-amount">1,320UC</span>
+                    <span class="price-amount">$19.50</span>
+                </button>
+                <button class="pack-btn" data-uc="1800" data-price="23.95">
+                    <span class="uc-amount">1,800UC</span>
+                    <span class="price-amount">$23.95</span>
+                </button>
+                <button class="pack-btn" data-uc="2460" data-price="33.50">
+                    <span class="uc-amount">2,460UC</span>
+                    <span class="price-amount">$33.50</span>
+                </button>
+                <button class="pack-btn" data-uc="3850" data-price="47.50">
+                    <span class="uc-amount">3,850UC</span>
+                    <span class="price-amount">$47.50</span>
+                </button>
+                <button class="pack-btn" data-uc="5650" data-price="70.50">
+                    <span class="uc-amount">5,650UC</span>
+                    <span class="price-amount">$70.50</span>
+                </button>
+                <button class="pack-btn" data-uc="8100" data-price="93.50">
+                    <span class="uc-amount">8,100UC</span>
+                    <span class="price-amount">$93.50</span>
+                </button>
+                <button class="pack-btn" data-uc="11950" data-price="150.00">
+                    <span class="uc-amount">11,950UC</span>
+                    <span class="price-amount">$150.00</span>
+                </button>
+                <button class="pack-btn" data-uc="16200" data-price="200.00">
+                    <span class="uc-amount">16,200UC</span>
+                    <span class="price-amount">$200.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="shippingForm">
+                <label>ID اللعبة</label>
+                <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
+                <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Call of Duty -->
+        <div id="page-cod" class="page">
+            <div class="cod-header">
+                <img src="https://i.imgur.com/5f7zH1O.png" alt="Call of Duty" />
+                <div class="game-info">
+                    <h2>Call of Duty</h2>
+                    <p>اختر باقة CP المناسبة</p>
+                </div>
+            </div>
+
+            <div class="cod-packs-grid" id="codPacksGrid">
+                <button class="cod-pack-btn" data-cp="88" data-price="1.50">
+                    <span class="cp-amount">88CP</span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="176" data-price="3.00">
+                    <span class="cp-amount">176CP</span>
+                    <span class="price-amount">$3.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="264" data-price="4.50">
+                    <span class="cp-amount">264CP</span>
+                    <span class="price-amount">$4.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="352" data-price="6.00">
+                    <span class="cp-amount">352CP</span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="440" data-price="7.50">
+                    <span class="cp-amount">440CP</span>
+                    <span class="price-amount">$7.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="528" data-price="9.00">
+                    <span class="cp-amount">528CP</span>
+                    <span class="price-amount">$9.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="616" data-price="10.50">
+                    <span class="cp-amount">616CP</span>
+                    <span class="price-amount">$10.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="704" data-price="12.00">
+                    <span class="cp-amount">704CP</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="880" data-price="15.00">
+                    <span class="cp-amount">880CP</span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="codShippingForm">
+                <label>معرف اللاعب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
+                <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Mobile Legends -->
+        <div id="page-ml" class="page">
+            <div class="ml-header">
+                <img src="https://i.imgur.com/9WqUj3H.png" alt="Mobile Legends" />
+                <div class="game-info">
+                    <h2>Mobile Legends</h2>
+                    <p>اختر باقة الألماس المناسبة</p>
+                </div>
+            </div>
+
+            <div class="ml-packs-grid" id="mlPacksGrid">
+                <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
+                    <span class="diamond-amount">74 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
+                    <span class="diamond-amount">296 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
+                    <span class="diamond-amount">741 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
+                    <span class="diamond-amount">1,186 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$24.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
+                    <span class="diamond-amount">1,471 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$30.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
+                    <span class="diamond-amount">2,205 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$45.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
+                    <span class="diamond-amount">4,527 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$92.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
+                    <span class="diamond-amount">7,707 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$157.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
+                    <span class="diamond-amount">11,559 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$235.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="mlShippingForm">
+                <div class="ml-form-label">
+                    <span>معرف الحساب</span>
+                    <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
+                        <i class="fas fa-question"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
+                <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
+                <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
+                <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- eFootball -->
+        <div id="page-efootball" class="page">
+            <div class="efootball-header">
+                <img src="https://i.imgur.com/1mzLqjP.png" alt="eFootball" />
+                <div class="game-info">
+                    <h2>eFootball</h2>
+                    <p>اختر باقة FC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="efootball-packs-grid" id="efootballPacksGrid">
+                <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
+                    <span class="fc-amount">40 FC</span>
+                    <span class="price-amount">$1.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
+                    <span class="fc-amount">100 FC</span>
+                    <span class="price-amount">$2.50</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
+                    <span class="fc-amount">520 FC</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
+                    <span class="fc-amount">1,070 FC</span>
+                    <span class="price-amount">$25.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
+                    <span class="fc-amount">2,200 FC</span>
+                    <span class="price-amount">$50.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
+                    <span class="fc-amount">5,750 FC</span>
+                    <span class="price-amount">$130.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
+                    <span class="fc-amount">12,000 FC</span>
+                    <span class="price-amount">$270.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="efootballShippingForm">
+                <label>معرف UID الخاص بك</label>
+                <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
+                <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Clash of Clans -->
+        <div id="page-coc" class="page">
+            <div class="coc-header">
+                <img src="https://i.imgur.com/8JQbPkC.png" alt="Clash of Clans" />
+                <div class="game-info">
+                    <h2>Clash of Clans</h2>
+                    <p>اختر باقة الجواهر المناسبة</p>
+                </div>
+            </div>
+
+            <div class="coc-packs-grid" id="cocPacksGrid">
+                <button class="coc-pack-btn" data-gems="80" data-price="0.65">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">80</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$0.65</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="500" data-price="3.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$3.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="1200" data-price="6.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">1,200</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$6.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="2500" data-price="11.90">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">2,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$11.90</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="6500" data-price="28.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">6,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$28.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="14000" data-price="54.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">14,000</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$54.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="cocShippingForm">
+                <label>حساب Supercell</label>
+                <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
+                <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== MODAL ===== -->
+        <!-- ============================================ -->
+        <div class="modal-overlay" id="mlHelpModal">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="mlModalCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
+                <ol class="modal-instructions">
+                    <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
+                    <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
+                        <span class="highlight">ID: XXXXXXXX (XXXX)</span>
+                    </li>
+                    <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
+                    <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
+                    <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- ===== شريط التنقل السفلي ===== -->
+        <!-- ============================================= -->
+        <nav class="bottom-nav" id="bottomNav">
+            <div class="nav-indicator" id="navIndicator"></div>
+
+            <button class="nav-item active" data-page="page-home">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </button>
+            <button class="nav-item" data-page="page-wallet">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </button>
+            <button class="nav-item" data-page="page-support">
                 <i class="fas fa-headset"></i>
-            </div>
-            <h2>تواصل مع الدعم</h2>
-            <p>إذا واجهت أي مشكلة أو كان لديك أي استفسار، يسعد فريق الدعم بمساعدتك.</p>
-            <button class="btn-support" id="startChatBtn">
-                بدء المحادثة
+                <span>الدعم</span>
             </button>
-        </div>
+            <button class="nav-item" data-page="page-account">
+                <i class="fas fa-user"></i>
+                <span>الحساب</span>
+            </button>
+        </nav>
 
-        <div class="faq-section">
-            <div class="faq-title">الأسئلة الشائعة</div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-target="faq1">
-                    <span>كيف يتم شحن المحفظة؟</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </button>
-                <div class="faq-answer" id="faq1">
-                    <p>يتم شحن المحفظة عن طريق اختيار الباقة المناسبة من صفحة الدعم، ثم إدخال بياناتك وإتمام عملية الدفع عبر واتساب.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-target="faq2">
-                    <span>كيف ألغي طلبي؟</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </button>
-                <div class="faq-answer" id="faq2">
-                    <p>يمكنك إلغاء الطلب عن طريق التواصل مع فريق الدعم عبر واتساب خلال 10 دقائق من تقديم الطلب.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-target="faq3">
-                    <span>متى يصل طلبي؟</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </button>
-                <div class="faq-answer" id="faq3">
-                    <p>يتم تسليم الطلب فورًا بعد تأكيد الدفع، وتصل العناصر إلى حسابك خلال 5-10 دقائق.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-target="faq4">
-                    <span>كيف يتم تسليم الطلب؟</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </button>
-                <div class="faq-answer" id="faq4">
-                    <p>يتم التسليم إلكترونيًا عبر إضافة الرصيد أو العناصر المشتراة مباشرة إلى حساب اللعبة الخاص بك.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <button class="faq-question" data-target="faq5">
-                    <span>ماذا أفعل إذا واجهت مشكلة؟</span>
-                    <i class="fas fa-chevron-down faq-icon"></i>
-                </button>
-                <div class="faq-answer" id="faq5">
-                    <p>تواصل مع فريق الدعم فورًا عبر زر "بدء المحادثة"، وسنقوم بحل مشكلتك في أسرع وقت.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="support-footer">
-            <i class="fas fa-heart"></i>
-            نسعى دائمًا لتقديم أفضل تجربة دعم ممكنة.
-            <i class="fas fa-heart"></i>
-        </div>
-    </div>
-
-    <!-- صفحة الحساب -->
-    <div id="page-account" class="page">
-        <div class="placeholder-page">
-            <i class="fas fa-user-circle"></i>
-            <p>حسابي</p>
-            <span style="font-size:14px; color:#ccc;">تسجيل الدخول</span>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- صفحة PUBG Mobile -->
-    <!-- ============================================ -->
-    <div id="page-pubg" class="page">
-        <div class="pubg-header">
-            <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
-            <div class="game-info">
-                <h2>PUBG Mobile</h2>
-                <p>اختر باقة UC المناسبة</p>
-            </div>
-        </div>
-
-        <div class="packs-grid" id="packsGrid">
-            <button class="pack-btn" data-uc="60" data-price="0.93">
-                <span class="uc-amount">60UC</span>
-                <span class="price-amount">$0.93</span>
-            </button>
-            <button class="pack-btn" data-uc="325" data-price="4.65">
-                <span class="uc-amount">325UC</span>
-                <span class="price-amount">$4.65</span>
-            </button>
-            <button class="pack-btn" data-uc="660" data-price="9.30">
-                <span class="uc-amount">660UC</span>
-                <span class="price-amount">$9.30</span>
-            </button>
-            <button class="pack-btn" data-uc="985" data-price="14.65">
-                <span class="uc-amount">985UC</span>
-                <span class="price-amount">$14.65</span>
-            </button>
-            <button class="pack-btn" data-uc="1320" data-price="19.50">
-                <span class="uc-amount">1,320UC</span>
-                <span class="price-amount">$19.50</span>
-            </button>
-            <button class="pack-btn" data-uc="1800" data-price="23.95">
-                <span class="uc-amount">1,800UC</span>
-                <span class="price-amount">$23.95</span>
-            </button>
-            <button class="pack-btn" data-uc="2460" data-price="33.50">
-                <span class="uc-amount">2,460UC</span>
-                <span class="price-amount">$33.50</span>
-            </button>
-            <button class="pack-btn" data-uc="3850" data-price="47.50">
-                <span class="uc-amount">3,850UC</span>
-                <span class="price-amount">$47.50</span>
-            </button>
-            <button class="pack-btn" data-uc="5650" data-price="70.50">
-                <span class="uc-amount">5,650UC</span>
-                <span class="price-amount">$70.50</span>
-            </button>
-            <button class="pack-btn" data-uc="8100" data-price="93.50">
-                <span class="uc-amount">8,100UC</span>
-                <span class="price-amount">$93.50</span>
-            </button>
-            <button class="pack-btn" data-uc="11950" data-price="150.00">
-                <span class="uc-amount">11,950UC</span>
-                <span class="price-amount">$150.00</span>
-            </button>
-            <button class="pack-btn" data-uc="16200" data-price="200.00">
-                <span class="uc-amount">16,200UC</span>
-                <span class="price-amount">$200.00</span>
-            </button>
-        </div>
-
-        <div class="shipping-form hidden" id="shippingForm">
-            <label>ID اللعبة</label>
-            <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
-
-            <label>رقم واتساب</label>
-            <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
-
-            <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- صفحة Call of Duty -->
-    <!-- ============================================ -->
-    <div id="page-cod" class="page">
-        <div class="cod-header">
-            <img src="https://i.imgur.com/5f7zH1O.png" alt="Call of Duty" />
-            <div class="game-info">
-                <h2>Call of Duty</h2>
-                <p>اختر باقة CP المناسبة</p>
-            </div>
-        </div>
-
-        <div class="cod-packs-grid" id="codPacksGrid">
-            <button class="cod-pack-btn" data-cp="88" data-price="1.50">
-                <span class="cp-amount">88CP</span>
-                <span class="price-amount">$1.50</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="176" data-price="3.00">
-                <span class="cp-amount">176CP</span>
-                <span class="price-amount">$3.00</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="264" data-price="4.50">
-                <span class="cp-amount">264CP</span>
-                <span class="price-amount">$4.50</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="352" data-price="6.00">
-                <span class="cp-amount">352CP</span>
-                <span class="price-amount">$6.00</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="440" data-price="7.50">
-                <span class="cp-amount">440CP</span>
-                <span class="price-amount">$7.50</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="528" data-price="9.00">
-                <span class="cp-amount">528CP</span>
-                <span class="price-amount">$9.00</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="616" data-price="10.50">
-                <span class="cp-amount">616CP</span>
-                <span class="price-amount">$10.50</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="704" data-price="12.00">
-                <span class="cp-amount">704CP</span>
-                <span class="price-amount">$12.00</span>
-            </button>
-            <button class="cod-pack-btn" data-cp="880" data-price="15.00">
-                <span class="cp-amount">880CP</span>
-                <span class="price-amount">$15.00</span>
-            </button>
-        </div>
-
-        <div class="shipping-form hidden" id="codShippingForm">
-            <label>معرف اللاعب</label>
-            <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
-
-            <label>رقم واتساب</label>
-            <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
-
-            <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- صفحة Mobile Legends -->
-    <!-- ============================================ -->
-    <div id="page-ml" class="page">
-        <div class="ml-header">
-            <img src="https://i.imgur.com/9WqUj3H.png" alt="Mobile Legends" />
-            <div class="game-info">
-                <h2>Mobile Legends</h2>
-                <p>اختر باقة الألماس المناسبة</p>
-            </div>
-        </div>
-
-        <div class="ml-packs-grid" id="mlPacksGrid">
-            <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
-                <span class="diamond-amount">
-                    74
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$1.50</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
-                <span class="diamond-amount">
-                    296
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$6.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
-                <span class="diamond-amount">
-                    741
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$15.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
-                <span class="diamond-amount">
-                    1,186
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$24.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
-                <span class="diamond-amount">
-                    1,471
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$30.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
-                <span class="diamond-amount">
-                    2,205
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$45.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
-                <span class="diamond-amount">
-                    4,527
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$92.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
-                <span class="diamond-amount">
-                    7,707
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$157.00</span>
-            </button>
-            <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
-                <span class="diamond-amount">
-                    11,559
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M10.5 3 8 9l4 13 4-13-2.5-6"/>
-                        <path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/>
-                        <path d="M2 9h20"/>
-                    </svg>
-                </span>
-                <span class="price-amount">$235.00</span>
-            </button>
-        </div>
-
-        <div class="shipping-form hidden" id="mlShippingForm">
-            <div class="ml-form-label">
-                <span>معرف الحساب</span>
-                <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
-                    <i class="fas fa-question"></i>
-                </button>
-            </div>
-            <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
-
-            <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
-            <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
-
-            <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- صفحة eFootball -->
-    <!-- ============================================ -->
-    <div id="page-efootball" class="page">
-        <div class="efootball-header">
-            <img src="https://i.imgur.com/1mzLqjP.png" alt="eFootball" />
-            <div class="game-info">
-                <h2>eFootball</h2>
-                <p>اختر باقة FC المناسبة</p>
-            </div>
-        </div>
-
-        <div class="efootball-packs-grid" id="efootballPacksGrid">
-            <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
-                <span class="fc-amount">40 FC</span>
-                <span class="price-amount">$1.00</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
-                <span class="fc-amount">100 FC</span>
-                <span class="price-amount">$2.50</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
-                <span class="fc-amount">520 FC</span>
-                <span class="price-amount">$12.00</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
-                <span class="fc-amount">1,070 FC</span>
-                <span class="price-amount">$25.00</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
-                <span class="fc-amount">2,200 FC</span>
-                <span class="price-amount">$50.00</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
-                <span class="fc-amount">5,750 FC</span>
-                <span class="price-amount">$130.00</span>
-            </button>
-            <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
-                <span class="fc-amount">12,000 FC</span>
-                <span class="price-amount">$270.00</span>
-            </button>
-        </div>
-
-        <div class="shipping-form hidden" id="efootballShippingForm">
-            <label>معرف UID الخاص بك</label>
-            <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
-
-            <label>رقم واتساب</label>
-            <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
-
-            <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- صفحة Clash of Clans -->
-    <!-- ============================================ -->
-    <div id="page-coc" class="page">
-        <div class="coc-header">
-            <img src="https://i.imgur.com/8JQbPkC.png" alt="Clash of Clans" />
-            <div class="game-info">
-                <h2>Clash of Clans</h2>
-                <p>اختر باقة الجواهر المناسبة</p>
-            </div>
-        </div>
-
-        <div class="coc-packs-grid" id="cocPacksGrid">
-            <button class="coc-pack-btn" data-gems="80" data-price="0.65">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">80</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$0.65</span>
-            </button>
-            <button class="coc-pack-btn" data-gems="500" data-price="3.00">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">500</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$3.00</span>
-            </button>
-            <button class="coc-pack-btn" data-gems="1200" data-price="6.00">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">1,200</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$6.00</span>
-            </button>
-            <button class="coc-pack-btn" data-gems="2500" data-price="11.90">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">2,500</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$11.90</span>
-            </button>
-            <button class="coc-pack-btn" data-gems="6500" data-price="28.00">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">6,500</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$28.00</span>
-            </button>
-            <button class="coc-pack-btn" data-gems="14000" data-price="54.00">
-                <span class="coc-amount-wrapper">
-                    <span class="coc-amount">14,000</span>
-                    <i class="fas fa-gem coc-icon"></i>
-                </span>
-                <span class="coc-price">$54.00</span>
-            </button>
-        </div>
-
-        <div class="shipping-form hidden" id="cocShippingForm">
-            <label>حساب Supercell</label>
-            <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
-
-            <label>رقم واتساب</label>
-            <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
-
-            <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
-        </div>
-    </div>
-
-    <!-- ============================================ -->
-    <!-- Modal للمساعدة -->
-    <!-- ============================================ -->
-    <div class="modal-overlay" id="mlHelpModal">
-        <div class="modal-content">
-            <button class="modal-close-btn" id="mlModalCloseBtn">
-                <i class="fas fa-times"></i>
-            </button>
-
-            <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
-
-            <ol class="modal-instructions">
-                <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
-                <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
-                    <span class="highlight">ID: XXXXXXXX (XXXX)</span>
-                </li>
-                <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
-                <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
-                <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
-            </ol>
-        </div>
     </div>
 
     <!-- ============================================= -->
-    <!-- شريط التنقل السفلي -->
-    <!-- ============================================= -->
-    <nav class="bottom-nav" id="bottomNav">
-        <div class="nav-indicator" id="navIndicator"></div>
-
-        <button class="nav-item active" data-page="page-home">
-            <i class="fas fa-home"></i>
-            <span>الرئيسية</span>
-        </button>
-        <button class="nav-item" data-page="page-wallet">
-            <i class="fas fa-wallet"></i>
-            <span>المحفظة</span>
-        </button>
-        <button class="nav-item" data-page="page-support">
-            <i class="fas fa-headset"></i>
-            <span>الدعم</span>
-        </button>
-        <button class="nav-item" data-page="page-account">
-            <i class="fas fa-user"></i>
-            <span>الحساب</span>
-        </button>
-    </nav>
-
-    <!-- ============================================= -->
-    <!-- JavaScript -->
+    <!-- ===== JAVASCRIPT ===== -->
     <!-- ============================================= -->
     <script>
-        // ========================
-        // رقم واتساب (مخفي في الكود)
-        // ========================
-        const WHATSAPP_NUMBER = '249901839168';
-        const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+        (function() {
+            'use strict';
 
-        // ========================
-        // 1. قائمة الألعاب
-        // ========================
-        const gamesList = [
-            { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
-            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
-            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
-            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
-            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: 'page-efootball' },
-            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: 'page-coc' },
-            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
-            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
-            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', page: null },
-            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', page: null },
-            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', page: null },
-            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', page: null }
-        ];
+            // ============================================
+            // ===== الإعدادات العامة =====
+            // ============================================
+            const WHATSAPP_NUMBER = '249901839168';
+            const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-        // ========================
-        // 2. دوال Ripple
-        // ========================
-        function createRipple(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple';
+            // ============================================
+            // ===== قائمة الألعاب =====
+            // ============================================
+            const gamesList = [
+                { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
+                { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
+                { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
+                { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
+                { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: 'page-efootball' },
+                { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: 'page-coc' },
+                { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
+                { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
+                { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', page: null },
+                { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', page: null },
+                { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', page: null },
+                { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', page: null }
+            ];
 
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
+            // ============================================
+            // ===== RIPPLE EFFECTS =====
+            // ============================================
+            function createRipple(e, element) {
+                const rect = element.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                element.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            }
 
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRippleBtn(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-btn';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRippleFaq(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-faq';
-
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        // تأثير Ripple لأزرار الإيداع والسحب
-        document.querySelectorAll('.action-card').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const rect = this.getBoundingClientRect();
+            function createRippleBtn(e, element) {
+                const rect = element.getBoundingClientRect();
                 const ripple = document.createElement('span');
                 ripple.className = 'ripple-btn';
                 const size = Math.max(rect.width, rect.height);
@@ -3301,555 +3400,704 @@
                 const y = e.clientY - rect.top - size / 2;
                 ripple.style.left = x + 'px';
                 ripple.style.top = y + 'px';
-                this.appendChild(ripple);
+                element.appendChild(ripple);
                 setTimeout(() => ripple.remove(), 600);
-            });
-        });
-
-        // ========================
-        // 3. دالة فتح واتساب
-        // ========================
-        function openWhatsApp() {
-            window.open(WHATSAPP_URL, '_blank');
-        }
-
-        // ========================
-        // 4. دالة التمرير إلى قسم بيانات الشحن
-        // ========================
-        function scrollToShippingFormWithDelay(shippingFormElement, firstInputElement, delay = 150) {
-            if (shippingFormElement.classList.contains('hidden')) {
-                shippingFormElement.classList.remove('hidden');
-                setTimeout(() => {
-                    shippingFormElement.classList.add('visible');
-                }, 50);
             }
 
-            setTimeout(() => {
-                shippingFormElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start',
-                    inline: 'nearest'
+            function createRippleFaq(e, element) {
+                const rect = element.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-faq';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                element.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            }
+
+            // Ripple لأزرار الإيداع والسحب في المحفظة
+            document.querySelectorAll('.action-card').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-btn';
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
                 });
+            });
 
-                setTimeout(() => {
-                    if (firstInputElement) {
-                        firstInputElement.focus();
+            // ============================================
+            // ===== دوال مساعدة =====
+            // ============================================
+            function openWhatsApp() {
+                window.open(WHATSAPP_URL, '_blank');
+            }
+
+            function switchPage(pageId) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('active');
+                }
+            }
+
+            function updateNavActive(pageId) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const navIndicator = document.getElementById('navIndicator');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
                     }
-                }, 600);
-            }, delay);
-        }
+                });
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                    navIndicator.style.left = leftPos + 'px';
+                    navIndicator.style.width = '30px';
+                    navIndicator.classList.add('show');
+                }
+            }
 
-        // ========================
-        // 5. عرض الألعاب
-        // ========================
-        const productsGrid = document.getElementById('productsGrid');
+            function scrollToShippingFormWithDelay(shippingFormElement, firstInputElement, delay = 150) {
+                if (shippingFormElement.classList.contains('hidden')) {
+                    shippingFormElement.classList.remove('hidden');
+                    setTimeout(() => {
+                        shippingFormElement.classList.add('visible');
+                    }, 50);
+                }
+                setTimeout(() => {
+                    shippingFormElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest'
+                    });
+                    setTimeout(() => {
+                        if (firstInputElement) {
+                            firstInputElement.focus();
+                        }
+                    }, 600);
+                }, delay);
+            }
 
-        function renderGames() {
-            productsGrid.innerHTML = '';
-            gamesList.forEach(game => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <img src="${game.img}" alt="${game.name}" loading="lazy" />
-                    <h4>${game.name}</h4>
-                `;
+            // ============================================
+            // ===== عرض الألعاب =====
+            // ============================================
+            const productsGrid = document.getElementById('productsGrid');
 
-                card.addEventListener('click', (e) => {
-                    createRipple(e, card);
-
-                    if (game.page) {
-                        setTimeout(() => {
-                            switchPage(game.page);
-                            updateNavActive('page-home');
-                        }, 150);
-                    } else {
-                        card.classList.add('fade-out');
-                        setTimeout(() => {
-                            openWhatsApp();
+            function renderGames() {
+                productsGrid.innerHTML = '';
+                gamesList.forEach(game => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img src="${game.img}" alt="${game.name}" loading="lazy" />
+                        <h4>${game.name}</h4>
+                    `;
+                    card.addEventListener('click', (e) => {
+                        createRipple(e, card);
+                        if (game.page) {
                             setTimeout(() => {
-                                card.classList.remove('fade-out');
-                            }, 100);
-                        }, 250);
+                                switchPage(game.page);
+                                updateNavActive('page-home');
+                            }, 150);
+                        } else {
+                            card.classList.add('fade-out');
+                            setTimeout(() => {
+                                openWhatsApp();
+                                setTimeout(() => {
+                                    card.classList.remove('fade-out');
+                                }, 100);
+                            }, 250);
+                        }
+                    });
+                    productsGrid.appendChild(card);
+                });
+            }
+            renderGames();
+
+            // ============================================
+            // ===== التصنيفات الرئيسية =====
+            // ============================================
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabSlider = document.getElementById('tabSlider');
+
+            tabBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const percent = index * 25;
+                    tabSlider.style.right = percent + '%';
+                    productsGrid.style.opacity = '0.6';
+                    productsGrid.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        productsGrid.style.opacity = '1';
+                        productsGrid.style.transform = 'translateY(0)';
+                    }, 250);
+                });
+            });
+
+            // ============================================
+            // ===== شريط التنقل =====
+            // ============================================
+            const navItems = document.querySelectorAll('.nav-item');
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const pageId = item.dataset.page;
+                    if (pageId === 'page-wallet' || pageId === 'page-support' ||
+                        pageId === 'page-account' || pageId === 'page-home') {
+                        // إخفاء صفحة الإيداع إذا كانت مفتوحة
+                        const depositPage = document.getElementById('depositPage');
+                        if (depositPage && depositPage.classList.contains('active')) {
+                            depositPage.classList.remove('active');
+                            depositPage.style.display = 'none';
+                        }
+                        switchPage(pageId);
+                        updateNavActive(pageId);
                     }
                 });
-
-                productsGrid.appendChild(card);
             });
-        }
-        renderGames();
 
-        // ========================
-        // 6. التصنيفات الرئيسية
-        // ========================
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabSlider = document.getElementById('tabSlider');
+            // ============================================
+            // ===== صفحة الإيداع =====
+            // ============================================
+            const depositPage = document.getElementById('depositPage');
+            const depositBackBtn = document.getElementById('depositBackBtn');
+            const methodSelection = document.getElementById('methodSelection');
+            const depositDetail = document.getElementById('depositDetail');
+            const detailBackBtn = document.getElementById('detailBackBtn');
+            const methodItems = document.querySelectorAll('.method-item');
+            const accountNumber = document.getElementById('accountNumber');
+            const copyBtn = document.getElementById('copyBtn');
+            const amountInput = document.getElementById('amountInput');
+            const transactionIdInput = document.getElementById('transactionIdInput');
+            const receiptInput = document.getElementById('receiptInput');
+            const fileUploadBox = document.getElementById('fileUploadBox');
+            const fileName = document.getElementById('fileName');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const successMessage = document.getElementById('successMessage');
+            const backHomeBtn = document.getElementById('backHomeBtn');
 
-        tabBtns.forEach((btn, index) => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const percent = index * 25;
-                tabSlider.style.right = percent + '%';
-
-                productsGrid.style.opacity = '0.6';
-                productsGrid.style.transform = 'translateY(8px)';
-                setTimeout(() => {
-                    productsGrid.style.opacity = '1';
-                    productsGrid.style.transform = 'translateY(0)';
-                }, 250);
-            });
-        });
-
-        // ========================
-        // 7. شريط التنقل
-        // ========================
-        const navItems = document.querySelectorAll('.nav-item');
-        const navIndicator = document.getElementById('navIndicator');
-
-        function switchPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            
-            const target = document.getElementById(pageId);
-            if (target) {
-                target.style.display = 'block';
-                target.classList.add('active');
-            }
-        }
-
-        function updateNavActive(pageId) {
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.page === pageId) {
-                    item.classList.add('active');
+            const methodsData = {
+                bank: {
+                    name: 'بنكك',
+                    account: 'SA12 3456 7890 1234 5678',
+                    fee: 'مجاني'
+                },
+                mykashi: {
+                    name: 'ماي كاشي',
+                    account: '0912 3456 7890',
+                    fee: '3%'
+                },
+                bravo: {
+                    name: 'تطبيق برافو',
+                    account: '1234 5678 9012',
+                    fee: '5%'
+                },
+                ookash: {
+                    name: 'اووكاش',
+                    account: '9876 5432 1098',
+                    fee: '2%'
                 }
-            });
+            };
 
-            const activeItem = document.querySelector('.nav-item.active');
-            if (activeItem) {
-                const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
-                const itemRect = activeItem.getBoundingClientRect();
-                const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
-                navIndicator.style.left = leftPos + 'px';
-                navIndicator.style.width = '30px';
-                navIndicator.classList.add('show');
-            }
-        }
+            let selectedMethod = 'bank';
 
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const pageId = item.dataset.page;
-
-                if (pageId === 'page-wallet' || pageId === 'page-support' || pageId === 'page-account' || pageId === 'page-home') {
-                    switchPage(pageId);
-                    updateNavActive(pageId);
-                }
-            });
-        });
-
-        // ========================
-        // 8. زر الإيداع - فتح صفحة الإيداع
-        // ========================
-        const depositBtn = document.getElementById('depositBtn');
-        const depositPage = document.getElementById('page-deposit');
-        const depositBackBtn = document.getElementById('depositBackBtn');
-
-        if (depositBtn) {
-            depositBtn.addEventListener('click', function(e) {
-                // تأثير الضغط على الزر
+            // زر الإيداع في المحفظة
+            document.getElementById('depositBtn').addEventListener('click', function(e) {
                 this.style.transform = 'scale(0.98)';
                 setTimeout(() => {
                     this.style.transform = 'scale(1)';
                 }, 200);
 
                 // إخفاء جميع الصفحات
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-                
-                // إظهار صفحة الإيداع مع تأثير ناعم
+                document.querySelectorAll('.page').forEach(p => {
+                    p.classList.remove('active');
+                    p.style.display = 'none';
+                });
+
+                // إظهار صفحة الإيداع
                 depositPage.style.display = 'block';
-                // إعادة تشغيل الأنيميشن
                 depositPage.style.animation = 'none';
                 requestAnimationFrame(() => {
-                    depositPage.style.animation = 'depositSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                    depositPage.style.animation = 'none';
+                    depositPage.classList.add('active');
                 });
-                depositPage.classList.add('active');
-                
-                // تحديث شريط التنقل (إلغاء التحديد)
+
+                // إعادة تعيين الحالة
+                methodSelection.style.display = 'block';
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
+
+                // إخفاء شريط التنقل
                 navItems.forEach(item => item.classList.remove('active'));
-                navIndicator.classList.remove('show');
+                document.getElementById('navIndicator').classList.remove('show');
             });
-        }
 
-        // زر الرجوع من صفحة الإيداع
-        if (depositBackBtn) {
+            // زر الرجوع في صفحة الإيداع
             depositBackBtn.addEventListener('click', function(e) {
-                // تأثير الضغط على الزر
-                this.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
-
-                // العودة إلى صفحة المحفظة
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-                
-                const walletPage = document.getElementById('page-wallet');
-                walletPage.style.display = 'block';
-                walletPage.classList.add('active');
-                
-                // تحديث شريط التنقل
-                updateNavActive('page-wallet');
+                createRipple(e, this);
+                if (depositDetail.style.display === 'block' || depositDetail.classList.contains('active')) {
+                    backToMethods();
+                } else {
+                    goHome();
+                }
             });
-        }
 
-        // خيارات الإيداع - عند النقر تفتح واتساب
-        document.querySelectorAll('.deposit-option').forEach(option => {
-            option.addEventListener('click', function(e) {
-                // تأثير الضغط
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+            // اختيار طريقة الإيداع
+            methodItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    const method = this.dataset.method;
+                    openDetail(method);
+                });
+            });
 
-                const method = this.dataset.method;
-                const methodNames = {
-                    bank: 'بنكك',
-                    mykashi: 'ماي كاشي',
-                    bravo: 'تطبيق برافو',
-                    ookash: 'اووكاش'
-                };
-                
+            // زر الرجوع للخيارات
+            detailBackBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                backToMethods();
+            });
+
+            function openDetail(method) {
+                selectedMethod = method;
+                const data = methodsData[method];
+                if (data) {
+                    accountNumber.textContent = data.account;
+                }
+                methodSelection.style.display = 'none';
+                depositDetail.classList.add('active');
+                depositDetail.style.display = 'block';
+                depositDetail.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    depositDetail.style.animation = 'detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                });
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
+                amountInput.value = '';
+                transactionIdInput.value = '';
+                receiptInput.value = '';
+                fileUploadBox.classList.remove('has-file');
+                fileName.textContent = '';
+                fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+            }
+
+            function backToMethods() {
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                methodSelection.style.display = 'block';
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
+            }
+
+            function showSuccess() {
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                successMessage.style.display = 'block';
+                successMessage.classList.add('active');
+            }
+
+            function goHome() {
+                depositPage.classList.add('slide-out');
                 setTimeout(() => {
-                    alert(`💳 سيتم توجيهك إلى طريقة الدفع عبر ${methodNames[method] || method}`);
+                    depositPage.classList.remove('active');
+                    depositPage.style.display = 'none';
+                    depositPage.classList.remove('slide-out');
+                    backToMethods();
+                    switchPage('page-home');
+                    updateNavActive('page-home');
+                }, 350);
+            }
+
+            // نسخ رقم الحساب
+            copyBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                const text = accountNumber.textContent;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.classList.add('copied');
+                        this.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                        setTimeout(() => {
+                            this.classList.remove('copied');
+                            this.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                        }, 2000);
+                    }).catch(() => {
+                        fallbackCopy(text);
+                    });
+                } else {
+                    fallbackCopy(text);
+                }
+            });
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyBtn.classList.add('copied');
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                    }, 2000);
+                } catch (err) {
+                    alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
+                }
+                document.body.removeChild(textarea);
+            }
+
+            // رفع الصورة
+            receiptInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    fileUploadBox.classList.add('has-file');
+                    fileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
+                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'none';
+                } else {
+                    fileUploadBox.classList.remove('has-file');
+                    fileName.textContent = '';
+                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+                }
+            });
+
+            // تأكيد الإيداع
+            confirmBtn.addEventListener('click', function(e) {
+                createRippleBtn(e, this);
+                const amount = amountInput.value.trim();
+                const transactionId = transactionIdInput.value.trim();
+                if (!amount) {
+                    alert('⚠️ يرجى إدخال المبلغ المطلوب.');
+                    amountInput.focus();
+                    return;
+                }
+                if (parseFloat(amount) <= 0) {
+                    alert('⚠️ يرجى إدخال مبلغ صحيح أكبر من صفر.');
+                    amountInput.focus();
+                    return;
+                }
+                if (!transactionId) {
+                    alert('⚠️ يرجى إدخال رقم العملية أو التحويل.');
+                    transactionIdInput.focus();
+                    return;
+                }
+                this.classList.add('loading');
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                    showSuccess();
+                }, 1500);
+            });
+
+            // زر العودة للرئيسية
+            backHomeBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                goHome();
+            });
+
+            // ============================================
+            // ===== باقات PUBG =====
+            // ============================================
+            const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+            const shippingForm = document.getElementById('shippingForm');
+            const gameIdInput = document.getElementById('gameIdInput');
+            const whatsappInput = document.getElementById('whatsappInput');
+            let selectedPack = null;
+            let selectedPrice = null;
+
+            packBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    packBtns.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    selectedPack = btn.dataset.uc;
+                    selectedPrice = btn.dataset.price;
+                    scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
+                });
+            });
+
+            document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const gameId = gameIdInput.value.trim();
+                const whatsapp = whatsappInput.value.trim();
+                if (!selectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!gameId) {
+                    alert('⚠️ يرجى إدخال ID اللعبة.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: $${selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
                     openWhatsApp();
-                }, 300);
+                }, 500);
             });
-        });
 
-        // ========================
-        // 9. باقات PUBG
-        // ========================
-        const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
-        const shippingForm = document.getElementById('shippingForm');
-        const gameIdInput = document.getElementById('gameIdInput');
-        const whatsappInput = document.getElementById('whatsappInput');
-        let selectedPack = null;
-        let selectedPrice = null;
+            if (packBtns.length) {
+                setTimeout(() => {
+                    packBtns[0].classList.add('selected');
+                    selectedPack = packBtns[0].dataset.uc;
+                    selectedPrice = packBtns[0].dataset.price;
+                    shippingForm.classList.remove('hidden');
+                    setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                    setTimeout(() => { gameIdInput.focus(); }, 600);
+                }, 200);
+            }
 
-        packBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                packBtns.forEach(b => b.classList.remove('selected'));
+            // ============================================
+            // ===== باقات Call of Duty =====
+            // ============================================
+            const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+            const codShippingForm = document.getElementById('codShippingForm');
+            const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+            const codWhatsappInput = document.getElementById('codWhatsappInput');
+            let selectedCodPack = null;
+            let selectedCodPrice = null;
+
+            function selectCodPack(btn) {
+                codPackBtns.forEach(b => b.classList.remove('selected'));
                 btn.classList.add('selected');
+                selectedCodPack = btn.dataset.cp;
+                selectedCodPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(codShippingForm, codPlayerIdInput, 150);
+            }
 
-                selectedPack = btn.dataset.uc;
-                selectedPrice = btn.dataset.price;
-
-                scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
+            codPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectCodPack(btn); });
             });
-        });
 
-        document.getElementById('buyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
-
-            const gameId = gameIdInput.value.trim();
-            const whatsapp = whatsappInput.value.trim();
-
-            if (!selectedPack) {
-                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                return;
-            }
-            if (!gameId) {
-                alert('⚠️ يرجى إدخال ID اللعبة.');
-                return;
-            }
-            if (!whatsapp) {
-                alert('⚠️ يرجى إدخال رقم واتساب.');
-                return;
+            if (codPackBtns.length) {
+                setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
             }
 
-            const btn = e.target;
-            btn.textContent = 'جاري المعالجة...';
-            btn.style.opacity = '0.7';
-
-            setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: $${selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
-                btn.textContent = 'شراء الآن';
-                btn.style.opacity = '1';
-                openWhatsApp();
-            }, 500);
-        });
-
-        if (packBtns.length) {
-            setTimeout(() => {
-                packBtns[0].classList.add('selected');
-                selectedPack = packBtns[0].dataset.uc;
-                selectedPrice = packBtns[0].dataset.price;
-                shippingForm.classList.remove('hidden');
-                setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
-                setTimeout(() => { gameIdInput.focus(); }, 600);
-            }, 200);
-        }
-
-        // ========================
-        // 10. باقات Call of Duty
-        // ========================
-        const codPackBtns = document.querySelectorAll('.cod-pack-btn');
-        const codShippingForm = document.getElementById('codShippingForm');
-        const codPlayerIdInput = document.getElementById('codPlayerIdInput');
-        const codWhatsappInput = document.getElementById('codWhatsappInput');
-        let selectedCodPack = null;
-        let selectedCodPrice = null;
-
-        function selectCodPack(btn) {
-            codPackBtns.forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-
-            selectedCodPack = btn.dataset.cp;
-            selectedCodPrice = btn.dataset.price;
-
-            scrollToShippingFormWithDelay(codShippingForm, codPlayerIdInput, 150);
-        }
-
-        codPackBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                selectCodPack(btn);
+            document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = codPlayerIdInput.value.trim();
+                const whatsapp = codWhatsappInput.value.trim();
+                if (!selectedCodPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
-        });
 
-        if (codPackBtns.length) {
-            setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
-        }
+            // ============================================
+            // ===== باقات Mobile Legends =====
+            // ============================================
+            const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+            const mlShippingForm = document.getElementById('mlShippingForm');
+            const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+            const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+            let selectedMlPack = null;
+            let selectedMlPrice = null;
 
-        document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
-
-            const playerId = codPlayerIdInput.value.trim();
-            const whatsapp = codWhatsappInput.value.trim();
-
-            if (!selectedCodPack) {
-                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                return;
-            }
-            if (!playerId) {
-                alert('⚠️ يرجى إدخال معرف اللاعب.');
-                return;
-            }
-            if (!whatsapp) {
-                alert('⚠️ يرجى إدخال رقم واتساب.');
-                return;
+            function selectMlPack(btn) {
+                mlPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedMlPack = btn.dataset.diamond;
+                selectedMlPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(mlShippingForm, mlAccountIdInput, 150);
             }
 
-            const btn = e.target;
-            btn.textContent = 'جاري المعالجة...';
-            btn.style.opacity = '0.7';
-
-            setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
-                btn.textContent = 'شراء الآن';
-                btn.style.opacity = '1';
-                openWhatsApp();
-            }, 500);
-        });
-
-        // ========================
-        // 11. باقات Mobile Legends
-        // ========================
-        const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
-        const mlShippingForm = document.getElementById('mlShippingForm');
-        const mlAccountIdInput = document.getElementById('mlAccountIdInput');
-        const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-        let selectedMlPack = null;
-        let selectedMlPrice = null;
-
-        function selectMlPack(btn) {
-            mlPackBtns.forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-
-            selectedMlPack = btn.dataset.diamond;
-            selectedMlPrice = btn.dataset.price;
-
-            scrollToShippingFormWithDelay(mlShippingForm, mlAccountIdInput, 150);
-        }
-
-        mlPackBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                selectMlPack(btn);
+            mlPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectMlPack(btn); });
             });
-        });
 
-        if (mlPackBtns.length) {
-            setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
-        }
-
-        document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
-
-            const accountId = mlAccountIdInput.value.trim();
-            const regionId = mlRegionIdInput.value.trim();
-
-            if (!selectedMlPack) {
-                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                return;
-            }
-            if (!accountId) {
-                alert('⚠️ يرجى إدخال معرف الحساب.');
-                return;
-            }
-            if (!regionId) {
-                alert('⚠️ يرجى إدخال معرف المنطقة.');
-                return;
+            if (mlPackBtns.length) {
+                setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
             }
 
-            const btn = e.target;
-            btn.textContent = 'جاري المعالجة...';
-            btn.style.opacity = '0.7';
-
-            setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
-                btn.textContent = 'شراء الآن';
-                btn.style.opacity = '1';
-                openWhatsApp();
-            }, 500);
-        });
-
-        // ========================
-        // 12. باقات eFootball
-        // ========================
-        const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
-        const efootballShippingForm = document.getElementById('efootballShippingForm');
-        const efootballUidInput = document.getElementById('efootballUidInput');
-        const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-        let selectedEfootballPack = null;
-        let selectedEfootballPrice = null;
-
-        function selectEfootballPack(btn) {
-            efootballPackBtns.forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-
-            selectedEfootballPack = btn.dataset.fc;
-            selectedEfootballPrice = btn.dataset.price;
-
-            scrollToShippingFormWithDelay(efootballShippingForm, efootballUidInput, 150);
-        }
-
-        efootballPackBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                selectEfootballPack(btn);
+            document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const accountId = mlAccountIdInput.value.trim();
+                const regionId = mlRegionIdInput.value.trim();
+                if (!selectedMlPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!accountId) {
+                    alert('⚠️ يرجى إدخال معرف الحساب.');
+                    return;
+                }
+                if (!regionId) {
+                    alert('⚠️ يرجى إدخال معرف المنطقة.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
-        });
 
-        if (efootballPackBtns.length) {
-            setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
-        }
+            // ============================================
+            // ===== باقات eFootball =====
+            // ============================================
+            const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+            const efootballShippingForm = document.getElementById('efootballShippingForm');
+            const efootballUidInput = document.getElementById('efootballUidInput');
+            const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+            let selectedEfootballPack = null;
+            let selectedEfootballPrice = null;
 
-        document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
-
-            const uid = efootballUidInput.value.trim();
-            const whatsapp = efootballWhatsappInput.value.trim();
-
-            if (!selectedEfootballPack) {
-                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                return;
-            }
-            if (!uid) {
-                alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
-                return;
-            }
-            if (!whatsapp) {
-                alert('⚠️ يرجى إدخال رقم واتساب.');
-                return;
+            function selectEfootballPack(btn) {
+                efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedEfootballPack = btn.dataset.fc;
+                selectedEfootballPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(efootballShippingForm, efootballUidInput, 150);
             }
 
-            const btn = e.target;
-            btn.textContent = 'جاري المعالجة...';
-            btn.style.opacity = '0.7';
-
-            setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
-                btn.textContent = 'شراء الآن';
-                btn.style.opacity = '1';
-                openWhatsApp();
-            }, 500);
-        });
-
-        // ========================
-        // 13. باقات Clash of Clans
-        // ========================
-        const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
-        const cocShippingForm = document.getElementById('cocShippingForm');
-        const cocSupercellInput = document.getElementById('cocSupercellInput');
-        const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-        let selectedCocPack = null;
-        let selectedCocPrice = null;
-
-        function selectCocPack(btn) {
-            cocPackBtns.forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-
-            selectedCocPack = btn.dataset.gems;
-            selectedCocPrice = btn.dataset.price;
-
-            scrollToShippingFormWithDelay(cocShippingForm, cocSupercellInput, 150);
-        }
-
-        cocPackBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                selectCocPack(btn);
+            efootballPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectEfootballPack(btn); });
             });
-        });
 
-        if (cocPackBtns.length) {
-            setTimeout(() => { selectCocPack(cocPackBtns[0]); }, 100);
-        }
-
-        document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
-            createRippleBtn(e, e.target);
-
-            const supercell = cocSupercellInput.value.trim();
-            const whatsapp = cocWhatsappInput.value.trim();
-
-            if (!selectedCocPack) {
-                alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                return;
-            }
-            if (!supercell) {
-                alert('⚠️ يرجى إدخال حساب Supercell.');
-                return;
-            }
-            if (!whatsapp) {
-                alert('⚠️ يرجى إدخال رقم واتساب.');
-                return;
+            if (efootballPackBtns.length) {
+                setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
             }
 
-            const btn = e.target;
-            btn.textContent = 'جاري المعالجة...';
-            btn.style.opacity = '0.7';
+            document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const uid = efootballUidInput.value.trim();
+                const whatsapp = efootballWhatsappInput.value.trim();
+                if (!selectedEfootballPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!uid) {
+                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
 
-            setTimeout(() => {
-                alert(`✅ تم تقديم طلب شراء ${selectedCocPack} 💎\n💰 السعر: $${selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
-                btn.textContent = 'شراء الآن';
-                btn.style.opacity = '1';
-                openWhatsApp();
-            }, 500);
-        });
+            // ============================================
+            // ===== باقات Clash of Clans =====
+            // ============================================
+            const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
+            const cocShippingForm = document.getElementById('cocShippingForm');
+            const cocSupercellInput = document.getElementById('cocSupercellInput');
+            const cocWhatsappInput = document.getElementById('cocWhatsappInput');
+            let selectedCocPack = null;
+            let selectedCocPrice = null;
 
-        // ========================
-        // 14. زر بدء المحادثة (الدعم)
-        // ========================
-        const startChatBtn = document.getElementById('startChatBtn');
+            function selectCocPack(btn) {
+                cocPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedCocPack = btn.dataset.gems;
+                selectedCocPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(cocShippingForm, cocSupercellInput, 150);
+            }
 
-        if (startChatBtn) {
-            startChatBtn.addEventListener('click', (e) => {
-                createRippleBtn(e, startChatBtn);
+            cocPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectCocPack(btn); });
+            });
 
-                const card = startChatBtn.closest('.support-card');
+            if (cocPackBtns.length) {
+                setTimeout(() => { selectCocPack(cocPackBtns[0]); }, 100);
+            }
+
+            document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const supercell = cocSupercellInput.value.trim();
+                const whatsapp = cocWhatsappInput.value.trim();
+                if (!selectedCocPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!supercell) {
+                    alert('⚠️ يرجى إدخال حساب Supercell.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء ${selectedCocPack} 💎\n💰 السعر: $${selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== زر بدء المحادثة =====
+            // ============================================
+            document.getElementById('startChatBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const card = e.target.closest('.support-card');
                 card.style.transition = 'all 0.25s ease';
                 card.style.opacity = '0.7';
                 card.style.transform = 'scale(0.98)';
-
                 setTimeout(() => {
                     openWhatsApp();
                     setTimeout(() => {
@@ -3858,260 +4106,242 @@
                     }, 150);
                 }, 250);
             });
-        }
 
-        // ========================
-        // 15. الأسئلة الشائعة (Accordion)
-        // ========================
-        const faqQuestions = document.querySelectorAll('.faq-question');
-        let openFaq = null;
+            // ============================================
+            // ===== الأسئلة الشائعة =====
+            // ============================================
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            let openFaq = null;
 
-        faqQuestions.forEach(btn => {
-            btn.addEventListener('click', (e) => {
-                createRippleFaq(e, btn);
-
-                const targetId = btn.dataset.target;
-                const answer = document.getElementById(targetId);
-                const icon = btn.querySelector('.faq-icon');
-
-                if (openFaq === targetId) {
-                    answer.classList.remove('open');
-                    btn.classList.remove('active');
-                    icon.style.transform = 'rotate(0deg)';
-                    openFaq = null;
-                    return;
-                }
-
-                if (openFaq) {
-                    const prevAnswer = document.getElementById(openFaq);
-                    const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
-                    const prevIcon = prevBtn.querySelector('.faq-icon');
-                    prevAnswer.classList.remove('open');
-                    prevBtn.classList.remove('active');
-                    prevIcon.style.transform = 'rotate(0deg)';
-                }
-
-                answer.classList.add('open');
-                btn.classList.add('active');
-                icon.style.transform = 'rotate(180deg)';
-                openFaq = targetId;
-            });
-        });
-
-        // ========================
-        // 16. Modal للمساعدة في Mobile Legends
-        // ========================
-        const modalOverlay = document.getElementById('mlHelpModal');
-        const modalCloseBtn = document.getElementById('mlModalCloseBtn');
-        const helpBtn = document.getElementById('mlHelpBtn');
-
-        function openModal() {
-            modalOverlay.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeModal() {
-            modalOverlay.classList.remove('open');
-            document.body.style.overflow = '';
-        }
-
-        helpBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            openModal();
-        });
-
-        modalCloseBtn.addEventListener('click', closeModal);
-
-        modalOverlay.addEventListener('click', (e) => {
-            if (e.target === modalOverlay) {
-                closeModal();
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
-                closeModal();
-            }
-        });
-
-        // ========================
-        // 17. صفحة المحفظة - JavaScript
-        // ========================
-        (function() {
-            'use strict';
-
-            const redeemInput = document.getElementById('redeemInput');
-            const redeemBtn = document.getElementById('redeemBtn');
-            const filterBtns = document.querySelectorAll('.filter-btn-wallet');
-            const transactionsContainer = document.getElementById('transactionsContainer');
-            const emptyState = document.getElementById('emptyState');
-            const balanceDisplay = document.getElementById('walletBalanceDisplay');
-
-            let transactions = [
-                { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال', date: '2026-07-13 14:30' },
-                { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG', date: '2026-07-12 22:15' },
-                { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة', date: '2026-07-11 09:45' },
-                { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة', date: '2026-07-10 18:20' },
-                { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان', date: '2026-07-09 12:00' },
-            ];
-
-            let currentFilter = 'all';
-
-            function updateBalance() {
-                const total = transactions.reduce((sum, t) => {
-                    if (t.type === 'deposit' || t.type === 'refund') {
-                        return sum + t.amount;
-                    } else {
-                        return sum - t.amount;
+            faqQuestions.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    createRippleFaq(e, btn);
+                    const targetId = btn.dataset.target;
+                    const answer = document.getElementById(targetId);
+                    const icon = btn.querySelector('.faq-icon');
+                    if (openFaq === targetId) {
+                        answer.classList.remove('open');
+                        btn.classList.remove('active');
+                        icon.style.transform = 'rotate(0deg)';
+                        openFaq = null;
+                        return;
                     }
-                }, 0);
-                balanceDisplay.textContent = total.toFixed(2);
-            }
-
-            function renderTransactions(filter) {
-                let filtered = transactions;
-                if (filter !== 'all') {
-                    filtered = transactions.filter(t => t.type === filter);
-                }
-
-                filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
-
-                if (filtered.length === 0) {
-                    transactionsContainer.innerHTML = '';
-                    emptyState.style.display = 'flex';
-                    return;
-                }
-
-                emptyState.style.display = 'none';
-                transactionsContainer.innerHTML = filtered.map(t => {
-                    const isPositive = t.type === 'deposit' || t.type === 'refund';
-                    const sign = isPositive ? '+' : '-';
-                    const amountClass = isPositive ? 'positive' : 'negative';
-                    const iconMap = {
-                        deposit: 'fa-arrow-down',
-                        withdraw: 'fa-arrow-up',
-                        purchase: 'fa-shopping-cart',
-                        refund: 'fa-undo'
-                    };
-                    const labelMap = {
-                        deposit: 'إيداع',
-                        withdraw: 'سحب',
-                        purchase: 'شراء',
-                        refund: 'استرداد'
-                    };
-                    const icon = iconMap[t.type] || 'fa-circle';
-                    const label = labelMap[t.type] || t.type;
-
-                    return `
-                        <div class="transaction-item-wallet">
-                            <div class="transaction-left-wallet">
-                                <div class="transaction-icon-wallet ${t.type}">
-                                    <i class="fas ${icon}"></i>
-                                </div>
-                                <div class="transaction-info-wallet">
-                                    <h4>${t.description}</h4>
-                                    <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
-                                </div>
-                            </div>
-                            <div class="transaction-amount-wallet ${amountClass}">
-                                ${sign}$${t.amount.toFixed(2)}
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-            // فلتر
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.dataset.filter;
-                    renderTransactions(currentFilter);
+                    if (openFaq) {
+                        const prevAnswer = document.getElementById(openFaq);
+                        const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
+                        const prevIcon = prevBtn.querySelector('.faq-icon');
+                        prevAnswer.classList.remove('open');
+                        prevBtn.classList.remove('active');
+                        prevIcon.style.transform = 'rotate(0deg)';
+                    }
+                    answer.classList.add('open');
+                    btn.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                    openFaq = targetId;
                 });
             });
 
-            // تفعيل كود
-            redeemBtn.addEventListener('click', function() {
-                const code = redeemInput.value.trim();
-                if (!code) {
-                    alert('⚠️ يرجى إدخال كود الشحن.');
-                    return;
+            // ============================================
+            // ===== MODAL =====
+            // ============================================
+            const modalOverlay = document.getElementById('mlHelpModal');
+            const modalCloseBtn = document.getElementById('mlModalCloseBtn');
+            const helpBtn = document.getElementById('mlHelpBtn');
+
+            helpBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            modalCloseBtn.addEventListener('click', () => {
+                modalOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ============================================
+            // ===== المحفظة =====
+            // ============================================
+            (function() {
+                const redeemInput = document.getElementById('redeemInput');
+                const redeemBtn = document.getElementById('redeemBtn');
+                const filterBtns = document.querySelectorAll('.filter-btn-wallet');
+                const transactionsContainer = document.getElementById('transactionsContainer');
+                const emptyState = document.getElementById('emptyState');
+                const balanceDisplay = document.getElementById('walletBalanceDisplay');
+
+                let transactions = [
+                    { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال',
+                        date: '2026-07-13 14:30' },
+                    { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG',
+                        date: '2026-07-12 22:15' },
+                    { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة',
+                        date: '2026-07-11 09:45' },
+                    { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة',
+                        date: '2026-07-10 18:20' },
+                    { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان',
+                        date: '2026-07-09 12:00' },
+                ];
+
+                let currentFilter = 'all';
+
+                function updateBalance() {
+                    const total = transactions.reduce((sum, t) => {
+                        if (t.type === 'deposit' || t.type === 'refund') {
+                            return sum + t.amount;
+                        } else {
+                            return sum - t.amount;
+                        }
+                    }, 0);
+                    balanceDisplay.textContent = total.toFixed(2);
                 }
 
-                this.textContent = 'جاري...';
-                this.disabled = true;
-                this.style.opacity = '0.7';
+                function renderTransactions(filter) {
+                    let filtered = transactions;
+                    if (filter !== 'all') {
+                        filtered = transactions.filter(t => t.type === filter);
+                    }
+                    filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    if (filtered.length === 0) {
+                        transactionsContainer.innerHTML = '';
+                        emptyState.style.display = 'flex';
+                        return;
+                    }
+                    emptyState.style.display = 'none';
+                    transactionsContainer.innerHTML = filtered.map(t => {
+                        const isPositive = t.type === 'deposit' || t.type === 'refund';
+                        const sign = isPositive ? '+' : '-';
+                        const amountClass = isPositive ? 'positive' : 'negative';
+                        const iconMap = {
+                            deposit: 'fa-arrow-down',
+                            withdraw: 'fa-arrow-up',
+                            purchase: 'fa-shopping-cart',
+                            refund: 'fa-undo'
+                        };
+                        const labelMap = {
+                            deposit: 'إيداع',
+                            withdraw: 'سحب',
+                            purchase: 'شراء',
+                            refund: 'استرداد'
+                        };
+                        const icon = iconMap[t.type] || 'fa-circle';
+                        const label = labelMap[t.type] || t.type;
+                        return `
+                            <div class="transaction-item-wallet">
+                                <div class="transaction-left-wallet">
+                                    <div class="transaction-icon-wallet ${t.type}">
+                                        <i class="fas ${icon}"></i>
+                                    </div>
+                                    <div class="transaction-info-wallet">
+                                        <h4>${t.description}</h4>
+                                        <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-amount-wallet ${amountClass}">
+                                    ${sign}$${t.amount.toFixed(2)}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
 
-                setTimeout(() => {
-                    const amount = (Math.random() * 20 + 5).toFixed(2);
-                    const newTransaction = {
-                        id: Date.now(),
-                        type: 'deposit',
-                        amount: parseFloat(amount),
-                        description: `تفعيل كود: ${code}`,
-                        date: new Date().toISOString().replace('T', ' ').slice(0, 16)
-                    };
-                    transactions.push(newTransaction);
-                    updateBalance();
-                    renderTransactions(currentFilter);
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        renderTransactions(currentFilter);
+                    });
+                });
 
-                    alert(`✅ تم تفعيل الكود بنجاح!\n💰 تم إضافة $${amount} إلى رصيدك.`);
+                redeemBtn.addEventListener('click', function() {
+                    const code = redeemInput.value.trim();
+                    if (!code) {
+                        alert('⚠️ يرجى إدخال كود الشحن.');
+                        return;
+                    }
+                    this.textContent = 'جاري...';
+                    this.disabled = true;
+                    this.style.opacity = '0.7';
+                    setTimeout(() => {
+                        const amount = (Math.random() * 20 + 5).toFixed(2);
+                        const newTransaction = {
+                            id: Date.now(),
+                            type: 'deposit',
+                            amount: parseFloat(amount),
+                            description: `تفعيل كود: ${code}`,
+                            date: new Date().toISOString().replace('T', ' ').slice(0, 16)
+                        };
+                        transactions.push(newTransaction);
+                        updateBalance();
+                        renderTransactions(currentFilter);
+                        alert(`✅ تم تفعيل الكود بنجاح!\n💰 تم إضافة $${amount} إلى رصيدك.`);
+                        this.textContent = 'تفعيل';
+                        this.disabled = false;
+                        this.style.opacity = '1';
+                        redeemInput.value = '';
+                    }, 800);
+                });
 
-                    this.textContent = 'تفعيل';
-                    this.disabled = false;
-                    this.style.opacity = '1';
-                    redeemInput.value = '';
-                }, 800);
+                document.getElementById('withdrawBtn').addEventListener('click', function() {
+                    alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
+                });
+
+                updateBalance();
+                renderTransactions('all');
+            })();
+
+            // ============================================
+            // ===== منع إعادة التحميل =====
+            // ============================================
+            document.querySelectorAll('button').forEach(b => {
+                b.addEventListener('click', (e) => {
+                    if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') ||
+                        b.closest('.faq-item') || b.closest('.pack-btn') ||
+                        b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
+                        b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
+                        b.id === 'startChatBtn' || b.id === 'buyNowBtn' ||
+                        b.id === 'codBuyNowBtn' || b.id === 'mlBuyNowBtn' ||
+                        b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
+                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
+                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
+                        b.id === 'redeemBtn' || b.id === 'depositBackBtn' ||
+                        b.id === 'detailBackBtn' || b.id === 'copyBtn' ||
+                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
+                        b.classList.contains('method-item')) {
+                        e.preventDefault();
+                    }
+                });
             });
 
-            // إيداع وسحب
-            document.getElementById('depositBtn').addEventListener('click', function() {
-                // تم التعامل معه في القسم الخاص بزر الإيداع أعلاه
-            });
+            // ============================================
+            // ===== التهيئة =====
+            // ============================================
+            setTimeout(() => {
+                updateNavActive('page-home');
+            }, 100);
 
-            document.getElementById('withdrawBtn').addEventListener('click', function() {
-                alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
-            });
+            console.log('🚀 REDEEM STORE جاهز بالكامل!');
+            console.log('✅ تم دمج جميع الصفحات مع انتقالات احترافية.');
+            console.log('✅ صفحة الإيداع مع تفاصيلها جاهزة 100%.');
+            console.log('✅ جميع الأزرار تعمل بدون إعادة تحميل.');
 
-            // التهيئة
-            updateBalance();
-            renderTransactions('all');
-
-            console.log('💎 REDEEM STORE | Wallet page loaded.');
         })();
-
-        // ========================
-        // 18. منع إعادة التحميل
-        // ========================
-        document.querySelectorAll('button').forEach(b => {
-            b.addEventListener('click', (e) => {
-                if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') || b.closest('.faq-item') ||
-                    b.closest('.pack-btn') || b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
-                    b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
-                    b.id === 'startChatBtn' || b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
-                    b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                    b.id === 'depositBtn' || b.id === 'withdrawBtn' || b.id === 'redeemBtn' ||
-                    b.id === 'depositBackBtn') {
-                    e.preventDefault();
-                }
-            });
-        });
-
-        // ========================
-        // 19. تحديث شريط التنقل عند تحميل الصفحة
-        // ========================
-        setTimeout(() => {
-            updateNavActive('page-home');
-        }, 100);
-
-        console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إضافة صفحة الإيداع المطابقة للصورة 100%.');
-        console.log('✅ تدرج أزرق ناعم في خيارات الإيداع.');
-        console.log('✅ تم تعديل أزرار الإيداع والسحب إلى شكل مستطيل احترافي.');
-        console.log('✅ تم إزالة جميع تأثيرات اللمس (scale, transform) من الأزرار.');
     </script>
 
 </body>
-</html>
+    </html>
