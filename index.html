@@ -1301,7 +1301,7 @@
         }
 
         /* ============================================ */
-        /* ===== WALLET PAGE - الرقم في مكانه الصحيح ===== */
+        /* ===== WALLET PAGE - العملة على يسار الرقم ===== */
         /* ============================================ */
 
         /* إزالة الهوامش الجانبية من صفحة المحفظة مع الاحتفاظ بالمسافات */
@@ -1404,7 +1404,7 @@
             letter-spacing: 0.2px;
         }
 
-        /* ===== قيمة الرصيد - الرقم في مكانه الصحيح مع العملة يسار الرقم ===== */
+        /* ===== قيمة الرصيد - العملة على يسار الرقم ===== */
         .wallet-balance-amount {
             font-size: 40px;
             font-weight: 900;
@@ -1419,14 +1419,8 @@
             display: flex;
             align-items: baseline;
             justify-content: flex-end;
-            gap: 6px;
+            gap: 4px;
             direction: ltr;
-        }
-
-        .wallet-balance-amount .amount-number {
-            font-size: 40px;
-            font-weight: 900;
-            color: #FFFFFF;
         }
 
         .wallet-balance-amount .currency-symbol {
@@ -1434,7 +1428,12 @@
             font-weight: 600;
             color: #FFFFFF;
             opacity: 0.85;
-            margin-right: 2px;
+        }
+
+        .wallet-balance-amount .amount-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: #FFFFFF;
         }
 
         /* ===== أزرار المحفظة ===== */
@@ -2057,11 +2056,11 @@
             .wallet-balance-amount {
                 font-size: 34px;
             }
-            .wallet-balance-amount .amount-number {
-                font-size: 34px;
-            }
             .wallet-balance-amount .currency-symbol {
                 font-size: 26px; /* 75% من 34px */
+            }
+            .wallet-balance-amount .amount-number {
+                font-size: 34px;
             }
             .wallet-balance-icon {
                 width: 38px;
@@ -2150,11 +2149,11 @@
             .wallet-balance-amount {
                 font-size: 44px;
             }
-            .wallet-balance-amount .amount-number {
-                font-size: 44px;
-            }
             .wallet-balance-amount .currency-symbol {
                 font-size: 33px; /* 75% من 44px */
+            }
+            .wallet-balance-amount .amount-number {
+                font-size: 44px;
             }
             .wallet-card-wrapper {
                 padding: 20px 20px 0 20px;
@@ -2230,8 +2229,8 @@
                     </div>
                 </div>
                 <div class="wallet-balance-amount">
-                    <span class="amount-number" id="walletBalanceDisplay">0.00</span>
                     <span class="currency-symbol">ج.س</span>
+                    <span class="amount-number" id="walletBalanceDisplay">0.00</span>
                 </div>
             </div>
         </div>
@@ -3598,8 +3597,8 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم إرجاع الرقم إلى مكانه الصحيح (يسار العملة).');
-        console.log('✅ تم جعل العملة (ج.س) في يسار الرقم مع ترك مسافة صغيرة.');
+        console.log('✅ تم نقل اختصار العملة (ج.س) إلى يسار الرقم.');
+        console.log('✅ تم الحفاظ على اتجاه RTL مع مظهر احترافي.');
         console.log('✅ تم تغيير العملة إلى الجنيه السوداني.');
         console.log('✅ تم ضبط الرصيد إلى 0.00');
     </script>
