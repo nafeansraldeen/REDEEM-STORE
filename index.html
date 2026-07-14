@@ -1301,7 +1301,7 @@
         }
 
         /* ============================================ */
-        /* ===== WALLET PAGE - البطاقة شبه مربعة ===== */
+        /* ===== WALLET PAGE - مع عملة الجنيه السوداني ===== */
         /* ============================================ */
 
         /* إزالة الهوامش الجانبية من صفحة المحفظة مع الاحتفاظ بالمسافات */
@@ -1404,6 +1404,7 @@
             letter-spacing: 0.2px;
         }
 
+        /* ===== قيمة الرصيد - مع عملة ج.س ===== */
         .wallet-balance-amount {
             font-size: 40px;
             font-weight: 900;
@@ -1415,11 +1416,24 @@
             padding-right: 4px;
             letter-spacing: 0.5px;
             margin-top: 6px;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+            gap: 4px;
+            direction: ltr;
         }
 
-        .wallet-balance-amount span {
+        .wallet-balance-amount .amount-number {
             font-size: 40px;
             font-weight: 900;
+            color: #FFFFFF;
+        }
+
+        .wallet-balance-amount .currency-symbol {
+            font-size: 30px; /* 75% من حجم الرقم (40px * 0.75 = 30px) */
+            font-weight: 600;
+            color: #FFFFFF;
+            opacity: 0.85;
         }
 
         /* ===== أزرار المحفظة ===== */
@@ -2042,8 +2056,11 @@
             .wallet-balance-amount {
                 font-size: 34px;
             }
-            .wallet-balance-amount span {
+            .wallet-balance-amount .amount-number {
                 font-size: 34px;
+            }
+            .wallet-balance-amount .currency-symbol {
+                font-size: 26px; /* 75% من 34px */
             }
             .wallet-balance-icon {
                 width: 38px;
@@ -2132,8 +2149,11 @@
             .wallet-balance-amount {
                 font-size: 44px;
             }
-            .wallet-balance-amount span {
+            .wallet-balance-amount .amount-number {
                 font-size: 44px;
+            }
+            .wallet-balance-amount .currency-symbol {
+                font-size: 33px; /* 75% من 44px */
             }
             .wallet-card-wrapper {
                 padding: 20px 20px 0 20px;
@@ -2209,7 +2229,8 @@
                     </div>
                 </div>
                 <div class="wallet-balance-amount">
-                    $ <span id="walletBalanceDisplay">0.00</span>
+                    <span class="amount-number" id="walletBalanceDisplay">0.00</span>
+                    <span class="currency-symbol">ج.س</span>
                 </div>
             </div>
         </div>
@@ -3576,11 +3597,12 @@
         });
 
         console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تغيير لون البطاقة إلى الأزرق (هوية المتجر).');
-        console.log('✅ تم إضافة هيدر المتجر باللون الأزرق مع اسم REDEEM.');
-        console.log('✅ البطاقة أصبحت شبه مربعة (أطول قليلاً).');
+        console.log('✅ تم تغيير عملة المحفظة إلى الجنيه السوداني (ج.س)');
+        console.log('✅ تم جعل اختصار العملة أصغر من الرقم بنسبة 75%');
+        console.log('✅ تم ترك مسافة صغيرة بين الرقم وج.س');
+        console.log('✅ تم ضبط الرصيد إلى 0.00');
     </script>
 
 </body>
-</html>
+    </html>
 
