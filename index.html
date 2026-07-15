@@ -1537,84 +1537,7 @@
             margin-top: -2px;
         }
 
-        /* ===== تفعيل كود ===== */
-        .wallet-section-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 10px;
-            padding-right: 16px;
-        }
-
-        .redeem-card-wallet {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-            margin: 0 16px 24px 16px;
-            border: 1px solid #f0f0f0;
-        }
-
-        .redeem-label-wallet {
-            font-size: 13px;
-            font-weight: 600;
-            color: #222;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .redeem-input-group-wallet {
-            display: flex;
-            gap: 10px;
-        }
-
-        .redeem-input-group-wallet input {
-            flex: 1;
-            padding: 12px 16px;
-            border: 2px solid #e8eaed;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 400;
-            background: #f8f9fa;
-            transition: all 0.25s ease;
-            color: #222;
-            direction: ltr;
-            text-align: left;
-        }
-
-        .redeem-input-group-wallet input::placeholder {
-            color: #aaa;
-            font-weight: 400;
-            font-size: 14px;
-        }
-
-        .redeem-input-group-wallet input:focus {
-            outline: none;
-            border-color: #1A73E8;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-            background: white;
-        }
-
-        .btn-redeem-wallet {
-            padding: 12px 24px;
-            background: #1A73E8;
-            color: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            white-space: nowrap;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            user-select: none;
-            outline: none;
-        }
-
-        .btn-redeem-wallet:active {
-            transform: none !important;
-        }
+        /* ===== تم حذف قسم "تفعيل كود الشحن" بالكامل ===== */
 
         /* ===== المعاملات ===== */
         .transactions-header-wallet {
@@ -1808,7 +1731,6 @@
             opacity: 0;
         }
 
-        /* ===== شريط علوي بدون هيدر ===== */
         .deposit-top-bar {
             padding: 16px 16px 0 16px;
             display: flex;
@@ -1864,7 +1786,6 @@
             letter-spacing: 0.3px;
         }
 
-        /* ===== METHOD GRID - 2x2 ===== */
         .method-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -1915,7 +1836,6 @@
             box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
         }
 
-        /* ===== إطار الصورة الموسع ===== */
         .method-item .method-icon-wrapper {
             width: 80px;
             height: 80px;
@@ -2549,10 +2469,6 @@
                 padding-right: 12px;
                 font-size: 14px;
             }
-            .redeem-card-wallet {
-                margin: 0 12px 20px 12px;
-                padding: 14px;
-            }
             .transactions-header-wallet {
                 padding-right: 12px;
             }
@@ -2736,7 +2652,7 @@
             </div>
         </div>
 
-        <!-- صفحة المحفظة -->
+        <!-- صفحة المحفظة - تم حذف قسم "تفعيل كود الشحن" -->
         <div id="page-wallet" class="page">
             <div class="wallet-card-wrapper">
                 <div class="wallet-balance-card">
@@ -2773,14 +2689,7 @@
                 </button>
             </div>
 
-            <div class="wallet-section-title">تفعيل كود الشحن</div>
-            <div class="redeem-card-wallet">
-                <label class="redeem-label-wallet">أدخل كود الشحن لإضافة رصيد إلى محفظتك</label>
-                <div class="redeem-input-group-wallet">
-                    <input type="text" placeholder="أدخل كود الشحن (مثال: 23XYZ)" id="redeemInput" />
-                    <button class="btn-redeem-wallet" id="redeemBtn">تفعيل</button>
-                </div>
-            </div>
+            <!-- تم حذف قسم "تفعيل كود الشحن" بالكامل -->
 
             <div class="transactions-header-wallet">
                 <div class="wallet-section-title">المعاملات</div>
@@ -2807,7 +2716,6 @@
         <!-- ===== صفحة الإيداع - بدون هيدر ===== -->
         <!-- ============================================ -->
         <div class="deposit-page" id="depositPage">
-            <!-- شريط علوي بسيط بدون هيدر -->
             <div class="deposit-top-bar">
                 <button class="back-btn" id="depositBackBtn">
                     <i class="fas fa-arrow-right"></i>
@@ -2819,11 +2727,9 @@
             </div>
 
             <div class="deposit-body">
-                <!-- اختيار طريقة الإيداع - 2x2 Grid -->
                 <div class="method-selection" id="methodSelection">
                     <div class="section-title">اختر طريقة الإيداع</div>
                     <div class="method-grid">
-                        <!-- بنكك -->
                         <button class="method-item" data-method="bank">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
                             <div class="method-icon-wrapper">
@@ -2833,7 +2739,6 @@
                             <span class="method-desc">تحويل بنكي</span>
                         </button>
 
-                        <!-- RedotPay -->
                         <button class="method-item" data-method="redotpay">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
                             <div class="method-icon-wrapper">
@@ -2843,7 +2748,6 @@
                             <span class="method-desc">محفظة رقمية</span>
                         </button>
 
-                        <!-- ماي كاشي - صورة محدثة -->
                         <button class="method-item" data-method="mycash">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
                             <div class="method-icon-wrapper">
@@ -2853,7 +2757,6 @@
                             <span class="method-desc">محفظة إلكترونية</span>
                         </button>
 
-                        <!-- بـيدي -->
                         <button class="method-item" data-method="binance">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
                             <div class="method-icon-wrapper">
@@ -2865,7 +2768,6 @@
                     </div>
                 </div>
 
-                <!-- صفحة تفاصيل الإيداع -->
                 <div class="deposit-detail" id="depositDetail">
                     <button class="detail-back" id="detailBackBtn">
                         <i class="fas fa-arrow-right"></i>
@@ -3445,7 +3347,6 @@
                 setTimeout(() => ripple.remove(), 600);
             }
 
-            // Ripple لأزرار الإيداع والسحب في المحفظة
             document.querySelectorAll('.action-card').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     const rect = this.getBoundingClientRect();
@@ -3639,7 +3540,6 @@
 
             let selectedMethod = 'bank';
 
-            // زر الإيداع في المحفظة
             document.getElementById('depositBtn').addEventListener('click', function(e) {
                 this.style.transform = 'scale(0.98)';
                 setTimeout(() => {
@@ -3669,7 +3569,6 @@
                 navItems.forEach(item => item.classList.remove('active'));
                 document.getElementById('navIndicator').classList.remove('show');
 
-                // تحديد أول بطاقة افتراضياً
                 methodItems.forEach((item, index) => {
                     if (index === 0) {
                         item.classList.add('selected');
@@ -3679,7 +3578,6 @@
                 });
             });
 
-            // زر الرجوع في صفحة الإيداع
             depositBackBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 if (depositDetail.style.display === 'block' || depositDetail.classList.contains('active')) {
@@ -3689,7 +3587,6 @@
                 }
             });
 
-            // اختيار طريقة الإيداع
             methodItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     createRipple(e, this);
@@ -3702,7 +3599,6 @@
                 });
             });
 
-            // زر الرجوع للخيارات
             detailBackBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 backToMethods();
@@ -3762,7 +3658,6 @@
                 }, 350);
             }
 
-            // نسخ رقم الحساب
             copyBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 const text = accountNumber.textContent;
@@ -3803,7 +3698,6 @@
                 document.body.removeChild(textarea);
             }
 
-            // رفع الصورة
             receiptInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const file = this.files[0];
@@ -3817,7 +3711,6 @@
                 }
             });
 
-            // تأكيد الإيداع
             confirmBtn.addEventListener('click', function(e) {
                 createRippleBtn(e, this);
                 const amount = amountInput.value.trim();
@@ -3844,7 +3737,6 @@
                 }, 1500);
             });
 
-            // زر العودة للرئيسية
             backHomeBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 goHome();
@@ -4205,15 +4097,15 @@
             });
 
             // ============================================
-            // ===== المحفظة =====
+            // ===== المحفظة - تم حذف قسم "تفعيل كود الشحن" =====
             // ============================================
             (function() {
-                const redeemInput = document.getElementById('redeemInput');
-                const redeemBtn = document.getElementById('redeemBtn');
                 const filterBtns = document.querySelectorAll('.filter-btn-wallet');
                 const transactionsContainer = document.getElementById('transactionsContainer');
                 const emptyState = document.getElementById('emptyState');
                 const balanceDisplay = document.getElementById('walletBalanceDisplay');
+
+                // تم حذف المتغيرات الخاصة بـ redeemInput و redeemBtn
 
                 let transactions = [
                     { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال',
@@ -4299,34 +4191,7 @@
                     });
                 });
 
-                redeemBtn.addEventListener('click', function() {
-                    const code = redeemInput.value.trim();
-                    if (!code) {
-                        alert('⚠️ يرجى إدخال كود الشحن.');
-                        return;
-                    }
-                    this.textContent = 'جاري...';
-                    this.disabled = true;
-                    this.style.opacity = '0.7';
-                    setTimeout(() => {
-                        const amount = (Math.random() * 20 + 5).toFixed(2);
-                        const newTransaction = {
-                            id: Date.now(),
-                            type: 'deposit',
-                            amount: parseFloat(amount),
-                            description: `تفعيل كود: ${code}`,
-                            date: new Date().toISOString().replace('T', ' ').slice(0, 16)
-                        };
-                        transactions.push(newTransaction);
-                        updateBalance();
-                        renderTransactions(currentFilter);
-                        alert(`✅ تم تفعيل الكود بنجاح!\n💰 تم إضافة $${amount} إلى رصيدك.`);
-                        this.textContent = 'تفعيل';
-                        this.disabled = false;
-                        this.style.opacity = '1';
-                        redeemInput.value = '';
-                    }, 800);
-                });
+                // تم حذف كود زر تفعيل الكود (redeemBtn)
 
                 document.getElementById('withdrawBtn').addEventListener('click', function() {
                     alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
@@ -4350,10 +4215,9 @@
                         b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
                         b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
                         b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'redeemBtn' || b.id === 'depositBackBtn' ||
-                        b.id === 'detailBackBtn' || b.id === 'copyBtn' ||
-                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
-                        b.classList.contains('method-item')) {
+                        b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
                         e.preventDefault();
                     }
                 });
@@ -4364,7 +4228,6 @@
             // ============================================
             setTimeout(() => {
                 updateNavActive('page-home');
-                // تحديد أول بطاقة في الإيداع
                 const firstMethod = document.querySelector('.method-item');
                 if (firstMethod) {
                     firstMethod.classList.add('selected');
@@ -4372,9 +4235,8 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم تحديث صورة ماي كاشي.');
-            console.log('✅ ترتيب الأيقونات: بنكك | RedotPay | ماي كاشي | بـيدي');
-            console.log('✅ جميع الصفحات مدمجة مع انتقالات احترافية.');
+            console.log('✅ تم حذف قسم "تفعيل كود الشحن" بالكامل.');
+            console.log('✅ الصفحة تتمد تلقائياً لملء الفراغ.');
 
         })();
     </script>
