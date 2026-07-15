@@ -358,7 +358,7 @@
         .ripple-effect {
             position: absolute;
             border-radius: 50%;
-            background: rgba(26, 115, 232, 0.12);
+            background: rgba(26, 115, 232, 0.10);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -1784,7 +1784,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT PAGE - NEW METHODS ===== */
+        /* ===== DEPOSIT PAGE - 2x2 PREMIUM DESIGN ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
@@ -1862,89 +1862,135 @@
 
         .deposit-body {
             padding: 20px 16px 30px;
+            background: #F8FAFC;
         }
 
         .section-title {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 16px;
+            color: #1A1A2E;
+            margin-bottom: 20px;
             padding-right: 4px;
+            letter-spacing: 0.3px;
         }
 
-        /* ===== NEW METHOD LIST STYLE ===== */
-        .method-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .method-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 14px 16px;
-            background: #FFFFFF;
-            border: 1.5px solid #E8EAED;
-            border-radius: 14px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .method-item:active {
-            transform: scale(0.98);
-        }
-
-        .method-item .method-left {
-            display: flex;
-            align-items: center;
+        /* ===== METHOD GRID - 2x2 ===== */
+        .method-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             gap: 14px;
         }
 
-        .method-item .method-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+        .method-item {
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            border-radius: 18px;
+            padding: 20px 14px 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+            min-height: 140px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            aspect-ratio: 1 / 1.1;
+        }
+
+        @media (hover: hover) {
+            .method-item:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                border-color: #B5D4F0;
+            }
+        }
+
+        .method-item:active {
+            transform: scale(0.97);
+        }
+
+        .method-item.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 8px 28px rgba(26, 115, 232, 0.16);
+            transform: translateY(-2px);
+        }
+
+        .method-item.selected .method-icon-wrapper {
+            border-color: #1A73E8;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
+        }
+
+        .method-item .method-icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border-radius: 14px;
+            border: 1.5px solid #E8EAED;
+            background: #FAFBFC;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
             flex-shrink: 0;
             overflow: hidden;
-            background: #F8FAFC;
-            border: 1px solid #E8EAED;
         }
 
-        .method-item .method-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 12px;
+        .method-item .method-icon-wrapper img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 8px;
         }
 
-        .method-item .method-info h4 {
-            font-size: 15px;
-            font-weight: 600;
-            color: #222;
+        .method-item .method-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 3px;
+            transition: color 0.25s ease;
+            letter-spacing: 0.2px;
         }
 
-        .method-item .method-info span {
+        .method-item.selected .method-name {
+            color: #1A73E8;
+        }
+
+        .method-item .method-desc {
             font-size: 12px;
             color: #999;
             font-weight: 400;
+            letter-spacing: 0.1px;
         }
 
-        .method-item .method-arrow {
-            color: #ccc;
-            font-size: 14px;
-            flex-shrink: 0;
+        .method-item .check-mark {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: #1A73E8;
+            color: white;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: scale(0);
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
 
-        /* ============================================ */
+        .method-item.selected .check-mark {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         /* ===== DEPOSIT DETAIL ===== */
-        /* ============================================ */
         .deposit-detail {
             display: none;
             animation: detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -2425,22 +2471,40 @@
                 padding: 16px 12px 24px;
             }
             .section-title {
-                font-size: 15px;
+                font-size: 16px;
+                margin-bottom: 16px;
+            }
+            .method-grid {
+                gap: 12px;
             }
             .method-item {
-                padding: 12px 14px;
+                padding: 16px 10px 14px;
+                min-height: 120px;
+                border-radius: 14px;
+                aspect-ratio: 1 / 1.15;
+            }
+            .method-item .method-icon-wrapper {
+                width: 54px;
+                height: 54px;
                 border-radius: 12px;
+                margin-bottom: 10px;
             }
-            .method-item .method-icon {
-                width: 42px;
-                height: 42px;
-                border-radius: 10px;
+            .method-item .method-icon-wrapper img {
+                width: 34px;
+                height: 34px;
             }
-            .method-item .method-info h4 {
+            .method-item .method-name {
                 font-size: 14px;
             }
-            .method-item .method-info span {
+            .method-item .method-desc {
                 font-size: 11px;
+            }
+            .method-item .check-mark {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+                top: 6px;
+                right: 6px;
             }
             .wallet-balance-card {
                 max-width: 100%;
@@ -2567,14 +2631,30 @@
             .deposit-body {
                 padding: 24px 24px 30px;
             }
-            .method-item {
-                padding: 16px 20px;
-                border-radius: 16px;
+            .method-grid {
+                gap: 16px;
             }
-            .method-item .method-icon {
-                width: 52px;
-                height: 52px;
-                border-radius: 14px;
+            .method-item {
+                padding: 24px 18px 22px;
+                min-height: 160px;
+                border-radius: 20px;
+                aspect-ratio: 1 / 1.1;
+            }
+            .method-item .method-icon-wrapper {
+                width: 72px;
+                height: 72px;
+                border-radius: 16px;
+                margin-bottom: 14px;
+            }
+            .method-item .method-icon-wrapper img {
+                width: 48px;
+                height: 48px;
+            }
+            .method-item .method-name {
+                font-size: 18px;
+            }
+            .method-item .method-desc {
+                font-size: 13px;
             }
             .wallet-balance-card {
                 max-width: 400px;
@@ -2730,7 +2810,7 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة الإيداع - طرق الدفع الجديدة ===== -->
+        <!-- ===== صفحة الإيداع - 2x2 PREMIUM ===== -->
         <!-- ============================================ -->
         <div class="deposit-page" id="depositPage">
             <div class="deposit-header">
@@ -2746,64 +2826,48 @@
             </div>
 
             <div class="deposit-body">
-                <!-- اختيار طريقة الإيداع -->
+                <!-- اختيار طريقة الإيداع - 2x2 Grid -->
                 <div class="method-selection" id="methodSelection">
                     <div class="section-title">اختر طريقة الإيداع</div>
-                    <div class="method-list">
+                    <div class="method-grid">
                         <!-- بنكك -->
                         <button class="method-item" data-method="bank">
-                            <div class="method-left">
-                                <div class="method-icon">
-                                    <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
-                                </div>
-                                <div class="method-info">
-                                    <h4>بنكك</h4>
-                                    <span>تحويل بنكي</span>
-                                </div>
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
                             </div>
-                            <i class="fas fa-chevron-left method-arrow"></i>
+                            <span class="method-name">بنكك</span>
+                            <span class="method-desc">تحويل بنكي</span>
                         </button>
 
                         <!-- RedotPay -->
                         <button class="method-item" data-method="redotpay">
-                            <div class="method-left">
-                                <div class="method-icon">
-                                    <img src="https://i.postimg.cc/zvTLbfdj/6feb9ec0dc4a917f20ee4499659d56ce.jpg" alt="RedotPay" />
-                                </div>
-                                <div class="method-info">
-                                    <h4>RedotPay</h4>
-                                    <span>بطاقة افتراضية</span>
-                                </div>
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/zvTLbfdj/6feb9ec0dc4a917f20ee4499659d56ce.jpg" alt="RedotPay" />
                             </div>
-                            <i class="fas fa-chevron-left method-arrow"></i>
+                            <span class="method-name">RedotPay</span>
+                            <span class="method-desc">بطاقة افتراضية</span>
                         </button>
 
                         <!-- MyCash -->
                         <button class="method-item" data-method="mycash">
-                            <div class="method-left">
-                                <div class="method-icon">
-                                    <img src="https://i.postimg.cc/7Pg2hG8J/avatars-7Dn-Qvw-HOH1Nk-Kp-Kr-i-Uik1A-t1080x1080.jpg" alt="MyCash" />
-                                </div>
-                                <div class="method-info">
-                                    <h4>MyCash</h4>
-                                    <span>محفظة إلكترونية</span>
-                                </div>
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/7Pg2hG8J/avatars-7Dn-Qvw-HOH1Nk-Kp-Kr-i-Uik1A-t1080x1080.jpg" alt="MyCash" />
                             </div>
-                            <i class="fas fa-chevron-left method-arrow"></i>
+                            <span class="method-name">MyCash</span>
+                            <span class="method-desc">محفظة إلكترونية</span>
                         </button>
 
                         <!-- Binance -->
                         <button class="method-item" data-method="binance">
-                            <div class="method-left">
-                                <div class="method-icon">
-                                    <img src="https://i.postimg.cc/yd6bxJvV/1fabe356-bb69-4bc4-a307-19b28ee8dd35-780x470.webp" alt="Binance" />
-                                </div>
-                                <div class="method-info">
-                                    <h4>Binance</h4>
-                                    <span>عمليات رقمية</span>
-                                </div>
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/yd6bxJvV/1fabe356-bb69-4bc4-a307-19b28ee8dd35-780x470.webp" alt="Binance" />
                             </div>
-                            <i class="fas fa-chevron-left method-arrow"></i>
+                            <span class="method-name">Binance</span>
+                            <span class="method-desc">عمليات رقمية</span>
                         </button>
                     </div>
                 </div>
@@ -3530,7 +3594,6 @@
                     const pageId = item.dataset.page;
                     if (pageId === 'page-wallet' || pageId === 'page-support' ||
                         pageId === 'page-account' || pageId === 'page-home') {
-                        // إخفاء صفحة الإيداع إذا كانت مفتوحة
                         const depositPage = document.getElementById('depositPage');
                         if (depositPage && depositPage.classList.contains('active')) {
                             depositPage.classList.remove('active');
@@ -3612,6 +3675,15 @@
 
                 navItems.forEach(item => item.classList.remove('active'));
                 document.getElementById('navIndicator').classList.remove('show');
+
+                // تحديد أول بطاقة افتراضياً
+                methodItems.forEach((item, index) => {
+                    if (index === 0) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                });
             });
 
             // زر الرجوع في صفحة الإيداع
@@ -3628,8 +3700,12 @@
             methodItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     createRipple(e, this);
+                    methodItems.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
                     const method = this.dataset.method;
-                    openDetail(method);
+                    setTimeout(() => {
+                        openDetail(method);
+                    }, 200);
                 });
             });
 
@@ -4295,15 +4371,19 @@
             // ============================================
             setTimeout(() => {
                 updateNavActive('page-home');
-            }, 100);
+                // تحديد أول بطاقة في الإيداع
+                const firstMethod = document.querySelector('.method-item');
+                if (firstMethod) {
+                    firstMethod.classList.add('selected');
+                }
+            }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم دمج جميع الصفحات مع انتقالات احترافية.');
-            console.log('✅ طرق الإيداع الجديدة: بنكك، RedotPay، MyCash، Binance.');
-            console.log('✅ جميع الأزرار تعمل بدون إعادة تحميل.');
+            console.log('✅ تصميم 2x2 Premium لطرق الإيداع.');
+            console.log('✅ جميع الصفحات مدمجة مع انتقالات احترافية.');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
