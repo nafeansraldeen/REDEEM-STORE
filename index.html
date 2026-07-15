@@ -17,8 +17,8 @@
         }
 
         body {
-            background-color: #F5F7FA;
-            color: #222;
+            background-color: #F0F2F5;
+            color: #1A1A2E;
             padding-bottom: 80px;
             min-height: 100vh;
             overflow-x: hidden;
@@ -34,7 +34,7 @@
             min-height: 100vh;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 40px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0 60px rgba(0, 0, 0, 0.04);
         }
 
         /* ============================================ */
@@ -275,10 +275,11 @@
             width: 25%;
         }
 
+        /* ===== PRODUCTS GRID ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
+            gap: 14px;
             margin-top: 10px;
             direction: rtl;
         }
@@ -286,20 +287,22 @@
         @media (min-width: 600px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
             }
         }
 
         @media (min-width: 900px) {
             .products-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
             }
         }
 
         .product-card {
             background: #FFFFFF;
-            border-radius: 20px;
-            padding: 16px 8px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            padding: 8px 8px 12px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
             text-align: center;
             transition: all 0.2s;
             border: 1px solid #f0f0f0;
@@ -307,23 +310,28 @@
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 160px;
         }
 
         .product-card:active {
-            transform: scale(0.98);
+            transform: scale(0.97);
         }
 
         .product-card img {
             width: 100%;
-            max-width: 80px;
+            max-width: 100%;
             height: auto;
             aspect-ratio: 1/1;
             object-fit: contain;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             border-radius: 12px;
             background: #fafafa;
             position: relative;
             z-index: 1;
+            padding: 4px;
         }
 
         .product-card h4 {
@@ -332,6 +340,9 @@
             color: #222;
             position: relative;
             z-index: 1;
+            margin-top: 2px;
+            padding: 0 4px;
+            line-height: 1.3;
         }
 
         /* ============================================ */
@@ -348,8 +359,8 @@
 
         .ripple-btn {
             position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.25);
+            border-radius: 0;
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(0);
             animation: rippleAnim 0.6s ease-out forwards;
             pointer-events: none;
@@ -1537,8 +1548,6 @@
             margin-top: -2px;
         }
 
-        /* ===== تم حذف قسم "تفعيل كود الشحن" بالكامل ===== */
-
         /* ===== المعاملات ===== */
         .transactions-header-wallet {
             display: flex;
@@ -1707,7 +1716,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT PAGE - NO HEADER ===== */
+        /* ===== DEPOSIT PAGE - GEOMETRIC ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
@@ -1718,6 +1727,7 @@
             transform: translateX(100%);
             transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
             opacity: 0;
+            overflow: hidden;
         }
 
         .deposit-page.active {
@@ -1731,424 +1741,290 @@
             opacity: 0;
         }
 
-        .deposit-top-bar {
-            padding: 16px 16px 0 16px;
+        /* ===== GEOMETRIC HEADER ===== */
+        .deposit-header {
+            background: #1A73E8;
+            padding: 16px 20px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+            flex-shrink: 0;
         }
 
-        .deposit-top-bar .back-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
+        .deposit-header .back-btn {
+            width: 36px;
+            height: 36px;
             border: none;
-            background: #f0f0f0;
-            color: #333;
-            font-size: 18px;
+            background: rgba(255, 255, 255, 0.12);
+            color: #FFFFFF;
+            font-size: 16px;
             cursor: pointer;
-            transition: all 0.25s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.2s ease;
             flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
+            border-radius: 0;
         }
 
-        .deposit-top-bar .back-btn:active {
-            transform: scale(0.92);
-            background: #e0e0e0;
+        .deposit-header .back-btn:active {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(0.95);
         }
 
-        .deposit-top-bar .page-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1A1A2E;
-        }
-
-        .deposit-top-bar .page-sub {
-            font-size: 13px;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .deposit-body {
-            padding: 16px 16px 30px;
-            background: #F8FAFC;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 20px;
-            padding-right: 4px;
+        .deposit-header .header-title {
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 600;
             letter-spacing: 0.3px;
         }
 
-        .method-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
+        .deposit-header .header-sub {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 11px;
+            font-weight: 400;
+            margin-top: 1px;
         }
 
-        .method-item {
-            background: #FFFFFF;
-            border: 1px solid #E8EAED;
-            border-radius: 18px;
-            padding: 20px 14px 18px;
+        /* ===== GEOMETRIC BODY ===== */
+        .deposit-body {
+            padding: 16px 20px 20px;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            overflow: hidden;
-            min-height: 140px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            aspect-ratio: 1 / 1.1;
+            gap: 12px;
+            justify-content: flex-start;
+            background: #F8FAFC;
+            min-height: calc(100vh - 80px);
         }
 
-        @media (hover: hover) {
-            .method-item:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-                border-color: #B5D4F0;
-            }
-        }
-
-        .method-item:active {
-            transform: scale(0.97);
-        }
-
-        .method-item.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 8px 28px rgba(26, 115, 232, 0.16);
-            transform: translateY(-2px);
-        }
-
-        .method-item.selected .method-icon-wrapper {
-            border-color: #1A73E8;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
-        }
-
-        .method-item .method-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            border: 2px solid #E8EAED;
-            background: #FAFBFC;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .method-item .method-icon-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-            display: block;
-        }
-
-        .method-item .method-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 3px;
-            transition: color 0.25s ease;
-            letter-spacing: 0.2px;
-        }
-
-        .method-item.selected .method-name {
-            color: #1A73E8;
-        }
-
-        .method-item .method-desc {
-            font-size: 12px;
-            color: #999;
-            font-weight: 400;
-            letter-spacing: 0.1px;
-        }
-
-        .method-item .check-mark {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            background: #1A73E8;
-            color: white;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: scale(0);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .method-item.selected .check-mark {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ============================================ */
-        /* ===== DEPOSIT DETAIL ===== */
-        /* ============================================ */
-        .deposit-detail {
-            display: none;
-            animation: detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
-        }
-
-        .deposit-detail.active {
-            display: block;
-        }
-
-        @keyframes detailSlideUp {
-            0% {
-                opacity: 0;
-                transform: translateY(16px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .deposit-detail .detail-back {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            color: #1A73E8;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: all 0.25s ease;
-            border: none;
-            background: none;
-            padding: 4px 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .deposit-detail .detail-back:active {
-            transform: scale(0.95);
-        }
-
-        .account-card {
-            background: linear-gradient(135deg, #F8FAFC, #F1F5F9);
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid #E8EAED;
-            margin-bottom: 20px;
-        }
-
-        .account-card .account-label {
+        .deposit-body .section-title {
             font-size: 13px;
             font-weight: 600;
-            color: #888;
-            margin-bottom: 6px;
+            color: #1A1A2E;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 2px;
         }
 
-        .account-card .account-number-wrapper {
+        /* ===== GEOMETRIC ACCOUNT CARD ===== */
+        .deposit-body .account-card {
+            background: #FFFFFF;
+            border: 1.5px solid #E0E4E8;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 12px;
+            border-radius: 0;
         }
 
-        .account-card .account-number {
-            font-size: 18px;
+        .deposit-body .account-card .account-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #888;
+            letter-spacing: 0.3px;
+            flex-shrink: 0;
+        }
+
+        .deposit-body .account-card .account-number-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .deposit-body .account-card .account-number {
+            font-size: 14px;
             font-weight: 700;
-            color: #222;
+            color: #1A1A2E;
             direction: ltr;
             text-align: left;
             font-family: 'Courier New', monospace;
-            letter-spacing: 1px;
-            word-break: break-all;
+            letter-spacing: 0.5px;
         }
 
-        .account-card .copy-btn {
-            padding: 8px 16px;
+        .deposit-body .account-card .copy-btn {
+            padding: 4px 12px;
             background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            border-radius: 10px;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
+            border-radius: 0;
             display: flex;
             align-items: center;
-            gap: 6px;
+            gap: 4px;
             flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
+            height: 28px;
         }
 
-        .account-card .copy-btn:active {
+        .deposit-body .account-card .copy-btn:active {
             transform: scale(0.95);
+            background: #1557B0;
         }
 
-        .account-card .copy-btn.copied {
-            background: #10B981;
+        .deposit-body .account-card .copy-btn.copied {
+            background: #0F7B3E;
         }
 
-        .form-group {
-            margin-bottom: 16px;
+        /* ===== GEOMETRIC FORM FIELDS ===== */
+        .deposit-body .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
         }
 
-        .form-group label {
-            display: block;
-            font-size: 14px;
+        .deposit-body .form-group label {
+            font-size: 12px;
             font-weight: 600;
-            color: #222;
-            margin-bottom: 6px;
+            color: #444;
+            letter-spacing: 0.3px;
         }
 
-        .form-group label .required {
-            color: #EF4444;
+        .deposit-body .form-group label .required {
+            color: #D32F2F;
+            margin-right: 2px;
         }
 
-        .form-group input {
+        .deposit-body .form-group input {
             width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #E8EAED;
-            border-radius: 14px;
-            font-size: 16px;
+            padding: 10px 14px;
+            border: 1.5px solid #E0E4E8;
+            font-size: 14px;
             font-weight: 500;
             background: #FFFFFF;
-            transition: all 0.25s ease;
-            color: #222;
+            color: #1A1A2E;
+            transition: all 0.2s ease;
+            border-radius: 0;
+            outline: none;
             direction: rtl;
+            height: 42px;
         }
 
-        .form-group input::placeholder {
+        .deposit-body .form-group input::placeholder {
             color: #aaa;
             font-weight: 400;
-            font-size: 14px;
+            font-size: 13px;
         }
 
-        .form-group input:focus {
+        .deposit-body .form-group input:focus {
             border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+            background: #FFFFFF;
+            box-shadow: none;
         }
 
-        .form-group input.input-ltr {
+        .deposit-body .form-group input.input-ltr {
             direction: ltr;
             text-align: left;
         }
 
-        .file-upload-wrapper {
+        /* ===== GEOMETRIC FILE UPLOAD ===== */
+        .deposit-body .file-upload-wrapper {
             position: relative;
             width: 100%;
         }
 
-        .file-upload-wrapper input[type="file"] {
+        .deposit-body .file-upload-wrapper input[type="file"] {
             position: absolute;
             opacity: 0;
             width: 100%;
             height: 100%;
             cursor: pointer;
             z-index: 2;
+            border-radius: 0;
         }
 
-        .file-upload-box {
+        .deposit-body .file-upload-box {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
-            padding: 18px;
-            border: 2px dashed #D6E8F8;
-            border-radius: 14px;
-            background: #F8FAFC;
-            transition: all 0.25s ease;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1.5px solid #E0E4E8;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
             cursor: pointer;
             color: #888;
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 500;
+            border-radius: 0;
+            height: 42px;
         }
 
-        .file-upload-box i {
-            font-size: 22px;
+        .deposit-body .file-upload-box i {
+            font-size: 16px;
             color: #1A73E8;
         }
 
-        .file-upload-box.has-file {
-            border-color: #10B981;
-            background: rgba(16, 185, 129, 0.06);
-            color: #10B981;
+        .deposit-body .file-upload-box.has-file {
+            border-color: #1A73E8;
+            background: #F0F7FF;
+            color: #1A73E8;
         }
 
-        .file-upload-box .file-name {
+        .deposit-body .file-upload-box .file-name {
             font-weight: 600;
-            color: #222;
-            max-width: 150px;
+            color: #1A1A2E;
+            max-width: 140px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
         }
 
-        .btn-confirm {
+        /* ===== GEOMETRIC CONFIRM BUTTON ===== */
+        .deposit-body .btn-confirm {
             width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, #1A73E8, #1557B0);
+            padding: 14px 24px;
+            background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            border-radius: 16px;
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 700;
             cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 6px 24px rgba(26, 115, 232, 0.30);
+            transition: all 0.2s ease;
+            border-radius: 0;
+            letter-spacing: 0.5px;
+            margin-top: 4px;
             position: relative;
             overflow: hidden;
-            margin-top: 8px;
-            -webkit-tap-highlight-color: transparent;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .btn-confirm:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        .deposit-body .btn-confirm:active {
+            transform: scale(0.98);
+            background: #1557B0;
         }
 
-        .btn-confirm.loading {
+        .deposit-body .btn-confirm.loading {
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
-        .btn-confirm .loader {
+        .deposit-body .btn-confirm .loader {
             display: none;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
 
-        .btn-confirm.loading .loader {
+        .deposit-body .btn-confirm.loading .loader {
             display: flex;
         }
 
-        .btn-confirm.loading .btn-text {
+        .deposit-body .btn-confirm.loading .btn-text {
             display: none;
         }
 
-        .loader-spinner {
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+        .deposit-body .loader-spinner {
+            width: 22px;
+            height: 22px;
+            border: 2.5px solid rgba(255, 255, 255, 0.25);
             border-top-color: #FFFFFF;
-            border-radius: 50%;
+            border-radius: 0;
             animation: spin 0.7s linear infinite;
         }
 
@@ -2158,21 +2034,26 @@
             }
         }
 
-        .success-message {
+        /* ===== GEOMETRIC SUCCESS MESSAGE ===== */
+        .deposit-body .success-message {
             display: none;
             text-align: center;
-            padding: 40px 20px;
-            animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            padding: 30px 20px;
+            animation: successPop 0.4s ease forwards;
+            flex: 1;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
         }
 
-        .success-message.active {
-            display: block;
+        .deposit-body .success-message.active {
+            display: flex;
         }
 
         @keyframes successPop {
             0% {
                 opacity: 0;
-                transform: scale(0.8);
+                transform: scale(0.95);
             }
             100% {
                 opacity: 1;
@@ -2180,49 +2061,49 @@
             }
         }
 
-        .success-message .success-icon {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(16, 185, 129, 0.12);
+        .deposit-body .success-message .success-icon {
+            width: 60px;
+            height: 60px;
+            background: #E8F5E9;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            font-size: 40px;
-            color: #10B981;
+            margin: 0 auto 16px;
+            font-size: 30px;
+            color: #0F7B3E;
+            border-radius: 0;
         }
 
-        .success-message h2 {
-            font-size: 22px;
+        .deposit-body .success-message h2 {
+            font-size: 18px;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 8px;
+            color: #1A1A2E;
+            margin-bottom: 6px;
         }
 
-        .success-message p {
-            font-size: 15px;
+        .deposit-body .success-message p {
+            font-size: 13px;
             color: #888;
-            line-height: 1.7;
-            max-width: 320px;
-            margin: 0 auto 24px;
+            line-height: 1.6;
+            max-width: 280px;
+            margin: 0 auto 20px;
         }
 
-        .btn-back-home {
-            padding: 14px 32px;
+        .deposit-body .btn-back-home {
+            padding: 12px 32px;
             background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            border-radius: 14px;
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
-            -webkit-tap-highlight-color: transparent;
+            transition: all 0.2s ease;
+            border-radius: 0;
         }
 
-        .btn-back-home:active {
+        .deposit-body .btn-back-home:active {
             transform: scale(0.95);
+            background: #1557B0;
         }
 
         /* ============================================ */
@@ -2376,50 +2257,64 @@
                 font-size: 13px;
                 padding: 10px 0;
             }
-            .deposit-top-bar {
-                padding: 12px 12px 0 12px;
+            .product-card {
+                min-height: 130px;
+                padding: 6px 6px 10px;
             }
-            .deposit-top-bar .page-title {
-                font-size: 18px;
+            .product-card img {
+                border-radius: 10px;
+                padding: 3px;
+            }
+            .product-card h4 {
+                font-size: 12px;
+            }
+            .deposit-header {
+                padding: 14px 16px;
+            }
+            .deposit-header .header-title {
+                font-size: 15px;
             }
             .deposit-body {
-                padding: 12px 12px 20px;
+                padding: 12px 14px 16px;
+                gap: 10px;
+                min-height: calc(100vh - 72px);
             }
-            .section-title {
-                font-size: 16px;
-                margin-bottom: 16px;
+            .deposit-body .account-card {
+                padding: 10px 12px;
             }
-            .method-grid {
-                gap: 12px;
+            .deposit-body .account-card .account-number {
+                font-size: 13px;
             }
-            .method-item {
-                padding: 16px 10px 14px;
-                min-height: 120px;
-                border-radius: 14px;
-                aspect-ratio: 1 / 1.15;
-            }
-            .method-item .method-icon-wrapper {
-                width: 64px;
-                height: 64px;
-                border-radius: 14px;
-                margin-bottom: 10px;
-                border-width: 1.5px;
-            }
-            .method-item .method-icon-wrapper img {
-                border-radius: 12px;
-            }
-            .method-item .method-name {
-                font-size: 14px;
-            }
-            .method-item .method-desc {
-                font-size: 11px;
-            }
-            .method-item .check-mark {
-                width: 18px;
-                height: 18px;
+            .deposit-body .account-card .copy-btn {
                 font-size: 10px;
-                top: 6px;
-                right: 6px;
+                padding: 3px 10px;
+                height: 24px;
+            }
+            .deposit-body .form-group input {
+                padding: 8px 12px;
+                font-size: 13px;
+                height: 38px;
+            }
+            .deposit-body .file-upload-box {
+                padding: 8px 12px;
+                font-size: 12px;
+                height: 38px;
+            }
+            .deposit-body .btn-confirm {
+                padding: 12px 20px;
+                font-size: 15px;
+                height: 44px;
+            }
+            .deposit-body .section-title {
+                font-size: 12px;
+            }
+            .deposit-body .success-message .success-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+            .deposit-body .success-message h2 {
+                font-size: 16px;
             }
             .wallet-balance-card {
                 max-width: 100%;
@@ -2497,32 +2392,56 @@
             .transaction-amount-wallet {
                 font-size: 14px;
             }
-            .account-card .account-number {
-                font-size: 16px;
+        }
+
+        @media (max-height: 700px) {
+            .deposit-body {
+                gap: 8px;
+                padding: 10px 14px 12px;
+                min-height: calc(100vh - 68px);
             }
-            .account-card .copy-btn {
+            .deposit-body .account-card {
+                padding: 8px 12px;
+            }
+            .deposit-body .form-group input {
+                padding: 6px 10px;
+                height: 34px;
                 font-size: 12px;
-                padding: 6px 12px;
             }
-            .form-group input {
-                padding: 12px 14px;
-                font-size: 15px;
+            .deposit-body .file-upload-box {
+                padding: 6px 10px;
+                height: 34px;
+                font-size: 12px;
             }
-            .btn-confirm {
-                font-size: 16px;
-                padding: 14px 20px;
+            .deposit-body .btn-confirm {
+                padding: 10px 16px;
+                height: 40px;
+                font-size: 14px;
             }
-            .success-message .success-icon {
-                width: 64px;
-                height: 64px;
-                font-size: 32px;
+            .deposit-header {
+                padding: 10px 14px;
             }
-            .success-message h2 {
-                font-size: 19px;
+            .deposit-body .section-title {
+                font-size: 11px;
+                margin-bottom: 0;
             }
         }
 
         @media (min-width: 600px) {
+            .products-grid {
+                gap: 16px;
+            }
+            .product-card {
+                min-height: 180px;
+                padding: 10px 10px 14px;
+            }
+            .product-card img {
+                border-radius: 14px;
+                padding: 6px;
+            }
+            .product-card h4 {
+                font-size: 16px;
+            }
             .cod-packs-grid {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 16px;
@@ -2540,31 +2459,8 @@
                 gap: 16px;
             }
             .deposit-body {
-                padding: 20px 24px 30px;
-            }
-            .method-grid {
-                gap: 16px;
-            }
-            .method-item {
-                padding: 24px 18px 22px;
-                min-height: 160px;
-                border-radius: 20px;
-                aspect-ratio: 1 / 1.1;
-            }
-            .method-item .method-icon-wrapper {
-                width: 88px;
-                height: 88px;
-                border-radius: 18px;
-                margin-bottom: 14px;
-            }
-            .method-item .method-icon-wrapper img {
-                border-radius: 16px;
-            }
-            .method-item .method-name {
-                font-size: 18px;
-            }
-            .method-item .method-desc {
-                font-size: 13px;
+                padding: 20px 24px 24px;
+                min-height: calc(100vh - 80px);
             }
             .wallet-balance-card {
                 max-width: 400px;
@@ -2605,6 +2501,12 @@
                 padding: 24px 24px;
                 min-height: 120px;
             }
+        }
+
+        /* ===== SCROLLBAR ===== */
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
         }
     </style>
 </head>
@@ -2652,7 +2554,7 @@
             </div>
         </div>
 
-        <!-- صفحة المحفظة - تم حذف قسم "تفعيل كود الشحن" -->
+        <!-- صفحة المحفظة -->
         <div id="page-wallet" class="page">
             <div class="wallet-card-wrapper">
                 <div class="wallet-balance-card">
@@ -2689,8 +2591,6 @@
                 </button>
             </div>
 
-            <!-- تم حذف قسم "تفعيل كود الشحن" بالكامل -->
-
             <div class="transactions-header-wallet">
                 <div class="wallet-section-title">المعاملات</div>
             </div>
@@ -2713,117 +2613,80 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة الإيداع - بدون هيدر ===== -->
+        <!-- ===== صفحة الإيداع - GEOMETRIC ===== -->
         <!-- ============================================ -->
         <div class="deposit-page" id="depositPage">
-            <div class="deposit-top-bar">
+
+            <!-- ===== HEADER ===== -->
+            <div class="deposit-header">
                 <button class="back-btn" id="depositBackBtn">
                     <i class="fas fa-arrow-right"></i>
                 </button>
                 <div>
-                    <div class="page-title">إيداع الرصيد</div>
-                    <div class="page-sub">أضف أموال إلى محفظتك</div>
+                    <div class="header-title">إيداع الرصيد</div>
+                    <div class="header-sub">أضف أموال إلى محفظتك</div>
                 </div>
             </div>
 
-            <div class="deposit-body">
-                <div class="method-selection" id="methodSelection">
-                    <div class="section-title">اختر طريقة الإيداع</div>
-                    <div class="method-grid">
-                        <button class="method-item" data-method="bank">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
-                            </div>
-                            <span class="method-name">بنكك</span>
-                            <span class="method-desc">تحويل بنكي</span>
-                        </button>
+            <!-- ===== BODY ===== -->
+            <div class="deposit-body" id="depositBody">
 
-                        <button class="method-item" data-method="redotpay">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/zvTLbfdj/6feb9ec0dc4a917f20ee4499659d56ce.jpg" alt="RedotPay" />
-                            </div>
-                            <span class="method-name">RedotPay</span>
-                            <span class="method-desc">محفظة رقمية</span>
-                        </button>
-
-                        <button class="method-item" data-method="mycash">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/Jzg8yH0w/Screenshot-20260715-144026.jpg" alt="ماي كاشي" />
-                            </div>
-                            <span class="method-name">ماي كاشي</span>
-                            <span class="method-desc">محفظة إلكترونية</span>
-                        </button>
-
-                        <button class="method-item" data-method="binance">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/yd6bxJvV/1fabe356-bb69-4bc4-a307-19b28ee8dd35-780x470.webp" alt="بـيدي" />
-                            </div>
-                            <span class="method-name">بـيدي</span>
-                            <span class="method-desc">محفظة إلكترونية</span>
+                <!-- بطاقة الحساب -->
+                <div class="account-card">
+                    <span class="account-label">رقم الحساب</span>
+                    <div class="account-number-wrapper">
+                        <span class="account-number" id="accountNumber">SA12 3456 7890 1234 5678</span>
+                        <button class="copy-btn" id="copyBtn">
+                            <i class="fas fa-copy"></i>
+                            نسخ
                         </button>
                     </div>
                 </div>
 
-                <div class="deposit-detail" id="depositDetail">
-                    <button class="detail-back" id="detailBackBtn">
-                        <i class="fas fa-arrow-right"></i>
-                        العودة للخيارات
-                    </button>
+                <!-- المبلغ -->
+                <div class="form-group">
+                    <label>المبلغ <span class="required">*</span></label>
+                    <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
+                </div>
 
-                    <div class="account-card">
-                        <div class="account-label">رقم الحساب / المحفظة</div>
-                        <div class="account-number-wrapper">
-                            <span class="account-number" id="accountNumber">SA12 3456 7890 1234 5678</span>
-                            <button class="copy-btn" id="copyBtn">
-                                <i class="fas fa-copy"></i>
-                                نسخ
-                            </button>
+                <!-- رقم العملية -->
+                <div class="form-group">
+                    <label>رقم العملية <span class="required">*</span></label>
+                    <input type="text" placeholder="أدخل رقم العملية أو التحويل" id="transactionIdInput" />
+                </div>
+
+                <!-- رفع الإيصال -->
+                <div class="form-group">
+                    <label>صورة الإيصال</label>
+                    <div class="file-upload-wrapper">
+                        <input type="file" accept="image/*" id="receiptInput" />
+                        <div class="file-upload-box" id="fileUploadBox">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <span>اضغط لرفع صورة الإيصال</span>
+                            <span class="file-name" id="fileName"></span>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label>المبلغ <span class="required">*</span></label>
-                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>رقم العملية أو التحويل <span class="required">*</span></label>
-                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInput" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>صورة الإيصال</label>
-                        <div class="file-upload-wrapper">
-                            <input type="file" accept="image/*" id="receiptInput" />
-                            <div class="file-upload-box" id="fileUploadBox">
-                                <i class="fas fa-cloud-upload-alt"></i>
-                                <span>اضغط لرفع صورة الإيصال</span>
-                                <span class="file-name" id="fileName"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn-confirm" id="confirmBtn">
-                        <span class="btn-text">تأكيد الإيداع</span>
-                        <span class="loader">
-                            <span class="loader-spinner"></span>
-                            جاري المعالجة...
-                        </span>
-                    </button>
-
-                    <div class="success-message" id="successMessage">
-                        <div class="success-icon">
-                            <i class="fas fa-check-circle"></i>
-                        </div>
-                        <h2>تم الإيداع بنجاح! 🎉</h2>
-                        <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
-                        <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
                     </div>
                 </div>
+
+                <!-- زر التأكيد -->
+                <button class="btn-confirm" id="confirmBtn">
+                    <span class="btn-text">تأكيد الإيداع</span>
+                    <span class="loader">
+                        <span class="loader-spinner"></span>
+                        جاري المعالجة...
+                    </span>
+                </button>
+
+                <!-- رسالة النجاح -->
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>تم الإيداع بنجاح</h2>
+                    <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
+                    <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
+                </div>
+
             </div>
         </div>
 
@@ -3500,16 +3363,13 @@
             });
 
             // ============================================
-            // ===== صفحة الإيداع =====
+            // ===== صفحة الإيداع - GEOMETRIC =====
             // ============================================
             const depositPage = document.getElementById('depositPage');
             const depositBackBtn = document.getElementById('depositBackBtn');
-            const methodSelection = document.getElementById('methodSelection');
-            const depositDetail = document.getElementById('depositDetail');
-            const detailBackBtn = document.getElementById('detailBackBtn');
-            const methodItems = document.querySelectorAll('.method-item');
-            const accountNumber = document.getElementById('accountNumber');
+            const depositBody = document.getElementById('depositBody');
             const copyBtn = document.getElementById('copyBtn');
+            const accountNumber = document.getElementById('accountNumber');
             const amountInput = document.getElementById('amountInput');
             const transactionIdInput = document.getElementById('transactionIdInput');
             const receiptInput = document.getElementById('receiptInput');
@@ -3519,32 +3379,10 @@
             const successMessage = document.getElementById('successMessage');
             const backHomeBtn = document.getElementById('backHomeBtn');
 
-            const methodsData = {
-                bank: {
-                    name: 'بنكك',
-                    account: 'SA12 3456 7890 1234 5678',
-                },
-                redotpay: {
-                    name: 'RedotPay',
-                    account: 'RP12 3456 7890 1234',
-                },
-                mycash: {
-                    name: 'ماي كاشي',
-                    account: 'MC12 3456 7890',
-                },
-                binance: {
-                    name: 'بـيدي',
-                    account: 'BN12 3456 7890 1234',
-                }
-            };
-
-            let selectedMethod = 'bank';
-
+            // زر الإيداع في المحفظة
             document.getElementById('depositBtn').addEventListener('click', function(e) {
                 this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
+                setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
 
                 document.querySelectorAll('.page').forEach(p => {
                     p.classList.remove('active');
@@ -3558,108 +3396,34 @@
                     depositPage.classList.add('active');
                 });
 
-                methodSelection.style.display = 'block';
-                depositDetail.style.display = 'none';
-                depositDetail.classList.remove('active');
+                // إعادة تعيين الحالة
                 successMessage.classList.remove('active');
                 successMessage.style.display = 'none';
                 confirmBtn.classList.remove('loading');
                 confirmBtn.querySelector('.btn-text').style.display = 'block';
-
-                navItems.forEach(item => item.classList.remove('active'));
-                document.getElementById('navIndicator').classList.remove('show');
-
-                methodItems.forEach((item, index) => {
-                    if (index === 0) {
-                        item.classList.add('selected');
-                    } else {
-                        item.classList.remove('selected');
-                    }
+                depositBody.querySelectorAll('.account-card, .form-group, .btn-confirm').forEach(el => {
+                    el.style.display = '';
                 });
-            });
-
-            depositBackBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                if (depositDetail.style.display === 'block' || depositDetail.classList.contains('active')) {
-                    backToMethods();
-                } else {
-                    goHome();
-                }
-            });
-
-            methodItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    methodItems.forEach(btn => btn.classList.remove('selected'));
-                    this.classList.add('selected');
-                    const method = this.dataset.method;
-                    setTimeout(() => {
-                        openDetail(method);
-                    }, 200);
-                });
-            });
-
-            detailBackBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                backToMethods();
-            });
-
-            function openDetail(method) {
-                selectedMethod = method;
-                const data = methodsData[method];
-                if (data) {
-                    accountNumber.textContent = data.account;
-                }
-                methodSelection.style.display = 'none';
-                depositDetail.classList.add('active');
-                depositDetail.style.display = 'block';
-                depositDetail.style.animation = 'none';
-                requestAnimationFrame(() => {
-                    depositDetail.style.animation = 'detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-                });
-                successMessage.classList.remove('active');
-                successMessage.style.display = 'none';
-                confirmBtn.classList.remove('loading');
-                confirmBtn.querySelector('.btn-text').style.display = 'block';
                 amountInput.value = '';
                 transactionIdInput.value = '';
                 receiptInput.value = '';
                 fileUploadBox.classList.remove('has-file');
                 fileName.textContent = '';
                 fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
-            }
 
-            function backToMethods() {
-                depositDetail.style.display = 'none';
-                depositDetail.classList.remove('active');
-                methodSelection.style.display = 'block';
-                successMessage.classList.remove('active');
-                successMessage.style.display = 'none';
-                confirmBtn.classList.remove('loading');
-                confirmBtn.querySelector('.btn-text').style.display = 'block';
-            }
+                navItems.forEach(item => item.classList.remove('active'));
+                document.getElementById('navIndicator').classList.remove('show');
+            });
 
-            function showSuccess() {
-                depositDetail.style.display = 'none';
-                depositDetail.classList.remove('active');
-                successMessage.style.display = 'block';
-                successMessage.classList.add('active');
-            }
+            // زر الرجوع
+            depositBackBtn.addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
+                goHome();
+            });
 
-            function goHome() {
-                depositPage.classList.add('slide-out');
-                setTimeout(() => {
-                    depositPage.classList.remove('active');
-                    depositPage.style.display = 'none';
-                    depositPage.classList.remove('slide-out');
-                    backToMethods();
-                    switchPage('page-home');
-                    updateNavActive('page-home');
-                }, 350);
-            }
-
+            // نسخ رقم الحساب
             copyBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
                 const text = accountNumber.textContent;
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(text).then(() => {
@@ -3669,9 +3433,7 @@
                             this.classList.remove('copied');
                             this.innerHTML = '<i class="fas fa-copy"></i> نسخ';
                         }, 2000);
-                    }).catch(() => {
-                        fallbackCopy(text);
-                    });
+                    }).catch(() => { fallbackCopy(text); });
                 } else {
                     fallbackCopy(text);
                 }
@@ -3698,6 +3460,7 @@
                 document.body.removeChild(textarea);
             }
 
+            // رفع الصورة
             receiptInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const file = this.files[0];
@@ -3711,10 +3474,13 @@
                 }
             });
 
+            // تأكيد الإيداع
             confirmBtn.addEventListener('click', function(e) {
                 createRippleBtn(e, this);
+
                 const amount = amountInput.value.trim();
                 const transactionId = transactionIdInput.value.trim();
+
                 if (!amount) {
                     alert('⚠️ يرجى إدخال المبلغ المطلوب.');
                     amountInput.focus();
@@ -3730,17 +3496,42 @@
                     transactionIdInput.focus();
                     return;
                 }
+
                 this.classList.add('loading');
+
                 setTimeout(() => {
                     this.classList.remove('loading');
-                    showSuccess();
+                    depositBody.querySelectorAll('.account-card, .form-group, .btn-confirm').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                    successMessage.classList.add('active');
+                    successMessage.style.display = 'flex';
                 }, 1500);
             });
 
+            // زر العودة للرئيسية
             backHomeBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
                 goHome();
             });
+
+            function goHome() {
+                depositPage.classList.add('slide-out');
+                setTimeout(() => {
+                    depositPage.classList.remove('active');
+                    depositPage.style.display = 'none';
+                    depositPage.classList.remove('slide-out');
+                    switchPage('page-home');
+                    updateNavActive('page-home');
+                    // إعادة تعيين الصفحة
+                    successMessage.classList.remove('active');
+                    successMessage.style.display = 'none';
+                    depositBody.querySelectorAll('.account-card, .form-group, .btn-confirm').forEach(el => {
+                        el.style.display = '';
+                    });
+                }, 350);
+            }
 
             // ============================================
             // ===== باقات PUBG =====
@@ -4097,15 +3888,13 @@
             });
 
             // ============================================
-            // ===== المحفظة - تم حذف قسم "تفعيل كود الشحن" =====
+            // ===== المحفظة =====
             // ============================================
             (function() {
                 const filterBtns = document.querySelectorAll('.filter-btn-wallet');
                 const transactionsContainer = document.getElementById('transactionsContainer');
                 const emptyState = document.getElementById('emptyState');
                 const balanceDisplay = document.getElementById('walletBalanceDisplay');
-
-                // تم حذف المتغيرات الخاصة بـ redeemInput و redeemBtn
 
                 let transactions = [
                     { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال',
@@ -4124,20 +3913,15 @@
 
                 function updateBalance() {
                     const total = transactions.reduce((sum, t) => {
-                        if (t.type === 'deposit' || t.type === 'refund') {
-                            return sum + t.amount;
-                        } else {
-                            return sum - t.amount;
-                        }
+                        if (t.type === 'deposit' || t.type === 'refund') return sum + t.amount;
+                        else return sum - t.amount;
                     }, 0);
                     balanceDisplay.textContent = total.toFixed(2);
                 }
 
                 function renderTransactions(filter) {
                     let filtered = transactions;
-                    if (filter !== 'all') {
-                        filtered = transactions.filter(t => t.type === filter);
-                    }
+                    if (filter !== 'all') filtered = transactions.filter(t => t.type === filter);
                     filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
                     if (filtered.length === 0) {
                         transactionsContainer.innerHTML = '';
@@ -4191,8 +3975,6 @@
                     });
                 });
 
-                // تم حذف كود زر تفعيل الكود (redeemBtn)
-
                 document.getElementById('withdrawBtn').addEventListener('click', function() {
                     alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
                 });
@@ -4215,9 +3997,8 @@
                         b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
                         b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
                         b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
-                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
-                        b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
+                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
+                        b.id === 'confirmBtn' || b.id === 'backHomeBtn') {
                         e.preventDefault();
                     }
                 });
@@ -4228,18 +4009,15 @@
             // ============================================
             setTimeout(() => {
                 updateNavActive('page-home');
-                const firstMethod = document.querySelector('.method-item');
-                if (firstMethod) {
-                    firstMethod.classList.add('selected');
-                }
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم حذف قسم "تفعيل كود الشحن" بالكامل.');
-            console.log('✅ الصفحة تتمد تلقائياً لملء الفراغ.');
+            console.log('✅ تصميم هندسي (Geometric UI) بزوايا حادة 90°');
+            console.log('✅ جميع العناصر في شاشة واحدة بدون تمرير');
+            console.log('✅ تم دمج جميع الصفحات');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
