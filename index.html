@@ -1784,7 +1784,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT PAGE - 2x2 PREMIUM DESIGN ===== */
+        /* ===== DEPOSIT PAGE - NO HEADER ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
@@ -1808,28 +1808,21 @@
             opacity: 0;
         }
 
-        .deposit-header {
-            background: #1A73E8;
-            padding: 20px 20px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-            box-shadow: 0 4px 20px rgba(26, 115, 232, 0.20);
-        }
-
-        .deposit-header .header-top {
+        /* ===== شريط علوي بدون هيدر ===== */
+        .deposit-top-bar {
+            padding: 16px 16px 0 16px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 12px;
         }
 
-        .deposit-header .back-btn {
+        .deposit-top-bar .back-btn {
             width: 40px;
             height: 40px;
             border-radius: 12px;
             border: none;
-            background: rgba(255, 255, 255, 0.15);
-            color: #FFFFFF;
+            background: #f0f0f0;
+            color: #333;
             font-size: 18px;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -1837,31 +1830,28 @@
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            backdrop-filter: blur(4px);
             -webkit-tap-highlight-color: transparent;
         }
 
-        .deposit-header .back-btn:active {
+        .deposit-top-bar .back-btn:active {
             transform: scale(0.92);
-            background: rgba(255, 255, 255, 0.25);
+            background: #e0e0e0;
         }
 
-        .deposit-header .header-title {
-            color: #FFFFFF;
+        .deposit-top-bar .page-title {
             font-size: 20px;
             font-weight: 700;
-            letter-spacing: 0.3px;
+            color: #1A1A2E;
         }
 
-        .deposit-header .header-sub {
-            color: rgba(255, 255, 255, 0.75);
+        .deposit-top-bar .page-sub {
             font-size: 13px;
+            color: #999;
             font-weight: 400;
-            margin-top: 2px;
         }
 
         .deposit-body {
-            padding: 20px 16px 30px;
+            padding: 16px 16px 30px;
             background: #F8FAFC;
         }
 
@@ -1925,11 +1915,12 @@
             box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
         }
 
+        /* ===== إطار الصورة الموسع ===== */
         .method-item .method-icon-wrapper {
-            width: 64px;
-            height: 64px;
-            border-radius: 14px;
-            border: 1.5px solid #E8EAED;
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            border: 2px solid #E8EAED;
             background: #FAFBFC;
             display: flex;
             align-items: center;
@@ -1938,13 +1929,15 @@
             transition: all 0.3s ease;
             flex-shrink: 0;
             overflow: hidden;
+            padding: 0;
         }
 
         .method-item .method-icon-wrapper img {
-            width: 42px;
-            height: 42px;
-            object-fit: contain;
-            border-radius: 8px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 14px;
+            display: block;
         }
 
         .method-item .method-name {
@@ -1990,7 +1983,9 @@
             transform: scale(1);
         }
 
+        /* ============================================ */
         /* ===== DEPOSIT DETAIL ===== */
+        /* ============================================ */
         .deposit-detail {
             display: none;
             animation: detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
@@ -2461,14 +2456,14 @@
                 font-size: 13px;
                 padding: 10px 0;
             }
-            .deposit-header {
-                padding: 16px 16px 20px;
+            .deposit-top-bar {
+                padding: 12px 12px 0 12px;
             }
-            .deposit-header .header-title {
+            .deposit-top-bar .page-title {
                 font-size: 18px;
             }
             .deposit-body {
-                padding: 16px 12px 24px;
+                padding: 12px 12px 20px;
             }
             .section-title {
                 font-size: 16px;
@@ -2484,14 +2479,14 @@
                 aspect-ratio: 1 / 1.15;
             }
             .method-item .method-icon-wrapper {
-                width: 54px;
-                height: 54px;
-                border-radius: 12px;
+                width: 64px;
+                height: 64px;
+                border-radius: 14px;
                 margin-bottom: 10px;
+                border-width: 1.5px;
             }
             .method-item .method-icon-wrapper img {
-                width: 34px;
-                height: 34px;
+                border-radius: 12px;
             }
             .method-item .method-name {
                 font-size: 14px;
@@ -2629,7 +2624,7 @@
                 gap: 16px;
             }
             .deposit-body {
-                padding: 24px 24px 30px;
+                padding: 20px 24px 30px;
             }
             .method-grid {
                 gap: 16px;
@@ -2641,14 +2636,13 @@
                 aspect-ratio: 1 / 1.1;
             }
             .method-item .method-icon-wrapper {
-                width: 72px;
-                height: 72px;
-                border-radius: 16px;
+                width: 88px;
+                height: 88px;
+                border-radius: 18px;
                 margin-bottom: 14px;
             }
             .method-item .method-icon-wrapper img {
-                width: 48px;
-                height: 48px;
+                border-radius: 16px;
             }
             .method-item .method-name {
                 font-size: 18px;
@@ -2810,18 +2804,17 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة الإيداع - 2x2 PREMIUM ===== -->
+        <!-- ===== صفحة الإيداع - بدون هيدر ===== -->
         <!-- ============================================ -->
         <div class="deposit-page" id="depositPage">
-            <div class="deposit-header">
-                <div class="header-top">
-                    <button class="back-btn" id="depositBackBtn">
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <div>
-                        <div class="header-title">إيداع الرصيد</div>
-                        <div class="header-sub">أضف أموال إلى محفظتك</div>
-                    </div>
+            <!-- شريط علوي بسيط بدون هيدر -->
+            <div class="deposit-top-bar">
+                <button class="back-btn" id="depositBackBtn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div>
+                    <div class="page-title">إيداع الرصيد</div>
+                    <div class="page-sub">أضف أموال إلى محفظتك</div>
                 </div>
             </div>
 
@@ -2830,16 +2823,6 @@
                 <div class="method-selection" id="methodSelection">
                     <div class="section-title">اختر طريقة الإيداع</div>
                     <div class="method-grid">
-                        <!-- بنكك -->
-                        <button class="method-item" data-method="bank">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
-                            </div>
-                            <span class="method-name">بنكك</span>
-                            <span class="method-desc">تحويل بنكي</span>
-                        </button>
-
                         <!-- RedotPay -->
                         <button class="method-item" data-method="redotpay">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
@@ -2850,14 +2833,14 @@
                             <span class="method-desc">بطاقة افتراضية</span>
                         </button>
 
-                        <!-- MyCash -->
-                        <button class="method-item" data-method="mycash">
+                        <!-- بنكك -->
+                        <button class="method-item" data-method="bank">
                             <span class="check-mark"><i class="fas fa-check"></i></span>
                             <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/7Pg2hG8J/avatars-7Dn-Qvw-HOH1Nk-Kp-Kr-i-Uik1A-t1080x1080.jpg" alt="MyCash" />
+                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
                             </div>
-                            <span class="method-name">MyCash</span>
-                            <span class="method-desc">محفظة إلكترونية</span>
+                            <span class="method-name">بنكك</span>
+                            <span class="method-desc">تحويل بنكي</span>
                         </button>
 
                         <!-- Binance -->
@@ -2868,6 +2851,16 @@
                             </div>
                             <span class="method-name">Binance</span>
                             <span class="method-desc">عمليات رقمية</span>
+                        </button>
+
+                        <!-- MyCash -->
+                        <button class="method-item" data-method="mycash">
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/7Pg2hG8J/avatars-7Dn-Qvw-HOH1Nk-Kp-Kr-i-Uik1A-t1080x1080.jpg" alt="MyCash" />
+                            </div>
+                            <span class="method-name">MyCash</span>
+                            <span class="method-desc">محفظة إلكترونية</span>
                         </button>
                     </div>
                 </div>
@@ -4379,7 +4372,8 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تصميم 2x2 Premium لطرق الإيداع.');
+            console.log('✅ تصميم 2x2 Premium مع إطارات صور موسعة.');
+            console.log('✅ إزالة الهيدر من صفحة الإيداع.');
             console.log('✅ جميع الصفحات مدمجة مع انتقالات احترافية.');
 
         })();
