@@ -275,11 +275,10 @@
             width: 25%;
         }
 
-        /* ===== PRODUCTS GRID - محسنة ===== */
         .products-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
+            gap: 16px;
             margin-top: 10px;
             direction: rtl;
         }
@@ -287,22 +286,20 @@
         @media (min-width: 600px) {
             .products-grid {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
             }
         }
 
         @media (min-width: 900px) {
             .products-grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
             }
         }
 
         .product-card {
             background: #FFFFFF;
-            border-radius: 16px;
-            padding: 8px 8px 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            padding: 16px 8px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
             text-align: center;
             transition: all 0.2s;
             border: 1px solid #f0f0f0;
@@ -310,28 +307,23 @@
             position: relative;
             overflow: hidden;
             -webkit-tap-highlight-color: transparent;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 160px;
         }
 
         .product-card:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
         }
 
         .product-card img {
             width: 100%;
-            max-width: 100%;
+            max-width: 80px;
             height: auto;
             aspect-ratio: 1/1;
             object-fit: contain;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             border-radius: 12px;
             background: #fafafa;
             position: relative;
             z-index: 1;
-            padding: 4px;
         }
 
         .product-card h4 {
@@ -340,9 +332,6 @@
             color: #222;
             position: relative;
             z-index: 1;
-            margin-top: 2px;
-            padding: 0 4px;
-            line-height: 1.3;
         }
 
         /* ============================================ */
@@ -1548,6 +1537,8 @@
             margin-top: -2px;
         }
 
+        /* ===== تم حذف قسم "تفعيل كود الشحن" بالكامل ===== */
+
         /* ===== المعاملات ===== */
         .transactions-header-wallet {
             display: flex;
@@ -1716,7 +1707,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT PAGE ===== */
+        /* ===== DEPOSIT PAGE - NO HEADER ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
@@ -2385,17 +2376,6 @@
                 font-size: 13px;
                 padding: 10px 0;
             }
-            .product-card {
-                min-height: 130px;
-                padding: 6px 6px 10px;
-            }
-            .product-card img {
-                border-radius: 10px;
-                padding: 3px;
-            }
-            .product-card h4 {
-                font-size: 12px;
-            }
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -2543,20 +2523,6 @@
         }
 
         @media (min-width: 600px) {
-            .products-grid {
-                gap: 16px;
-            }
-            .product-card {
-                min-height: 180px;
-                padding: 10px 10px 14px;
-            }
-            .product-card img {
-                border-radius: 14px;
-                padding: 6px;
-            }
-            .product-card h4 {
-                font-size: 16px;
-            }
             .cod-packs-grid {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 16px;
@@ -2686,8 +2652,7 @@
             </div>
         </div>
 
-        <!-- ===== باقي الصفحات (مختصرة) ===== -->
-        <!-- صفحة المحفظة -->
+        <!-- صفحة المحفظة - تم حذف قسم "تفعيل كود الشحن" -->
         <div id="page-wallet" class="page">
             <div class="wallet-card-wrapper">
                 <div class="wallet-balance-card">
@@ -2724,6 +2689,8 @@
                 </button>
             </div>
 
+            <!-- تم حذف قسم "تفعيل كود الشحن" بالكامل -->
+
             <div class="transactions-header-wallet">
                 <div class="wallet-section-title">المعاملات</div>
             </div>
@@ -2745,7 +2712,9 @@
             </div>
         </div>
 
-        <!-- صفحة الإيداع -->
+        <!-- ============================================ -->
+        <!-- ===== صفحة الإيداع - بدون هيدر ===== -->
+        <!-- ============================================ -->
         <div class="deposit-page" id="depositPage">
             <div class="deposit-top-bar">
                 <button class="back-btn" id="depositBackBtn">
@@ -2946,7 +2915,339 @@
             </div>
         </div>
 
+        <!-- ============================================ -->
+        <!-- ===== صفحات الألعاب ===== -->
+        <!-- ============================================ -->
+
+        <!-- PUBG Mobile -->
+        <div id="page-pubg" class="page">
+            <div class="pubg-header">
+                <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
+                <div class="game-info">
+                    <h2>PUBG Mobile</h2>
+                    <p>اختر باقة UC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="packs-grid" id="packsGrid">
+                <button class="pack-btn" data-uc="60" data-price="0.93">
+                    <span class="uc-amount">60UC</span>
+                    <span class="price-amount">$0.93</span>
+                </button>
+                <button class="pack-btn" data-uc="325" data-price="4.65">
+                    <span class="uc-amount">325UC</span>
+                    <span class="price-amount">$4.65</span>
+                </button>
+                <button class="pack-btn" data-uc="660" data-price="9.30">
+                    <span class="uc-amount">660UC</span>
+                    <span class="price-amount">$9.30</span>
+                </button>
+                <button class="pack-btn" data-uc="985" data-price="14.65">
+                    <span class="uc-amount">985UC</span>
+                    <span class="price-amount">$14.65</span>
+                </button>
+                <button class="pack-btn" data-uc="1320" data-price="19.50">
+                    <span class="uc-amount">1,320UC</span>
+                    <span class="price-amount">$19.50</span>
+                </button>
+                <button class="pack-btn" data-uc="1800" data-price="23.95">
+                    <span class="uc-amount">1,800UC</span>
+                    <span class="price-amount">$23.95</span>
+                </button>
+                <button class="pack-btn" data-uc="2460" data-price="33.50">
+                    <span class="uc-amount">2,460UC</span>
+                    <span class="price-amount">$33.50</span>
+                </button>
+                <button class="pack-btn" data-uc="3850" data-price="47.50">
+                    <span class="uc-amount">3,850UC</span>
+                    <span class="price-amount">$47.50</span>
+                </button>
+                <button class="pack-btn" data-uc="5650" data-price="70.50">
+                    <span class="uc-amount">5,650UC</span>
+                    <span class="price-amount">$70.50</span>
+                </button>
+                <button class="pack-btn" data-uc="8100" data-price="93.50">
+                    <span class="uc-amount">8,100UC</span>
+                    <span class="price-amount">$93.50</span>
+                </button>
+                <button class="pack-btn" data-uc="11950" data-price="150.00">
+                    <span class="uc-amount">11,950UC</span>
+                    <span class="price-amount">$150.00</span>
+                </button>
+                <button class="pack-btn" data-uc="16200" data-price="200.00">
+                    <span class="uc-amount">16,200UC</span>
+                    <span class="price-amount">$200.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="shippingForm">
+                <label>ID اللعبة</label>
+                <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
+                <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Call of Duty -->
+        <div id="page-cod" class="page">
+            <div class="cod-header">
+                <img src="https://i.imgur.com/5f7zH1O.png" alt="Call of Duty" />
+                <div class="game-info">
+                    <h2>Call of Duty</h2>
+                    <p>اختر باقة CP المناسبة</p>
+                </div>
+            </div>
+
+            <div class="cod-packs-grid" id="codPacksGrid">
+                <button class="cod-pack-btn" data-cp="88" data-price="1.50">
+                    <span class="cp-amount">88CP</span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="176" data-price="3.00">
+                    <span class="cp-amount">176CP</span>
+                    <span class="price-amount">$3.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="264" data-price="4.50">
+                    <span class="cp-amount">264CP</span>
+                    <span class="price-amount">$4.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="352" data-price="6.00">
+                    <span class="cp-amount">352CP</span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="440" data-price="7.50">
+                    <span class="cp-amount">440CP</span>
+                    <span class="price-amount">$7.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="528" data-price="9.00">
+                    <span class="cp-amount">528CP</span>
+                    <span class="price-amount">$9.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="616" data-price="10.50">
+                    <span class="cp-amount">616CP</span>
+                    <span class="price-amount">$10.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="704" data-price="12.00">
+                    <span class="cp-amount">704CP</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="880" data-price="15.00">
+                    <span class="cp-amount">880CP</span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="codShippingForm">
+                <label>معرف اللاعب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
+                <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Mobile Legends -->
+        <div id="page-ml" class="page">
+            <div class="ml-header">
+                <img src="https://i.imgur.com/9WqUj3H.png" alt="Mobile Legends" />
+                <div class="game-info">
+                    <h2>Mobile Legends</h2>
+                    <p>اختر باقة الألماس المناسبة</p>
+                </div>
+            </div>
+
+            <div class="ml-packs-grid" id="mlPacksGrid">
+                <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
+                    <span class="diamond-amount">74 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
+                    <span class="diamond-amount">296 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
+                    <span class="diamond-amount">741 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
+                    <span class="diamond-amount">1,186 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$24.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
+                    <span class="diamond-amount">1,471 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$30.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
+                    <span class="diamond-amount">2,205 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$45.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
+                    <span class="diamond-amount">4,527 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$92.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
+                    <span class="diamond-amount">7,707 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$157.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
+                    <span class="diamond-amount">11,559 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$235.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="mlShippingForm">
+                <div class="ml-form-label">
+                    <span>معرف الحساب</span>
+                    <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
+                        <i class="fas fa-question"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
+                <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
+                <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
+                <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- eFootball -->
+        <div id="page-efootball" class="page">
+            <div class="efootball-header">
+                <img src="https://i.imgur.com/1mzLqjP.png" alt="eFootball" />
+                <div class="game-info">
+                    <h2>eFootball</h2>
+                    <p>اختر باقة FC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="efootball-packs-grid" id="efootballPacksGrid">
+                <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
+                    <span class="fc-amount">40 FC</span>
+                    <span class="price-amount">$1.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
+                    <span class="fc-amount">100 FC</span>
+                    <span class="price-amount">$2.50</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
+                    <span class="fc-amount">520 FC</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
+                    <span class="fc-amount">1,070 FC</span>
+                    <span class="price-amount">$25.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
+                    <span class="fc-amount">2,200 FC</span>
+                    <span class="price-amount">$50.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
+                    <span class="fc-amount">5,750 FC</span>
+                    <span class="price-amount">$130.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
+                    <span class="fc-amount">12,000 FC</span>
+                    <span class="price-amount">$270.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="efootballShippingForm">
+                <label>معرف UID الخاص بك</label>
+                <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
+                <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- Clash of Clans -->
+        <div id="page-coc" class="page">
+            <div class="coc-header">
+                <img src="https://i.imgur.com/8JQbPkC.png" alt="Clash of Clans" />
+                <div class="game-info">
+                    <h2>Clash of Clans</h2>
+                    <p>اختر باقة الجواهر المناسبة</p>
+                </div>
+            </div>
+
+            <div class="coc-packs-grid" id="cocPacksGrid">
+                <button class="coc-pack-btn" data-gems="80" data-price="0.65">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">80</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$0.65</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="500" data-price="3.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$3.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="1200" data-price="6.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">1,200</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$6.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="2500" data-price="11.90">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">2,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$11.90</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="6500" data-price="28.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">6,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$28.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="14000" data-price="54.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">14,000</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$54.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="cocShippingForm">
+                <label>حساب Supercell</label>
+                <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
+                <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== MODAL ===== -->
+        <!-- ============================================ -->
+        <div class="modal-overlay" id="mlHelpModal">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="mlModalCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
+                <ol class="modal-instructions">
+                    <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
+                    <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
+                        <span class="highlight">ID: XXXXXXXX (XXXX)</span>
+                    </li>
+                    <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
+                    <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
+                    <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ============================================= -->
         <!-- ===== شريط التنقل السفلي ===== -->
+        <!-- ============================================= -->
         <nav class="bottom-nav" id="bottomNav">
             <div class="nav-indicator" id="navIndicator"></div>
 
@@ -2974,526 +3275,970 @@
     <!-- ===== JAVASCRIPT ===== -->
     <!-- ============================================= -->
     <script>
-        // ============================================
-        // ===== الإعدادات العامة =====
-        // ============================================
-        const WHATSAPP_NUMBER = '249901839168';
-        const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+        (function() {
+            'use strict';
 
-        // ============================================
-        // ===== قائمة الألعاب =====
-        // ============================================
-        const gamesList = [
-            { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
-            { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
-            { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
-            { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
-            { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: 'page-efootball' },
-            { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: 'page-coc' },
-            { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
-            { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
-            { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', page: null },
-            { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', page: null },
-            { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', page: null },
-            { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', page: null }
-        ];
+            // ============================================
+            // ===== الإعدادات العامة =====
+            // ============================================
+            const WHATSAPP_NUMBER = '249901839168';
+            const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
-        // ============================================
-        // ===== RIPPLE EFFECTS =====
-        // ============================================
-        function createRipple(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple';
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
+            // ============================================
+            // ===== قائمة الألعاب =====
+            // ============================================
+            const gamesList = [
+                { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
+                { name: 'Free Fire', img: 'https://i.imgur.com/0n0QZbJ.png', page: null },
+                { name: 'Call of Duty', img: 'https://i.imgur.com/5f7zH1O.png', page: 'page-cod' },
+                { name: 'Mobile Legends', img: 'https://i.imgur.com/9WqUj3H.png', page: 'page-ml' },
+                { name: 'eFootball', img: 'https://i.imgur.com/1mzLqjP.png', page: 'page-efootball' },
+                { name: 'Clash of Clans', img: 'https://i.imgur.com/8JQbPkC.png', page: 'page-coc' },
+                { name: 'Clash Royale', img: 'https://i.imgur.com/6LQk9nM.png', page: null },
+                { name: 'Brawl Stars', img: 'https://i.imgur.com/3pVWcLJ.png', page: null },
+                { name: 'Genshin Impact', img: 'https://i.imgur.com/4KQWhpE.png', page: null },
+                { name: 'Blood Strike', img: 'https://i.imgur.com/2N9YhVd.png', page: null },
+                { name: 'Yalla Ludo', img: 'https://i.imgur.com/7Xr8KcP.png', page: null },
+                { name: 'Minecraft', img: 'https://i.imgur.com/5JmVb8Z.png', page: null }
+            ];
 
-        function createRippleBtn(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-btn';
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        function createRippleFaq(e, element) {
-            const rect = element.getBoundingClientRect();
-            const ripple = document.createElement('span');
-            ripple.className = 'ripple-faq';
-            const size = Math.max(rect.width, rect.height);
-            ripple.style.width = ripple.style.height = size + 'px';
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            element.appendChild(ripple);
-            setTimeout(() => ripple.remove(), 600);
-        }
-
-        // ============================================
-        // ===== دوال مساعدة =====
-        // ============================================
-        function openWhatsApp() {
-            window.open(WHATSAPP_URL, '_blank');
-        }
-
-        function switchPage(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-            const target = document.getElementById(pageId);
-            if (target) {
-                target.style.display = 'block';
-                target.classList.add('active');
+            // ============================================
+            // ===== RIPPLE EFFECTS =====
+            // ============================================
+            function createRipple(e, element) {
+                const rect = element.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                element.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
             }
-        }
 
-        function updateNavActive(pageId) {
-            const navItems = document.querySelectorAll('.nav-item');
-            const navIndicator = document.getElementById('navIndicator');
-            navItems.forEach(item => {
-                item.classList.remove('active');
-                if (item.dataset.page === pageId) {
-                    item.classList.add('active');
-                }
+            function createRippleBtn(e, element) {
+                const rect = element.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-btn';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                element.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            }
+
+            function createRippleFaq(e, element) {
+                const rect = element.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple-faq';
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = size + 'px';
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                element.appendChild(ripple);
+                setTimeout(() => ripple.remove(), 600);
+            }
+
+            document.querySelectorAll('.action-card').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-btn';
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
             });
-            const activeItem = document.querySelector('.nav-item.active');
-            if (activeItem) {
-                const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
-                const itemRect = activeItem.getBoundingClientRect();
-                const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
-                navIndicator.style.left = leftPos + 'px';
-                navIndicator.style.width = '30px';
-                navIndicator.classList.add('show');
+
+            // ============================================
+            // ===== دوال مساعدة =====
+            // ============================================
+            function openWhatsApp() {
+                window.open(WHATSAPP_URL, '_blank');
             }
-        }
 
-        // ============================================
-        // ===== عرض الألعاب =====
-        // ============================================
-        const productsGrid = document.getElementById('productsGrid');
+            function switchPage(pageId) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('active');
+                }
+            }
 
-        function renderGames() {
-            productsGrid.innerHTML = '';
-            gamesList.forEach(game => {
-                const card = document.createElement('div');
-                card.className = 'product-card';
-                card.innerHTML = `
-                    <img src="${game.img}" alt="${game.name}" loading="lazy" />
-                    <h4>${game.name}</h4>
-                `;
-                card.addEventListener('click', (e) => {
-                    createRipple(e, card);
-                    if (game.page) {
-                        setTimeout(() => {
-                            switchPage(game.page);
-                            updateNavActive('page-home');
-                        }, 150);
-                    } else {
-                        card.classList.add('fade-out');
-                        setTimeout(() => {
-                            openWhatsApp();
-                            setTimeout(() => {
-                                card.classList.remove('fade-out');
-                            }, 100);
-                        }, 250);
+            function updateNavActive(pageId) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const navIndicator = document.getElementById('navIndicator');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
                     }
                 });
-                productsGrid.appendChild(card);
-            });
-        }
-        renderGames();
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                    navIndicator.style.left = leftPos + 'px';
+                    navIndicator.style.width = '30px';
+                    navIndicator.classList.add('show');
+                }
+            }
 
-        // ============================================
-        // ===== التصنيفات الرئيسية =====
-        // ============================================
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const tabSlider = document.getElementById('tabSlider');
-
-        tabBtns.forEach((btn, index) => {
-            btn.addEventListener('click', () => {
-                tabBtns.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                const percent = index * 25;
-                tabSlider.style.right = percent + '%';
-                productsGrid.style.opacity = '0.6';
-                productsGrid.style.transform = 'translateY(8px)';
+            function scrollToShippingFormWithDelay(shippingFormElement, firstInputElement, delay = 150) {
+                if (shippingFormElement.classList.contains('hidden')) {
+                    shippingFormElement.classList.remove('hidden');
+                    setTimeout(() => {
+                        shippingFormElement.classList.add('visible');
+                    }, 50);
+                }
                 setTimeout(() => {
-                    productsGrid.style.opacity = '1';
-                    productsGrid.style.transform = 'translateY(0)';
-                }, 250);
+                    shippingFormElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start',
+                        inline: 'nearest'
+                    });
+                    setTimeout(() => {
+                        if (firstInputElement) {
+                            firstInputElement.focus();
+                        }
+                    }, 600);
+                }, delay);
+            }
+
+            // ============================================
+            // ===== عرض الألعاب =====
+            // ============================================
+            const productsGrid = document.getElementById('productsGrid');
+
+            function renderGames() {
+                productsGrid.innerHTML = '';
+                gamesList.forEach(game => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img src="${game.img}" alt="${game.name}" loading="lazy" />
+                        <h4>${game.name}</h4>
+                    `;
+                    card.addEventListener('click', (e) => {
+                        createRipple(e, card);
+                        if (game.page) {
+                            setTimeout(() => {
+                                switchPage(game.page);
+                                updateNavActive('page-home');
+                            }, 150);
+                        } else {
+                            card.classList.add('fade-out');
+                            setTimeout(() => {
+                                openWhatsApp();
+                                setTimeout(() => {
+                                    card.classList.remove('fade-out');
+                                }, 100);
+                            }, 250);
+                        }
+                    });
+                    productsGrid.appendChild(card);
+                });
+            }
+            renderGames();
+
+            // ============================================
+            // ===== التصنيفات الرئيسية =====
+            // ============================================
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabSlider = document.getElementById('tabSlider');
+
+            tabBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const percent = index * 25;
+                    tabSlider.style.right = percent + '%';
+                    productsGrid.style.opacity = '0.6';
+                    productsGrid.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        productsGrid.style.opacity = '1';
+                        productsGrid.style.transform = 'translateY(0)';
+                    }, 250);
+                });
             });
-        });
 
-        // ============================================
-        // ===== شريط التنقل =====
-        // ============================================
-        const navItems = document.querySelectorAll('.nav-item');
+            // ============================================
+            // ===== شريط التنقل =====
+            // ============================================
+            const navItems = document.querySelectorAll('.nav-item');
 
-        navItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const pageId = item.dataset.page;
-                if (pageId === 'page-wallet' || pageId === 'page-support' ||
-                    pageId === 'page-account' || pageId === 'page-home') {
-                    const depositPage = document.getElementById('depositPage');
-                    if (depositPage && depositPage.classList.contains('active')) {
-                        depositPage.classList.remove('active');
-                        depositPage.style.display = 'none';
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const pageId = item.dataset.page;
+                    if (pageId === 'page-wallet' || pageId === 'page-support' ||
+                        pageId === 'page-account' || pageId === 'page-home') {
+                        const depositPage = document.getElementById('depositPage');
+                        if (depositPage && depositPage.classList.contains('active')) {
+                            depositPage.classList.remove('active');
+                            depositPage.style.display = 'none';
+                        }
+                        switchPage(pageId);
+                        updateNavActive(pageId);
                     }
-                    switchPage(pageId);
-                    updateNavActive(pageId);
+                });
+            });
+
+            // ============================================
+            // ===== صفحة الإيداع =====
+            // ============================================
+            const depositPage = document.getElementById('depositPage');
+            const depositBackBtn = document.getElementById('depositBackBtn');
+            const methodSelection = document.getElementById('methodSelection');
+            const depositDetail = document.getElementById('depositDetail');
+            const detailBackBtn = document.getElementById('detailBackBtn');
+            const methodItems = document.querySelectorAll('.method-item');
+            const accountNumber = document.getElementById('accountNumber');
+            const copyBtn = document.getElementById('copyBtn');
+            const amountInput = document.getElementById('amountInput');
+            const transactionIdInput = document.getElementById('transactionIdInput');
+            const receiptInput = document.getElementById('receiptInput');
+            const fileUploadBox = document.getElementById('fileUploadBox');
+            const fileName = document.getElementById('fileName');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const successMessage = document.getElementById('successMessage');
+            const backHomeBtn = document.getElementById('backHomeBtn');
+
+            const methodsData = {
+                bank: {
+                    name: 'بنكك',
+                    account: 'SA12 3456 7890 1234 5678',
+                },
+                redotpay: {
+                    name: 'RedotPay',
+                    account: 'RP12 3456 7890 1234',
+                },
+                mycash: {
+                    name: 'ماي كاشي',
+                    account: 'MC12 3456 7890',
+                },
+                binance: {
+                    name: 'بـيدي',
+                    account: 'BN12 3456 7890 1234',
+                }
+            };
+
+            let selectedMethod = 'bank';
+
+            document.getElementById('depositBtn').addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                document.querySelectorAll('.page').forEach(p => {
+                    p.classList.remove('active');
+                    p.style.display = 'none';
+                });
+
+                depositPage.style.display = 'block';
+                depositPage.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    depositPage.style.animation = 'none';
+                    depositPage.classList.add('active');
+                });
+
+                methodSelection.style.display = 'block';
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
+
+                navItems.forEach(item => item.classList.remove('active'));
+                document.getElementById('navIndicator').classList.remove('show');
+
+                methodItems.forEach((item, index) => {
+                    if (index === 0) {
+                        item.classList.add('selected');
+                    } else {
+                        item.classList.remove('selected');
+                    }
+                });
+            });
+
+            depositBackBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                if (depositDetail.style.display === 'block' || depositDetail.classList.contains('active')) {
+                    backToMethods();
+                } else {
+                    goHome();
                 }
             });
-        });
 
-        // ============================================
-        // ===== صفحة الإيداع =====
-        // ============================================
-        const depositPage = document.getElementById('depositPage');
-        const depositBackBtn = document.getElementById('depositBackBtn');
-        const methodSelection = document.getElementById('methodSelection');
-        const depositDetail = document.getElementById('depositDetail');
-        const detailBackBtn = document.getElementById('detailBackBtn');
-        const methodItems = document.querySelectorAll('.method-item');
-        const accountNumber = document.getElementById('accountNumber');
-        const copyBtn = document.getElementById('copyBtn');
-        const amountInput = document.getElementById('amountInput');
-        const transactionIdInput = document.getElementById('transactionIdInput');
-        const receiptInput = document.getElementById('receiptInput');
-        const fileUploadBox = document.getElementById('fileUploadBox');
-        const fileName = document.getElementById('fileName');
-        const confirmBtn = document.getElementById('confirmBtn');
-        const successMessage = document.getElementById('successMessage');
-        const backHomeBtn = document.getElementById('backHomeBtn');
-
-        const methodsData = {
-            bank: { name: 'بنكك', account: 'SA12 3456 7890 1234 5678' },
-            redotpay: { name: 'RedotPay', account: 'RP12 3456 7890 1234' },
-            mycash: { name: 'ماي كاشي', account: 'MC12 3456 7890' },
-            binance: { name: 'بـيدي', account: 'BN12 3456 7890 1234' }
-        };
-
-        let selectedMethod = 'bank';
-
-        // زر الإيداع في المحفظة
-        document.getElementById('depositBtn').addEventListener('click', function(e) {
-            this.style.transform = 'scale(0.98)';
-            setTimeout(() => { this.style.transform = 'scale(1)'; }, 200);
-
-            document.querySelectorAll('.page').forEach(p => {
-                p.classList.remove('active');
-                p.style.display = 'none';
-            });
-
-            depositPage.style.display = 'block';
-            depositPage.style.animation = 'none';
-            requestAnimationFrame(() => {
-                depositPage.style.animation = 'none';
-                depositPage.classList.add('active');
-            });
-
-            methodSelection.style.display = 'block';
-            depositDetail.style.display = 'none';
-            depositDetail.classList.remove('active');
-            successMessage.classList.remove('active');
-            successMessage.style.display = 'none';
-            confirmBtn.classList.remove('loading');
-            confirmBtn.querySelector('.btn-text').style.display = 'block';
-
-            navItems.forEach(item => item.classList.remove('active'));
-            document.getElementById('navIndicator').classList.remove('show');
-
-            methodItems.forEach((item, index) => {
-                if (index === 0) item.classList.add('selected');
-                else item.classList.remove('selected');
-            });
-        });
-
-        depositBackBtn.addEventListener('click', function(e) {
-            createRipple(e, this);
-            if (depositDetail.style.display === 'block' || depositDetail.classList.contains('active')) {
-                backToMethods();
-            } else {
-                goHome();
-            }
-        });
-
-        methodItems.forEach(item => {
-            item.addEventListener('click', function(e) {
-                createRipple(e, this);
-                methodItems.forEach(btn => btn.classList.remove('selected'));
-                this.classList.add('selected');
-                const method = this.dataset.method;
-                setTimeout(() => { openDetail(method); }, 200);
-            });
-        });
-
-        detailBackBtn.addEventListener('click', function(e) {
-            createRipple(e, this);
-            backToMethods();
-        });
-
-        function openDetail(method) {
-            selectedMethod = method;
-            const data = methodsData[method];
-            if (data) accountNumber.textContent = data.account;
-            methodSelection.style.display = 'none';
-            depositDetail.classList.add('active');
-            depositDetail.style.display = 'block';
-            depositDetail.style.animation = 'none';
-            requestAnimationFrame(() => {
-                depositDetail.style.animation = 'detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
-            });
-            successMessage.classList.remove('active');
-            successMessage.style.display = 'none';
-            confirmBtn.classList.remove('loading');
-            confirmBtn.querySelector('.btn-text').style.display = 'block';
-            amountInput.value = '';
-            transactionIdInput.value = '';
-            receiptInput.value = '';
-            fileUploadBox.classList.remove('has-file');
-            fileName.textContent = '';
-            fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
-        }
-
-        function backToMethods() {
-            depositDetail.style.display = 'none';
-            depositDetail.classList.remove('active');
-            methodSelection.style.display = 'block';
-            successMessage.classList.remove('active');
-            successMessage.style.display = 'none';
-            confirmBtn.classList.remove('loading');
-            confirmBtn.querySelector('.btn-text').style.display = 'block';
-        }
-
-        function showSuccess() {
-            depositDetail.style.display = 'none';
-            depositDetail.classList.remove('active');
-            successMessage.style.display = 'block';
-            successMessage.classList.add('active');
-        }
-
-        function goHome() {
-            depositPage.classList.add('slide-out');
-            setTimeout(() => {
-                depositPage.classList.remove('active');
-                depositPage.style.display = 'none';
-                depositPage.classList.remove('slide-out');
-                backToMethods();
-                switchPage('page-home');
-                updateNavActive('page-home');
-            }, 350);
-        }
-
-        copyBtn.addEventListener('click', function(e) {
-            createRipple(e, this);
-            const text = accountNumber.textContent;
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-                navigator.clipboard.writeText(text).then(() => {
-                    this.classList.add('copied');
-                    this.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+            methodItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    methodItems.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+                    const method = this.dataset.method;
                     setTimeout(() => {
-                        this.classList.remove('copied');
-                        this.innerHTML = '<i class="fas fa-copy"></i> نسخ';
-                    }, 2000);
-                }).catch(() => { fallbackCopy(text); });
-            } else {
-                fallbackCopy(text);
-            }
-        });
+                        openDetail(method);
+                    }, 200);
+                });
+            });
 
-        function fallbackCopy(text) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                document.execCommand('copy');
-                copyBtn.classList.add('copied');
-                copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
-                setTimeout(() => {
-                    copyBtn.classList.remove('copied');
-                    copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
-                }, 2000);
-            } catch (err) {
-                alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
-            }
-            document.body.removeChild(textarea);
-        }
+            detailBackBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                backToMethods();
+            });
 
-        receiptInput.addEventListener('change', function() {
-            if (this.files && this.files[0]) {
-                const file = this.files[0];
-                fileUploadBox.classList.add('has-file');
-                fileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
-                fileUploadBox.querySelector('span:not(.file-name)').style.display = 'none';
-            } else {
+            function openDetail(method) {
+                selectedMethod = method;
+                const data = methodsData[method];
+                if (data) {
+                    accountNumber.textContent = data.account;
+                }
+                methodSelection.style.display = 'none';
+                depositDetail.classList.add('active');
+                depositDetail.style.display = 'block';
+                depositDetail.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    depositDetail.style.animation = 'detailSlideUp 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards';
+                });
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
+                amountInput.value = '';
+                transactionIdInput.value = '';
+                receiptInput.value = '';
                 fileUploadBox.classList.remove('has-file');
                 fileName.textContent = '';
                 fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
             }
-        });
 
-        confirmBtn.addEventListener('click', function(e) {
-            createRippleBtn(e, this);
-            const amount = amountInput.value.trim();
-            const transactionId = transactionIdInput.value.trim();
-            if (!amount) {
-                alert('⚠️ يرجى إدخال المبلغ المطلوب.');
-                amountInput.focus();
-                return;
-            }
-            if (parseFloat(amount) <= 0) {
-                alert('⚠️ يرجى إدخال مبلغ صحيح أكبر من صفر.');
-                amountInput.focus();
-                return;
-            }
-            if (!transactionId) {
-                alert('⚠️ يرجى إدخال رقم العملية أو التحويل.');
-                transactionIdInput.focus();
-                return;
-            }
-            this.classList.add('loading');
-            setTimeout(() => {
-                this.classList.remove('loading');
-                showSuccess();
-            }, 1500);
-        });
-
-        backHomeBtn.addEventListener('click', function(e) {
-            createRipple(e, this);
-            goHome();
-        });
-
-        // ============================================
-        // ===== المحفظة =====
-        // ============================================
-        (function() {
-            const filterBtns = document.querySelectorAll('.filter-btn-wallet');
-            const transactionsContainer = document.getElementById('transactionsContainer');
-            const emptyState = document.getElementById('emptyState');
-            const balanceDisplay = document.getElementById('walletBalanceDisplay');
-
-            let transactions = [
-                { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال', date: '2026-07-13 14:30' },
-                { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG', date: '2026-07-12 22:15' },
-                { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة', date: '2026-07-11 09:45' },
-                { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة', date: '2026-07-10 18:20' },
-                { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان', date: '2026-07-09 12:00' },
-            ];
-
-            let currentFilter = 'all';
-
-            function updateBalance() {
-                const total = transactions.reduce((sum, t) => {
-                    if (t.type === 'deposit' || t.type === 'refund') return sum + t.amount;
-                    else return sum - t.amount;
-                }, 0);
-                balanceDisplay.textContent = total.toFixed(2);
+            function backToMethods() {
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                methodSelection.style.display = 'block';
+                successMessage.classList.remove('active');
+                successMessage.style.display = 'none';
+                confirmBtn.classList.remove('loading');
+                confirmBtn.querySelector('.btn-text').style.display = 'block';
             }
 
-            function renderTransactions(filter) {
-                let filtered = transactions;
-                if (filter !== 'all') filtered = transactions.filter(t => t.type === filter);
-                filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
-                if (filtered.length === 0) {
-                    transactionsContainer.innerHTML = '';
-                    emptyState.style.display = 'flex';
+            function showSuccess() {
+                depositDetail.style.display = 'none';
+                depositDetail.classList.remove('active');
+                successMessage.style.display = 'block';
+                successMessage.classList.add('active');
+            }
+
+            function goHome() {
+                depositPage.classList.add('slide-out');
+                setTimeout(() => {
+                    depositPage.classList.remove('active');
+                    depositPage.style.display = 'none';
+                    depositPage.classList.remove('slide-out');
+                    backToMethods();
+                    switchPage('page-home');
+                    updateNavActive('page-home');
+                }, 350);
+            }
+
+            copyBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                const text = accountNumber.textContent;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.classList.add('copied');
+                        this.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                        setTimeout(() => {
+                            this.classList.remove('copied');
+                            this.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                        }, 2000);
+                    }).catch(() => {
+                        fallbackCopy(text);
+                    });
+                } else {
+                    fallbackCopy(text);
+                }
+            });
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyBtn.classList.add('copied');
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                    }, 2000);
+                } catch (err) {
+                    alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
+                }
+                document.body.removeChild(textarea);
+            }
+
+            receiptInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    fileUploadBox.classList.add('has-file');
+                    fileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
+                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'none';
+                } else {
+                    fileUploadBox.classList.remove('has-file');
+                    fileName.textContent = '';
+                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+                }
+            });
+
+            confirmBtn.addEventListener('click', function(e) {
+                createRippleBtn(e, this);
+                const amount = amountInput.value.trim();
+                const transactionId = transactionIdInput.value.trim();
+                if (!amount) {
+                    alert('⚠️ يرجى إدخال المبلغ المطلوب.');
+                    amountInput.focus();
                     return;
                 }
-                emptyState.style.display = 'none';
-                transactionsContainer.innerHTML = filtered.map(t => {
-                    const isPositive = t.type === 'deposit' || t.type === 'refund';
-                    const sign = isPositive ? '+' : '-';
-                    const amountClass = isPositive ? 'positive' : 'negative';
-                    const iconMap = { deposit: 'fa-arrow-down', withdraw: 'fa-arrow-up', purchase: 'fa-shopping-cart', refund: 'fa-undo' };
-                    const labelMap = { deposit: 'إيداع', withdraw: 'سحب', purchase: 'شراء', refund: 'استرداد' };
-                    const icon = iconMap[t.type] || 'fa-circle';
-                    const label = labelMap[t.type] || t.type;
-                    return `
-                        <div class="transaction-item-wallet">
-                            <div class="transaction-left-wallet">
-                                <div class="transaction-icon-wallet ${t.type}">
-                                    <i class="fas ${icon}"></i>
-                                </div>
-                                <div class="transaction-info-wallet">
-                                    <h4>${t.description}</h4>
-                                    <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
-                                </div>
-                            </div>
-                            <div class="transaction-amount-wallet ${amountClass}">
-                                ${sign}$${t.amount.toFixed(2)}
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
+                if (parseFloat(amount) <= 0) {
+                    alert('⚠️ يرجى إدخال مبلغ صحيح أكبر من صفر.');
+                    amountInput.focus();
+                    return;
+                }
+                if (!transactionId) {
+                    alert('⚠️ يرجى إدخال رقم العملية أو التحويل.');
+                    transactionIdInput.focus();
+                    return;
+                }
+                this.classList.add('loading');
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                    showSuccess();
+                }, 1500);
+            });
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.dataset.filter;
-                    renderTransactions(currentFilter);
+            backHomeBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                goHome();
+            });
+
+            // ============================================
+            // ===== باقات PUBG =====
+            // ============================================
+            const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+            const shippingForm = document.getElementById('shippingForm');
+            const gameIdInput = document.getElementById('gameIdInput');
+            const whatsappInput = document.getElementById('whatsappInput');
+            let selectedPack = null;
+            let selectedPrice = null;
+
+            packBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    packBtns.forEach(b => b.classList.remove('selected'));
+                    btn.classList.add('selected');
+                    selectedPack = btn.dataset.uc;
+                    selectedPrice = btn.dataset.price;
+                    scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
                 });
             });
 
-            document.getElementById('withdrawBtn').addEventListener('click', function() {
-                alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
+            document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const gameId = gameIdInput.value.trim();
+                const whatsapp = whatsappInput.value.trim();
+                if (!selectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!gameId) {
+                    alert('⚠️ يرجى إدخال ID اللعبة.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: $${selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
 
-            updateBalance();
-            renderTransactions('all');
-        })();
+            if (packBtns.length) {
+                setTimeout(() => {
+                    packBtns[0].classList.add('selected');
+                    selectedPack = packBtns[0].dataset.uc;
+                    selectedPrice = packBtns[0].dataset.price;
+                    shippingForm.classList.remove('hidden');
+                    setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                    setTimeout(() => { gameIdInput.focus(); }, 600);
+                }, 200);
+            }
 
-        // ============================================
-        // ===== منع إعادة التحميل =====
-        // ============================================
-        document.querySelectorAll('button').forEach(b => {
-            b.addEventListener('click', (e) => {
-                if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') ||
-                    b.closest('.faq-item') || b.closest('.pack-btn') ||
-                    b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
-                    b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
-                    b.id === 'startChatBtn' || b.id === 'buyNowBtn' ||
-                    b.id === 'codBuyNowBtn' || b.id === 'mlBuyNowBtn' ||
-                    b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                    b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                    b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                    b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
-                    b.id === 'copyBtn' || b.id === 'confirmBtn' ||
-                    b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
-                    e.preventDefault();
+            // ============================================
+            // ===== باقات Call of Duty =====
+            // ============================================
+            const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+            const codShippingForm = document.getElementById('codShippingForm');
+            const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+            const codWhatsappInput = document.getElementById('codWhatsappInput');
+            let selectedCodPack = null;
+            let selectedCodPrice = null;
+
+            function selectCodPack(btn) {
+                codPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedCodPack = btn.dataset.cp;
+                selectedCodPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(codShippingForm, codPlayerIdInput, 150);
+            }
+
+            codPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectCodPack(btn); });
+            });
+
+            if (codPackBtns.length) {
+                setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
+            }
+
+            document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = codPlayerIdInput.value.trim();
+                const whatsapp = codWhatsappInput.value.trim();
+                if (!selectedCodPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات Mobile Legends =====
+            // ============================================
+            const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+            const mlShippingForm = document.getElementById('mlShippingForm');
+            const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+            const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+            let selectedMlPack = null;
+            let selectedMlPrice = null;
+
+            function selectMlPack(btn) {
+                mlPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedMlPack = btn.dataset.diamond;
+                selectedMlPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(mlShippingForm, mlAccountIdInput, 150);
+            }
+
+            mlPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectMlPack(btn); });
+            });
+
+            if (mlPackBtns.length) {
+                setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
+            }
+
+            document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const accountId = mlAccountIdInput.value.trim();
+                const regionId = mlRegionIdInput.value.trim();
+                if (!selectedMlPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!accountId) {
+                    alert('⚠️ يرجى إدخال معرف الحساب.');
+                    return;
+                }
+                if (!regionId) {
+                    alert('⚠️ يرجى إدخال معرف المنطقة.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات eFootball =====
+            // ============================================
+            const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+            const efootballShippingForm = document.getElementById('efootballShippingForm');
+            const efootballUidInput = document.getElementById('efootballUidInput');
+            const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+            let selectedEfootballPack = null;
+            let selectedEfootballPrice = null;
+
+            function selectEfootballPack(btn) {
+                efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedEfootballPack = btn.dataset.fc;
+                selectedEfootballPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(efootballShippingForm, efootballUidInput, 150);
+            }
+
+            efootballPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectEfootballPack(btn); });
+            });
+
+            if (efootballPackBtns.length) {
+                setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
+            }
+
+            document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const uid = efootballUidInput.value.trim();
+                const whatsapp = efootballWhatsappInput.value.trim();
+                if (!selectedEfootballPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!uid) {
+                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات Clash of Clans =====
+            // ============================================
+            const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
+            const cocShippingForm = document.getElementById('cocShippingForm');
+            const cocSupercellInput = document.getElementById('cocSupercellInput');
+            const cocWhatsappInput = document.getElementById('cocWhatsappInput');
+            let selectedCocPack = null;
+            let selectedCocPrice = null;
+
+            function selectCocPack(btn) {
+                cocPackBtns.forEach(b => b.classList.remove('selected'));
+                btn.classList.add('selected');
+                selectedCocPack = btn.dataset.gems;
+                selectedCocPrice = btn.dataset.price;
+                scrollToShippingFormWithDelay(cocShippingForm, cocSupercellInput, 150);
+            }
+
+            cocPackBtns.forEach(btn => {
+                btn.addEventListener('click', () => { selectCocPack(btn); });
+            });
+
+            if (cocPackBtns.length) {
+                setTimeout(() => { selectCocPack(cocPackBtns[0]); }, 100);
+            }
+
+            document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const supercell = cocSupercellInput.value.trim();
+                const whatsapp = cocWhatsappInput.value.trim();
+                if (!selectedCocPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!supercell) {
+                    alert('⚠️ يرجى إدخال حساب Supercell.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(`✅ تم تقديم طلب شراء ${selectedCocPack} 💎\n💰 السعر: $${selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`);
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== زر بدء المحادثة =====
+            // ============================================
+            document.getElementById('startChatBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const card = e.target.closest('.support-card');
+                card.style.transition = 'all 0.25s ease';
+                card.style.opacity = '0.7';
+                card.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    openWhatsApp();
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    }, 150);
+                }, 250);
+            });
+
+            // ============================================
+            // ===== الأسئلة الشائعة =====
+            // ============================================
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            let openFaq = null;
+
+            faqQuestions.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    createRippleFaq(e, btn);
+                    const targetId = btn.dataset.target;
+                    const answer = document.getElementById(targetId);
+                    const icon = btn.querySelector('.faq-icon');
+                    if (openFaq === targetId) {
+                        answer.classList.remove('open');
+                        btn.classList.remove('active');
+                        icon.style.transform = 'rotate(0deg)';
+                        openFaq = null;
+                        return;
+                    }
+                    if (openFaq) {
+                        const prevAnswer = document.getElementById(openFaq);
+                        const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
+                        const prevIcon = prevBtn.querySelector('.faq-icon');
+                        prevAnswer.classList.remove('open');
+                        prevBtn.classList.remove('active');
+                        prevIcon.style.transform = 'rotate(0deg)';
+                    }
+                    answer.classList.add('open');
+                    btn.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                    openFaq = targetId;
+                });
+            });
+
+            // ============================================
+            // ===== MODAL =====
+            // ============================================
+            const modalOverlay = document.getElementById('mlHelpModal');
+            const modalCloseBtn = document.getElementById('mlModalCloseBtn');
+            const helpBtn = document.getElementById('mlHelpBtn');
+
+            helpBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            modalCloseBtn.addEventListener('click', () => {
+                modalOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
                 }
             });
-        });
 
-        // ============================================
-        // ===== التهيئة =====
-        // ============================================
-        setTimeout(() => {
-            updateNavActive('page-home');
-            const firstMethod = document.querySelector('.method-item');
-            if (firstMethod) firstMethod.classList.add('selected');
-        }, 200);
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
 
-        console.log('🚀 REDEEM STORE جاهز بالكامل!');
-        console.log('✅ تم تكبير بطاقات المنتجات بنسبة 40-50%.');
-        console.log('✅ عرض بطاقتين في كل صف مع صور أكبر.');
+            // ============================================
+            // ===== المحفظة - تم حذف قسم "تفعيل كود الشحن" =====
+            // ============================================
+            (function() {
+                const filterBtns = document.querySelectorAll('.filter-btn-wallet');
+                const transactionsContainer = document.getElementById('transactionsContainer');
+                const emptyState = document.getElementById('emptyState');
+                const balanceDisplay = document.getElementById('walletBalanceDisplay');
+
+                // تم حذف المتغيرات الخاصة بـ redeemInput و redeemBtn
+
+                let transactions = [
+                    { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال',
+                        date: '2026-07-13 14:30' },
+                    { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG',
+                        date: '2026-07-12 22:15' },
+                    { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة',
+                        date: '2026-07-11 09:45' },
+                    { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة',
+                        date: '2026-07-10 18:20' },
+                    { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان',
+                        date: '2026-07-09 12:00' },
+                ];
+
+                let currentFilter = 'all';
+
+                function updateBalance() {
+                    const total = transactions.reduce((sum, t) => {
+                        if (t.type === 'deposit' || t.type === 'refund') {
+                            return sum + t.amount;
+                        } else {
+                            return sum - t.amount;
+                        }
+                    }, 0);
+                    balanceDisplay.textContent = total.toFixed(2);
+                }
+
+                function renderTransactions(filter) {
+                    let filtered = transactions;
+                    if (filter !== 'all') {
+                        filtered = transactions.filter(t => t.type === filter);
+                    }
+                    filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    if (filtered.length === 0) {
+                        transactionsContainer.innerHTML = '';
+                        emptyState.style.display = 'flex';
+                        return;
+                    }
+                    emptyState.style.display = 'none';
+                    transactionsContainer.innerHTML = filtered.map(t => {
+                        const isPositive = t.type === 'deposit' || t.type === 'refund';
+                        const sign = isPositive ? '+' : '-';
+                        const amountClass = isPositive ? 'positive' : 'negative';
+                        const iconMap = {
+                            deposit: 'fa-arrow-down',
+                            withdraw: 'fa-arrow-up',
+                            purchase: 'fa-shopping-cart',
+                            refund: 'fa-undo'
+                        };
+                        const labelMap = {
+                            deposit: 'إيداع',
+                            withdraw: 'سحب',
+                            purchase: 'شراء',
+                            refund: 'استرداد'
+                        };
+                        const icon = iconMap[t.type] || 'fa-circle';
+                        const label = labelMap[t.type] || t.type;
+                        return `
+                            <div class="transaction-item-wallet">
+                                <div class="transaction-left-wallet">
+                                    <div class="transaction-icon-wallet ${t.type}">
+                                        <i class="fas ${icon}"></i>
+                                    </div>
+                                    <div class="transaction-info-wallet">
+                                        <h4>${t.description}</h4>
+                                        <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-amount-wallet ${amountClass}">
+                                    ${sign}$${t.amount.toFixed(2)}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        renderTransactions(currentFilter);
+                    });
+                });
+
+                // تم حذف كود زر تفعيل الكود (redeemBtn)
+
+                document.getElementById('withdrawBtn').addEventListener('click', function() {
+                    alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
+                });
+
+                updateBalance();
+                renderTransactions('all');
+            })();
+
+            // ============================================
+            // ===== منع إعادة التحميل =====
+            // ============================================
+            document.querySelectorAll('button').forEach(b => {
+                b.addEventListener('click', (e) => {
+                    if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') ||
+                        b.closest('.faq-item') || b.closest('.pack-btn') ||
+                        b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
+                        b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
+                        b.id === 'startChatBtn' || b.id === 'buyNowBtn' ||
+                        b.id === 'codBuyNowBtn' || b.id === 'mlBuyNowBtn' ||
+                        b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
+                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
+                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
+                        b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
+                        e.preventDefault();
+                    }
+                });
+            });
+
+            // ============================================
+            // ===== التهيئة =====
+            // ============================================
+            setTimeout(() => {
+                updateNavActive('page-home');
+                const firstMethod = document.querySelector('.method-item');
+                if (firstMethod) {
+                    firstMethod.classList.add('selected');
+                }
+            }, 200);
+
+            console.log('🚀 REDEEM STORE جاهز بالكامل!');
+            console.log('✅ تم حذف قسم "تفعيل كود الشحن" بالكامل.');
+            console.log('✅ الصفحة تتمد تلقائياً لملء الفراغ.');
+
+        })();
     </script>
 
 </body>
