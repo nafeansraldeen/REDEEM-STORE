@@ -2047,6 +2047,17 @@
             background: #10B981;
         }
 
+        .account-card-geo .account-holder {
+            font-size: 13px;
+            font-weight: 500;
+            color: #555;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px dashed #E8EAED;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+
         .field-group-geo {
             display: flex;
             flex-direction: column;
@@ -2504,6 +2515,9 @@
                 font-size: 11px;
                 padding: 4px 12px;
             }
+            .account-card-geo .account-holder {
+                font-size: 12px;
+            }
             .field-group-geo input {
                 padding: 8px 12px;
                 font-size: 14px;
@@ -2906,12 +2920,13 @@
                 <div class="account-card-geo">
                     <div class="account-label">رقم الحساب / المحفظة</div>
                     <div class="account-number-wrapper">
-                        <span class="account-number" id="accountNumberGeo">SA12 3456 7890 1234 5678</span>
+                        <span class="account-number" id="accountNumberGeo">7610732</span>
                         <button class="copy-btn" id="copyBtnGeo">
                             <i class="fas fa-copy"></i>
                             نسخ
                         </button>
                     </div>
+                    <div class="account-holder" id="accountHolderGeo">نـافع نصر الدين سليمان</div>
                 </div>
 
                 <div class="field-group-geo">
@@ -3711,17 +3726,44 @@
                             depositDetailPage.classList.add('active');
                         });
 
-                        // تحديث رقم الحساب
+                        // تحديث رقم الحساب واسم الحامل
                         updateAccount(method);
                     }, 350);
                 });
             });
 
             // ============================================
+            // ===== بيانات طرق الدفع مع الأرقام والأسماء =====
+            // ============================================
+            const methodsData = {
+                bank: {
+                    name: 'بنكك',
+                    account: '7610732',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                redotpay: {
+                    name: 'RedotPay',
+                    account: 'RP12 3456 7890 1234',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                mycash: {
+                    name: 'ماي كاشي',
+                    account: '401401294',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                binance: {
+                    name: 'بـيدي',
+                    account: '0901839168',
+                    holder: 'نـافع نصر الدين سليمان'
+                }
+            };
+
+            // ============================================
             // ===== صفحة تفاصيل الإيداع - Geometric UI =====
             // ============================================
             const detailBackBtn = document.getElementById('detailBackBtnGeo');
             const accountNumber = document.getElementById('accountNumberGeo');
+            const accountHolder = document.getElementById('accountHolderGeo');
             const copyBtn = document.getElementById('copyBtnGeo');
             const amountInput = document.getElementById('amountInputGeo');
             const transactionIdInput = document.getElementById('transactionIdInputGeo');
@@ -3733,17 +3775,11 @@
             const backHomeBtn = document.getElementById('backHomeBtnGeo');
             const detailBody = document.getElementById('detailBody');
 
-            const methodsData = {
-                bank: { name: 'بنكك', account: 'SA12 3456 7890 1234 5678' },
-                redotpay: { name: 'RedotPay', account: 'RP12 3456 7890 1234' },
-                mycash: { name: 'ماي كاشي', account: 'MC12 3456 7890' },
-                binance: { name: 'بـيدي', account: 'BN12 3456 7890 1234' }
-            };
-
             function updateAccount(method) {
                 const data = methodsData[method];
                 if (data) {
                     accountNumber.textContent = data.account;
+                    accountHolder.textContent = data.holder;
                 }
             }
 
@@ -4390,12 +4426,14 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
+            console.log('✅ تم إضافة أرقام الحسابات والأسماء:');
+            console.log('   بنكك: 7610732 - نـافع نصر الدين سليمان');
+            console.log('   ماي كاشي: 401401294 - نـافع نصر الدين سليمان');
+            console.log('   بـيدي: 0901839168 - نـافع نصر الدين سليمان');
             console.log('✅ تصميم هندسي (Geometric UI) بزوايا حادة 90°');
-            console.log('✅ صفحة إيداع مضغوطة بدون تمرير');
-            console.log('✅ جميع الصفحات مدمجة مع انتقالات احترافية');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
