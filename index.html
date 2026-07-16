@@ -30,7 +30,7 @@
         .page-container {
             max-width: 480px;
             margin: 0 auto;
-            background: #F8FAFC;
+            background: #F5F7FA;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
@@ -193,7 +193,7 @@
             display: none;
             padding: 20px 16px 30px;
             animation: fadeUp 0.3s ease;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
         .page.active {
@@ -1325,7 +1325,7 @@
         /* ============================================ */
         #page-wallet {
             padding: 0 !important;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
         .wallet-card-wrapper {
@@ -1722,7 +1722,7 @@
         .deposit-page {
             display: none;
             padding: 0;
-            background: #F8FAFC;
+            background: #F5F7FA;
             min-height: 100vh;
             position: relative;
             transform: translateX(100%);
@@ -1746,7 +1746,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
         .deposit-top-bar .back-btn {
@@ -1785,7 +1785,7 @@
 
         .deposit-body {
             padding: 16px 16px 30px;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
         .section-title {
@@ -1915,12 +1915,12 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT DETAIL - GEOMETRIC UI ===== */
+        /* ===== DEPOSIT DETAIL PAGE ===== */
         /* ============================================ */
         .deposit-detail-page {
             display: none;
             padding: 0;
-            background: #F8FAFC;
+            background: #F5F7FA;
             min-height: 100vh;
             position: relative;
             transform: translateX(100%);
@@ -1939,149 +1939,67 @@
             opacity: 0;
         }
 
-        .detail-header {
-            padding: 14px 16px 10px;
+        /* ===== الهيدر البسيط ===== */
+        .detail-header-simple {
+            padding: 16px 16px 12px;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 1px solid #E8EAED;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
-        .detail-header .back-btn {
+        .detail-header-simple .back-btn {
             width: 36px;
             height: 36px;
             border: none;
-            background: transparent;
+            background: #FFFFFF;
             color: #1A1A2E;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-shrink: 0;
-            border-radius: 4px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
         }
 
-        .detail-header .back-btn:active {
+        .detail-header-simple .back-btn:active {
             background: #E8EAED;
+            transform: scale(0.95);
         }
 
-        .detail-header .header-title {
-            font-size: 17px;
-            font-weight: 600;
-            color: #1A1A2E;
-            letter-spacing: 0.2px;
-        }
-
-        /* ===== STEP INDICATOR ===== */
-        .step-indicator {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0;
-            padding: 14px 16px 12px;
-            background: #F8FAFC;
-            border-bottom: 1px solid #F0F2F5;
-        }
-
-        .step-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 11px;
-            font-weight: 500;
-            color: #B0B8C4;
-            letter-spacing: 0.2px;
-            white-space: nowrap;
-        }
-
-        .step-item .step-circle {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            border: 2px solid #D1D5DB;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 11px;
+        .detail-header-simple .header-title {
+            font-size: 18px;
             font-weight: 700;
-            color: #B0B8C4;
-            transition: all 0.4s ease;
-            flex-shrink: 0;
-            background: #FFFFFF;
-        }
-
-        .step-item.active .step-circle {
-            border-color: #1A73E8;
-            background: #1A73E8;
-            color: #FFFFFF;
-        }
-
-        .step-item.done .step-circle {
-            border-color: #10B981;
-            background: #10B981;
-            color: #FFFFFF;
-        }
-
-        .step-item .step-label {
-            font-size: 11px;
-            font-weight: 500;
-            color: #B0B8C4;
-            transition: color 0.3s ease;
-        }
-
-        .step-item.active .step-label {
             color: #1A1A2E;
-        }
-
-        .step-item.done .step-label {
-            color: #10B981;
-        }
-
-        .step-line {
-            flex: 1;
-            min-width: 20px;
-            height: 2px;
-            background: #E8EAED;
-            margin: 0 4px;
-            transition: background 0.4s ease;
-            border-radius: 2px;
-        }
-
-        .step-line.done {
-            background: #10B981;
-        }
-
-        .step-line.active {
-            background: #1A73E8;
+            letter-spacing: 0.2px;
         }
 
         /* ===== BODY ===== */
         .detail-body {
-            padding: 16px 16px 80px;
+            padding: 8px 16px 80px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            background: #F8FAFC;
+            gap: 14px;
+            background: #F5F7FA;
         }
 
         /* ===== ACCOUNT CARD ===== */
         .account-card {
             background: #FFFFFF;
             border: 1px solid #E8EAED;
-            padding: 14px 16px;
-            border-radius: 4px;
+            padding: 16px 18px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
         }
 
         .account-card .account-label {
-            font-size: 10px;
+            font-size: 12px;
             font-weight: 600;
             color: #8895A7;
-            text-transform: uppercase;
-            letter-spacing: 0.6px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+            letter-spacing: 0.3px;
         }
 
         .account-card .account-row {
@@ -2092,7 +2010,7 @@
         }
 
         .account-card .account-number {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: #1A1A2E;
             font-family: 'SF Mono', 'Courier New', monospace;
@@ -2102,8 +2020,8 @@
         }
 
         .account-card .copy-btn {
-            width: 32px;
-            height: 32px;
+            width: 34px;
+            height: 34px;
             border: none;
             background: transparent;
             color: #8895A7;
@@ -2113,12 +2031,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 4px;
+            border-radius: 8px;
             flex-shrink: 0;
         }
 
         .account-card .copy-btn:active {
-            background: #E8EAED;
+            background: #F0F2F5;
         }
 
         .account-card .copy-btn.copied {
@@ -2126,12 +2044,12 @@
         }
 
         .account-card .account-holder {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             color: #555;
-            margin-top: 4px;
-            padding-top: 4px;
-            border-top: 1px dashed #E8EAED;
+            margin-top: 6px;
+            padding-top: 6px;
+            border-top: 1px solid #F0F2F5;
             text-align: center;
             letter-spacing: 0.2px;
         }
@@ -2140,15 +2058,14 @@
         .field-group {
             display: flex;
             flex-direction: column;
-            gap: 3px;
+            gap: 4px;
         }
 
         .field-group label {
-            font-size: 11px;
+            font-size: 12px;
             font-weight: 600;
-            color: #8895A7;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            color: #1A1A2E;
+            letter-spacing: 0.3px;
         }
 
         .field-group label .required {
@@ -2161,31 +2078,23 @@
             align-items: center;
         }
 
-        .field-input-wrapper .field-icon {
-            position: absolute;
-            right: 12px;
-            color: #B0B8C4;
-            font-size: 14px;
-            pointer-events: none;
-        }
-
         .field-input-wrapper input {
             width: 100%;
-            padding: 10px 38px 10px 14px;
+            padding: 12px 16px;
             border: 1.5px solid #E8EAED;
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 500;
             background: #FFFFFF;
             transition: all 0.2s ease;
             color: #1A1A2E;
-            border-radius: 4px;
-            height: 44px;
+            border-radius: 10px;
+            height: 48px;
         }
 
         .field-input-wrapper input::placeholder {
             color: #B0B8C4;
             font-weight: 400;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .field-input-wrapper input:focus {
@@ -2197,12 +2106,6 @@
         .field-input-wrapper input.input-ltr {
             direction: ltr;
             text-align: left;
-            padding-left: 14px;
-        }
-
-        .field-input-wrapper input.input-ltr + .field-icon {
-            right: auto;
-            left: 12px;
         }
 
         /* ===== FILE UPLOAD ===== */
@@ -2211,13 +2114,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 10px 14px;
+            padding: 12px 16px;
             border: 1.5px dashed #D6E8F8;
             background: #FFFFFF;
             cursor: pointer;
             transition: all 0.2s ease;
-            border-radius: 4px;
-            min-height: 44px;
+            border-radius: 10px;
+            min-height: 48px;
         }
 
         .file-upload-mini:active {
@@ -2236,12 +2139,12 @@
 
         .file-upload-mini .upload-icon {
             color: #1A73E8;
-            font-size: 16px;
+            font-size: 18px;
             flex-shrink: 0;
         }
 
         .file-upload-mini .upload-text {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 500;
             color: #8895A7;
         }
@@ -2254,15 +2157,15 @@
         }
 
         .file-upload-mini .upload-preview img {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             object-fit: cover;
-            border-radius: 4px;
+            border-radius: 6px;
             border: 1px solid #E8EAED;
         }
 
         .file-upload-mini .upload-preview .preview-name {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 500;
             color: #1A1A2E;
             max-width: 100px;
@@ -2273,7 +2176,7 @@
 
         .file-upload-mini .upload-preview .preview-check {
             color: #10B981;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         .file-upload-mini.has-file {
@@ -2297,57 +2200,59 @@
             right: 0;
             max-width: 480px;
             margin: 0 auto;
-            padding: 12px 16px 16px;
-            background: #F8FAFC;
+            padding: 12px 16px 20px;
+            background: #FFFFFF;
             border-top: 1px solid #F0F2F5;
             z-index: 50;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
         }
 
-        .btn-confirm-geometric {
+        .btn-confirm {
             width: 100%;
             padding: 14px 24px;
             background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 12px;
             letter-spacing: 0.3px;
-            height: 50px;
+            height: 52px;
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25);
         }
 
-        .btn-confirm-geometric:active {
+        .btn-confirm:active {
             background: #1557B0;
             transform: scale(0.98);
         }
 
-        .btn-confirm-geometric.loading {
+        .btn-confirm.loading {
             pointer-events: none;
             opacity: 0.85;
         }
 
-        .btn-confirm-geometric .loader {
+        .btn-confirm .loader {
             display: none;
             align-items: center;
             justify-content: center;
             gap: 10px;
         }
 
-        .btn-confirm-geometric.loading .loader {
+        .btn-confirm.loading .loader {
             display: flex;
         }
 
-        .btn-confirm-geometric.loading .btn-text {
+        .btn-confirm.loading .btn-text {
             display: none;
         }
 
-        .loader-spinner-geometric {
-            width: 20px;
-            height: 20px;
+        .loader-spinner {
+            width: 22px;
+            height: 22px;
             border: 2.5px solid rgba(255, 255, 255, 0.3);
             border-top-color: #FFFFFF;
             border-radius: 50%;
@@ -2361,19 +2266,19 @@
         }
 
         /* ===== SUCCESS MESSAGE ===== */
-        .success-message-geometric {
+        .success-message {
             display: none;
             text-align: center;
             padding: 40px 20px;
-            background: #F8FAFC;
-            animation: successPopGeo 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+            background: #F5F7FA;
+            animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
-        .success-message-geometric.active {
+        .success-message.active {
             display: block;
         }
 
-        @keyframes successPopGeo {
+        @keyframes successPop {
             0% {
                 opacity: 0;
                 transform: scale(0.95);
@@ -2384,28 +2289,28 @@
             }
         }
 
-        .success-message-geometric .success-icon {
-            width: 64px;
-            height: 64px;
+        .success-message .success-icon {
+            width: 70px;
+            height: 70px;
             border: 2px solid #10B981;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
-            font-size: 28px;
+            font-size: 30px;
             color: #10B981;
             border-radius: 50%;
             background: #FFFFFF;
         }
 
-        .success-message-geometric h2 {
+        .success-message h2 {
             font-size: 20px;
             font-weight: 700;
             color: #1A1A2E;
             margin-bottom: 6px;
         }
 
-        .success-message-geometric p {
+        .success-message p {
             font-size: 14px;
             color: #8895A7;
             line-height: 1.6;
@@ -2413,7 +2318,7 @@
             margin: 0 auto 20px;
         }
 
-        .btn-back-home-geometric {
+        .btn-back-home {
             padding: 12px 32px;
             background: #1A73E8;
             color: #FFFFFF;
@@ -2422,10 +2327,10 @@
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            border-radius: 4px;
+            border-radius: 10px;
         }
 
-        .btn-back-home-geometric:active {
+        .btn-back-home:active {
             background: #1557B0;
             transform: scale(0.98);
         }
@@ -2441,7 +2346,7 @@
             min-height: 60vh;
             color: #999;
             font-size: 18px;
-            background: #F8FAFC;
+            background: #F5F7FA;
         }
 
         .placeholder-page i {
@@ -2638,64 +2543,45 @@
                 top: 6px;
                 right: 6px;
             }
-            .detail-header {
-                padding: 12px 14px 8px;
+            .detail-header-simple {
+                padding: 12px 14px 10px;
             }
-            .detail-header .header-title {
+            .detail-header-simple .header-title {
                 font-size: 16px;
-            }
-            .step-indicator {
-                padding: 10px 12px 8px;
-                gap: 0;
-            }
-            .step-item .step-circle {
-                width: 20px;
-                height: 20px;
-                font-size: 9px;
-            }
-            .step-item .step-label {
-                font-size: 9px;
-            }
-            .step-line {
-                min-width: 12px;
             }
             .detail-body {
-                padding: 12px 12px 72px;
-                gap: 10px;
+                padding: 6px 12px 72px;
+                gap: 12px;
             }
             .account-card {
-                padding: 12px 14px;
+                padding: 14px 14px;
             }
             .account-card .account-number {
-                font-size: 16px;
+                font-size: 17px;
             }
             .field-input-wrapper input {
-                padding: 8px 34px 8px 12px;
-                font-size: 13px;
-                height: 40px;
-            }
-            .field-input-wrapper .field-icon {
-                font-size: 13px;
-                right: 10px;
+                padding: 10px 14px;
+                font-size: 14px;
+                height: 44px;
             }
             .file-upload-mini {
-                padding: 8px 12px;
-                min-height: 40px;
+                padding: 10px 14px;
+                min-height: 44px;
             }
             .sticky-bottom {
-                padding: 10px 12px 12px;
+                padding: 10px 12px 16px;
             }
-            .btn-confirm-geometric {
-                height: 46px;
-                font-size: 14px;
+            .btn-confirm {
+                height: 48px;
+                font-size: 15px;
                 padding: 12px 20px;
             }
-            .success-message-geometric .success-icon {
-                width: 56px;
-                height: 56px;
-                font-size: 24px;
+            .success-message .success-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
             }
-            .success-message-geometric h2 {
+            .success-message h2 {
                 font-size: 18px;
             }
             .wallet-balance-card {
@@ -2835,26 +2721,26 @@
                 font-size: 13px;
             }
             .detail-body {
-                padding: 20px 24px 80px;
-                gap: 14px;
+                padding: 12px 24px 80px;
+                gap: 16px;
             }
             .account-card {
-                padding: 16px 20px;
+                padding: 20px 24px;
             }
             .account-card .account-number {
-                font-size: 20px;
+                font-size: 22px;
             }
             .field-input-wrapper input {
-                height: 48px;
-                font-size: 15px;
-                padding: 12px 42px 12px 16px;
+                height: 52px;
+                font-size: 16px;
+                padding: 14px 18px;
             }
             .sticky-bottom {
-                padding: 16px 24px 20px;
+                padding: 16px 24px 24px;
             }
-            .btn-confirm-geometric {
-                height: 54px;
-                font-size: 16px;
+            .btn-confirm {
+                height: 56px;
+                font-size: 17px;
             }
             .wallet-balance-card {
                 max-width: 400px;
@@ -3063,71 +2949,46 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة تفاصيل الإيداع - Geometric UI ===== -->
+        <!-- ===== صفحة تفاصيل الإيداع ===== -->
         <!-- ============================================ -->
         <div class="deposit-detail-page" id="depositDetailPage">
-            <div class="detail-header">
-                <button class="back-btn" id="detailBackBtnGeo">
+            <div class="detail-header-simple">
+                <button class="back-btn" id="detailBackBtn">
                     <i class="fas fa-arrow-right"></i>
                 </button>
                 <span class="header-title">إيداع الرصيد</span>
             </div>
 
-            <!-- شريط الخطوات -->
-            <div class="step-indicator" id="stepIndicator">
-                <div class="step-item active" id="step1">
-                    <span class="step-circle">1</span>
-                    <span class="step-label">تحويل</span>
-                </div>
-                <div class="step-line" id="line1"></div>
-                <div class="step-item" id="step2">
-                    <span class="step-circle">2</span>
-                    <span class="step-label">رفع</span>
-                </div>
-                <div class="step-line" id="line2"></div>
-                <div class="step-item" id="step3">
-                    <span class="step-circle">3</span>
-                    <span class="step-label">تأكيد</span>
-                </div>
-            </div>
-
-            <!-- المحتوى -->
             <div class="detail-body" id="detailBody">
-                <!-- بطاقة الحساب -->
                 <div class="account-card">
                     <div class="account-label">رقم الحساب / المحفظة</div>
                     <div class="account-row">
-                        <span class="account-number" id="accountNumberGeo">7610732</span>
-                        <button class="copy-btn" id="copyBtnGeo">
+                        <span class="account-number" id="accountNumber">7610732</span>
+                        <button class="copy-btn" id="copyBtn">
                             <i class="fas fa-copy"></i>
                         </button>
                     </div>
-                    <div class="account-holder" id="accountHolderGeo">نـافع نصر الدين سليمان</div>
+                    <div class="account-holder" id="accountHolder">نـافع نصر الدين سليمان</div>
                 </div>
 
-                <!-- المبلغ -->
                 <div class="field-group">
                     <label>المبلغ <span class="required">*</span></label>
                     <div class="field-input-wrapper">
-                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInputGeo" class="input-ltr" />
-                        <span class="field-icon"><i class="fas fa-dollar-sign"></i></span>
+                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
                     </div>
                 </div>
 
-                <!-- رقم العملية -->
                 <div class="field-group">
                     <label>رقم العملية <span class="required">*</span></label>
                     <div class="field-input-wrapper">
-                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInputGeo" />
-                        <span class="field-icon"><i class="fas fa-hashtag"></i></span>
+                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInput" />
                     </div>
                 </div>
 
-                <!-- رفع الإيصال -->
                 <div class="field-group">
                     <label>صورة الإيصال</label>
-                    <div class="file-upload-mini" id="fileUploadBoxGeo">
-                        <input type="file" accept="image/*" id="receiptInputGeo" />
+                    <div class="file-upload-mini" id="fileUploadBox">
+                        <input type="file" accept="image/*" id="receiptInput" />
                         <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
                         <span class="upload-text">رفع صورة الإيصال</span>
                         <div class="upload-preview" id="uploadPreview">
@@ -3138,23 +2999,21 @@
                     </div>
                 </div>
 
-                <!-- رسالة النجاح (مخفية) -->
-                <div class="success-message-geometric" id="successMessageGeo">
+                <div class="success-message" id="successMessage">
                     <div class="success-icon">
                         <i class="fas fa-check"></i>
                     </div>
                     <h2>تم الإيداع بنجاح</h2>
                     <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
-                    <button class="btn-back-home-geometric" id="backHomeBtnGeo">العودة للرئيسية</button>
+                    <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
                 </div>
             </div>
 
-            <!-- زر ثابت في الأسفل -->
             <div class="sticky-bottom" id="stickyBottom">
-                <button class="btn-confirm-geometric" id="confirmBtnGeo">
+                <button class="btn-confirm" id="confirmBtn">
                     <span class="btn-text">تأكيد الإيداع</span>
                     <span class="loader">
-                        <span class="loader-spinner-geometric"></span>
+                        <span class="loader-spinner"></span>
                         جاري المعالجة...
                     </span>
                 </button>
@@ -3911,27 +3770,21 @@
             // ============================================
             // ===== صفحة تفاصيل الإيداع =====
             // ============================================
-            const detailBackBtn = document.getElementById('detailBackBtnGeo');
-            const accountNumber = document.getElementById('accountNumberGeo');
-            const accountHolder = document.getElementById('accountHolderGeo');
-            const copyBtn = document.getElementById('copyBtnGeo');
-            const amountInput = document.getElementById('amountInputGeo');
-            const transactionIdInput = document.getElementById('transactionIdInputGeo');
-            const receiptInput = document.getElementById('receiptInputGeo');
-            const fileUploadBox = document.getElementById('fileUploadBoxGeo');
+            const detailBackBtn = document.getElementById('detailBackBtn');
+            const accountNumber = document.getElementById('accountNumber');
+            const accountHolder = document.getElementById('accountHolder');
+            const copyBtn = document.getElementById('copyBtn');
+            const amountInput = document.getElementById('amountInput');
+            const transactionIdInput = document.getElementById('transactionIdInput');
+            const receiptInput = document.getElementById('receiptInput');
+            const fileUploadBox = document.getElementById('fileUploadBox');
             const previewImage = document.getElementById('previewImage');
             const previewFileName = document.getElementById('previewFileName');
-            const confirmBtn = document.getElementById('confirmBtnGeo');
-            const successMessage = document.getElementById('successMessageGeo');
-            const backHomeBtn = document.getElementById('backHomeBtnGeo');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const successMessage = document.getElementById('successMessage');
+            const backHomeBtn = document.getElementById('backHomeBtn');
             const detailBody = document.getElementById('detailBody');
             const stickyBottom = document.getElementById('stickyBottom');
-
-            const step1 = document.getElementById('step1');
-            const step2 = document.getElementById('step2');
-            const step3 = document.getElementById('step3');
-            const line1 = document.getElementById('line1');
-            const line2 = document.getElementById('line2');
 
             function updateAccount(method) {
                 const data = methodsData[method];
@@ -3943,32 +3796,6 @@
 
             const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
             updateAccount(savedMethod);
-
-            function updateSteps(step) {
-                [step1, step2, step3].forEach(s => s.classList.remove('active', 'done'));
-                [line1, line2].forEach(l => l.classList.remove('done', 'active'));
-
-                if (step === 1) {
-                    step1.classList.add('active');
-                    line1.classList.add('active');
-                } else if (step === 2) {
-                    step1.classList.add('done');
-                    step1.querySelector('.step-circle').textContent = '✓';
-                    step2.classList.add('active');
-                    line1.classList.add('done');
-                    line2.classList.add('active');
-                } else if (step === 3) {
-                    step1.classList.add('done');
-                    step1.querySelector('.step-circle').textContent = '✓';
-                    step2.classList.add('done');
-                    step2.querySelector('.step-circle').textContent = '✓';
-                    step3.classList.add('active');
-                    line1.classList.add('done');
-                    line2.classList.add('done');
-                }
-            }
-
-            updateSteps(1);
 
             detailBackBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
@@ -3995,9 +3822,6 @@
                     fileUploadBox.classList.remove('has-file');
                     previewImage.src = '#';
                     previewFileName.textContent = '';
-                    updateSteps(1);
-                    step1.querySelector('.step-circle').textContent = '1';
-                    step2.querySelector('.step-circle').textContent = '2';
                 }, 350);
             });
 
@@ -4049,16 +3873,10 @@
                     reader.readAsDataURL(file);
                     previewFileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
                     fileUploadBox.classList.add('has-file');
-                    step2.classList.add('done');
-                    line1.classList.add('done');
-                    step2.querySelector('.step-circle').textContent = '✓';
                 } else {
                     fileUploadBox.classList.remove('has-file');
                     previewImage.src = '#';
                     previewFileName.textContent = '';
-                    step2.classList.remove('done');
-                    line1.classList.remove('done');
-                    step2.querySelector('.step-circle').textContent = '2';
                 }
             });
 
@@ -4083,12 +3901,10 @@
                     return;
                 }
 
-                updateSteps(2);
                 this.classList.add('loading');
 
                 setTimeout(() => {
                     this.classList.remove('loading');
-                    updateSteps(3);
                     detailBody.style.display = 'none';
                     stickyBottom.style.display = 'none';
                     successMessage.classList.add('active');
@@ -4120,9 +3936,6 @@
                     fileUploadBox.classList.remove('has-file');
                     previewImage.src = '#';
                     previewFileName.textContent = '';
-                    updateSteps(1);
-                    step1.querySelector('.step-circle').textContent = '1';
-                    step2.querySelector('.step-circle').textContent = '2';
                 }, 350);
             });
 
@@ -4635,9 +4448,9 @@
                         b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
                         b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
                         b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'detailBackBtnGeo' ||
-                        b.id === 'copyBtnGeo' || b.id === 'confirmBtnGeo' ||
-                        b.id === 'backHomeBtnGeo' || b.classList.contains('method-item')) {
+                        b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
                         e.preventDefault();
                     }
                 });
@@ -4653,12 +4466,12 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ خلفية الصفحة #F8FAFC');
-            console.log('✅ تصميم Geometric UI مع شريط خطوات وزر ثابت');
-            console.log('✅ أرقام الحسابات محدثة مع أسماء المستفيدين');
+            console.log('✅ تم إزالة شريط الخطوات والهيدر الرئيسي');
+            console.log('✅ خلفية الصفحة #F5F7FA');
+            console.log('✅ تصميم حديث مع زوايا دائرية ناعمة');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
