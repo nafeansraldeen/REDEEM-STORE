@@ -1479,110 +1479,130 @@
             margin: 0 auto;
         }
 
-        /* Contact Cards */
-        .contact-section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 16px;
-            padding-right: 4px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .contact-section-title i {
-            color: #1A73E8;
-            font-size: 20px;
-        }
-
-        .contact-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 28px;
-        }
-
-        .contact-card {
+        /* Hours Card */
+        .hours-card {
             background: #FFFFFF;
-            border-radius: 16px;
-            padding: 16px 18px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
             border: 1px solid #f0f0f0;
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            color: inherit;
+            margin-bottom: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .contact-card:active {
-            transform: scale(0.98);
-        }
-
-        @media (hover: hover) {
-            .contact-card:hover {
-                border-color: #1A73E8;
-                box-shadow: 0 4px 16px rgba(26, 115, 232, 0.08);
-                transform: translateY(-2px);
-            }
-        }
-
-        .contact-card .contact-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+        .hours-card .hours-icon {
+            width: 56px;
+            height: 56px;
+            background: #e8f0fe;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            flex-shrink: 0;
-        }
-
-        .contact-card .contact-icon.whatsapp {
-            background: rgba(37, 211, 102, 0.12);
-            color: #25D366;
-        }
-
-        .contact-card .contact-icon.email {
-            background: rgba(26, 115, 232, 0.12);
+            margin: 0 auto 12px;
+            font-size: 24px;
             color: #1A73E8;
         }
 
-        .contact-card .contact-icon.social {
-            background: rgba(0, 188, 212, 0.12);
-            color: #00BCD4;
-        }
-
-        .contact-card .contact-info {
-            flex: 1;
-        }
-
-        .contact-card .contact-info h4 {
-            font-size: 15px;
+        .hours-card h3 {
+            font-size: 18px;
             font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 12px;
+        }
+
+        .hours-card .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+        }
+
+        .hours-card .hours-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #f5f5f5;
+            font-size: 14px;
+        }
+
+        .hours-card .hours-item:last-child {
+            border-bottom: none;
+        }
+
+        .hours-card .hours-item .day {
+            font-weight: 600;
             color: #1A1A2E;
         }
 
-        .contact-card .contact-info p {
-            font-size: 13px;
-            color: #888;
+        .hours-card .hours-item .time {
+            color: #555;
             font-weight: 400;
-            margin-top: 2px;
         }
 
-        .contact-card .contact-arrow {
-            color: #ccc;
-            font-size: 16px;
+        .hours-card .hours-item .time .highlight-friday {
+            color: #1A73E8;
+            font-weight: 600;
+        }
+
+        .hours-card .hours-status {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.12);
+            color: #10B981;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* ===== Contact Full Button ===== */
+        .contact-full-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            width: 100%;
+            padding: 18px 24px;
+            background: linear-gradient(145deg, #25D366, #128C7E);
+            color: #FFFFFF;
+            border: none;
+            border-radius: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(37, 211, 102, 0.25);
+            margin-bottom: 28px;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-full-btn:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(37, 211, 102, 0.15);
+        }
+
+        @media (hover: hover) {
+            .contact-full-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 32px rgba(37, 211, 102, 0.35);
+            }
+        }
+
+        .contact-full-btn i {
+            font-size: 24px;
+        }
+
+        .contact-full-btn i:last-child {
+            font-size: 18px;
             transition: all 0.25s ease;
         }
 
-        .contact-card:active .contact-arrow {
+        .contact-full-btn:active i:last-child {
             transform: translateX(-4px);
         }
 
@@ -1684,84 +1704,6 @@
             line-height: 1.7;
             margin: 0;
             font-weight: 400;
-        }
-
-        /* Hours Card */
-        .hours-card {
-            background: #FFFFFF;
-            border-radius: 20px;
-            padding: 24px 20px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            border: 1px solid #f0f0f0;
-            margin-bottom: 20px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-
-        .hours-card .hours-icon {
-            width: 56px;
-            height: 56px;
-            background: #e8f0fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
-            font-size: 24px;
-            color: #1A73E8;
-        }
-
-        .hours-card h3 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 12px;
-        }
-
-        .hours-card .hours-list {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            text-align: right;
-        }
-
-        .hours-card .hours-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid #f5f5f5;
-            font-size: 14px;
-        }
-
-        .hours-card .hours-item:last-child {
-            border-bottom: none;
-        }
-
-        .hours-card .hours-item .day {
-            font-weight: 600;
-            color: #1A1A2E;
-        }
-
-        .hours-card .hours-item .time {
-            color: #555;
-            font-weight: 400;
-        }
-
-        .hours-card .hours-item .time .highlight-friday {
-            color: #1A73E8;
-            font-weight: 600;
-        }
-
-        .hours-card .hours-status {
-            display: inline-block;
-            background: rgba(16, 185, 129, 0.12);
-            color: #10B981;
-            padding: 4px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 12px;
         }
 
         /* Support Footer */
@@ -3114,23 +3056,24 @@
             .welcome-card h2 {
                 font-size: 18px;
             }
-            .contact-card {
-                padding: 14px 16px;
-            }
-            .contact-card .contact-icon {
-                width: 38px;
-                height: 38px;
-                font-size: 16px;
-            }
-            .faq-question-support {
-                font-size: 14px;
-                padding: 14px 16px;
-            }
             .hours-card {
                 padding: 20px 16px;
             }
             .hours-card .hours-item {
                 font-size: 13px;
+            }
+            .contact-full-btn {
+                padding: 16px 20px;
+                font-size: 16px;
+                border-radius: 14px;
+                gap: 10px;
+            }
+            .contact-full-btn i {
+                font-size: 20px;
+            }
+            .faq-question-support {
+                font-size: 14px;
+                padding: 14px 16px;
             }
         }
 
@@ -3256,14 +3199,6 @@
             .support-body {
                 padding: 0 24px;
             }
-            .contact-grid {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 12px;
-            }
-            .contact-card {
-                padding: 18px 20px;
-            }
             .hours-card .hours-list {
                 flex-direction: row;
                 justify-content: center;
@@ -3273,6 +3208,15 @@
             .hours-card .hours-item {
                 border-bottom: none;
                 padding: 4px 0;
+            }
+            .contact-full-btn {
+                padding: 20px 28px;
+                font-size: 20px;
+                border-radius: 18px;
+                gap: 16px;
+            }
+            .contact-full-btn i {
+                font-size: 28px;
             }
         }
 
@@ -3284,9 +3228,6 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
-            }
-            .contact-grid {
-                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -3935,46 +3876,34 @@
                     <p>فريق <strong>REDEEM STORE</strong> جاهز للإجابة على جميع استفساراتك وحل أي مشكلة تواجهك.</p>
                 </div>
 
-                <!-- Contact Cards -->
-                <div class="contact-section-title">
-                    <i class="fas fa-phone-alt"></i>
+                <!-- Hours Card -->
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>أوقات الدعم</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">الأيام العادية</span>
+                            <span class="time">4 صباحاً ← 11 مساءً</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">يوم الجمعة</span>
+                            <span class="time"><span class="highlight-friday">12 ظهراً ← 11 مساءً</span></span>
+                        </div>
+                    </div>
+                    <span class="hours-status">
+                        <i class="fas fa-circle" style="font-size:8px; margin-left:6px; color:#10B981;"></i>
+                        متوفر الآن
+                    </span>
+                </div>
+
+                <!-- Contact Full Button -->
+                <a href="https://wa.me/249901839168" target="_blank" class="contact-full-btn" id="contactFullBtn">
+                    <i class="fab fa-whatsapp"></i>
                     <span>تواصل معنا الآن</span>
-                </div>
-
-                <div class="contact-grid">
-                    <a href="https://wa.me/249901839168" target="_blank" class="contact-card" id="whatsappContact">
-                        <div class="contact-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h4>واتساب</h4>
-                            <p>للتواصل والدعم المباشر</p>
-                        </div>
-                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
-                    </a>
-
-                    <a href="mailto:support@redeemstore.com" class="contact-card" id="emailContact">
-                        <div class="contact-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h4>البريد الإلكتروني</h4>
-                            <p>للشكاوى والاقتراحات</p>
-                        </div>
-                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
-                    </a>
-
-                    <a href="#" class="contact-card" id="socialContact" onclick="alert('📱 قريباً على جميع وسائل التواصل الاجتماعي')">
-                        <div class="contact-icon social">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <div class="contact-info">
-                            <h4>وسائل التواصل</h4>
-                            <p>فيسبوك • تويتر • إنستغرام</p>
-                        </div>
-                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
-                    </a>
-                </div>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
 
                 <!-- FAQ Section -->
                 <div class="faq-section-support">
@@ -4042,28 +3971,6 @@
                             <p>يمكنك التواصل معنا عبر واتساب على الرقم <strong>249901839168+</strong> أو عبر البريد الإلكتروني <strong>support@redeemstore.com</strong>.</p>
                         </div>
                     </div>
-                </div>
-
-                <!-- Hours Card -->
-                <div class="hours-card">
-                    <div class="hours-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <h3>أوقات الدعم</h3>
-                    <div class="hours-list">
-                        <div class="hours-item">
-                            <span class="day">الأيام العادية</span>
-                            <span class="time">4 صباحاً ← 11 مساءً</span>
-                        </div>
-                        <div class="hours-item">
-                            <span class="day">يوم الجمعة</span>
-                            <span class="time"><span class="highlight-friday">12 ظهراً ← 11 مساءً</span></span>
-                        </div>
-                    </div>
-                    <span class="hours-status">
-                        <i class="fas fa-circle" style="font-size:8px; margin-left:6px; color:#10B981;"></i>
-                        متوفر الآن
-                    </span>
                 </div>
 
                 <!-- Footer -->
@@ -5152,7 +5059,7 @@
                         b.id === 'copyBtn' || b.id === 'confirmBtn' ||
                         b.id === 'backHomeBtn' || b.classList.contains('method-item') ||
                         b.closest('.faq-item-support') ||
-                        b.closest('.contact-card')) {
+                        b.closest('.contact-full-btn')) {
                         e.preventDefault();
                     }
                 });
@@ -5184,4 +5091,4 @@
     </script>
 
 </body>
-</html>
+    </html>
