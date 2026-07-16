@@ -24,9 +24,6 @@
             overflow-x: hidden;
         }
 
-        /* ============================================ */
-        /* ===== PAGE CONTAINER ===== */
-        /* ============================================ */
         .page-container {
             max-width: 480px;
             margin: 0 auto;
@@ -710,7 +707,6 @@
             color: #1A73E8;
         }
 
-        /* ===== COD Shipping Form ===== */
         .cod-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -942,7 +938,6 @@
             background: #d2e3fc;
         }
 
-        /* ===== ML Shipping Form ===== */
         .ml-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -1113,7 +1108,6 @@
             color: #1A73E8;
         }
 
-        /* ===== eFootball Shipping Form ===== */
         .efootball-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -1298,7 +1292,6 @@
             color: #1A73E8;
         }
 
-        /* ===== COC Shipping Form ===== */
         .coc-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -1357,133 +1350,282 @@
         }
 
         /* ============================================ */
-        /* ===== SUPPORT PAGE ===== */
+        /* ===== SUPPORT PAGE (REDESIGNED) ===== */
         /* ============================================ */
         #page-support {
-            padding: 20px 16px 30px;
+            padding: 0 0 30px 0;
             background: #FFFFFF;
         }
 
-        .support-header {
+        /* Support Header */
+        .support-header-hero {
+            background: linear-gradient(145deg, #1A73E8, #0D47A1);
+            padding: 40px 24px 48px;
+            border-radius: 0 0 40px 40px;
             text-align: center;
-            padding: 10px 0 6px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
 
-        .support-header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A73E8;
-            letter-spacing: 0.5px;
+        .support-header-hero::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
-        .support-header p {
-            font-size: 16px;
-            color: #777;
-            margin-top: 8px;
-            font-weight: 400;
-            line-height: 1.6;
+        .support-header-hero::before {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 160px;
+            height: 160px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
         }
 
-        .support-card {
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 32px 24px;
-            margin: 16px 0 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-            border: 1px solid #f0f0f0;
-            text-align: center;
-            transition: all 0.25s ease;
-        }
-
-        .support-card .icon-wrapper {
+        .support-header-hero .hero-icon {
             width: 72px;
             height: 72px;
-            background: #e8f0fe;
+            background: rgba(255, 255, 255, 0.12);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
+            font-size: 32px;
+            color: #FFFFFF;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.10);
+            position: relative;
+            z-index: 2;
+        }
+
+        .support-header-hero h1 {
+            font-size: 32px;
+            font-weight: 800;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 6px;
+        }
+
+        .support-header-hero h1 span {
+            color: #6EF3E8;
+        }
+
+        .support-header-hero p {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 0.2px;
+        }
+
+        /* Support Body */
+        .support-body {
+            padding: 0 16px;
+        }
+
+        /* Welcome Card */
+        .welcome-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            margin-bottom: 20px;
             transition: all 0.3s ease;
         }
 
-        .support-card .icon-wrapper i {
-            font-size: 32px;
+        .welcome-card .welcome-icon {
+            width: 56px;
+            height: 56px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
             color: #1A73E8;
+            transition: all 0.3s ease;
         }
 
-        .support-card h2 {
-            font-size: 22px;
+        .welcome-card h2 {
+            font-size: 20px;
             font-weight: 700;
-            color: #222;
-            margin-bottom: 10px;
+            color: #1A1A2E;
+            margin-bottom: 8px;
         }
 
-        .support-card p {
+        .welcome-card p {
             font-size: 15px;
             color: #666;
             line-height: 1.7;
-            margin-bottom: 24px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
             font-weight: 400;
+            max-width: 340px;
+            margin: 0 auto;
         }
 
-        .btn-support {
-            width: 100%;
-            padding: 16px 24px;
-            background: #1A73E8;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
+        /* Contact Cards */
+        .contact-section-title {
             font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-support:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        /* ===== FAQ ===== */
-        .faq-section {
-            margin-top: 8px;
-        }
-
-        .faq-section .faq-title {
-            font-size: 20px;
             font-weight: 700;
-            color: #222;
-            text-align: center;
-            margin-bottom: 20px;
+            color: #1A1A2E;
+            margin-bottom: 16px;
+            padding-right: 4px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .faq-item {
+        .contact-section-title i {
+            color: #1A73E8;
+            font-size: 20px;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .contact-card {
             background: #FFFFFF;
             border-radius: 16px;
-            margin-bottom: 12px;
+            padding: 16px 18px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-card:active {
+            transform: scale(0.98);
+        }
+
+        @media (hover: hover) {
+            .contact-card:hover {
+                border-color: #1A73E8;
+                box-shadow: 0 4px 16px rgba(26, 115, 232, 0.08);
+                transform: translateY(-2px);
+            }
+        }
+
+        .contact-card .contact-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .contact-card .contact-icon.whatsapp {
+            background: rgba(37, 211, 102, 0.12);
+            color: #25D366;
+        }
+
+        .contact-card .contact-icon.email {
+            background: rgba(26, 115, 232, 0.12);
+            color: #1A73E8;
+        }
+
+        .contact-card .contact-icon.social {
+            background: rgba(0, 188, 212, 0.12);
+            color: #00BCD4;
+        }
+
+        .contact-card .contact-info {
+            flex: 1;
+        }
+
+        .contact-card .contact-info h4 {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1A1A2E;
+        }
+
+        .contact-card .contact-info p {
+            font-size: 13px;
+            color: #888;
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .contact-card .contact-arrow {
+            color: #ccc;
+            font-size: 16px;
+            transition: all 0.25s ease;
+        }
+
+        .contact-card:active .contact-arrow {
+            transform: translateX(-4px);
+        }
+
+        /* FAQ Section */
+        .faq-section-support {
+            margin-bottom: 24px;
+        }
+
+        .faq-section-support .faq-title-support {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-right: 4px;
+        }
+
+        .faq-section-support .faq-title-support i {
+            color: #1A73E8;
+            font-size: 20px;
+        }
+
+        .faq-item-support {
+            background: #FFFFFF;
+            border-radius: 14px;
+            margin-bottom: 10px;
             border: 1px solid #f0f0f0;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
             overflow: hidden;
             transition: all 0.25s ease;
         }
 
-        .faq-item:active {
+        .faq-item-support:active {
             transform: scale(0.99);
         }
 
-        .faq-question {
+        .faq-question-support {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 16px 20px;
+            padding: 16px 18px;
             cursor: pointer;
             background: #FFFFFF;
             border: none;
@@ -1491,49 +1633,52 @@
             text-align: right;
             font-size: 15px;
             font-weight: 600;
-            color: #222;
+            color: #1A1A2E;
             transition: all 0.25s ease;
             -webkit-tap-highlight-color: transparent;
             position: relative;
             overflow: hidden;
+            gap: 12px;
         }
 
-        .faq-question.active {
+        .faq-question-support.active {
             color: #1A73E8;
         }
 
-        .faq-question .faq-icon {
-            font-size: 18px;
+        .faq-question-support .faq-icon-support {
+            font-size: 16px;
             color: #999;
             transition: all 0.3s ease;
-            min-width: 24px;
-            margin-right: 12px;
+            min-width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .faq-question.active .faq-icon {
+        .faq-question-support.active .faq-icon-support {
             color: #1A73E8;
             transform: rotate(180deg);
         }
 
-        .faq-answer {
+        .faq-answer-support {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.25s ease,
-                transform 0.25s ease;
+            transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.3s ease,
+                transform 0.3s ease;
             opacity: 0;
             transform: translateY(-8px);
-            padding: 0 20px;
+            padding: 0 18px;
         }
 
-        .faq-answer.open {
-            max-height: 200px;
+        .faq-answer-support.open {
+            max-height: 300px;
             opacity: 1;
             transform: translateY(0);
-            padding: 0 20px 16px;
+            padding: 0 18px 16px;
         }
 
-        .faq-answer p {
+        .faq-answer-support p {
             font-size: 14px;
             color: #666;
             line-height: 1.7;
@@ -1541,16 +1686,95 @@
             font-weight: 400;
         }
 
-        .support-footer {
+        /* Hours Card */
+        .hours-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            margin-bottom: 20px;
             text-align: center;
-            padding: 30px 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .hours-card .hours-icon {
+            width: 56px;
+            height: 56px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+            color: #1A73E8;
+        }
+
+        .hours-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 12px;
+        }
+
+        .hours-card .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: right;
+        }
+
+        .hours-card .hours-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid #f5f5f5;
             font-size: 14px;
-            color: #aaa;
+        }
+
+        .hours-card .hours-item:last-child {
+            border-bottom: none;
+        }
+
+        .hours-card .hours-item .day {
+            font-weight: 600;
+            color: #1A1A2E;
+        }
+
+        .hours-card .hours-item .time {
+            color: #555;
+            font-weight: 400;
+        }
+
+        .hours-card .hours-item .time .highlight-friday {
+            color: #1A73E8;
+            font-weight: 600;
+        }
+
+        .hours-card .hours-status {
+            display: inline-block;
+            background: rgba(16, 185, 129, 0.12);
+            color: #10B981;
+            padding: 4px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+        }
+
+        /* Support Footer */
+        .support-footer-support {
+            text-align: center;
+            padding: 20px 0 10px;
+            font-size: 13px;
+            color: #bbb;
             font-weight: 400;
             letter-spacing: 0.3px;
         }
 
-        .support-footer i {
+        .support-footer-support i {
             color: #1A73E8;
             margin: 0 4px;
         }
@@ -1687,7 +1911,6 @@
             color: #FFFFFF;
         }
 
-        /* ===== أزرار الإيداع والسحب ===== */
         .wallet-actions {
             display: flex;
             gap: 14px;
@@ -1784,7 +2007,6 @@
             margin-top: -2px;
         }
 
-        /* ===== المعاملات ===== */
         .transactions-header-wallet {
             display: flex;
             justify-content: space-between;
@@ -2174,12 +2396,10 @@
             opacity: 0;
         }
 
-        /* ===== إخفاء الهيدر ===== */
         .deposit-detail-page .detail-header-simple {
             display: none;
         }
 
-        /* ===== BODY ===== */
         .detail-body {
             padding: 16px 16px 70px;
             display: flex;
@@ -2188,7 +2408,6 @@
             background: #F5F7FA;
         }
 
-        /* ===== ACCOUNT CARD ===== */
         .account-card {
             background: #FFFFFF;
             border: 1px solid #E8EAED;
@@ -2262,7 +2481,6 @@
             color: #1A1A2E;
         }
 
-        /* ===== FORM FIELDS ===== */
         .field-group {
             display: flex;
             flex-direction: column;
@@ -2323,7 +2541,6 @@
             text-align: right;
         }
 
-        /* ===== FILE UPLOAD ===== */
         .file-upload-mini {
             position: relative;
             display: flex;
@@ -2410,7 +2627,6 @@
             display: flex;
         }
 
-        /* ===== STICKY BOTTOM BUTTON ===== */
         .sticky-bottom {
             position: fixed;
             bottom: 0;
@@ -2483,7 +2699,6 @@
             }
         }
 
-        /* ===== SUCCESS MESSAGE ===== */
         .success-message {
             display: none;
             text-align: center;
@@ -2880,6 +3095,43 @@
             .transaction-amount-wallet {
                 font-size: 14px;
             }
+
+            /* Support Responsive */
+            .support-header-hero {
+                padding: 32px 20px 40px;
+            }
+            .support-header-hero h1 {
+                font-size: 26px;
+            }
+            .support-header-hero .hero-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 26px;
+            }
+            .welcome-card {
+                padding: 20px 16px;
+            }
+            .welcome-card h2 {
+                font-size: 18px;
+            }
+            .contact-card {
+                padding: 14px 16px;
+            }
+            .contact-card .contact-icon {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+            .faq-question-support {
+                font-size: 14px;
+                padding: 14px 16px;
+            }
+            .hours-card {
+                padding: 20px 16px;
+            }
+            .hours-card .hours-item {
+                font-size: 13px;
+            }
         }
 
         @media (min-width: 600px) {
@@ -2993,6 +3245,35 @@
                 height: 52px;
                 font-size: 22px;
             }
+
+            /* Support Responsive */
+            .support-header-hero {
+                padding: 48px 32px 56px;
+            }
+            .support-header-hero h1 {
+                font-size: 36px;
+            }
+            .support-body {
+                padding: 0 24px;
+            }
+            .contact-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .contact-card {
+                padding: 18px 20px;
+            }
+            .hours-card .hours-list {
+                flex-direction: row;
+                justify-content: center;
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+            .hours-card .hours-item {
+                border-bottom: none;
+                padding: 4px 0;
+            }
         }
 
         @media (min-width: 900px) {
@@ -3003,6 +3284,9 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
+            }
+            .contact-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -3629,6 +3913,168 @@
         </div>
 
         <!-- ============================================ -->
+        <!-- ===== SUPPORT PAGE (REDESIGNED) ===== -->
+        <!-- ============================================ -->
+        <div id="page-support" class="page">
+            <!-- Hero Header -->
+            <div class="support-header-hero">
+                <div class="hero-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h1>الـدعـم <span>الـفـنـي</span></h1>
+                <p>نـحن هنـا لـمساعدتك في أي وقـت</p>
+            </div>
+
+            <div class="support-body">
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <div class="welcome-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h2>هل تحتاج إلى مساعدة؟</h2>
+                    <p>فريق <strong>REDEEM STORE</strong> جاهز للإجابة على جميع استفساراتك وحل أي مشكلة تواجهك.</p>
+                </div>
+
+                <!-- Contact Cards -->
+                <div class="contact-section-title">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>تواصل معنا الآن</span>
+                </div>
+
+                <div class="contact-grid">
+                    <a href="https://wa.me/249901839168" target="_blank" class="contact-card" id="whatsappContact">
+                        <div class="contact-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>واتساب</h4>
+                            <p>للتواصل والدعم المباشر</p>
+                        </div>
+                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
+                    </a>
+
+                    <a href="mailto:support@redeemstore.com" class="contact-card" id="emailContact">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>البريد الإلكتروني</h4>
+                            <p>للشكاوى والاقتراحات</p>
+                        </div>
+                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
+                    </a>
+
+                    <a href="#" class="contact-card" id="socialContact" onclick="alert('📱 قريباً على جميع وسائل التواصل الاجتماعي')">
+                        <div class="contact-icon social">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            <h4>وسائل التواصل</h4>
+                            <p>فيسبوك • تويتر • إنستغرام</p>
+                        </div>
+                        <span class="contact-arrow"><i class="fas fa-chevron-left"></i></span>
+                    </a>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section-support">
+                    <div class="faq-title-support">
+                        <i class="fas fa-question-circle"></i>
+                        <span>الأسئلة الشائعة</span>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq1">
+                            <span>كيف أقوم بالشحن؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq1">
+                            <p>يمكنك الشحن بسهولة عن طريق اختيار اللعبة المطلوبة، ثم اختيار الباقة المناسبة، وإدخال البيانات المطلوبة (معرف اللاعب ورقم واتساب)، ثم الضغط على زر "شراء الآن".</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq2">
+                            <span>كيف أستلم الطلب؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq2">
+                            <p>سيتم إرسال الشحنة مباشرة إلى حسابك في اللعبة خلال دقائق من تأكيد الدفع. ستتلقى رسالة تأكيد عبر واتساب عند اكتمال العملية.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq3">
+                            <span>كم تستغرق عملية التنفيذ؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq3">
+                            <p>تتراوح مدة التنفيذ بين 5 إلى 30 دقيقة في الأوقات العادية، وقد تصل إلى ساعة في أوقات الذروة. نحرص على تنفيذ جميع الطلبات بأسرع وقت ممكن.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq4">
+                            <span>ماذا أفعل إذا واجهت مشكلة؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq4">
+                            <p>إذا واجهت أي مشكلة، تواصل معنا فوراً عبر واتساب أو البريد الإلكتروني. فريق الدعم جاهز لحل أي استفسار أو مشكلة تواجهك في أي وقت.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq5">
+                            <span>هل يمكن استرداد الرصيد؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq5">
+                            <p>نعم، يمكن استرداد الرصيد في حالات معينة مثل فشل عملية الشحن أو خطأ في البيانات. يرجى التواصل مع الدعم للحصول على المساعدة في استرداد المبلغ.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq6">
+                            <span>كيف أتواصل مع الدعم؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq6">
+                            <p>يمكنك التواصل معنا عبر واتساب على الرقم <strong>249901839168+</strong> أو عبر البريد الإلكتروني <strong>support@redeemstore.com</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hours Card -->
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>أوقات الدعم</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">الأيام العادية</span>
+                            <span class="time">4 صباحاً ← 11 مساءً</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">يوم الجمعة</span>
+                            <span class="time"><span class="highlight-friday">12 ظهراً ← 11 مساءً</span></span>
+                        </div>
+                    </div>
+                    <span class="hours-status">
+                        <i class="fas fa-circle" style="font-size:8px; margin-left:6px; color:#10B981;"></i>
+                        متوفر الآن
+                    </span>
+                </div>
+
+                <!-- Footer -->
+                <div class="support-footer-support">
+                    <i class="fas fa-heart"></i>
+                    صنع بحب من فريق REDEEM STORE
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
         <!-- ===== MODAL ===== -->
         <!-- ============================================ -->
         <div class="modal-overlay" id="mlHelpModal">
@@ -3789,7 +4235,6 @@
                 if (gameIdInput) gameIdInput.value = '';
                 if (whatsappInput) whatsappInput.value = '';
                 
-                // Reset global variables
                 window.selectedPack = null;
                 window.selectedPrice = null;
             }
@@ -3858,9 +4303,6 @@
                 window.selectedCocPrice = null;
             }
 
-            // ============================================
-            // ===== دالة إعادة تهيئة جميع الباقات =====
-            // ============================================
             function resetAllPacks() {
                 resetPubgPacks();
                 resetCodPacks();
@@ -3886,7 +4328,6 @@
                     card.addEventListener('click', (e) => {
                         createRipple(e, card);
                         if (game.page) {
-                            // Reset all packs before switching
                             resetAllPacks();
                             setTimeout(() => {
                                 switchPage(game.page);
@@ -3978,7 +4419,6 @@
                             depositDetailPage.classList.remove('active');
                             depositDetailPage.style.display = 'none';
                         }
-                        // Reset all packs when navigating away from game pages
                         resetAllPacks();
                         switchPage(pageId);
                         updateNavActive(pageId);
@@ -4242,16 +4682,13 @@
             const gameIdInput = document.getElementById('gameIdInput');
             const whatsappInput = document.getElementById('whatsappInput');
             
-            // Initialize variables
             window.selectedPack = null;
             window.selectedPrice = null;
 
             packBtns.forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     createRipple(e, this);
-                    // Remove selected from all
                     packBtns.forEach(b => b.classList.remove('selected'));
-                    // Add selected to clicked
                     this.classList.add('selected');
                     window.selectedPack = this.dataset.uc;
                     window.selectedPrice = this.dataset.price;
@@ -4528,54 +4965,45 @@
             });
 
             // ============================================
-            // ===== زر بدء المحادثة =====
+            // ===== الأسئلة الشائعة في صفحة الدعم =====
             // ============================================
-            document.getElementById('startChatBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const card = e.target.closest('.support-card');
-                card.style.transition = 'all 0.25s ease';
-                card.style.opacity = '0.7';
-                card.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    openWhatsApp();
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 150);
-                }, 250);
-            });
+            const faqSupportQuestions = document.querySelectorAll('.faq-question-support');
+            let openFaqSupport = null;
 
-            // ============================================
-            // ===== الأسئلة الشائعة =====
-            // ============================================
-            const faqQuestions = document.querySelectorAll('.faq-question');
-            let openFaq = null;
-
-            faqQuestions.forEach(btn => {
+            faqSupportQuestions.forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     createRippleFaq(e, btn);
                     const targetId = btn.dataset.target;
                     const answer = document.getElementById(targetId);
-                    const icon = btn.querySelector('.faq-icon');
-                    if (openFaq === targetId) {
+                    const icon = btn.querySelector('.faq-icon-support i');
+                    
+                    if (openFaqSupport === targetId) {
                         answer.classList.remove('open');
                         btn.classList.remove('active');
-                        icon.style.transform = 'rotate(0deg)';
-                        openFaq = null;
+                        if (icon) {
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                        openFaqSupport = null;
                         return;
                     }
-                    if (openFaq) {
-                        const prevAnswer = document.getElementById(openFaq);
-                        const prevBtn = document.querySelector(`[data-target="${openFaq}"]`);
-                        const prevIcon = prevBtn.querySelector('.faq-icon');
-                        prevAnswer.classList.remove('open');
-                        prevBtn.classList.remove('active');
-                        prevIcon.style.transform = 'rotate(0deg)';
+                    
+                    if (openFaqSupport) {
+                        const prevAnswer = document.getElementById(openFaqSupport);
+                        const prevBtn = document.querySelector(`.faq-question-support[data-target="${openFaqSupport}"]`);
+                        const prevIcon = prevBtn ? prevBtn.querySelector('.faq-icon-support i') : null;
+                        if (prevAnswer) prevAnswer.classList.remove('open');
+                        if (prevBtn) prevBtn.classList.remove('active');
+                        if (prevIcon) {
+                            prevIcon.style.transform = 'rotate(0deg)';
+                        }
                     }
+                    
                     answer.classList.add('open');
                     btn.classList.add('active');
-                    icon.style.transform = 'rotate(180deg)';
-                    openFaq = targetId;
+                    if (icon) {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                    openFaqSupport = targetId;
                 });
             });
 
@@ -4716,14 +5144,15 @@
                         b.closest('.faq-item') || b.closest('.pack-btn') ||
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
-                        b.id === 'startChatBtn' || b.id === 'buyNowBtn' ||
-                        b.id === 'codBuyNowBtn' || b.id === 'mlBuyNowBtn' ||
-                        b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
-                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
-                        b.classList.contains('method-item')) {
+                        b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
+                        b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
+                        b.id === 'cocBuyNowBtn' || b.id === 'mlHelpBtn' ||
+                        b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
+                        b.id === 'withdrawBtn' || b.id === 'depositBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item') ||
+                        b.closest('.faq-item-support') ||
+                        b.closest('.contact-card')) {
                         e.preventDefault();
                     }
                 });
@@ -4736,17 +5165,23 @@
                 updateNavActive('page-home');
                 const firstMethod = document.querySelector('.method-item');
                 if (firstMethod) firstMethod.classList.add('selected');
-                // Ensure all packs are reset on initial load
                 resetAllPacks();
+
+                // Open first FAQ by default
+                const firstFaqBtn = document.querySelector('.faq-question-support');
+                if (firstFaqBtn) {
+                    setTimeout(() => {
+                        firstFaqBtn.click();
+                    }, 300);
+                }
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إصلاح مشكلة تحديد الباقات');
-            console.log('✅ جميع الباقات تبدأ بدون تحديد');
-            console.log('✅ يتم إعادة تهيئة الحالة عند مغادرة الصفحة');
+            console.log('✅ تم إعادة تصميم صفحة الدعم بالكامل');
+            console.log('✅ مركز دعم احترافي ومتكامل');
 
         })();
     </script>
 
 </body>
-    </html>  
+</html>
