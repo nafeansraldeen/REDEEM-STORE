@@ -1359,6 +1359,11 @@
         /* ============================================ */
         /* ===== SUPPORT PAGE ===== */
         /* ============================================ */
+        #page-support {
+            padding: 20px 16px 30px;
+            background: #FFFFFF;
+        }
+
         .support-header {
             text-align: center;
             padding: 10px 0 6px;
@@ -3769,34 +3774,99 @@
                 window.open(WHATSAPP_URL, '_blank');
             }
 
-            function switchPage(pageId) {
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-                const target = document.getElementById(pageId);
-                if (target) {
-                    target.style.display = 'block';
-                    target.classList.add('active');
-                }
+            // ============================================
+            // ===== دوال إعادة تهيئة الباقات =====
+            // ============================================
+            function resetPubgPacks() {
+                const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+                const shippingForm = document.getElementById('shippingForm');
+                const gameIdInput = document.getElementById('gameIdInput');
+                const whatsappInput = document.getElementById('whatsappInput');
+                
+                packBtns.forEach(b => b.classList.remove('selected'));
+                shippingForm.classList.add('hidden');
+                shippingForm.classList.remove('visible');
+                if (gameIdInput) gameIdInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+                
+                // Reset global variables
+                window.selectedPack = null;
+                window.selectedPrice = null;
             }
 
-            function updateNavActive(pageId) {
-                const navItems = document.querySelectorAll('.nav-item');
-                const navIndicator = document.getElementById('navIndicator');
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.dataset.page === pageId) {
-                        item.classList.add('active');
-                    }
-                });
-                const activeItem = document.querySelector('.nav-item.active');
-                if (activeItem) {
-                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
-                    const itemRect = activeItem.getBoundingClientRect();
-                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
-                    navIndicator.style.left = leftPos + 'px';
-                    navIndicator.style.width = '30px';
-                    navIndicator.classList.add('show');
-                }
+            function resetCodPacks() {
+                const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+                const codShippingForm = document.getElementById('codShippingForm');
+                const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+                const codWhatsappInput = document.getElementById('codWhatsappInput');
+                
+                codPackBtns.forEach(b => b.classList.remove('selected'));
+                codShippingForm.classList.add('hidden');
+                codShippingForm.classList.remove('visible');
+                if (codPlayerIdInput) codPlayerIdInput.value = '';
+                if (codWhatsappInput) codWhatsappInput.value = '';
+                
+                window.selectedCodPack = null;
+                window.selectedCodPrice = null;
+            }
+
+            function resetMlPacks() {
+                const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+                const mlShippingForm = document.getElementById('mlShippingForm');
+                const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+                const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+                
+                mlPackBtns.forEach(b => b.classList.remove('selected'));
+                mlShippingForm.classList.add('hidden');
+                mlShippingForm.classList.remove('visible');
+                if (mlAccountIdInput) mlAccountIdInput.value = '';
+                if (mlRegionIdInput) mlRegionIdInput.value = '';
+                
+                window.selectedMlPack = null;
+                window.selectedMlPrice = null;
+            }
+
+            function resetEfootballPacks() {
+                const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+                const efootballShippingForm = document.getElementById('efootballShippingForm');
+                const efootballUidInput = document.getElementById('efootballUidInput');
+                const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+                
+                efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                efootballShippingForm.classList.add('hidden');
+                efootballShippingForm.classList.remove('visible');
+                if (efootballUidInput) efootballUidInput.value = '';
+                if (efootballWhatsappInput) efootballWhatsappInput.value = '';
+                
+                window.selectedEfootballPack = null;
+                window.selectedEfootballPrice = null;
+            }
+
+            function resetCocPacks() {
+                const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
+                const cocShippingForm = document.getElementById('cocShippingForm');
+                const cocSupercellInput = document.getElementById('cocSupercellInput');
+                const cocWhatsappInput = document.getElementById('cocWhatsappInput');
+                
+                cocPackBtns.forEach(b => b.classList.remove('selected'));
+                cocShippingForm.classList.add('hidden');
+                cocShippingForm.classList.remove('visible');
+                if (cocSupercellInput) cocSupercellInput.value = '';
+                if (cocWhatsappInput) cocWhatsappInput.value = '';
+                
+                window.selectedCocPack = null;
+                window.selectedCocPrice = null;
+            }
+
+            // ============================================
+            // ===== دالة إعادة تهيئة جميع الباقات =====
+            // ============================================
+            function resetAllPacks() {
+                resetPubgPacks();
+                resetCodPacks();
+                resetMlPacks();
+                resetEfootballPacks();
+                resetCocPacks();
             }
 
             // ============================================
@@ -3816,6 +3886,8 @@
                     card.addEventListener('click', (e) => {
                         createRipple(e, card);
                         if (game.page) {
+                            // Reset all packs before switching
+                            resetAllPacks();
                             setTimeout(() => {
                                 switchPage(game.page);
                                 updateNavActive('page-home');
@@ -3861,6 +3933,36 @@
             // ============================================
             const navItems = document.querySelectorAll('.nav-item');
 
+            function switchPage(pageId) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('active');
+                }
+            }
+
+            function updateNavActive(pageId) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const navIndicator = document.getElementById('navIndicator');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
+                    }
+                });
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                    navIndicator.style.left = leftPos + 'px';
+                    navIndicator.style.width = '30px';
+                    navIndicator.classList.add('show');
+                }
+            }
+
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const pageId = item.dataset.page;
@@ -3876,6 +3978,8 @@
                             depositDetailPage.classList.remove('active');
                             depositDetailPage.style.display = 'none';
                         }
+                        // Reset all packs when navigating away from game pages
+                        resetAllPacks();
                         switchPage(pageId);
                         updateNavActive(pageId);
                     }
@@ -3927,6 +4031,7 @@
                     depositPage.classList.remove('active');
                     depositPage.style.display = 'none';
                     depositPage.classList.remove('slide-out');
+                    resetAllPacks();
                     switchPage('page-wallet');
                     updateNavActive('page-wallet');
                 }, 350);
@@ -4125,6 +4230,7 @@
                     fileUploadBox.classList.remove('has-file');
                     previewImage.src = '#';
                     previewFileName.textContent = '';
+                    resetAllPacks();
                 }, 350);
             });
 
@@ -4135,15 +4241,20 @@
             const shippingForm = document.getElementById('shippingForm');
             const gameIdInput = document.getElementById('gameIdInput');
             const whatsappInput = document.getElementById('whatsappInput');
-            let selectedPack = null;
-            let selectedPrice = null;
+            
+            // Initialize variables
+            window.selectedPack = null;
+            window.selectedPrice = null;
 
             packBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    // Remove selected from all
                     packBtns.forEach(b => b.classList.remove('selected'));
-                    btn.classList.add('selected');
-                    selectedPack = btn.dataset.uc;
-                    selectedPrice = btn.dataset.price;
+                    // Add selected to clicked
+                    this.classList.add('selected');
+                    window.selectedPack = this.dataset.uc;
+                    window.selectedPrice = this.dataset.price;
                     if (shippingForm.classList.contains('hidden')) {
                         shippingForm.classList.remove('hidden');
                         setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
@@ -4159,7 +4270,7 @@
                 createRippleBtn(e, e.target);
                 const gameId = gameIdInput.value.trim();
                 const whatsapp = whatsappInput.value.trim();
-                if (!selectedPack) {
+                if (!window.selectedPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
                 }
@@ -4176,24 +4287,13 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء باقة ${selectedPack} UC\n💰 السعر: $${selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedPack} UC\n💰 السعر: $${window.selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                         );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
                 }, 500);
             });
-
-            if (packBtns.length) {
-                setTimeout(() => {
-                    packBtns[0].classList.add('selected');
-                    selectedPack = packBtns[0].dataset.uc;
-                    selectedPrice = packBtns[0].dataset.price;
-                    shippingForm.classList.remove('hidden');
-                    setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
-                    setTimeout(() => { gameIdInput.focus(); }, 600);
-                }, 200);
-            }
 
             // ============================================
             // ===== باقات Call of Duty =====
@@ -4202,37 +4302,33 @@
             const codShippingForm = document.getElementById('codShippingForm');
             const codPlayerIdInput = document.getElementById('codPlayerIdInput');
             const codWhatsappInput = document.getElementById('codWhatsappInput');
-            let selectedCodPack = null;
-            let selectedCodPrice = null;
-
-            function selectCodPack(btn) {
-                codPackBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedCodPack = btn.dataset.cp;
-                selectedCodPrice = btn.dataset.price;
-                if (codShippingForm.classList.contains('hidden')) {
-                    codShippingForm.classList.remove('hidden');
-                    setTimeout(() => { codShippingForm.classList.add('visible'); }, 50);
-                }
-                setTimeout(() => {
-                    codShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => { codPlayerIdInput.focus(); }, 600);
-                }, 150);
-            }
+            
+            window.selectedCodPack = null;
+            window.selectedCodPrice = null;
 
             codPackBtns.forEach(btn => {
-                btn.addEventListener('click', () => { selectCodPack(btn); });
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    codPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedCodPack = this.dataset.cp;
+                    window.selectedCodPrice = this.dataset.price;
+                    if (codShippingForm.classList.contains('hidden')) {
+                        codShippingForm.classList.remove('hidden');
+                        setTimeout(() => { codShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        codShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { codPlayerIdInput.focus(); }, 600);
+                    }, 150);
+                });
             });
-
-            if (codPackBtns.length) {
-                setTimeout(() => { selectCodPack(codPackBtns[0]); }, 100);
-            }
 
             document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
                 createRippleBtn(e, e.target);
                 const playerId = codPlayerIdInput.value.trim();
                 const whatsapp = codWhatsappInput.value.trim();
-                if (!selectedCodPack) {
+                if (!window.selectedCodPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
                 }
@@ -4249,7 +4345,7 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء باقة ${selectedCodPack} CP\n💰 السعر: $${selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedCodPack} CP\n💰 السعر: $${window.selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                         );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -4264,37 +4360,33 @@
             const mlShippingForm = document.getElementById('mlShippingForm');
             const mlAccountIdInput = document.getElementById('mlAccountIdInput');
             const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-            let selectedMlPack = null;
-            let selectedMlPrice = null;
-
-            function selectMlPack(btn) {
-                mlPackBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedMlPack = btn.dataset.diamond;
-                selectedMlPrice = btn.dataset.price;
-                if (mlShippingForm.classList.contains('hidden')) {
-                    mlShippingForm.classList.remove('hidden');
-                    setTimeout(() => { mlShippingForm.classList.add('visible'); }, 50);
-                }
-                setTimeout(() => {
-                    mlShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => { mlAccountIdInput.focus(); }, 600);
-                }, 150);
-            }
+            
+            window.selectedMlPack = null;
+            window.selectedMlPrice = null;
 
             mlPackBtns.forEach(btn => {
-                btn.addEventListener('click', () => { selectMlPack(btn); });
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    mlPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedMlPack = this.dataset.diamond;
+                    window.selectedMlPrice = this.dataset.price;
+                    if (mlShippingForm.classList.contains('hidden')) {
+                        mlShippingForm.classList.remove('hidden');
+                        setTimeout(() => { mlShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        mlShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { mlAccountIdInput.focus(); }, 600);
+                    }, 150);
+                });
             });
-
-            if (mlPackBtns.length) {
-                setTimeout(() => { selectMlPack(mlPackBtns[0]); }, 100);
-            }
 
             document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
                 createRippleBtn(e, e.target);
                 const accountId = mlAccountIdInput.value.trim();
                 const regionId = mlRegionIdInput.value.trim();
-                if (!selectedMlPack) {
+                if (!window.selectedMlPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
                 }
@@ -4311,7 +4403,7 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء باقة ${selectedMlPack} 💎\n💰 السعر: $${selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedMlPack} 💎\n💰 السعر: $${window.selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`
                         );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -4326,37 +4418,33 @@
             const efootballShippingForm = document.getElementById('efootballShippingForm');
             const efootballUidInput = document.getElementById('efootballUidInput');
             const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-            let selectedEfootballPack = null;
-            let selectedEfootballPrice = null;
-
-            function selectEfootballPack(btn) {
-                efootballPackBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedEfootballPack = btn.dataset.fc;
-                selectedEfootballPrice = btn.dataset.price;
-                if (efootballShippingForm.classList.contains('hidden')) {
-                    efootballShippingForm.classList.remove('hidden');
-                    setTimeout(() => { efootballShippingForm.classList.add('visible'); }, 50);
-                }
-                setTimeout(() => {
-                    efootballShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => { efootballUidInput.focus(); }, 600);
-                }, 150);
-            }
+            
+            window.selectedEfootballPack = null;
+            window.selectedEfootballPrice = null;
 
             efootballPackBtns.forEach(btn => {
-                btn.addEventListener('click', () => { selectEfootballPack(btn); });
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedEfootballPack = this.dataset.fc;
+                    window.selectedEfootballPrice = this.dataset.price;
+                    if (efootballShippingForm.classList.contains('hidden')) {
+                        efootballShippingForm.classList.remove('hidden');
+                        setTimeout(() => { efootballShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        efootballShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { efootballUidInput.focus(); }, 600);
+                    }, 150);
+                });
             });
-
-            if (efootballPackBtns.length) {
-                setTimeout(() => { selectEfootballPack(efootballPackBtns[0]); }, 100);
-            }
 
             document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
                 createRippleBtn(e, e.target);
                 const uid = efootballUidInput.value.trim();
                 const whatsapp = efootballWhatsappInput.value.trim();
-                if (!selectedEfootballPack) {
+                if (!window.selectedEfootballPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
                 }
@@ -4373,7 +4461,7 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء ${selectedEfootballPack} FC\n💰 السعر: $${selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء ${window.selectedEfootballPack} FC\n💰 السعر: $${window.selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                         );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -4388,37 +4476,33 @@
             const cocShippingForm = document.getElementById('cocShippingForm');
             const cocSupercellInput = document.getElementById('cocSupercellInput');
             const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-            let selectedCocPack = null;
-            let selectedCocPrice = null;
-
-            function selectCocPack(btn) {
-                cocPackBtns.forEach(b => b.classList.remove('selected'));
-                btn.classList.add('selected');
-                selectedCocPack = btn.dataset.gems;
-                selectedCocPrice = btn.dataset.price;
-                if (cocShippingForm.classList.contains('hidden')) {
-                    cocShippingForm.classList.remove('hidden');
-                    setTimeout(() => { cocShippingForm.classList.add('visible'); }, 50);
-                }
-                setTimeout(() => {
-                    cocShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    setTimeout(() => { cocSupercellInput.focus(); }, 600);
-                }, 150);
-            }
+            
+            window.selectedCocPack = null;
+            window.selectedCocPrice = null;
 
             cocPackBtns.forEach(btn => {
-                btn.addEventListener('click', () => { selectCocPack(btn); });
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    cocPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedCocPack = this.dataset.gems;
+                    window.selectedCocPrice = this.dataset.price;
+                    if (cocShippingForm.classList.contains('hidden')) {
+                        cocShippingForm.classList.remove('hidden');
+                        setTimeout(() => { cocShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        cocShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { cocSupercellInput.focus(); }, 600);
+                    }, 150);
+                });
             });
-
-            if (cocPackBtns.length) {
-                setTimeout(() => { selectCocPack(cocPackBtns[0]); }, 100);
-            }
 
             document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
                 createRippleBtn(e, e.target);
                 const supercell = cocSupercellInput.value.trim();
                 const whatsapp = cocWhatsappInput.value.trim();
-                if (!selectedCocPack) {
+                if (!window.selectedCocPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
                 }
@@ -4435,7 +4519,7 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء ${selectedCocPack} 💎\n💰 السعر: $${selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء ${window.selectedCocPack} 💎\n💰 السعر: $${window.selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                         );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -4652,11 +4736,14 @@
                 updateNavActive('page-home');
                 const firstMethod = document.querySelector('.method-item');
                 if (firstMethod) firstMethod.classList.add('selected');
+                // Ensure all packs are reset on initial load
+                resetAllPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إصلاح جميع الصفحات المفقودة');
-            console.log('✅ جميع صور الألعاب محدثة ومكبرة');
+            console.log('✅ تم إصلاح مشكلة تحديد الباقات');
+            console.log('✅ جميع الباقات تبدأ بدون تحديد');
+            console.log('✅ يتم إعادة تهيئة الحالة عند مغادرة الصفحة');
 
         })();
     </script>
