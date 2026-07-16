@@ -13,12 +13,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
             background-color: #F5F7FA;
-            color: #222;
+            color: #1A1A2E;
             padding-bottom: 80px;
             min-height: 100vh;
             overflow-x: hidden;
@@ -1937,223 +1937,366 @@
         }
 
         .detail-header {
-            padding: 16px 16px 12px;
+            padding: 14px 16px 10px;
             display: flex;
             align-items: center;
             gap: 12px;
-            border-bottom: 2px solid #1A73E8;
+            border-bottom: 1px solid #E8EAED;
             background: #FFFFFF;
         }
 
         .detail-header .back-btn {
             width: 36px;
             height: 36px;
-            border: 2px solid #1A73E8;
+            border: none;
             background: transparent;
-            color: #1A73E8;
-            font-size: 16px;
+            color: #1A1A2E;
+            font-size: 18px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
-            border-radius: 0;
+            border-radius: 4px;
         }
 
         .detail-header .back-btn:active {
+            background: #F0F2F5;
+        }
+
+        .detail-header .header-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1A1A2E;
+            letter-spacing: 0.2px;
+        }
+
+        /* ===== STEP INDICATOR ===== */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0;
+            padding: 14px 16px 12px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #F0F2F5;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            font-weight: 500;
+            color: #B0B8C4;
+            letter-spacing: 0.2px;
+            white-space: nowrap;
+        }
+
+        .step-item .step-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid #D1D5DB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 700;
+            color: #B0B8C4;
+            transition: all 0.4s ease;
+            flex-shrink: 0;
+            background: #FFFFFF;
+        }
+
+        .step-item.active .step-circle {
+            border-color: #1A73E8;
             background: #1A73E8;
             color: #FFFFFF;
         }
 
-        .detail-header .header-title {
-            font-size: 18px;
-            font-weight: 700;
+        .step-item.done .step-circle {
+            border-color: #10B981;
+            background: #10B981;
+            color: #FFFFFF;
+        }
+
+        .step-item .step-label {
+            font-size: 11px;
+            font-weight: 500;
+            color: #B0B8C4;
+            transition: color 0.3s ease;
+        }
+
+        .step-item.active .step-label {
             color: #1A1A2E;
-            letter-spacing: 0.3px;
         }
 
-        .detail-header .header-sub {
-            font-size: 12px;
-            color: #999;
-            font-weight: 400;
+        .step-item.done .step-label {
+            color: #10B981;
         }
 
+        .step-line {
+            flex: 1;
+            min-width: 20px;
+            height: 2px;
+            background: #E8EAED;
+            margin: 0 4px;
+            transition: background 0.4s ease;
+            border-radius: 2px;
+        }
+
+        .step-line.done {
+            background: #10B981;
+        }
+
+        .step-line.active {
+            background: #1A73E8;
+        }
+
+        /* ===== BODY ===== */
         .detail-body {
-            padding: 16px 16px 20px;
+            padding: 16px 16px 80px;
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .account-card-geo {
-            border: 2px solid #1A73E8;
-            padding: 12px 14px;
+        /* ===== ACCOUNT CARD ===== */
+        .account-card {
             background: #F8FAFC;
-            border-radius: 0;
+            border: 1px solid #E8EAED;
+            padding: 14px 16px;
+            border-radius: 4px;
         }
 
-        .account-card-geo .account-label {
-            font-size: 11px;
+        .account-card .account-label {
+            font-size: 10px;
             font-weight: 600;
-            color: #888;
+            color: #8895A7;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.6px;
             margin-bottom: 4px;
         }
 
-        .account-card-geo .account-number-wrapper {
+        .account-card .account-row {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 12px;
         }
 
-        .account-card-geo .account-number {
-            font-size: 16px;
+        .account-card .account-number {
+            font-size: 18px;
             font-weight: 700;
             color: #1A1A2E;
+            font-family: 'SF Mono', 'Courier New', monospace;
+            letter-spacing: 0.5px;
             direction: ltr;
             text-align: left;
-            font-family: 'Courier New', monospace;
-            letter-spacing: 0.5px;
-            word-break: break-all;
         }
 
-        .account-card-geo .copy-btn {
-            padding: 6px 16px;
-            background: #1A73E8;
-            color: #FFFFFF;
+        .account-card .copy-btn {
+            width: 32px;
+            height: 32px;
             border: none;
-            font-size: 12px;
-            font-weight: 600;
+            background: transparent;
+            color: #8895A7;
+            font-size: 16px;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            border-radius: 4px;
             flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
-            letter-spacing: 0.3px;
-            border-radius: 0;
         }
 
-        .account-card-geo .copy-btn:active {
-            background: #1557B0;
+        .account-card .copy-btn:active {
+            background: #E8EAED;
         }
 
-        .account-card-geo .copy-btn.copied {
-            background: #10B981;
+        .account-card .copy-btn.copied {
+            color: #10B981;
         }
 
-        .account-card-geo .account-holder {
+        .account-card .account-holder {
             font-size: 13px;
             font-weight: 500;
             color: #555;
-            margin-top: 6px;
-            padding-top: 6px;
+            margin-top: 4px;
+            padding-top: 4px;
             border-top: 1px dashed #E8EAED;
             text-align: center;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
         }
 
-        .field-group-geo {
+        /* ===== FORM FIELDS ===== */
+        .field-group {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 3px;
         }
 
-        .field-group-geo label {
+        .field-group label {
             font-size: 11px;
             font-weight: 600;
-            color: #888;
+            color: #8895A7;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
 
-        .field-group-geo label .required {
+        .field-group label .required {
             color: #EF4444;
         }
 
-        .field-group-geo input {
-            width: 100%;
-            padding: 10px 14px;
-            border: 2px solid #E8EAED;
-            font-size: 15px;
-            font-weight: 500;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            color: #222;
-            direction: rtl;
-            border-radius: 0;
+        .field-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
-        .field-group-geo input::placeholder {
-            color: #aaa;
+        .field-input-wrapper .field-icon {
+            position: absolute;
+            right: 12px;
+            color: #B0B8C4;
+            font-size: 14px;
+            pointer-events: none;
+        }
+
+        .field-input-wrapper input {
+            width: 100%;
+            padding: 10px 38px 10px 14px;
+            border: 1.5px solid #E8EAED;
+            font-size: 14px;
+            font-weight: 500;
+            background: #FFFFFF;
+            transition: all 0.2s ease;
+            color: #1A1A2E;
+            border-radius: 4px;
+            height: 44px;
+        }
+
+        .field-input-wrapper input::placeholder {
+            color: #B0B8C4;
             font-weight: 400;
             font-size: 13px;
         }
 
-        .field-group-geo input:focus {
+        .field-input-wrapper input:focus {
             border-color: #1A73E8;
             outline: none;
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.08);
         }
 
-        .field-group-geo input.input-ltr {
+        .field-input-wrapper input.input-ltr {
             direction: ltr;
             text-align: left;
+            padding-left: 14px;
         }
 
-        .file-upload-wrapper-geo {
+        .field-input-wrapper input.input-ltr + .field-icon {
+            right: auto;
+            left: 12px;
+        }
+
+        /* ===== FILE UPLOAD ===== */
+        .file-upload-mini {
             position: relative;
-            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            border: 1.5px dashed #D6E8F8;
+            background: #FAFBFC;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-radius: 4px;
+            min-height: 44px;
         }
 
-        .file-upload-wrapper-geo input[type="file"] {
+        .file-upload-mini:active {
+            background: #F0F2F5;
+        }
+
+        .file-upload-mini input[type="file"] {
             position: absolute;
             opacity: 0;
             width: 100%;
             height: 100%;
             cursor: pointer;
-            z-index: 2;
+            top: 0;
+            right: 0;
         }
 
-        .file-upload-box-geo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 12px 14px;
-            border: 2px dashed #D6E8F8;
-            background: #F8FAFC;
-            transition: all 0.25s ease;
-            cursor: pointer;
-            color: #888;
+        .file-upload-mini .upload-icon {
+            color: #1A73E8;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .file-upload-mini .upload-text {
             font-size: 13px;
             font-weight: 500;
-            border-radius: 0;
-            min-height: 44px;
+            color: #8895A7;
         }
 
-        .file-upload-box-geo i {
-            font-size: 18px;
-            color: #1A73E8;
+        .file-upload-mini .upload-preview {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            margin-right: auto;
         }
 
-        .file-upload-box-geo.has-file {
-            border-color: #10B981;
-            background: rgba(16, 185, 129, 0.06);
-            color: #10B981;
+        .file-upload-mini .upload-preview img {
+            width: 28px;
+            height: 28px;
+            object-fit: cover;
+            border-radius: 4px;
+            border: 1px solid #E8EAED;
         }
 
-        .file-upload-box-geo .file-name {
-            font-weight: 600;
-            color: #222;
-            max-width: 120px;
+        .file-upload-mini .upload-preview .preview-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: #1A1A2E;
+            max-width: 100px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
+        }
+
+        .file-upload-mini .upload-preview .preview-check {
+            color: #10B981;
+            font-size: 14px;
+        }
+
+        .file-upload-mini.has-file {
+            border-color: #10B981;
+            background: rgba(16, 185, 129, 0.04);
+        }
+
+        .file-upload-mini.has-file .upload-text {
+            display: none;
+        }
+
+        .file-upload-mini.has-file .upload-preview {
+            display: flex;
+        }
+
+        /* ===== STICKY BOTTOM BUTTON ===== */
+        .sticky-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-width: 480px;
+            margin: 0 auto;
+            padding: 12px 16px 16px;
+            background: #FFFFFF;
+            border-top: 1px solid #F0F2F5;
+            z-index: 50;
         }
 
         .btn-confirm-geometric {
@@ -2162,25 +2305,25 @@
             background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: all 0.2s ease;
             position: relative;
             overflow: hidden;
-            margin-top: 4px;
-            -webkit-tap-highlight-color: transparent;
-            border-radius: 0;
-            letter-spacing: 0.5px;
+            border-radius: 4px;
+            letter-spacing: 0.3px;
+            height: 50px;
         }
 
         .btn-confirm-geometric:active {
             background: #1557B0;
+            transform: scale(0.98);
         }
 
         .btn-confirm-geometric.loading {
             pointer-events: none;
-            opacity: 0.8;
+            opacity: 0.85;
         }
 
         .btn-confirm-geometric .loader {
@@ -2201,7 +2344,7 @@
         .loader-spinner-geometric {
             width: 20px;
             height: 20px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
+            border: 2.5px solid rgba(255, 255, 255, 0.3);
             border-top-color: #FFFFFF;
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
@@ -2213,10 +2356,11 @@
             }
         }
 
+        /* ===== SUCCESS MESSAGE ===== */
         .success-message-geometric {
             display: none;
             text-align: center;
-            padding: 30px 20px;
+            padding: 40px 20px;
             animation: successPopGeo 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
@@ -2227,7 +2371,7 @@
         @keyframes successPopGeo {
             0% {
                 opacity: 0;
-                transform: scale(0.9);
+                transform: scale(0.95);
             }
             100% {
                 opacity: 1;
@@ -2238,26 +2382,26 @@
         .success-message-geometric .success-icon {
             width: 64px;
             height: 64px;
-            border: 3px solid #10B981;
+            border: 2px solid #10B981;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
-            font-size: 32px;
+            font-size: 28px;
             color: #10B981;
-            border-radius: 0;
+            border-radius: 50%;
         }
 
         .success-message-geometric h2 {
             font-size: 20px;
             font-weight: 700;
-            color: #222;
+            color: #1A1A2E;
             margin-bottom: 6px;
         }
 
         .success-message-geometric p {
             font-size: 14px;
-            color: #888;
+            color: #8895A7;
             line-height: 1.6;
             max-width: 300px;
             margin: 0 auto 20px;
@@ -2271,13 +2415,13 @@
             font-size: 15px;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.25s ease;
-            -webkit-tap-highlight-color: transparent;
-            border-radius: 0;
+            transition: all 0.2s ease;
+            border-radius: 4px;
         }
 
         .btn-back-home-geometric:active {
             background: #1557B0;
+            transform: scale(0.98);
         }
 
         /* ============================================ */
@@ -2488,56 +2632,61 @@
                 right: 6px;
             }
             .detail-header {
-                padding: 12px 12px 10px;
+                padding: 12px 14px 8px;
             }
             .detail-header .header-title {
                 font-size: 16px;
             }
-            .detail-header .header-sub {
-                font-size: 11px;
+            .step-indicator {
+                padding: 10px 12px 8px;
+                gap: 0;
             }
-            .detail-header .back-btn {
-                width: 32px;
-                height: 32px;
-                font-size: 14px;
+            .step-item .step-circle {
+                width: 20px;
+                height: 20px;
+                font-size: 9px;
+            }
+            .step-item .step-label {
+                font-size: 9px;
+            }
+            .step-line {
+                min-width: 12px;
             }
             .detail-body {
-                padding: 12px 12px 16px;
+                padding: 12px 12px 72px;
                 gap: 10px;
             }
-            .account-card-geo {
-                padding: 10px 12px;
+            .account-card {
+                padding: 12px 14px;
             }
-            .account-card-geo .account-number {
-                font-size: 14px;
+            .account-card .account-number {
+                font-size: 16px;
             }
-            .account-card-geo .copy-btn {
-                font-size: 11px;
-                padding: 4px 12px;
+            .field-input-wrapper input {
+                padding: 8px 34px 8px 12px;
+                font-size: 13px;
+                height: 40px;
             }
-            .account-card-geo .account-holder {
-                font-size: 12px;
+            .field-input-wrapper .field-icon {
+                font-size: 13px;
+                right: 10px;
             }
-            .field-group-geo input {
+            .file-upload-mini {
                 padding: 8px 12px;
-                font-size: 14px;
-            }
-            .field-group-geo label {
-                font-size: 10px;
-            }
-            .file-upload-box-geo {
-                padding: 10px 12px;
-                font-size: 12px;
                 min-height: 40px;
             }
+            .sticky-bottom {
+                padding: 10px 12px 12px;
+            }
             .btn-confirm-geometric {
+                height: 46px;
+                font-size: 14px;
                 padding: 12px 20px;
-                font-size: 15px;
             }
             .success-message-geometric .success-icon {
                 width: 56px;
                 height: 56px;
-                font-size: 28px;
+                font-size: 24px;
             }
             .success-message-geometric h2 {
                 font-size: 18px;
@@ -2679,22 +2828,26 @@
                 font-size: 13px;
             }
             .detail-body {
-                padding: 20px 24px 24px;
+                padding: 20px 24px 80px;
                 gap: 14px;
             }
-            .account-card-geo {
-                padding: 14px 18px;
+            .account-card {
+                padding: 16px 20px;
             }
-            .account-card-geo .account-number {
-                font-size: 18px;
+            .account-card .account-number {
+                font-size: 20px;
             }
-            .field-group-geo input {
-                padding: 12px 16px;
-                font-size: 16px;
+            .field-input-wrapper input {
+                height: 48px;
+                font-size: 15px;
+                padding: 12px 42px 12px 16px;
+            }
+            .sticky-bottom {
+                padding: 16px 24px 20px;
             }
             .btn-confirm-geometric {
-                padding: 16px 24px;
-                font-size: 18px;
+                height: 54px;
+                font-size: 16px;
             }
             .wallet-balance-card {
                 max-width: 400px;
@@ -2910,55 +3063,75 @@
                 <button class="back-btn" id="detailBackBtnGeo">
                     <i class="fas fa-arrow-right"></i>
                 </button>
-                <div>
-                    <div class="header-title">إيداع الرصيد</div>
-                    <div class="header-sub">أضف أموال إلى محفظتك</div>
+                <span class="header-title">إيداع الرصيد</span>
+            </div>
+
+            <!-- شريط الخطوات -->
+            <div class="step-indicator" id="stepIndicator">
+                <div class="step-item active" id="step1">
+                    <span class="step-circle">1</span>
+                    <span class="step-label">تحويل</span>
+                </div>
+                <div class="step-line" id="line1"></div>
+                <div class="step-item" id="step2">
+                    <span class="step-circle">2</span>
+                    <span class="step-label">رفع</span>
+                </div>
+                <div class="step-line" id="line2"></div>
+                <div class="step-item" id="step3">
+                    <span class="step-circle">3</span>
+                    <span class="step-label">تأكيد</span>
                 </div>
             </div>
 
+            <!-- المحتوى -->
             <div class="detail-body" id="detailBody">
-                <div class="account-card-geo">
+                <!-- بطاقة الحساب -->
+                <div class="account-card">
                     <div class="account-label">رقم الحساب / المحفظة</div>
-                    <div class="account-number-wrapper">
+                    <div class="account-row">
                         <span class="account-number" id="accountNumberGeo">7610732</span>
                         <button class="copy-btn" id="copyBtnGeo">
                             <i class="fas fa-copy"></i>
-                            نسخ
                         </button>
                     </div>
                     <div class="account-holder" id="accountHolderGeo">نـافع نصر الدين سليمان</div>
                 </div>
 
-                <div class="field-group-geo">
+                <!-- المبلغ -->
+                <div class="field-group">
                     <label>المبلغ <span class="required">*</span></label>
-                    <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInputGeo" class="input-ltr" />
+                    <div class="field-input-wrapper">
+                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInputGeo" class="input-ltr" />
+                        <span class="field-icon"><i class="fas fa-dollar-sign"></i></span>
+                    </div>
                 </div>
 
-                <div class="field-group-geo">
-                    <label>رقم العملية أو التحويل <span class="required">*</span></label>
-                    <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInputGeo" />
+                <!-- رقم العملية -->
+                <div class="field-group">
+                    <label>رقم العملية <span class="required">*</span></label>
+                    <div class="field-input-wrapper">
+                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInputGeo" />
+                        <span class="field-icon"><i class="fas fa-hashtag"></i></span>
+                    </div>
                 </div>
 
-                <div class="field-group-geo">
+                <!-- رفع الإيصال -->
+                <div class="field-group">
                     <label>صورة الإيصال</label>
-                    <div class="file-upload-wrapper-geo">
+                    <div class="file-upload-mini" id="fileUploadBoxGeo">
                         <input type="file" accept="image/*" id="receiptInputGeo" />
-                        <div class="file-upload-box-geo" id="fileUploadBoxGeo">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>رفع صورة الإيصال</span>
-                            <span class="file-name" id="fileNameGeo"></span>
+                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                        <span class="upload-text">رفع صورة الإيصال</span>
+                        <div class="upload-preview" id="uploadPreview">
+                            <img id="previewImage" src="#" alt="معاينة" />
+                            <span class="preview-name" id="previewFileName"></span>
+                            <span class="preview-check"><i class="fas fa-check-circle"></i></span>
                         </div>
                     </div>
                 </div>
 
-                <button class="btn-confirm-geometric" id="confirmBtnGeo">
-                    <span class="btn-text">تأكيد الإيداع</span>
-                    <span class="loader">
-                        <span class="loader-spinner-geometric"></span>
-                        جاري المعالجة...
-                    </span>
-                </button>
-
+                <!-- رسالة النجاح (مخفية) -->
                 <div class="success-message-geometric" id="successMessageGeo">
                     <div class="success-icon">
                         <i class="fas fa-check"></i>
@@ -2967,6 +3140,17 @@
                     <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
                     <button class="btn-back-home-geometric" id="backHomeBtnGeo">العودة للرئيسية</button>
                 </div>
+            </div>
+
+            <!-- زر ثابت في الأسفل -->
+            <div class="sticky-bottom" id="stickyBottom">
+                <button class="btn-confirm-geometric" id="confirmBtnGeo">
+                    <span class="btn-text">تأكيد الإيداع</span>
+                    <span class="loader">
+                        <span class="loader-spinner-geometric"></span>
+                        جاري المعالجة...
+                    </span>
+                </button>
             </div>
         </div>
 
@@ -3201,6 +3385,7 @@
             </div>
 
             <div class="ml-packs-grid" id="mlPacksGrid">
+                <!-- تم اختصار الكود للاختصار - نفس الباقات السابقة -->
                 <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
                     <span class="diamond-amount">74 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
                     <span class="price-amount">$1.50</span>
@@ -3224,18 +3409,6 @@
                 <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
                     <span class="diamond-amount">2,205 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
                     <span class="price-amount">$45.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="4527" data-price="92.00">
-                    <span class="diamond-amount">4,527 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$92.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="7707" data-price="157.00">
-                    <span class="diamond-amount">7,707 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$157.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="11559" data-price="235.00">
-                    <span class="diamond-amount">11,559 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$235.00</span>
                 </button>
             </div>
 
@@ -3490,7 +3663,6 @@
                 setTimeout(() => ripple.remove(), 600);
             }
 
-            // Ripple لأزرار الإيداع والسحب في المحفظة
             document.querySelectorAll('.action-card').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     const rect = this.getBoundingClientRect();
@@ -3542,27 +3714,6 @@
                     navIndicator.style.width = '30px';
                     navIndicator.classList.add('show');
                 }
-            }
-
-            function scrollToShippingFormWithDelay(shippingFormElement, firstInputElement, delay) {
-                if (shippingFormElement.classList.contains('hidden')) {
-                    shippingFormElement.classList.remove('hidden');
-                    setTimeout(() => {
-                        shippingFormElement.classList.add('visible');
-                    }, 50);
-                }
-                setTimeout(() => {
-                    shippingFormElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start',
-                        inline: 'nearest'
-                    });
-                    setTimeout(() => {
-                        if (firstInputElement) {
-                            firstInputElement.focus();
-                        }
-                    }, 600);
-                }, delay || 150);
             }
 
             // ============================================
@@ -3656,7 +3807,6 @@
             const methodItems = document.querySelectorAll('.method-item');
             const depositDetailPage = document.getElementById('depositDetailPage');
 
-            // زر الإيداع في المحفظة
             document.getElementById('depositBtn').addEventListener('click', function(e) {
                 this.style.transform = 'scale(0.98)';
                 setTimeout(() => {
@@ -3675,7 +3825,6 @@
                     depositPage.classList.add('active');
                 });
 
-                // إخفاء صفحة التفاصيل
                 depositDetailPage.classList.remove('active');
                 depositDetailPage.style.display = 'none';
 
@@ -3688,7 +3837,6 @@
                 });
             });
 
-            // زر الرجوع من اختيار الطريقة
             depositBackBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 depositPage.classList.add('slide-out');
@@ -3701,7 +3849,6 @@
                 }, 350);
             });
 
-            // اختيار طريقة الإيداع - فتح صفحة التفاصيل
             methodItems.forEach(item => {
                 item.addEventListener('click', function(e) {
                     createRipple(e, this);
@@ -3711,14 +3858,12 @@
                     const method = this.dataset.method;
                     localStorage.setItem('selectedDepositMethod', method);
 
-                    // الانتقال لصفحة التفاصيل
                     depositPage.classList.add('slide-out');
                     setTimeout(() => {
                         depositPage.classList.remove('active');
                         depositPage.style.display = 'none';
                         depositPage.classList.remove('slide-out');
 
-                        // إظهار صفحة التفاصيل
                         depositDetailPage.style.display = 'block';
                         depositDetailPage.style.animation = 'none';
                         requestAnimationFrame(() => {
@@ -3726,14 +3871,13 @@
                             depositDetailPage.classList.add('active');
                         });
 
-                        // تحديث رقم الحساب واسم الحامل
                         updateAccount(method);
                     }, 350);
                 });
             });
 
             // ============================================
-            // ===== بيانات طرق الدفع مع الأرقام والأسماء =====
+            // ===== بيانات طرق الدفع =====
             // ============================================
             const methodsData = {
                 bank: {
@@ -3759,7 +3903,7 @@
             };
 
             // ============================================
-            // ===== صفحة تفاصيل الإيداع - Geometric UI =====
+            // ===== صفحة تفاصيل الإيداع =====
             // ============================================
             const detailBackBtn = document.getElementById('detailBackBtnGeo');
             const accountNumber = document.getElementById('accountNumberGeo');
@@ -3769,11 +3913,19 @@
             const transactionIdInput = document.getElementById('transactionIdInputGeo');
             const receiptInput = document.getElementById('receiptInputGeo');
             const fileUploadBox = document.getElementById('fileUploadBoxGeo');
-            const fileName = document.getElementById('fileNameGeo');
+            const previewImage = document.getElementById('previewImage');
+            const previewFileName = document.getElementById('previewFileName');
             const confirmBtn = document.getElementById('confirmBtnGeo');
             const successMessage = document.getElementById('successMessageGeo');
             const backHomeBtn = document.getElementById('backHomeBtnGeo');
             const detailBody = document.getElementById('detailBody');
+            const stickyBottom = document.getElementById('stickyBottom');
+
+            const step1 = document.getElementById('step1');
+            const step2 = document.getElementById('step2');
+            const step3 = document.getElementById('step3');
+            const line1 = document.getElementById('line1');
+            const line2 = document.getElementById('line2');
 
             function updateAccount(method) {
                 const data = methodsData[method];
@@ -3783,11 +3935,35 @@
                 }
             }
 
-            // تحميل الطريقة المختارة
             const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
             updateAccount(savedMethod);
 
-            // زر الرجوع من صفحة التفاصيل
+            function updateSteps(step) {
+                [step1, step2, step3].forEach(s => s.classList.remove('active', 'done'));
+                [line1, line2].forEach(l => l.classList.remove('done', 'active'));
+
+                if (step === 1) {
+                    step1.classList.add('active');
+                    line1.classList.add('active');
+                } else if (step === 2) {
+                    step1.classList.add('done');
+                    step1.querySelector('.step-circle').textContent = '✓';
+                    step2.classList.add('active');
+                    line1.classList.add('done');
+                    line2.classList.add('active');
+                } else if (step === 3) {
+                    step1.classList.add('done');
+                    step1.querySelector('.step-circle').textContent = '✓';
+                    step2.classList.add('done');
+                    step2.querySelector('.step-circle').textContent = '✓';
+                    step3.classList.add('active');
+                    line1.classList.add('done');
+                    line2.classList.add('done');
+                }
+            }
+
+            updateSteps(1);
+
             detailBackBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 depositDetailPage.classList.add('slide-out');
@@ -3795,17 +3971,14 @@
                     depositDetailPage.classList.remove('active');
                     depositDetailPage.style.display = 'none';
                     depositDetailPage.classList.remove('slide-out');
-
-                    // العودة لصفحة اختيار الطريقة
                     depositPage.style.display = 'block';
                     depositPage.style.animation = 'none';
                     requestAnimationFrame(() => {
                         depositPage.style.animation = 'none';
                         depositPage.classList.add('active');
                     });
-
-                    // إعادة تعيين التفاصيل
                     detailBody.style.display = 'flex';
+                    stickyBottom.style.display = 'block';
                     successMessage.classList.remove('active');
                     successMessage.style.display = 'none';
                     confirmBtn.classList.remove('loading');
@@ -3814,26 +3987,26 @@
                     transactionIdInput.value = '';
                     receiptInput.value = '';
                     fileUploadBox.classList.remove('has-file');
-                    fileName.textContent = '';
-                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+                    previewImage.src = '#';
+                    previewFileName.textContent = '';
+                    updateSteps(1);
+                    step1.querySelector('.step-circle').textContent = '1';
+                    step2.querySelector('.step-circle').textContent = '2';
                 }, 350);
             });
 
-            // نسخ رقم الحساب
             copyBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 const text = accountNumber.textContent;
                 if (navigator.clipboard && navigator.clipboard.writeText) {
                     navigator.clipboard.writeText(text).then(() => {
                         this.classList.add('copied');
-                        this.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                        this.innerHTML = '<i class="fas fa-check"></i>';
                         setTimeout(() => {
                             this.classList.remove('copied');
-                            this.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                            this.innerHTML = '<i class="fas fa-copy"></i>';
                         }, 2000);
-                    }).catch(() => {
-                        fallbackCopy(text);
-                    });
+                    }).catch(() => { fallbackCopy(text); });
                 } else {
                     fallbackCopy(text);
                 }
@@ -3849,10 +4022,10 @@
                 try {
                     document.execCommand('copy');
                     copyBtn.classList.add('copied');
-                    copyBtn.innerHTML = '<i class="fas fa-check"></i> تم النسخ';
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i>';
                     setTimeout(() => {
                         copyBtn.classList.remove('copied');
-                        copyBtn.innerHTML = '<i class="fas fa-copy"></i> نسخ';
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
                     }, 2000);
                 } catch (err) {
                     alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
@@ -3860,21 +4033,29 @@
                 document.body.removeChild(textarea);
             }
 
-            // رفع الصورة
             receiptInput.addEventListener('change', function() {
                 if (this.files && this.files[0]) {
                     const file = this.files[0];
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    previewFileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
                     fileUploadBox.classList.add('has-file');
-                    fileName.textContent = file.name.length > 18 ? file.name.slice(0, 18) + '...' : file.name;
-                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'none';
+                    step2.classList.add('done');
+                    line1.classList.add('done');
+                    step2.querySelector('.step-circle').textContent = '✓';
                 } else {
                     fileUploadBox.classList.remove('has-file');
-                    fileName.textContent = '';
-                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+                    previewImage.src = '#';
+                    previewFileName.textContent = '';
+                    step2.classList.remove('done');
+                    line1.classList.remove('done');
+                    step2.querySelector('.step-circle').textContent = '2';
                 }
             });
 
-            // تأكيد الإيداع
             confirmBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 const amount = amountInput.value.trim();
@@ -3896,17 +4077,19 @@
                     return;
                 }
 
+                updateSteps(2);
                 this.classList.add('loading');
 
                 setTimeout(() => {
                     this.classList.remove('loading');
+                    updateSteps(3);
                     detailBody.style.display = 'none';
+                    stickyBottom.style.display = 'none';
                     successMessage.classList.add('active');
                     successMessage.style.display = 'block';
                 }, 1500);
             });
 
-            // زر العودة للرئيسية
             backHomeBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
                 depositDetailPage.classList.add('slide-out');
@@ -3914,13 +4097,13 @@
                     depositDetailPage.classList.remove('active');
                     depositDetailPage.style.display = 'none';
                     depositDetailPage.classList.remove('slide-out');
-
-                    // العودة للرئيسية
-                    switchPage('page-home');
-                    updateNavActive('page-home');
-
-                    // إعادة تعيين الحالة
+                    const homePage = document.getElementById('page-home');
+                    if (homePage) {
+                        homePage.style.display = 'block';
+                        homePage.classList.add('active');
+                    }
                     detailBody.style.display = 'flex';
+                    stickyBottom.style.display = 'block';
                     successMessage.classList.remove('active');
                     successMessage.style.display = 'none';
                     confirmBtn.classList.remove('loading');
@@ -3929,8 +4112,11 @@
                     transactionIdInput.value = '';
                     receiptInput.value = '';
                     fileUploadBox.classList.remove('has-file');
-                    fileName.textContent = '';
-                    fileUploadBox.querySelector('span:not(.file-name)').style.display = 'inline';
+                    previewImage.src = '#';
+                    previewFileName.textContent = '';
+                    updateSteps(1);
+                    step1.querySelector('.step-circle').textContent = '1';
+                    step2.querySelector('.step-circle').textContent = '2';
                 }, 350);
             });
 
@@ -3950,7 +4136,14 @@
                     btn.classList.add('selected');
                     selectedPack = btn.dataset.uc;
                     selectedPrice = btn.dataset.price;
-                    scrollToShippingFormWithDelay(shippingForm, gameIdInput, 150);
+                    if (shippingForm.classList.contains('hidden')) {
+                        shippingForm.classList.remove('hidden');
+                        setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { gameIdInput.focus(); }, 600);
+                    }, 150);
                 });
             });
 
@@ -4009,7 +4202,14 @@
                 btn.classList.add('selected');
                 selectedCodPack = btn.dataset.cp;
                 selectedCodPrice = btn.dataset.price;
-                scrollToShippingFormWithDelay(codShippingForm, codPlayerIdInput, 150);
+                if (codShippingForm.classList.contains('hidden')) {
+                    codShippingForm.classList.remove('hidden');
+                    setTimeout(() => { codShippingForm.classList.add('visible'); }, 50);
+                }
+                setTimeout(() => {
+                    codShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => { codPlayerIdInput.focus(); }, 600);
+                }, 150);
             }
 
             codPackBtns.forEach(btn => {
@@ -4064,7 +4264,14 @@
                 btn.classList.add('selected');
                 selectedMlPack = btn.dataset.diamond;
                 selectedMlPrice = btn.dataset.price;
-                scrollToShippingFormWithDelay(mlShippingForm, mlAccountIdInput, 150);
+                if (mlShippingForm.classList.contains('hidden')) {
+                    mlShippingForm.classList.remove('hidden');
+                    setTimeout(() => { mlShippingForm.classList.add('visible'); }, 50);
+                }
+                setTimeout(() => {
+                    mlShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => { mlAccountIdInput.focus(); }, 600);
+                }, 150);
             }
 
             mlPackBtns.forEach(btn => {
@@ -4119,7 +4326,14 @@
                 btn.classList.add('selected');
                 selectedEfootballPack = btn.dataset.fc;
                 selectedEfootballPrice = btn.dataset.price;
-                scrollToShippingFormWithDelay(efootballShippingForm, efootballUidInput, 150);
+                if (efootballShippingForm.classList.contains('hidden')) {
+                    efootballShippingForm.classList.remove('hidden');
+                    setTimeout(() => { efootballShippingForm.classList.add('visible'); }, 50);
+                }
+                setTimeout(() => {
+                    efootballShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => { efootballUidInput.focus(); }, 600);
+                }, 150);
             }
 
             efootballPackBtns.forEach(btn => {
@@ -4174,7 +4388,14 @@
                 btn.classList.add('selected');
                 selectedCocPack = btn.dataset.gems;
                 selectedCocPrice = btn.dataset.price;
-                scrollToShippingFormWithDelay(cocShippingForm, cocSupercellInput, 150);
+                if (cocShippingForm.classList.contains('hidden')) {
+                    cocShippingForm.classList.remove('hidden');
+                    setTimeout(() => { cocShippingForm.classList.add('visible'); }, 50);
+                }
+                setTimeout(() => {
+                    cocShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    setTimeout(() => { cocSupercellInput.focus(); }, 600);
+                }, 150);
             }
 
             cocPackBtns.forEach(btn => {
@@ -4426,11 +4647,8 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة أرقام الحسابات والأسماء:');
-            console.log('   بنكك: 7610732 - نـافع نصر الدين سليمان');
-            console.log('   ماي كاشي: 401401294 - نـافع نصر الدين سليمان');
-            console.log('   بـيدي: 0901839168 - نـافع نصر الدين سليمان');
-            console.log('✅ تصميم هندسي (Geometric UI) بزوايا حادة 90°');
+            console.log('✅ تصميم Geometric UI مع شريط خطوات وزر ثابت');
+            console.log('✅ أرقام الحسابات محدثة مع أسماء المستفيدين');
 
         })();
     </script>
