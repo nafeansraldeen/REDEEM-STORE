@@ -2088,19 +2088,21 @@
             text-align: right;
         }
 
-        /* ===== FILE UPLOAD ===== */
+        /* ===== FILE UPLOAD - بحجم الصورة المرجعية ===== */
         .file-upload-mini {
             position: relative;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            padding: 12px 16px;
-            border: 1.5px dashed #D6E8F8;
+            padding: 14px 16px;
+            border: 2px dashed #D6E8F8;
             background: #FFFFFF;
             cursor: pointer;
             transition: all 0.2s ease;
             border-radius: 10px;
-            min-height: 48px;
+            min-height: 56px;
+            width: 100%;
             margin-bottom: 4px;
         }
 
@@ -2120,7 +2122,7 @@
 
         .file-upload-mini .upload-icon {
             color: #1A73E8;
-            font-size: 18px;
+            font-size: 20px;
             flex-shrink: 0;
         }
 
@@ -2138,8 +2140,8 @@
         }
 
         .file-upload-mini .upload-preview img {
-            width: 30px;
-            height: 30px;
+            width: 34px;
+            height: 34px;
             object-fit: cover;
             border-radius: 6px;
             border: 1px solid #E8EAED;
@@ -2149,7 +2151,7 @@
             font-size: 13px;
             font-weight: 500;
             color: #1A1A2E;
-            max-width: 100px;
+            max-width: 120px;
             overflow: hidden;
             text-overflow: ellipsis;
             white-space: nowrap;
@@ -2543,8 +2545,14 @@
                 height: 44px;
             }
             .file-upload-mini {
-                padding: 10px 14px;
-                min-height: 44px;
+                padding: 12px 14px;
+                min-height: 48px;
+            }
+            .file-upload-mini .upload-icon {
+                font-size: 18px;
+            }
+            .file-upload-mini .upload-text {
+                font-size: 13px;
             }
             .sticky-bottom {
                 padding: 6px 12px 14px;
@@ -2712,6 +2720,10 @@
                 height: 52px;
                 font-size: 16px;
                 padding: 14px 18px;
+            }
+            .file-upload-mini {
+                min-height: 60px;
+                padding: 16px 20px;
             }
             .sticky-bottom {
                 padding: 10px 24px 20px;
@@ -2947,7 +2959,7 @@
                 <div class="field-group">
                     <label>المبلغ</label>
                     <div class="field-input-wrapper">
-                        <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
+                        <input type="number" placeholder="أدخل المـبـلـغ الـمـطـلـوب" id="amountInput" class="input-ltr" />
                     </div>
                 </div>
 
@@ -3762,7 +3774,6 @@
                 const data = methodsData[method];
                 if (data) {
                     accountNumber.textContent = data.account;
-                    // تحديث اسم الحساب
                     accountHolder.innerHTML = `<span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان`;
                 }
             }
@@ -4411,7 +4422,8 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم تطبيق جميع التعديلات المطلوبة');
+            console.log('✅ تم تحديث النص داخل حقل المبلغ');
+            console.log('✅ تم تكبير حقل صورة الإيصال');
 
         })();
     </script>
