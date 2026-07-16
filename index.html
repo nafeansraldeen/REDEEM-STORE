@@ -367,24 +367,6 @@
             pointer-events: none;
         }
 
-        .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.10);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        .ripple-faq {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
         @keyframes rippleAnim {
             to {
                 transform: scale(4);
@@ -408,952 +390,399 @@
         }
 
         /* ============================================ */
-        /* ===== PUBG PAGE ===== */
+        /* ===== WALLET PAGE ===== */
         /* ============================================ */
-        .pubg-header {
+        #page-wallet {
+            padding: 0 !important;
+            background: #FFFFFF;
+        }
+
+        .wallet-card-wrapper {
+            padding: 16px 16px 0 16px;
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .wallet-balance-card {
+            width: 100%;
+            max-width: 360px;
+            height: 210px;
+            background: linear-gradient(145deg, #1A73E8, #0D47A1);
+            border-radius: 24px;
+            padding: 24px 24px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 12px 40px rgba(26, 115, 232, 0.30);
+            position: relative;
+            overflow: hidden;
+            direction: rtl;
+        }
+
+        .wallet-balance-card::after {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .wallet-balance-card::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 120px;
+            height: 120px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .wallet-balance-top {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .wallet-balance-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 12px;
             display: flex;
             align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+            justify-content: center;
+            font-size: 20px;
+            color: #FFFFFF;
+            flex-shrink: 0;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .pubg-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        .wallet-balance-header {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
         }
 
-        .pubg-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
+        .wallet-balance-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.2;
+            margin: 0;
             letter-spacing: 0.3px;
         }
 
-        .pubg-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
+        .wallet-balance-sub {
+            font-size: 12px;
             font-weight: 400;
+            color: rgba(255, 255, 255, 0.60);
+            letter-spacing: 0.2px;
         }
 
-        .packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+        .wallet-balance-amount {
+            font-size: 40px;
+            font-weight: 900;
+            color: #FFFFFF;
+            line-height: 1;
             position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
+            z-index: 2;
+            text-align: right;
+            padding-right: 4px;
+            letter-spacing: 0.5px;
+            margin-top: 6px;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+            gap: 4px;
+            direction: ltr;
+        }
+
+        .wallet-balance-amount .currency-symbol {
+            font-size: 30px;
+            font-weight: 600;
+            color: #FFFFFF;
+            opacity: 0.85;
+        }
+
+        .wallet-balance-amount .amount-number {
+            font-size: 40px;
+            font-weight: 900;
+            color: #FFFFFF;
+        }
+
+        /* ===== أزرار الإيداع والسحب ===== */
+        .wallet-actions {
+            display: flex;
+            gap: 14px;
+            margin: 16px 16px 20px 16px;
+        }
+
+        .wallet-actions .action-card {
+            flex: 1;
+            padding: 18px 20px;
+            border: none;
+            border-radius: 12px;
+            background: #FFFFFF;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            gap: 8px;
+            font-family: 'Segoe UI', sans-serif;
+            border: 1px solid #e8eaed;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-touch-callout: none;
+            user-select: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            min-height: 100px;
         }
 
-        .pack-btn .uc-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
+        @media (hover: hover) {
+            .wallet-actions .action-card:hover {
+                border-color: #1A73E8;
+                box-shadow: 0 4px 20px rgba(26, 115, 232, 0.12);
+                transform: translateY(-2px);
+            }
         }
 
-        .pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
+        .wallet-actions .action-card:active {
+            transform: none !important;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
         }
 
-        .pack-btn.selected {
+        .wallet-actions .action-card.deposit-card {
+            background: linear-gradient(145deg, #E8F0FE, #D2E3FC);
             border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
         }
 
-        .pack-btn.selected .uc-amount {
+        .wallet-actions .action-card.deposit-card .card-icon {
+            background: #1A73E8;
+            color: white;
+        }
+
+        .wallet-actions .action-card.deposit-card .card-title {
             color: #1A73E8;
         }
 
-        .pack-btn.selected .price-amount {
-            color: #1A73E8;
+        .wallet-actions .action-card.withdraw-card {
+            background: linear-gradient(145deg, #F8F9FA, #EEF0F2);
+            border-color: #D1D5DB;
         }
 
-        .shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
+        .wallet-actions .action-card.withdraw-card .card-icon {
+            background: #6B7280;
+            color: white;
+        }
+
+        .wallet-actions .action-card.withdraw-card .card-title {
+            color: #374151;
+        }
+
+        .wallet-actions .action-card .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
             transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
         }
 
-        .shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .wallet-actions .action-card .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
         }
 
-        .shipping-form.hidden {
+        .wallet-actions .action-card .card-sub {
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            margin-top: -2px;
+        }
+
+        /* ===== المعاملات ===== */
+        .transactions-header-wallet {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            padding-right: 16px;
+        }
+
+        .transactions-header-wallet .wallet-section-title {
+            padding-right: 0;
+            margin-bottom: 0;
+        }
+
+        .filter-scroll-wallet {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding: 2px 16px 12px 16px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .filter-scroll-wallet::-webkit-scrollbar {
             display: none;
         }
 
-        .shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        .btn-buy {
-            width: 100%;
-            padding: 16px 24px;
-            background: #1A73E8;
-            color: #fff;
+        .filter-btn-wallet {
+            padding: 8px 18px;
             border: none;
             border-radius: 50px;
-            font-size: 18px;
+            font-size: 13px;
             font-weight: 600;
-            margin-top: 20px;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
+            background: #FFFFFF;
+            color: #555;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            white-space: nowrap;
+            border: 1px solid #f0f0f0;
             -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-buy:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        /* ============================================ */
-        /* ===== CALL OF DUTY PAGE ===== */
-        /* ============================================ */
-        .cod-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .cod-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .cod-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .cod-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .cod-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .cod-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .cod-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .cod-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cod-pack-btn .cp-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .cod-pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .cod-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .cod-pack-btn.selected .cp-amount {
-            color: #1A73E8;
-        }
-
-        .cod-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        /* ===== COD Shipping Form ===== */
-        .cod-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .cod-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .cod-shipping-form.hidden {
-            display: none;
-        }
-
-        .cod-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .cod-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .cod-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .cod-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .cod-shipping-form input:focus {
-            border-color: #1A73E8;
+            -webkit-touch-callout: none;
+            user-select: none;
             outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
         }
 
-        /* ============================================ */
-        /* ===== MOBILE LEGENDS PAGE ===== */
-        /* ============================================ */
-        .ml-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        .filter-btn-wallet:active {
+            transform: none !important;
         }
 
-        .ml-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
+        .filter-btn-wallet.active {
+            background: #1A73E8;
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.20);
+            border-color: transparent;
+        }
+
+        .transactions-list-wallet {
+            background: #FFFFFF;
             border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            padding: 16px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f0f0f0;
+            min-height: 140px;
+            margin: 0 16px;
         }
 
-        .ml-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .ml-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .ml-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .ml-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .ml-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .ml-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
+        .empty-state-wallet {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 30px 20px;
+            color: #aaa;
         }
 
-        .ml-pack-btn .diamond-amount {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
+        .empty-state-wallet i {
+            font-size: 40px;
+            color: #ddd;
+            margin-bottom: 10px;
         }
 
-        .ml-pack-btn .diamond-amount svg {
-            width: 22px;
-            height: 22px;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            flex-shrink: 0;
-            transition: stroke 0.25s ease, color 0.25s ease;
-        }
-
-        .ml-pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .ml-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .ml-pack-btn.selected .diamond-amount {
-            color: #1A73E8;
-        }
-
-        .ml-pack-btn.selected .diamond-amount svg {
-            stroke: #1A73E8;
-            color: #1A73E8;
-        }
-
-        .ml-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        .ml-form-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
+        .empty-state-wallet p {
             font-size: 14px;
-            text-align: right;
+            font-weight: 400;
         }
 
-        .ml-form-label:first-of-type {
-            margin-top: 0;
+        .transaction-item-wallet {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f5f5f5;
+            transition: all 0.25s ease;
         }
 
-        .ml-help-icon {
-            display: inline-flex;
+        .transaction-item-wallet:last-child {
+            border-bottom: none;
+        }
+
+        .transaction-item-wallet:active {
+            background: #f8f9fa;
+        }
+
+        .transaction-left-wallet {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .transaction-icon-wallet {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: flex;
             align-items: center;
             justify-content: center;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #e8f0fe;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .transaction-icon-wallet.deposit {
+            background: rgba(26, 115, 232, 0.12);
             color: #1A73E8;
+        }
+
+        .transaction-icon-wallet.withdraw {
+            background: rgba(239, 68, 68, 0.10);
+            color: #EF4444;
+        }
+
+        .transaction-icon-wallet.purchase {
+            background: rgba(0, 188, 212, 0.12);
+            color: #00BCD4;
+        }
+
+        .transaction-icon-wallet.refund {
+            background: rgba(251, 191, 36, 0.12);
+            color: #F59E0B;
+        }
+
+        .transaction-info-wallet h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .transaction-info-wallet span {
             font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: none;
-            padding: 0;
-            flex-shrink: 0;
-        }
-
-        .ml-help-icon:active {
-            transform: scale(0.9);
-        }
-
-        .ml-help-icon:hover {
-            background: #d2e3fc;
-        }
-
-        /* ===== ML Shipping Form ===== */
-        .ml-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .ml-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .ml-shipping-form.hidden {
-            display: none;
-        }
-
-        .ml-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .ml-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .ml-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .ml-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
+            color: #999;
             font-weight: 400;
         }
 
-        .ml-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== eFOOTBALL PAGE ===== */
-        /* ============================================ */
-        .efootball-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .efootball-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .efootball-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .efootball-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .efootball-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .efootball-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .efootball-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .efootball-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .efootball-pack-btn .fc-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .efootball-pack-btn .price-amount {
-            display: block;
+        .transaction-amount-wallet {
             font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .efootball-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .efootball-pack-btn.selected .fc-amount {
-            color: #1A73E8;
-        }
-
-        .efootball-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        /* ===== eFootball Shipping Form ===== */
-        .efootball-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .efootball-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .efootball-shipping-form.hidden {
-            display: none;
-        }
-
-        .efootball-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .efootball-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .efootball-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .efootball-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .efootball-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== CLASH OF CLANS PAGE ===== */
-        /* ============================================ */
-        .coc-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .coc-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .coc-header .game-info h2 {
-            font-size: 24px;
             font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
+            text-align: left;
         }
 
-        .coc-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .coc-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .coc-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .coc-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .coc-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 24px 12px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 130px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #FFFFFF;
-        }
-
-        .coc-pack-btn .coc-amount-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 6px;
-        }
-
-        .coc-pack-btn .coc-amount {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn .coc-icon {
-            font-size: 28px;
-            color: #1A1A1A;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn .coc-price {
-            display: block;
-            font-size: 18px;
-            font-weight: 500;
-            color: #888;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background-color: #FFFFFF;
-        }
-
-        .coc-pack-btn.selected .coc-amount {
+        .transaction-amount-wallet.positive {
             color: #1A73E8;
         }
 
-        .coc-pack-btn.selected .coc-icon {
-            color: #1A73E8;
-        }
-
-        .coc-pack-btn.selected .coc-price {
-            color: #1A73E8;
-        }
-
-        /* ===== COC Shipping Form ===== */
-        .coc-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .coc-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .coc-shipping-form.hidden {
-            display: none;
-        }
-
-        .coc-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .coc-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .coc-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .coc-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .coc-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        .transaction-amount-wallet.negative {
+            color: #EF4444;
         }
 
         /* ============================================ */
@@ -1940,6 +1369,947 @@
         }
 
         /* ============================================ */
+        /* ===== PUBG PAGE ===== */
+        /* ============================================ */
+        .pubg-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .pubg-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .pubg-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .pubg-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pack-btn .uc-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .pack-btn.selected .uc-amount {
+            color: #1A73E8;
+        }
+
+        .pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shipping-form.hidden {
+            display: none;
+        }
+
+        .shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
+        /* ===== CALL OF DUTY PAGE ===== */
+        /* ============================================ */
+        .cod-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .cod-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .cod-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .cod-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .cod-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .cod-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .cod-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cod-pack-btn .cp-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .cod-pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .cod-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .cod-pack-btn.selected .cp-amount {
+            color: #1A73E8;
+        }
+
+        .cod-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .cod-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .cod-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cod-shipping-form.hidden {
+            display: none;
+        }
+
+        .cod-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .cod-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .cod-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .cod-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .cod-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
+        /* ===== MOBILE LEGENDS PAGE ===== */
+        /* ============================================ */
+        .ml-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .ml-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .ml-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .ml-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .ml-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .ml-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .ml-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .ml-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ml-pack-btn .diamond-amount {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .ml-pack-btn .diamond-amount svg {
+            width: 22px;
+            height: 22px;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            flex-shrink: 0;
+            transition: stroke 0.25s ease, color 0.25s ease;
+        }
+
+        .ml-pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .ml-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .ml-pack-btn.selected .diamond-amount {
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .diamond-amount svg {
+            stroke: #1A73E8;
+            color: #1A73E8;
+        }
+
+        .ml-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .ml-form-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .ml-form-label:first-of-type {
+            margin-top: 0;
+        }
+
+        .ml-help-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e8f0fe;
+            color: #1A73E8;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: none;
+            padding: 0;
+            flex-shrink: 0;
+        }
+
+        .ml-help-icon:active {
+            transform: scale(0.9);
+        }
+
+        .ml-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .ml-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ml-shipping-form.hidden {
+            display: none;
+        }
+
+        .ml-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .ml-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .ml-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .ml-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .ml-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
+        /* ===== eFOOTBALL PAGE ===== */
+        /* ============================================ */
+        .efootball-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .efootball-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .efootball-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .efootball-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .efootball-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .efootball-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .efootball-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #222;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .efootball-pack-btn .fc-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .efootball-pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .efootball-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .efootball-pack-btn.selected .fc-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .efootball-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .efootball-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .efootball-shipping-form.hidden {
+            display: none;
+        }
+
+        .efootball-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .efootball-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .efootball-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .efootball-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .efootball-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
+        /* ===== CLASH OF CLANS PAGE ===== */
+        /* ============================================ */
+        .coc-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .coc-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .coc-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .coc-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .coc-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .coc-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .coc-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .coc-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 24px 12px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #FFFFFF;
+        }
+
+        .coc-pack-btn .coc-amount-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 6px;
+        }
+
+        .coc-pack-btn .coc-amount {
+            font-size: 32px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .coc-pack-btn .coc-icon {
+            font-size: 28px;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+        }
+
+        .coc-pack-btn .coc-price {
+            display: block;
+            font-size: 18px;
+            font-weight: 500;
+            color: #888;
+            transition: color 0.25s ease;
+        }
+
+        .coc-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background-color: #FFFFFF;
+        }
+
+        .coc-pack-btn.selected .coc-amount {
+            color: #1A73E8;
+        }
+
+        .coc-pack-btn.selected .coc-icon {
+            color: #1A73E8;
+        }
+
+        .coc-pack-btn.selected .coc-price {
+            color: #1A73E8;
+        }
+
+        .coc-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .coc-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .coc-shipping-form.hidden {
+            display: none;
+        }
+
+        .coc-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .coc-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .coc-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .coc-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .coc-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
         /* ===== PLACEHOLDER PAGES ===== */
         /* ============================================ */
         .placeholder-page {
@@ -2150,10 +2520,6 @@
             font-size: 24px;
             color: #1A73E8;
             transition: all 0.3s ease;
-        }
-
-        .welcome-card:hover .welcome-icon {
-            transform: scale(1.1);
         }
 
         .welcome-card h2 {
@@ -3282,7 +3648,7 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة المحفظة ===== -->
+        <!-- ===== صفحة المحفظة (الكاملة) ===== -->
         <!-- ============================================ -->
         <div id="page-wallet" class="page">
             <div class="wallet-card-wrapper">
@@ -4329,4 +4695,4 @@
     </script>
 
 </body>
-    </html>
+</html>
