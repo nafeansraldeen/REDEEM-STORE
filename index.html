@@ -367,24 +367,6 @@
             pointer-events: none;
         }
 
-        .ripple-effect {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.10);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
-        .ripple-faq {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(26, 115, 232, 0.08);
-            transform: scale(0);
-            animation: rippleAnim 0.6s ease-out forwards;
-            pointer-events: none;
-        }
-
         @keyframes rippleAnim {
             to {
                 transform: scale(4);
@@ -405,1154 +387,6 @@
                 opacity: 0;
                 transform: scale(0.95);
             }
-        }
-
-        /* ============================================ */
-        /* ===== PUBG PAGE ===== */
-        /* ============================================ */
-        .pubg-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .pubg-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .pubg-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .pubg-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .pack-btn .uc-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .pack-btn.selected .uc-amount {
-            color: #1A73E8;
-        }
-
-        .pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        .shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .shipping-form.hidden {
-            display: none;
-        }
-
-        .shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        .btn-buy {
-            width: 100%;
-            padding: 16px 24px;
-            background: #1A73E8;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-buy:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        /* ============================================ */
-        /* ===== CALL OF DUTY PAGE ===== */
-        /* ============================================ */
-        .cod-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .cod-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .cod-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .cod-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .cod-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .cod-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .cod-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .cod-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .cod-pack-btn .cp-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .cod-pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .cod-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .cod-pack-btn.selected .cp-amount {
-            color: #1A73E8;
-        }
-
-        .cod-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        /* ===== COD Shipping Form ===== */
-        .cod-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .cod-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .cod-shipping-form.hidden {
-            display: none;
-        }
-
-        .cod-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .cod-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .cod-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .cod-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .cod-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== MOBILE LEGENDS PAGE ===== */
-        /* ============================================ */
-        .ml-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .ml-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .ml-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .ml-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .ml-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .ml-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .ml-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .ml-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .ml-pack-btn .diamond-amount {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .ml-pack-btn .diamond-amount svg {
-            width: 22px;
-            height: 22px;
-            stroke: currentColor;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            fill: none;
-            flex-shrink: 0;
-            transition: stroke 0.25s ease, color 0.25s ease;
-        }
-
-        .ml-pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .ml-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .ml-pack-btn.selected .diamond-amount {
-            color: #1A73E8;
-        }
-
-        .ml-pack-btn.selected .diamond-amount svg {
-            stroke: #1A73E8;
-            color: #1A73E8;
-        }
-
-        .ml-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        .ml-form-label {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .ml-form-label:first-of-type {
-            margin-top: 0;
-        }
-
-        .ml-help-icon {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #e8f0fe;
-            color: #1A73E8;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            border: none;
-            padding: 0;
-            flex-shrink: 0;
-        }
-
-        .ml-help-icon:active {
-            transform: scale(0.9);
-        }
-
-        .ml-help-icon:hover {
-            background: #d2e3fc;
-        }
-
-        /* ===== ML Shipping Form ===== */
-        .ml-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .ml-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .ml-shipping-form.hidden {
-            display: none;
-        }
-
-        .ml-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .ml-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .ml-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .ml-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .ml-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== eFOOTBALL PAGE ===== */
-        /* ============================================ */
-        .efootball-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .efootball-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .efootball-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .efootball-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .efootball-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .efootball-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .efootball-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .efootball-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 20px 12px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 16px;
-            color: #222;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 100px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .efootball-pack-btn .fc-amount {
-            display: block;
-            font-size: 22px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .efootball-pack-btn .price-amount {
-            display: block;
-            font-size: 15px;
-            font-weight: 500;
-            color: #888;
-            margin-top: 4px;
-            transition: color 0.25s ease;
-        }
-
-        .efootball-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background: #FFFFFF;
-        }
-
-        .efootball-pack-btn.selected .fc-amount {
-            color: #1A73E8;
-        }
-
-        .efootball-pack-btn.selected .price-amount {
-            color: #1A73E8;
-        }
-
-        /* ===== eFootball Shipping Form ===== */
-        .efootball-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .efootball-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .efootball-shipping-form.hidden {
-            display: none;
-        }
-
-        .efootball-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .efootball-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .efootball-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .efootball-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .efootball-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== CLASH OF CLANS PAGE ===== */
-        /* ============================================ */
-        .coc-header {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 16px 20px;
-            background: #f8f9fa;
-            border-radius: 24px;
-            margin-bottom: 24px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-        }
-
-        .coc-header img {
-            width: 72px;
-            height: 72px;
-            object-fit: contain;
-            border-radius: 16px;
-            background: #FFFFFF;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-        }
-
-        .coc-header .game-info h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: #222;
-            letter-spacing: 0.3px;
-        }
-
-        .coc-header .game-info p {
-            font-size: 14px;
-            color: #777;
-            margin-top: 2px;
-            font-weight: 400;
-        }
-
-        .coc-packs-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 14px;
-            margin: 16px 0 20px;
-        }
-
-        @media (min-width: 500px) {
-            .coc-packs-grid {
-                grid-template-columns: repeat(3, 1fr);
-                gap: 16px;
-            }
-        }
-
-        @media (min-width: 768px) {
-            .coc-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 18px;
-            }
-        }
-
-        .coc-pack-btn {
-            background: #FFFFFF;
-            border: 2px solid #e8eaed;
-            border-radius: 18px;
-            padding: 24px 12px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            min-height: 130px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: #FFFFFF;
-        }
-
-        .coc-pack-btn .coc-amount-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            margin-bottom: 6px;
-        }
-
-        .coc-pack-btn .coc-amount {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A1A1A;
-            line-height: 1.2;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn .coc-icon {
-            font-size: 28px;
-            color: #1A1A1A;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn .coc-price {
-            display: block;
-            font-size: 18px;
-            font-weight: 500;
-            color: #888;
-            transition: color 0.25s ease;
-        }
-
-        .coc-pack-btn.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
-            background-color: #FFFFFF;
-        }
-
-        .coc-pack-btn.selected .coc-amount {
-            color: #1A73E8;
-        }
-
-        .coc-pack-btn.selected .coc-icon {
-            color: #1A73E8;
-        }
-
-        .coc-pack-btn.selected .coc-price {
-            color: #1A73E8;
-        }
-
-        /* ===== COC Shipping Form ===== */
-        .coc-shipping-form {
-            background: #f8f9fa;
-            border-radius: 24px;
-            padding: 24px 20px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        .coc-shipping-form.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .coc-shipping-form.hidden {
-            display: none;
-        }
-
-        .coc-shipping-form label {
-            display: block;
-            font-weight: 900;
-            color: #000000;
-            margin: 12px 0 6px;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .coc-shipping-form label:first-of-type {
-            margin-top: 0;
-        }
-
-        .coc-shipping-form input {
-            width: 100%;
-            padding: 14px 16px;
-            border: 2px solid #eaeaea;
-            border-radius: 16px;
-            font-size: 16px;
-            font-weight: 400;
-            background: #FFFFFF;
-            transition: all 0.25s ease;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .coc-shipping-form input::placeholder {
-            text-align: right;
-            direction: rtl;
-            font-weight: 400;
-        }
-
-        .coc-shipping-form input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
-        }
-
-        /* ============================================ */
-        /* ===== SUPPORT PAGE ===== */
-        /* ============================================ */
-        #page-support {
-            padding: 20px 16px 30px;
-            background: #FFFFFF;
-        }
-
-        .support-header {
-            text-align: center;
-            padding: 10px 0 6px;
-        }
-
-        .support-header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            color: #1A73E8;
-            letter-spacing: 0.5px;
-        }
-
-        .support-header p {
-            font-size: 16px;
-            color: #777;
-            margin-top: 8px;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .support-card {
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 32px 24px;
-            margin: 16px 0 24px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-            border: 1px solid #f0f0f0;
-            text-align: center;
-            transition: all 0.25s ease;
-        }
-
-        .support-card .icon-wrapper {
-            width: 72px;
-            height: 72px;
-            background: #e8f0fe;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 16px;
-            transition: all 0.3s ease;
-        }
-
-        .support-card .icon-wrapper i {
-            font-size: 32px;
-            color: #1A73E8;
-        }
-
-        .support-card h2 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #222;
-            margin-bottom: 10px;
-        }
-
-        .support-card p {
-            font-size: 15px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 24px;
-            max-width: 400px;
-            margin-left: auto;
-            margin-right: auto;
-            font-weight: 400;
-        }
-
-        .btn-support {
-            width: 100%;
-            padding: 16px 24px;
-            background: #1A73E8;
-            color: #fff;
-            border: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
-            position: relative;
-            overflow: hidden;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .btn-support:active {
-            transform: scale(0.97);
-            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
-        }
-
-        /* ===== FAQ ===== */
-        .faq-section {
-            margin-top: 8px;
-        }
-
-        .faq-section .faq-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #222;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .faq-item {
-            background: #FFFFFF;
-            border-radius: 16px;
-            margin-bottom: 12px;
-            border: 1px solid #f0f0f0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
-            overflow: hidden;
-            transition: all 0.25s ease;
-        }
-
-        .faq-item:active {
-            transform: scale(0.99);
-        }
-
-        .faq-question {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 16px 20px;
-            cursor: pointer;
-            background: #FFFFFF;
-            border: none;
-            width: 100%;
-            text-align: right;
-            font-size: 15px;
-            font-weight: 600;
-            color: #222;
-            transition: all 0.25s ease;
-            -webkit-tap-highlight-color: transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .faq-question.active {
-            color: #1A73E8;
-        }
-
-        .faq-question .faq-icon {
-            font-size: 18px;
-            color: #999;
-            transition: all 0.3s ease;
-            min-width: 24px;
-            margin-right: 12px;
-        }
-
-        .faq-question.active .faq-icon {
-            color: #1A73E8;
-            transform: rotate(180deg);
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.25s ease,
-                transform 0.25s ease;
-            opacity: 0;
-            transform: translateY(-8px);
-            padding: 0 20px;
-        }
-
-        .faq-answer.open {
-            max-height: 200px;
-            opacity: 1;
-            transform: translateY(0);
-            padding: 0 20px 16px;
-        }
-
-        .faq-answer p {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.7;
-            margin: 0;
-            font-weight: 400;
-        }
-
-        .support-footer {
-            text-align: center;
-            padding: 30px 0 10px;
-            font-size: 14px;
-            color: #aaa;
-            font-weight: 400;
-            letter-spacing: 0.3px;
-        }
-
-        .support-footer i {
-            color: #1A73E8;
-            margin: 0 4px;
         }
 
         /* ============================================ */
@@ -1952,605 +786,521 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT METHOD SELECTION ===== */
+        /* ===== SUPPORT PAGE - NEW DESIGN ===== */
         /* ============================================ */
-        .deposit-page {
-            display: none;
-            padding: 0;
-            background: #FFFFFF;
+        #page-support {
+            padding: 0 !important;
+            background: #F5F7FA;
             min-height: 100vh;
-            position: relative;
-            transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
-            opacity: 0;
         }
 
-        .deposit-page.active {
-            display: block;
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .deposit-page.slide-out {
-            transform: translateX(-30%);
-            opacity: 0;
-        }
-
-        .deposit-top-bar {
-            padding: 16px 16px 0 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #FFFFFF;
-        }
-
-        .deposit-top-bar .back-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 12px;
-            border: none;
-            background: #f0f0f0;
-            color: #333;
-            font-size: 18px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        .deposit-top-bar .back-btn:active {
-            transform: scale(0.92);
-            background: #e0e0e0;
-        }
-
-        .deposit-top-bar .page-title {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1A1A2E;
-        }
-
-        .deposit-top-bar .page-sub {
-            font-size: 13px;
-            color: #999;
-            font-weight: 400;
-        }
-
-        .deposit-body {
-            padding: 16px 16px 30px;
-            background: #FFFFFF;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 20px;
-            padding-right: 4px;
-            letter-spacing: 0.3px;
-        }
-
-        .method-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-        }
-
-        .method-item {
-            background: #FFFFFF;
-            border: 1px solid #E8EAED;
-            border-radius: 18px;
-            padding: 20px 14px 18px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            -webkit-tap-highlight-color: transparent;
+        /* Support Header */
+        .support-header {
+            background: linear-gradient(145deg, #1A73E8, #0D47A1);
+            padding: 30px 20px 40px;
             position: relative;
             overflow: hidden;
-            min-height: 140px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            aspect-ratio: 1 / 1.1;
+            border-radius: 0 0 30px 30px;
         }
 
-        @media (hover: hover) {
-            .method-item:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-                border-color: #B5D4F0;
-            }
-        }
-
-        .method-item:active {
-            transform: scale(0.97);
-        }
-
-        .method-item.selected {
-            border-color: #1A73E8;
-            border-width: 2px;
-            box-shadow: 0 8px 28px rgba(26, 115, 232, 0.16);
-            transform: translateY(-2px);
-        }
-
-        .method-item.selected .method-icon-wrapper {
-            border-color: #1A73E8;
-            box-shadow: 0 4px 12px rgba(26, 115, 232, 0.12);
-        }
-
-        .method-item .method-icon-wrapper {
-            width: 80px;
-            height: 80px;
-            border-radius: 16px;
-            border: 2px solid #E8EAED;
-            background: #FAFBFC;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 12px;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-            overflow: hidden;
-            padding: 0;
-        }
-
-        .method-item .method-icon-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 14px;
-            display: block;
-        }
-
-        .method-item .method-name {
-            font-size: 16px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 3px;
-            transition: color 0.25s ease;
-            letter-spacing: 0.2px;
-        }
-
-        .method-item.selected .method-name {
-            color: #1A73E8;
-        }
-
-        .method-item .method-desc {
-            font-size: 12px;
-            color: #999;
-            font-weight: 400;
-            letter-spacing: 0.1px;
-        }
-
-        .method-item .check-mark {
+        .support-header::after {
+            content: '';
             position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 22px;
-            height: 22px;
+            top: -60px;
+            right: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.06), transparent 70%);
             border-radius: 50%;
-            background: #1A73E8;
-            color: white;
-            font-size: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transform: scale(0);
-            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .method-item.selected .check-mark {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ============================================ */
-        /* ===== DEPOSIT DETAIL PAGE ===== */
-        /* ============================================ */
-        .deposit-detail-page {
-            display: none;
-            padding: 0;
-            background: #F5F7FA;
-            min-height: 100vh;
-            position: relative;
-            transform: translateX(100%);
-            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
-            opacity: 0;
-        }
-
-        .deposit-detail-page.active {
-            display: block;
-            transform: translateX(0);
-            opacity: 1;
-        }
-
-        .deposit-detail-page.slide-out {
-            transform: translateX(-30%);
-            opacity: 0;
-        }
-
-        /* ===== إخفاء الهيدر ===== */
-        .deposit-detail-page .detail-header-simple {
-            display: none;
-        }
-
-        /* ===== BODY ===== */
-        .detail-body {
-            padding: 16px 16px 70px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: #F5F7FA;
-        }
-
-        /* ===== ACCOUNT CARD ===== */
-        .account-card {
-            background: #FFFFFF;
-            border: 1px solid #E8EAED;
-            padding: 16px 18px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-        }
-
-        .account-card .account-label {
-            font-size: 12px;
-            font-weight: 700;
-            color: #1A1A2E;
-            margin-bottom: 6px;
-            letter-spacing: 0.3px;
-        }
-
-        .account-card .account-row {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .account-card .account-number {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1A1A2E;
-            font-family: 'SF Mono', 'Courier New', monospace;
-            letter-spacing: 0.5px;
-            direction: ltr;
-            text-align: left;
-        }
-
-        .account-card .copy-btn {
-            width: 34px;
-            height: 34px;
-            border: none;
-            background: transparent;
-            color: #8895A7;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            flex-shrink: 0;
-        }
-
-        .account-card .copy-btn:active {
-            background: #F0F2F5;
-        }
-
-        .account-card .copy-btn.copied {
-            color: #10B981;
-        }
-
-        .account-card .account-holder {
-            font-size: 14px;
-            font-weight: 500;
-            color: #555;
-            margin-top: 6px;
-            padding-top: 6px;
-            border-top: 1px solid #F0F2F5;
-            text-align: right;
-            letter-spacing: 0.2px;
-        }
-
-        .account-card .account-holder .holder-label {
-            font-weight: 600;
-            color: #1A1A2E;
-        }
-
-        /* ===== FORM FIELDS ===== */
-        .field-group {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-        }
-
-        .field-group label {
-            font-size: 12px;
-            font-weight: 600;
-            color: #1A1A2E;
-            letter-spacing: 0.3px;
-        }
-
-        .field-group label .required {
-            display: none;
-        }
-
-        .field-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .field-input-wrapper input {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1.5px solid #E8EAED;
-            font-size: 15px;
-            font-weight: 500;
-            background: #FFFFFF;
-            transition: all 0.2s ease;
-            color: #1A1A2E;
-            border-radius: 10px;
-            height: 48px;
-            text-align: right;
-            direction: rtl;
-        }
-
-        .field-input-wrapper input::placeholder {
-            color: #B0B8C4;
-            font-weight: 400;
-            font-size: 14px;
-            text-align: right;
-        }
-
-        .field-input-wrapper input:focus {
-            border-color: #1A73E8;
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.08);
-        }
-
-        .field-input-wrapper input.input-ltr {
-            text-align: right;
-            direction: rtl;
-        }
-
-        .field-input-wrapper input.input-ltr::placeholder {
-            text-align: right;
-        }
-
-        /* ===== FILE UPLOAD ===== */
-        .file-upload-mini {
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 14px 16px;
-            border: 2px dashed #D6E8F8;
-            background: #FFFFFF;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 10px;
-            min-height: 56px;
-            width: 100%;
-            margin-bottom: 4px;
-        }
-
-        .file-upload-mini:active {
-            background: #F0F2F5;
-        }
-
-        .file-upload-mini input[type="file"] {
-            position: absolute;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            cursor: pointer;
-            top: 0;
-            right: 0;
-        }
-
-        .file-upload-mini .upload-icon {
-            color: #1A73E8;
-            font-size: 20px;
-            flex-shrink: 0;
-        }
-
-        .file-upload-mini .upload-text {
-            font-size: 14px;
-            font-weight: 500;
-            color: #8895A7;
-        }
-
-        .file-upload-mini .upload-preview {
-            display: none;
-            align-items: center;
-            gap: 8px;
-            margin-right: auto;
-        }
-
-        .file-upload-mini .upload-preview img {
-            width: 34px;
-            height: 34px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #E8EAED;
-        }
-
-        .file-upload-mini .upload-preview .preview-name {
-            font-size: 13px;
-            font-weight: 500;
-            color: #1A1A2E;
-            max-width: 120px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .file-upload-mini .upload-preview .preview-check {
-            color: #10B981;
-            font-size: 16px;
-        }
-
-        .file-upload-mini.has-file {
-            border-color: #10B981;
-            background: rgba(16, 185, 129, 0.04);
-        }
-
-        .file-upload-mini.has-file .upload-text {
-            display: none;
-        }
-
-        .file-upload-mini.has-file .upload-preview {
-            display: flex;
-        }
-
-        /* ===== STICKY BOTTOM BUTTON ===== */
-        .sticky-bottom {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            max-width: 480px;
-            margin: 0 auto;
-            padding: 8px 16px 16px;
-            background: #FFFFFF;
-            border-top: 1px solid #F0F2F5;
-            z-index: 50;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
-        }
-
-        .btn-confirm {
-            width: 100%;
-            padding: 14px 24px;
-            background: #1A73E8;
-            color: #FFFFFF;
-            border: none;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            position: relative;
-            overflow: hidden;
-            border-radius: 12px;
-            letter-spacing: 0.3px;
-            height: 50px;
-            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25);
-        }
-
-        .btn-confirm:active {
-            background: #1557B0;
-            transform: scale(0.98);
-        }
-
-        .btn-confirm.loading {
             pointer-events: none;
-            opacity: 0.85;
         }
 
-        .btn-confirm .loader {
-            display: none;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-confirm.loading .loader {
-            display: flex;
-        }
-
-        .btn-confirm.loading .btn-text {
-            display: none;
-        }
-
-        .loader-spinner {
-            width: 22px;
-            height: 22px;
-            border: 2.5px solid rgba(255, 255, 255, 0.3);
-            border-top-color: #FFFFFF;
+        .support-header::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.04), transparent 70%);
             border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+            pointer-events: none;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ===== SUCCESS MESSAGE ===== */
-        .success-message {
-            display: none;
+        .support-header-content {
+            position: relative;
+            z-index: 2;
             text-align: center;
-            padding: 40px 20px;
-            background: #F5F7FA;
-            animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
         }
 
-        .success-message.active {
-            display: block;
-        }
-
-        @keyframes successPop {
-            0% {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .success-message .success-icon {
-            width: 70px;
-            height: 70px;
-            border: 2px solid #10B981;
+        .support-header-content .support-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 16px;
-            font-size: 30px;
-            color: #10B981;
-            border-radius: 50%;
-            background: #FFFFFF;
+            font-size: 28px;
+            color: #FFFFFF;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .success-message h2 {
-            font-size: 20px;
+        .support-header-content h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
+
+        .support-header-content p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+
+        /* Status Card */
+        .status-card {
+            margin: -20px 16px 20px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #f0f0f0;
+            animation: slideUp 0.5s ease;
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status-card .status-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .status-card .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+
+        .status-card .status-dot.online {
+            background: #10B981;
+            box-shadow: 0 0 12px rgba(16, 185, 129, 0.3);
+        }
+
+        .status-card .status-dot.offline {
+            background: #EF4444;
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.3);
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .status-card .status-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1A1A2E;
+        }
+
+        .status-card .status-text span {
+            font-weight: 400;
+            color: #666;
+        }
+
+        .status-card .status-badge {
+            background: #e8f0fe;
+            color: #1A73E8;
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        /* Support Body */
+        .support-body {
+            padding: 4px 16px 30px;
+        }
+
+        /* Welcome Card */
+        .welcome-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 24px 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-card:active {
+            transform: scale(0.98);
+        }
+
+        .welcome-card .welcome-icon {
+            width: 56px;
+            height: 56px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+            color: #1A73E8;
+            transition: all 0.3s ease;
+        }
+
+        .welcome-card:hover .welcome-icon {
+            transform: scale(1.1);
+        }
+
+        .welcome-card h2 {
+            font-size: 18px;
             font-weight: 700;
             color: #1A1A2E;
             margin-bottom: 6px;
         }
 
-        .success-message p {
+        .welcome-card p {
             font-size: 14px;
-            color: #8895A7;
+            color: #666;
             line-height: 1.6;
-            max-width: 300px;
-            margin: 0 auto 20px;
+            font-weight: 400;
         }
 
-        .btn-back-home {
-            padding: 12px 32px;
+        /* Contact Methods Grid */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .contact-card {
+            background: #FFFFFF;
+            border-radius: 18px;
+            padding: 18px 14px 16px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0f0f0;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card:active {
+            transform: scale(0.97);
+        }
+
+        .contact-card .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 22px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-card .contact-icon.whatsapp {
+            background: rgba(37, 211, 102, 0.12);
+            color: #25D366;
+        }
+
+        .contact-card .contact-icon.telegram {
+            background: rgba(0, 136, 204, 0.12);
+            color: #0088CC;
+        }
+
+        .contact-card .contact-icon.facebook {
+            background: rgba(24, 119, 242, 0.12);
+            color: #1877F2;
+        }
+
+        .contact-card .contact-icon.email {
+            background: rgba(234, 67, 53, 0.12);
+            color: #EA4335;
+        }
+
+        .contact-card .contact-name {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 2px;
+        }
+
+        .contact-card .contact-desc {
+            font-size: 11px;
+            color: #888;
+            font-weight: 400;
+            margin-bottom: 8px;
+        }
+
+        .contact-card .contact-btn {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            background: #e8f0fe;
+            color: #1A73E8;
+            width: 100%;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .contact-card .contact-btn:active {
+            transform: scale(0.95);
+        }
+
+        .contact-card .contact-btn.whatsapp-btn {
+            background: #25D366;
+            color: white;
+        }
+
+        .contact-card .contact-btn.telegram-btn {
+            background: #0088CC;
+            color: white;
+        }
+
+        .contact-card .contact-btn.facebook-btn {
+            background: #1877F2;
+            color: white;
+        }
+
+        .contact-card .contact-btn.email-btn {
+            background: #EA4335;
+            color: white;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 8px;
+        }
+
+        .faq-section .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-section .section-title i {
+            color: #1A73E8;
+            font-size: 20px;
+        }
+
+        .faq-item {
+            background: #FFFFFF;
+            border-radius: 16px;
+            margin-bottom: 10px;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .faq-item:active {
+            transform: scale(0.99);
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 18px;
+            cursor: pointer;
+            background: #FFFFFF;
+            border: none;
+            width: 100%;
+            text-align: right;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A1A2E;
+            transition: all 0.25s ease;
+            -webkit-tap-highlight-color: transparent;
+            position: relative;
+            overflow: hidden;
+            gap: 12px;
+        }
+
+        .faq-question.active {
+            color: #1A73E8;
+        }
+
+        .faq-question .faq-icon {
+            font-size: 16px;
+            color: #999;
+            transition: all 0.3s ease;
+            min-width: 20px;
+            flex-shrink: 0;
+        }
+
+        .faq-question.active .faq-icon {
+            color: #1A73E8;
+            transform: rotate(180deg);
+        }
+
+        .faq-question .faq-question-text {
+            flex: 1;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.25s ease,
+                transform 0.25s ease;
+            opacity: 0;
+            transform: translateY(-8px);
+            padding: 0 18px;
+        }
+
+        .faq-answer.open {
+            max-height: 200px;
+            opacity: 1;
+            transform: translateY(0);
+            padding: 0 18px 16px;
+        }
+
+        .faq-answer p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        /* Hours Card */
+        .hours-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .hours-card:active {
+            transform: scale(0.98);
+        }
+
+        .hours-card .hours-icon {
+            width: 52px;
+            height: 52px;
+            background: #e8f0fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            color: #1A73E8;
+            flex-shrink: 0;
+        }
+
+        .hours-card .hours-content {
+            flex: 1;
+        }
+
+        .hours-card .hours-content h3 {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1A1A2E;
+            margin-bottom: 2px;
+        }
+
+        .hours-card .hours-content p {
+            font-size: 14px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .hours-card .hours-content .hours-time {
+            font-size: 20px;
+            font-weight: 800;
+            color: #1A73E8;
+            margin-top: 2px;
+        }
+
+        /* Fixed Bottom Button */
+        .support-fixed-btn {
+            position: fixed;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 440px;
+            width: calc(100% - 32px);
+            padding: 16px 24px;
             background: #1A73E8;
             color: #FFFFFF;
             border: none;
-            font-size: 15px;
-            font-weight: 600;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s ease;
-            border-radius: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(26, 115, 232, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            z-index: 50;
+            -webkit-tap-highlight-color: transparent;
+            letter-spacing: 0.3px;
         }
 
-        .btn-back-home:active {
-            background: #1557B0;
-            transform: scale(0.98);
+        .support-fixed-btn:active {
+            transform: translateX(-50%) scale(0.97);
+            box-shadow: 0 4px 16px rgba(26, 115, 232, 0.2);
+        }
+
+        .support-fixed-btn i {
+            font-size: 18px;
         }
 
         /* ============================================ */
@@ -2571,121 +1321,6 @@
             font-size: 64px;
             color: #ddd;
             margin-bottom: 16px;
-        }
-
-        /* ============================================ */
-        /* ===== MODAL ===== */
-        /* ============================================ */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-            padding: 20px;
-        }
-
-        .modal-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-overlay.open .modal-content {
-            transform: scale(1);
-            opacity: 1;
-        }
-
-        .modal-content {
-            background: #FFFFFF;
-            border-radius: 24px;
-            max-width: 420px;
-            width: 100%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 24px 20px 20px;
-            transform: scale(0.9);
-            opacity: 0;
-            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
-                opacity 0.3s ease;
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-close-btn {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            border: none;
-            background: #f0f0f0;
-            color: #555;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.25s ease;
-            z-index: 10;
-            -webkit-tap-highlight-color: transparent;
-            -webkit-touch-callout: none;
-            user-select: none;
-            outline: none;
-        }
-
-        .modal-close-btn:active {
-            transform: none !important;
-            background: #f0f0f0 !important;
-        }
-
-        .modal-instructions {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .modal-instructions li {
-            font-size: 14px;
-            color: #444;
-            line-height: 1.7;
-            padding: 6px 0;
-            padding-right: 20px;
-            position: relative;
-            border-bottom: 1px solid #f5f5f5;
-        }
-
-        .modal-instructions li:last-child {
-            border-bottom: none;
-        }
-
-        .modal-instructions li::before {
-            content: "•";
-            position: absolute;
-            right: 0;
-            color: #1A73E8;
-            font-weight: 700;
-        }
-
-        .modal-instructions li strong {
-            color: #1A73E8;
-        }
-
-        .modal-instructions li .highlight {
-            background: #e8f0fe;
-            padding: 0 6px;
-            border-radius: 4px;
-            font-weight: 600;
-            color: #1A73E8;
         }
 
         /* ============================================ */
@@ -2715,95 +1350,73 @@
             .product-card h4 {
                 font-size: 12px;
             }
-            .deposit-top-bar {
-                padding: 12px 12px 0 12px;
+
+            .support-header {
+                padding: 24px 16px 32px;
             }
-            .deposit-top-bar .page-title {
-                font-size: 18px;
+            .support-header-content h1 {
+                font-size: 24px;
             }
-            .deposit-body {
-                padding: 12px 12px 20px;
+            .status-card {
+                margin: -16px 12px 16px;
+                padding: 12px 16px;
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
             }
-            .section-title {
-                font-size: 16px;
-                margin-bottom: 16px;
-            }
-            .method-grid {
-                gap: 12px;
-            }
-            .method-item {
-                padding: 16px 10px 14px;
-                min-height: 120px;
-                border-radius: 14px;
-                aspect-ratio: 1 / 1.15;
-            }
-            .method-item .method-icon-wrapper {
-                width: 64px;
-                height: 64px;
-                border-radius: 14px;
-                margin-bottom: 10px;
-                border-width: 1.5px;
-            }
-            .method-item .method-icon-wrapper img {
-                border-radius: 12px;
-            }
-            .method-item .method-name {
-                font-size: 14px;
-            }
-            .method-item .method-desc {
+            .status-card .status-badge {
                 font-size: 11px;
+                padding: 3px 12px;
             }
-            .method-item .check-mark {
-                width: 18px;
-                height: 18px;
-                font-size: 10px;
-                top: 6px;
-                right: 6px;
-            }
-            .detail-body {
-                padding: 12px 12px 60px;
+            .contact-grid {
                 gap: 10px;
             }
-            .account-card {
-                padding: 14px 14px;
+            .contact-card {
+                padding: 14px 10px 12px;
+                border-radius: 14px;
             }
-            .account-card .account-number {
+            .contact-card .contact-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .contact-card .contact-name {
+                font-size: 13px;
+            }
+            .contact-card .contact-btn {
+                font-size: 11px;
+                padding: 5px 14px;
+            }
+            .hours-card {
+                padding: 16px;
+                border-radius: 16px;
+            }
+            .hours-card .hours-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 18px;
+            }
+            .hours-card .hours-content .hours-time {
                 font-size: 17px;
             }
-            .account-card .account-holder {
-                font-size: 13px;
-            }
-            .field-input-wrapper input {
-                padding: 10px 14px;
-                font-size: 14px;
-                height: 44px;
-            }
-            .file-upload-mini {
-                padding: 12px 14px;
-                min-height: 48px;
-            }
-            .file-upload-mini .upload-icon {
-                font-size: 18px;
-            }
-            .file-upload-mini .upload-text {
-                font-size: 13px;
-            }
-            .sticky-bottom {
-                padding: 6px 12px 14px;
-            }
-            .btn-confirm {
-                height: 48px;
+            .support-fixed-btn {
+                padding: 14px 20px;
                 font-size: 15px;
-                padding: 12px 20px;
+                width: calc(100% - 24px);
+                bottom: 76px;
             }
-            .success-message .success-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 26px;
+            .welcome-card {
+                padding: 20px 16px;
             }
-            .success-message h2 {
-                font-size: 18px;
+            .welcome-card .welcome-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
             }
+            .welcome-card h2 {
+                font-size: 16px;
+            }
+
             .wallet-balance-card {
                 max-width: 100%;
                 height: 190px;
@@ -2896,74 +1509,17 @@
             .product-card h4 {
                 font-size: 15px;
             }
-            .cod-packs-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 16px;
-            }
-            .ml-packs-grid {
-                grid-template-columns: repeat(5, 1fr);
-                gap: 16px;
-            }
-            .efootball-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-            .coc-packs-grid {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 16px;
-            }
-            .deposit-body {
-                padding: 20px 24px 30px;
-            }
-            .method-grid {
-                gap: 16px;
-            }
-            .method-item {
-                padding: 24px 18px 22px;
-                min-height: 160px;
-                border-radius: 20px;
-                aspect-ratio: 1 / 1.1;
-            }
-            .method-item .method-icon-wrapper {
-                width: 88px;
-                height: 88px;
-                border-radius: 18px;
-                margin-bottom: 14px;
-            }
-            .method-item .method-icon-wrapper img {
-                border-radius: 16px;
-            }
-            .method-item .method-name {
-                font-size: 18px;
-            }
-            .method-item .method-desc {
-                font-size: 13px;
-            }
-            .detail-body {
-                padding: 20px 24px 70px;
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
                 gap: 14px;
             }
-            .account-card {
-                padding: 20px 24px;
+            .contact-card {
+                padding: 22px 18px 18px;
             }
-            .account-card .account-number {
-                font-size: 22px;
-            }
-            .field-input-wrapper input {
-                height: 52px;
-                font-size: 16px;
-                padding: 14px 18px;
-            }
-            .file-upload-mini {
-                min-height: 60px;
-                padding: 16px 20px;
-            }
-            .sticky-bottom {
-                padding: 10px 24px 20px;
-            }
-            .btn-confirm {
-                height: 54px;
-                font-size: 17px;
+            .support-fixed-btn {
+                padding: 18px 32px;
+                font-size: 18px;
+                max-width: 440px;
             }
             .wallet-balance-card {
                 max-width: 400px;
@@ -3110,542 +1666,178 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة اختيار طريقة الإيداع ===== -->
+        <!-- ===== صفحة الدعم ===== -->
         <!-- ============================================ -->
-        <div class="deposit-page" id="depositPage">
-            <div class="deposit-top-bar">
-                <button class="back-btn" id="depositBackBtn">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <div>
-                    <div class="page-title">إيداع الرصيد</div>
-                    <div class="page-sub">اختر طريقة الإيداع</div>
+        <div id="page-support" class="page">
+            <!-- Header -->
+            <div class="support-header">
+                <div class="support-header-content">
+                    <div class="support-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h1>الدعم الفني</h1>
+                    <p>نحن هنا لمساعدتك في أي وقت</p>
                 </div>
             </div>
 
-            <div class="deposit-body">
-                <div class="method-selection" id="methodSelection">
-                    <div class="section-title">اختر طريقة الإيداع</div>
-                    <div class="method-grid">
-                        <button class="method-item" data-method="bank">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
-                            </div>
-                            <span class="method-name">بنكك</span>
-                            <span class="method-desc">تحويل بنكي</span>
-                        </button>
-                        <button class="method-item" data-method="redotpay">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/zvTLbfdj/6feb9ec0dc4a917f20ee4499659d56ce.jpg" alt="RedotPay" />
-                            </div>
-                            <span class="method-name">RedotPay</span>
-                            <span class="method-desc">محفظة رقمية</span>
-                        </button>
-                        <button class="method-item" data-method="mycash">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/Jzg8yH0w/Screenshot-20260715-144026.jpg" alt="ماي كاشي" />
-                            </div>
-                            <span class="method-name">ماي كاشي</span>
-                            <span class="method-desc">محفظة إلكترونية</span>
-                        </button>
-                        <button class="method-item" data-method="binance">
-                            <span class="check-mark"><i class="fas fa-check"></i></span>
-                            <div class="method-icon-wrapper">
-                                <img src="https://i.postimg.cc/yd6bxJvV/1fabe356-bb69-4bc4-a307-19b28ee8dd35-780x470.webp" alt="بـيدي" />
-                            </div>
-                            <span class="method-name">بـيدي</span>
-                            <span class="method-desc">محفظة إلكترونية</span>
-                        </button>
+            <!-- Status Card -->
+            <div class="status-card">
+                <div class="status-left">
+                    <div class="status-dot online" id="statusDot"></div>
+                    <div class="status-text">
+                        <span id="statusText">الدعم متاح الآن</span>
                     </div>
                 </div>
+                <div class="status-badge" id="statusBadge">🟢 متصل</div>
             </div>
-        </div>
 
-        <!-- ============================================ -->
-        <!-- ===== صفحة تفاصيل الإيداع ===== -->
-        <!-- ============================================ -->
-        <div class="deposit-detail-page" id="depositDetailPage">
-            <div class="detail-body" id="detailBody">
-                <div class="account-card">
-                    <div class="account-label">رقم الحساب / المحفظة</div>
-                    <div class="account-row">
-                        <span class="account-number" id="accountNumber">7610732</span>
-                        <button class="copy-btn" id="copyBtn">
-                            <i class="fas fa-copy"></i>
+            <div class="support-body">
+                <!-- Welcome Card -->
+                <div class="welcome-card">
+                    <div class="welcome-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h2>هل تحتاج إلى مساعدة؟</h2>
+                    <p>فريق <strong>REDEEM STORE</strong> جاهز للإجابة على جميع استفساراتك وحل أي مشكلة تواجهك.</p>
+                </div>
+
+                <!-- Contact Methods -->
+                <div class="contact-grid">
+                    <!-- WhatsApp -->
+                    <div class="contact-card" id="whatsappCard">
+                        <div class="contact-icon whatsapp">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <div class="contact-name">واتساب</div>
+                        <div class="contact-desc">تواصل مباشر</div>
+                        <button class="contact-btn whatsapp-btn">ابدأ المحادثة</button>
+                    </div>
+
+                    <!-- Telegram -->
+                    <div class="contact-card" id="telegramCard">
+                        <div class="contact-icon telegram">
+                            <i class="fab fa-telegram-plane"></i>
+                        </div>
+                        <div class="contact-name">تيليجرام</div>
+                        <div class="contact-desc">قناة الدعم</div>
+                        <button class="contact-btn telegram-btn">فتح تيليجرام</button>
+                    </div>
+
+                    <!-- Facebook -->
+                    <div class="contact-card" id="facebookCard">
+                        <div class="contact-icon facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </div>
+                        <div class="contact-name">فيسبوك</div>
+                        <div class="contact-desc">صفحتنا</div>
+                        <button class="contact-btn facebook-btn">زيارة الصفحة</button>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="contact-card" id="emailCard">
+                        <div class="contact-icon email">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-name">البريد الإلكتروني</div>
+                        <div class="contact-desc">مراسلة رسمية</div>
+                        <button class="contact-btn email-btn">إرسال بريد</button>
+                    </div>
+                </div>
+
+                <!-- FAQ Section -->
+                <div class="faq-section">
+                    <div class="section-title">
+                        <i class="fas fa-question-circle"></i>
+                        الأسئلة الشائعة
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq1">
+                            <span class="faq-question-text">كيف أقوم بالشحن؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
                         </button>
+                        <div class="faq-answer" id="faq1">
+                            <p>اختر اللعبة المطلوبة، ثم اختر الباقة المناسبة، وأدخل البيانات المطلوبة (ID اللعبة، رقم واتساب)، ثم اضغط على "شراء الآن" وسيتم التواصل معك لتأكيد الطلب.</p>
+                        </div>
                     </div>
-                    <div class="account-holder" id="accountHolder">
-                        <span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان
-                    </div>
-                </div>
 
-                <div class="field-group">
-                    <label>المبلغ</label>
-                    <div class="field-input-wrapper">
-                        <input type="number" placeholder="أدخل المـبـلـغ الـمـطـلـوب" id="amountInput" class="input-ltr" />
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq2">
+                            <span class="faq-question-text">كيف أستلم الطلب؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq2">
+                            <p>بعد تأكيد الدفع، سيتم إرسال العملات أو الهدية إلى حسابك في اللعبة خلال 5-30 دقيقة حسب اللعبة ونوع الباقة.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field-group">
-                    <label>رقم العملية</label>
-                    <div class="field-input-wrapper">
-                        <input type="text" placeholder="رقـم العمـليـه مـن الـتطبـيـق" id="transactionIdInput" />
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq3">
+                            <span class="faq-question-text">كم تستغرق عملية التنفيذ؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq3">
+                            <p>تستغرق عملية التنفيذ عادة من 5 إلى 30 دقيقة. في حالات الطلب الكبير قد تصل إلى ساعة. سنتواصل معك فور الانتهاء.</p>
+                        </div>
                     </div>
-                </div>
 
-                <div class="field-group">
-                    <label>صورة الإيصال</label>
-                    <div class="file-upload-mini" id="fileUploadBox">
-                        <input type="file" accept="image/*" id="receiptInput" />
-                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
-                        <span class="upload-text">رفع صورة الإيصال</span>
-                        <div class="upload-preview" id="uploadPreview">
-                            <img id="previewImage" src="#" alt="معاينة" />
-                            <span class="preview-name" id="previewFileName"></span>
-                            <span class="preview-check"><i class="fas fa-check-circle"></i></span>
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq4">
+                            <span class="faq-question-text">ماذا أفعل إذا واجهت مشكلة؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq4">
+                            <p>يمكنك التواصل معنا مباشرة عبر واتساب أو تيليجرام. فريق الدعم متاح 24 ساعة لحل أي مشكلة تواجهك.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq5">
+                            <span class="faq-question-text">هل يمكن استرداد الرصيد؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq5">
+                            <p>نعم، يمكن استرداد الرصيد في حال حدوث خطأ تقني أو عدم تنفيذ الطلب. يتم الاسترداد خلال 24 ساعة من تقديم الطلب.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" data-target="faq6">
+                            <span class="faq-question-text">كيف أتواصل مع الدعم؟</span>
+                            <span class="faq-icon"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer" id="faq6">
+                            <p>يمكنك التواصل عبر قنوات التواصل المتاحة أعلاه: واتساب، تيليجرام، فيسبوك، أو البريد الإلكتروني. جميع القنوات متاحة 24 ساعة.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="success-message" id="successMessage">
-                    <div class="success-icon">
-                        <i class="fas fa-check"></i>
+                <!-- Hours Card -->
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <h2>تم الإيداع بنجاح</h2>
-                    <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
-                    <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
+                    <div class="hours-content">
+                        <h3>أوقات الدعم</h3>
+                        <p>الدعم متوفر على مدار الساعة</p>
+                        <div class="hours-time">24 ساعة / 7 أيام</div>
+                    </div>
                 </div>
             </div>
 
-            <div class="sticky-bottom" id="stickyBottom">
-                <button class="btn-confirm" id="confirmBtn">
-                    <span class="btn-text">تأكيد الإيداع</span>
-                    <span class="loader">
-                        <span class="loader-spinner"></span>
-                        جاري المعالجة...
-                    </span>
-                </button>
-            </div>
+            <!-- Fixed Bottom Button -->
+            <button class="support-fixed-btn" id="supportFixedBtn">
+                <i class="fas fa-comment-dots"></i>
+                تواصل مع الدعم الآن
+            </button>
         </div>
 
-        <!-- ============================================ -->
-        <!-- ===== PUBG PAGE ===== -->
-        <!-- ============================================ -->
-        <div id="page-pubg" class="page">
-            <div class="pubg-header">
-                <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
-                <div class="game-info">
-                    <h2>PUBG Mobile</h2>
-                    <p>اختر باقة UC المناسبة</p>
-                </div>
-            </div>
-
-            <div class="packs-grid" id="packsGrid">
-                <button class="pack-btn" data-uc="60" data-price="0.93">
-                    <span class="uc-amount">60UC</span>
-                    <span class="price-amount">$0.93</span>
-                </button>
-                <button class="pack-btn" data-uc="325" data-price="4.65">
-                    <span class="uc-amount">325UC</span>
-                    <span class="price-amount">$4.65</span>
-                </button>
-                <button class="pack-btn" data-uc="660" data-price="9.30">
-                    <span class="uc-amount">660UC</span>
-                    <span class="price-amount">$9.30</span>
-                </button>
-                <button class="pack-btn" data-uc="985" data-price="14.65">
-                    <span class="uc-amount">985UC</span>
-                    <span class="price-amount">$14.65</span>
-                </button>
-                <button class="pack-btn" data-uc="1320" data-price="19.50">
-                    <span class="uc-amount">1,320UC</span>
-                    <span class="price-amount">$19.50</span>
-                </button>
-                <button class="pack-btn" data-uc="1800" data-price="23.95">
-                    <span class="uc-amount">1,800UC</span>
-                    <span class="price-amount">$23.95</span>
-                </button>
-                <button class="pack-btn" data-uc="2460" data-price="33.50">
-                    <span class="uc-amount">2,460UC</span>
-                    <span class="price-amount">$33.50</span>
-                </button>
-                <button class="pack-btn" data-uc="3850" data-price="47.50">
-                    <span class="uc-amount">3,850UC</span>
-                    <span class="price-amount">$47.50</span>
-                </button>
-                <button class="pack-btn" data-uc="5650" data-price="70.50">
-                    <span class="uc-amount">5,650UC</span>
-                    <span class="price-amount">$70.50</span>
-                </button>
-                <button class="pack-btn" data-uc="8100" data-price="93.50">
-                    <span class="uc-amount">8,100UC</span>
-                    <span class="price-amount">$93.50</span>
-                </button>
-                <button class="pack-btn" data-uc="11950" data-price="150.00">
-                    <span class="uc-amount">11,950UC</span>
-                    <span class="price-amount">$150.00</span>
-                </button>
-                <button class="pack-btn" data-uc="16200" data-price="200.00">
-                    <span class="uc-amount">16,200UC</span>
-                    <span class="price-amount">$200.00</span>
-                </button>
-            </div>
-
-            <div class="shipping-form hidden" id="shippingForm">
-                <label>ID اللعبة</label>
-                <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
-                <label>رقم واتساب</label>
-                <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
-                <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== CALL OF DUTY PAGE ===== -->
-        <!-- ============================================ -->
-        <div id="page-cod" class="page">
-            <div class="cod-header">
-                <img src="https://i.postimg.cc/2yX8qYVc/file-0000000011ec71f49c0f89afaf8c887d.png" alt="Call of Duty" />
-                <div class="game-info">
-                    <h2>Call of Duty</h2>
-                    <p>اختر باقة CP المناسبة</p>
-                </div>
-            </div>
-
-            <div class="cod-packs-grid" id="codPacksGrid">
-                <button class="cod-pack-btn" data-cp="88" data-price="1.50">
-                    <span class="cp-amount">88CP</span>
-                    <span class="price-amount">$1.50</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="176" data-price="3.00">
-                    <span class="cp-amount">176CP</span>
-                    <span class="price-amount">$3.00</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="264" data-price="4.50">
-                    <span class="cp-amount">264CP</span>
-                    <span class="price-amount">$4.50</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="352" data-price="6.00">
-                    <span class="cp-amount">352CP</span>
-                    <span class="price-amount">$6.00</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="440" data-price="7.50">
-                    <span class="cp-amount">440CP</span>
-                    <span class="price-amount">$7.50</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="528" data-price="9.00">
-                    <span class="cp-amount">528CP</span>
-                    <span class="price-amount">$9.00</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="616" data-price="10.50">
-                    <span class="cp-amount">616CP</span>
-                    <span class="price-amount">$10.50</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="704" data-price="12.00">
-                    <span class="cp-amount">704CP</span>
-                    <span class="price-amount">$12.00</span>
-                </button>
-                <button class="cod-pack-btn" data-cp="880" data-price="15.00">
-                    <span class="cp-amount">880CP</span>
-                    <span class="price-amount">$15.00</span>
-                </button>
-            </div>
-
-            <div class="cod-shipping-form hidden" id="codShippingForm">
-                <label>معرف اللاعب</label>
-                <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
-                <label>رقم واتساب</label>
-                <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
-                <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== MOBILE LEGENDS PAGE ===== -->
-        <!-- ============================================ -->
-        <div id="page-ml" class="page">
-            <div class="ml-header">
-                <img src="https://i.postimg.cc/sf8rZwnf/file-00000000f01471f4a53e7eefd0edd681.png" alt="Mobile Legends" />
-                <div class="game-info">
-                    <h2>Mobile Legends</h2>
-                    <p>اختر باقة الألماس المناسبة</p>
-                </div>
-            </div>
-
-            <div class="ml-packs-grid" id="mlPacksGrid">
-                <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
-                    <span class="diamond-amount">74 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$1.50</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
-                    <span class="diamond-amount">296 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$6.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
-                    <span class="diamond-amount">741 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$15.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
-                    <span class="diamond-amount">1,186 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$24.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
-                    <span class="diamond-amount">1,471 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$30.00</span>
-                </button>
-                <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
-                    <span class="diamond-amount">2,205 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
-                    <span class="price-amount">$45.00</span>
-                </button>
-            </div>
-
-            <div class="ml-shipping-form hidden" id="mlShippingForm">
-                <div class="ml-form-label">
-                    <span>معرف الحساب</span>
-                    <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
-                        <i class="fas fa-question"></i>
-                    </button>
-                </div>
-                <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
-                <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
-                <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
-                <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== eFOOTBALL PAGE ===== -->
-        <!-- ============================================ -->
-        <div id="page-efootball" class="page">
-            <div class="efootball-header">
-                <img src="https://i.postimg.cc/hGySZg0z/file-00000000bfa871f4b2ac3e5d0f81e744.png" alt="eFootball" />
-                <div class="game-info">
-                    <h2>eFootball</h2>
-                    <p>اختر باقة FC المناسبة</p>
-                </div>
-            </div>
-
-            <div class="efootball-packs-grid" id="efootballPacksGrid">
-                <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
-                    <span class="fc-amount">40 FC</span>
-                    <span class="price-amount">$1.00</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
-                    <span class="fc-amount">100 FC</span>
-                    <span class="price-amount">$2.50</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
-                    <span class="fc-amount">520 FC</span>
-                    <span class="price-amount">$12.00</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
-                    <span class="fc-amount">1,070 FC</span>
-                    <span class="price-amount">$25.00</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
-                    <span class="fc-amount">2,200 FC</span>
-                    <span class="price-amount">$50.00</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
-                    <span class="fc-amount">5,750 FC</span>
-                    <span class="price-amount">$130.00</span>
-                </button>
-                <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
-                    <span class="fc-amount">12,000 FC</span>
-                    <span class="price-amount">$270.00</span>
-                </button>
-            </div>
-
-            <div class="efootball-shipping-form hidden" id="efootballShippingForm">
-                <label>معرف UID الخاص بك</label>
-                <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
-                <label>رقم واتساب</label>
-                <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
-                <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== CLASH OF CLANS PAGE ===== -->
-        <!-- ============================================ -->
-        <div id="page-coc" class="page">
-            <div class="coc-header">
-                <img src="https://i.postimg.cc/pV8HzK39/IMG-20260705-WA0101.jpg" alt="Clash of Clans" />
-                <div class="game-info">
-                    <h2>Clash of Clans</h2>
-                    <p>اختر باقة الجواهر المناسبة</p>
-                </div>
-            </div>
-
-            <div class="coc-packs-grid" id="cocPacksGrid">
-                <button class="coc-pack-btn" data-gems="80" data-price="0.65">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">80</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$0.65</span>
-                </button>
-                <button class="coc-pack-btn" data-gems="500" data-price="3.00">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">500</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$3.00</span>
-                </button>
-                <button class="coc-pack-btn" data-gems="1200" data-price="6.00">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">1,200</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$6.00</span>
-                </button>
-                <button class="coc-pack-btn" data-gems="2500" data-price="11.90">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">2,500</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$11.90</span>
-                </button>
-                <button class="coc-pack-btn" data-gems="6500" data-price="28.00">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">6,500</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$28.00</span>
-                </button>
-                <button class="coc-pack-btn" data-gems="14000" data-price="54.00">
-                    <span class="coc-amount-wrapper">
-                        <span class="coc-amount">14,000</span>
-                        <i class="fas fa-gem coc-icon"></i>
-                    </span>
-                    <span class="coc-price">$54.00</span>
-                </button>
-            </div>
-
-            <div class="coc-shipping-form hidden" id="cocShippingForm">
-                <label>حساب Supercell</label>
-                <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
-                <label>رقم واتساب</label>
-                <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
-                <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== صفحات الألعاب الإضافية ===== -->
-        <!-- ============================================ -->
-
-        <!-- Clash Royale -->
-        <div id="page-clashroyale" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/tC58Nkks/file-00000000c9fc7243b9a5fec212e270da.png" alt="Clash Royale" />
-                <div class="game-info">
-                    <h2>Clash Royale</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- Brawl Stars -->
-        <div id="page-brawlstars" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/YqqdMH6J/file-0000000059747243a17be8d1be4bad6a.png" alt="Brawl Stars" />
-                <div class="game-info">
-                    <h2>Brawl Stars</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- Genshin Impact -->
-        <div id="page-genshin" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png" alt="Genshin Impact" />
-                <div class="game-info">
-                    <h2>Genshin Impact</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- Blood Strike -->
-        <div id="page-bloodstrike" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png" alt="Blood Strike" />
-                <div class="game-info">
-                    <h2>Blood Strike</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- Yalla Ludo -->
-        <div id="page-yallaludo" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/dVFrwmcT/file-0000000000a072439a7832276cfdc878.png" alt="Yalla Ludo" />
-                <div class="game-info">
-                    <h2>Yalla Ludo</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- Minecraft -->
-        <div id="page-minecraft" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/BQTPYLP5/file-00000000e78071f4883e51f0bed60c47.png" alt="Minecraft" />
-                <div class="game-info">
-                    <h2>Minecraft</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
-        <!-- ============================================ -->
-        <!-- ===== MODAL ===== -->
-        <!-- ============================================ -->
-        <div class="modal-overlay" id="mlHelpModal">
-            <div class="modal-content">
-                <button class="modal-close-btn" id="mlModalCloseBtn">
-                    <i class="fas fa-times"></i>
-                </button>
-                <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
-                <ol class="modal-instructions">
-                    <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
-                    <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
-                        <span class="highlight">ID: XXXXXXXX (XXXX)</span>
-                    </li>
-                    <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
-                    <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
-                    <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
-                </ol>
+        <!-- صفحة الحساب -->
+        <div id="page-account" class="page">
+            <div class="placeholder-page">
+                <i class="fas fa-user-circle"></i>
+                <p>صفحة الحساب</p>
+                <p style="font-size:14px; color:#bbb; margin-top:8px;">قريباً</p>
             </div>
         </div>
 
@@ -3686,24 +1878,27 @@
             // ===== الإعدادات العامة =====
             // ============================================
             const WHATSAPP_NUMBER = '249901839168';
+            const TELEGRAM_LINK = 'https://t.me/REDEEM_STORE';
+            const FACEBOOK_LINK = 'https://facebook.com/REDEEM_STORE';
+            const EMAIL_ADDRESS = 'support@redeemstore.com';
             const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 
             // ============================================
             // ===== قائمة الألعاب =====
             // ============================================
             const gamesList = [
-                { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
+                { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: null },
                 { name: 'Free Fire', img: 'https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg', page: null },
-                { name: 'Call of Duty', img: 'https://i.postimg.cc/2yX8qYVc/file-0000000011ec71f49c0f89afaf8c887d.png', page: 'page-cod' },
-                { name: 'Mobile Legends', img: 'https://i.postimg.cc/sf8rZwnf/file-00000000f01471f4a53e7eefd0edd681.png', page: 'page-ml' },
-                { name: 'eFootball', img: 'https://i.postimg.cc/hGySZg0z/file-00000000bfa871f4b2ac3e5d0f81e744.png', page: 'page-efootball' },
-                { name: 'Clash of Clans', img: 'https://i.postimg.cc/pV8HzK39/IMG-20260705-WA0101.jpg', page: 'page-coc' },
-                { name: 'Clash Royale', img: 'https://i.postimg.cc/tC58Nkks/file-00000000c9fc7243b9a5fec212e270da.png', page: 'page-clashroyale' },
-                { name: 'Brawl Stars', img: 'https://i.postimg.cc/YqqdMH6J/file-0000000059747243a17be8d1be4bad6a.png', page: 'page-brawlstars' },
-                { name: 'Genshin Impact', img: 'https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png', page: 'page-genshin' },
-                { name: 'Blood Strike', img: 'https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png', page: 'page-bloodstrike' },
-                { name: 'Yalla Ludo', img: 'https://i.postimg.cc/dVFrwmcT/file-0000000000a072439a7832276cfdc878.png', page: 'page-yallaludo' },
-                { name: 'Minecraft', img: 'https://i.postimg.cc/BQTPYLP5/file-00000000e78071f4883e51f0bed60c47.png', page: 'page-minecraft' }
+                { name: 'Call of Duty', img: 'https://i.postimg.cc/2yX8qYVc/file-0000000011ec71f49c0f89afaf8c887d.png', page: null },
+                { name: 'Mobile Legends', img: 'https://i.postimg.cc/sf8rZwnf/file-00000000f01471f4a53e7eefd0edd681.png', page: null },
+                { name: 'eFootball', img: 'https://i.postimg.cc/hGySZg0z/file-00000000bfa871f4b2ac3e5d0f81e744.png', page: null },
+                { name: 'Clash of Clans', img: 'https://i.postimg.cc/pV8HzK39/IMG-20260705-WA0101.jpg', page: null },
+                { name: 'Clash Royale', img: 'https://i.postimg.cc/tC58Nkks/file-00000000c9fc7243b9a5fec212e270da.png', page: null },
+                { name: 'Brawl Stars', img: 'https://i.postimg.cc/YqqdMH6J/file-0000000059747243a17be8d1be4bad6a.png', page: null },
+                { name: 'Genshin Impact', img: 'https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png', page: null },
+                { name: 'Blood Strike', img: 'https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png', page: null },
+                { name: 'Yalla Ludo', img: 'https://i.postimg.cc/dVFrwmcT/file-0000000000a072439a7832276cfdc878.png', page: null },
+                { name: 'Minecraft', img: 'https://i.postimg.cc/BQTPYLP5/file-00000000e78071f4883e51f0bed60c47.png', page: null }
             ];
 
             // ============================================
@@ -3737,36 +1932,6 @@
                 setTimeout(() => ripple.remove(), 600);
             }
 
-            function createRippleFaq(e, element) {
-                const rect = element.getBoundingClientRect();
-                const ripple = document.createElement('span');
-                ripple.className = 'ripple-faq';
-                const size = Math.max(rect.width, rect.height);
-                ripple.style.width = ripple.style.height = size + 'px';
-                const x = e.clientX - rect.left - size / 2;
-                const y = e.clientY - rect.top - size / 2;
-                ripple.style.left = x + 'px';
-                ripple.style.top = y + 'px';
-                element.appendChild(ripple);
-                setTimeout(() => ripple.remove(), 600);
-            }
-
-            document.querySelectorAll('.action-card').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    const rect = this.getBoundingClientRect();
-                    const ripple = document.createElement('span');
-                    ripple.className = 'ripple-btn';
-                    const size = Math.max(rect.width, rect.height);
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    this.appendChild(ripple);
-                    setTimeout(() => ripple.remove(), 600);
-                });
-            });
-
             // ============================================
             // ===== دوال مساعدة =====
             // ============================================
@@ -3774,99 +1939,46 @@
                 window.open(WHATSAPP_URL, '_blank');
             }
 
-            // ============================================
-            // ===== دوال إعادة تهيئة الباقات =====
-            // ============================================
-            function resetPubgPacks() {
-                const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
-                const shippingForm = document.getElementById('shippingForm');
-                const gameIdInput = document.getElementById('gameIdInput');
-                const whatsappInput = document.getElementById('whatsappInput');
-                
-                packBtns.forEach(b => b.classList.remove('selected'));
-                shippingForm.classList.add('hidden');
-                shippingForm.classList.remove('visible');
-                if (gameIdInput) gameIdInput.value = '';
-                if (whatsappInput) whatsappInput.value = '';
-                
-                // Reset global variables
-                window.selectedPack = null;
-                window.selectedPrice = null;
+            function openTelegram() {
+                window.open(TELEGRAM_LINK, '_blank');
             }
 
-            function resetCodPacks() {
-                const codPackBtns = document.querySelectorAll('.cod-pack-btn');
-                const codShippingForm = document.getElementById('codShippingForm');
-                const codPlayerIdInput = document.getElementById('codPlayerIdInput');
-                const codWhatsappInput = document.getElementById('codWhatsappInput');
-                
-                codPackBtns.forEach(b => b.classList.remove('selected'));
-                codShippingForm.classList.add('hidden');
-                codShippingForm.classList.remove('visible');
-                if (codPlayerIdInput) codPlayerIdInput.value = '';
-                if (codWhatsappInput) codWhatsappInput.value = '';
-                
-                window.selectedCodPack = null;
-                window.selectedCodPrice = null;
+            function openFacebook() {
+                window.open(FACEBOOK_LINK, '_blank');
             }
 
-            function resetMlPacks() {
-                const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
-                const mlShippingForm = document.getElementById('mlShippingForm');
-                const mlAccountIdInput = document.getElementById('mlAccountIdInput');
-                const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-                
-                mlPackBtns.forEach(b => b.classList.remove('selected'));
-                mlShippingForm.classList.add('hidden');
-                mlShippingForm.classList.remove('visible');
-                if (mlAccountIdInput) mlAccountIdInput.value = '';
-                if (mlRegionIdInput) mlRegionIdInput.value = '';
-                
-                window.selectedMlPack = null;
-                window.selectedMlPrice = null;
+            function openEmail() {
+                window.location.href = `mailto:${EMAIL_ADDRESS}?subject=استفسار%20من%20Redeem%20Store&body=مرحباً،%0A%0A`;
             }
 
-            function resetEfootballPacks() {
-                const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
-                const efootballShippingForm = document.getElementById('efootballShippingForm');
-                const efootballUidInput = document.getElementById('efootballUidInput');
-                const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-                
-                efootballPackBtns.forEach(b => b.classList.remove('selected'));
-                efootballShippingForm.classList.add('hidden');
-                efootballShippingForm.classList.remove('visible');
-                if (efootballUidInput) efootballUidInput.value = '';
-                if (efootballWhatsappInput) efootballWhatsappInput.value = '';
-                
-                window.selectedEfootballPack = null;
-                window.selectedEfootballPrice = null;
+            function switchPage(pageId) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('active');
+                }
             }
 
-            function resetCocPacks() {
-                const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
-                const cocShippingForm = document.getElementById('cocShippingForm');
-                const cocSupercellInput = document.getElementById('cocSupercellInput');
-                const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-                
-                cocPackBtns.forEach(b => b.classList.remove('selected'));
-                cocShippingForm.classList.add('hidden');
-                cocShippingForm.classList.remove('visible');
-                if (cocSupercellInput) cocSupercellInput.value = '';
-                if (cocWhatsappInput) cocWhatsappInput.value = '';
-                
-                window.selectedCocPack = null;
-                window.selectedCocPrice = null;
-            }
-
-            // ============================================
-            // ===== دالة إعادة تهيئة جميع الباقات =====
-            // ============================================
-            function resetAllPacks() {
-                resetPubgPacks();
-                resetCodPacks();
-                resetMlPacks();
-                resetEfootballPacks();
-                resetCocPacks();
+            function updateNavActive(pageId) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const navIndicator = document.getElementById('navIndicator');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
+                    }
+                });
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                    navIndicator.style.left = leftPos + 'px';
+                    navIndicator.style.width = '30px';
+                    navIndicator.classList.add('show');
+                }
             }
 
             // ============================================
@@ -3885,22 +1997,13 @@
                     `;
                     card.addEventListener('click', (e) => {
                         createRipple(e, card);
-                        if (game.page) {
-                            // Reset all packs before switching
-                            resetAllPacks();
+                        card.classList.add('fade-out');
+                        setTimeout(() => {
+                            openWhatsApp();
                             setTimeout(() => {
-                                switchPage(game.page);
-                                updateNavActive('page-home');
-                            }, 150);
-                        } else {
-                            card.classList.add('fade-out');
-                            setTimeout(() => {
-                                openWhatsApp();
-                                setTimeout(() => {
-                                    card.classList.remove('fade-out');
-                                }, 100);
-                            }, 250);
-                        }
+                                card.classList.remove('fade-out');
+                            }, 100);
+                        }, 250);
                     });
                     productsGrid.appendChild(card);
                 });
@@ -3933,53 +2036,11 @@
             // ============================================
             const navItems = document.querySelectorAll('.nav-item');
 
-            function switchPage(pageId) {
-                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
-                const target = document.getElementById(pageId);
-                if (target) {
-                    target.style.display = 'block';
-                    target.classList.add('active');
-                }
-            }
-
-            function updateNavActive(pageId) {
-                const navItems = document.querySelectorAll('.nav-item');
-                const navIndicator = document.getElementById('navIndicator');
-                navItems.forEach(item => {
-                    item.classList.remove('active');
-                    if (item.dataset.page === pageId) {
-                        item.classList.add('active');
-                    }
-                });
-                const activeItem = document.querySelector('.nav-item.active');
-                if (activeItem) {
-                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
-                    const itemRect = activeItem.getBoundingClientRect();
-                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
-                    navIndicator.style.left = leftPos + 'px';
-                    navIndicator.style.width = '30px';
-                    navIndicator.classList.add('show');
-                }
-            }
-
             navItems.forEach(item => {
                 item.addEventListener('click', () => {
                     const pageId = item.dataset.page;
                     if (pageId === 'page-wallet' || pageId === 'page-support' ||
                         pageId === 'page-account' || pageId === 'page-home') {
-                        const depositPage = document.getElementById('depositPage');
-                        const depositDetailPage = document.getElementById('depositDetailPage');
-                        if (depositPage && depositPage.classList.contains('active')) {
-                            depositPage.classList.remove('active');
-                            depositPage.style.display = 'none';
-                        }
-                        if (depositDetailPage && depositDetailPage.classList.contains('active')) {
-                            depositDetailPage.classList.remove('active');
-                            depositDetailPage.style.display = 'none';
-                        }
-                        // Reset all packs when navigating away from game pages
-                        resetAllPacks();
                         switchPage(pageId);
                         updateNavActive(pageId);
                     }
@@ -3987,562 +2048,60 @@
             });
 
             // ============================================
-            // ===== زر الإيداع =====
+            // ===== صفحة الدعم - الأزرار =====
             // ============================================
-            const depositPage = document.getElementById('depositPage');
-            const depositBackBtn = document.getElementById('depositBackBtn');
-            const methodItems = document.querySelectorAll('.method-item');
-            const depositDetailPage = document.getElementById('depositDetailPage');
-
-            document.getElementById('depositBtn').addEventListener('click', function(e) {
-                this.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    this.style.transform = 'scale(1)';
-                }, 200);
-
-                document.querySelectorAll('.page').forEach(p => {
-                    p.classList.remove('active');
-                    p.style.display = 'none';
-                });
-
-                depositPage.style.display = 'block';
-                depositPage.style.animation = 'none';
-                requestAnimationFrame(() => {
-                    depositPage.style.animation = 'none';
-                    depositPage.classList.add('active');
-                });
-
-                depositDetailPage.classList.remove('active');
-                depositDetailPage.style.display = 'none';
-
-                navItems.forEach(item => item.classList.remove('active'));
-                document.getElementById('navIndicator').classList.remove('show');
-
-                methodItems.forEach((item, index) => {
-                    if (index === 0) item.classList.add('selected');
-                    else item.classList.remove('selected');
-                });
-            });
-
-            depositBackBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                depositPage.classList.add('slide-out');
-                setTimeout(() => {
-                    depositPage.classList.remove('active');
-                    depositPage.style.display = 'none';
-                    depositPage.classList.remove('slide-out');
-                    resetAllPacks();
-                    switchPage('page-wallet');
-                    updateNavActive('page-wallet');
-                }, 350);
-            });
-
-            methodItems.forEach(item => {
-                item.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    methodItems.forEach(btn => btn.classList.remove('selected'));
-                    this.classList.add('selected');
-
-                    const method = this.dataset.method;
-                    localStorage.setItem('selectedDepositMethod', method);
-
-                    depositPage.classList.add('slide-out');
-                    setTimeout(() => {
-                        depositPage.classList.remove('active');
-                        depositPage.style.display = 'none';
-                        depositPage.classList.remove('slide-out');
-
-                        depositDetailPage.style.display = 'block';
-                        depositDetailPage.style.animation = 'none';
-                        requestAnimationFrame(() => {
-                            depositDetailPage.style.animation = 'none';
-                            depositDetailPage.classList.add('active');
-                        });
-
-                        updateAccount(method);
-                    }, 350);
-                });
-            });
-
-            // ============================================
-            // ===== بيانات طرق الدفع =====
-            // ============================================
-            const methodsData = {
-                bank: {
-                    name: 'بنكك',
-                    account: '7610732',
-                    holder: 'نـافع نصر الدين سليمان'
-                },
-                redotpay: {
-                    name: 'RedotPay',
-                    account: 'RP12 3456 7890 1234',
-                    holder: 'نـافع نصر الدين سليمان'
-                },
-                mycash: {
-                    name: 'ماي كاشي',
-                    account: '401401294',
-                    holder: 'نـافع نصر الدين سليمان'
-                },
-                binance: {
-                    name: 'بـيدي',
-                    account: '0901839168',
-                    holder: 'نـافع نصر الدين سليمان'
-                }
-            };
-
-            // ============================================
-            // ===== صفحة تفاصيل الإيداع =====
-            // ============================================
-            const accountNumber = document.getElementById('accountNumber');
-            const accountHolder = document.getElementById('accountHolder');
-            const copyBtn = document.getElementById('copyBtn');
-            const amountInput = document.getElementById('amountInput');
-            const transactionIdInput = document.getElementById('transactionIdInput');
-            const receiptInput = document.getElementById('receiptInput');
-            const fileUploadBox = document.getElementById('fileUploadBox');
-            const previewImage = document.getElementById('previewImage');
-            const previewFileName = document.getElementById('previewFileName');
-            const confirmBtn = document.getElementById('confirmBtn');
-            const successMessage = document.getElementById('successMessage');
-            const backHomeBtn = document.getElementById('backHomeBtn');
-            const detailBody = document.getElementById('detailBody');
-            const stickyBottom = document.getElementById('stickyBottom');
-
-            function updateAccount(method) {
-                const data = methodsData[method];
-                if (data) {
-                    accountNumber.textContent = data.account;
-                    accountHolder.innerHTML = `<span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان`;
-                }
-            }
-
-            const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
-            updateAccount(savedMethod);
-
-            copyBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                const text = accountNumber.textContent;
-                if (navigator.clipboard && navigator.clipboard.writeText) {
-                    navigator.clipboard.writeText(text).then(() => {
-                        this.classList.add('copied');
-                        this.innerHTML = '<i class="fas fa-check"></i>';
-                        setTimeout(() => {
-                            this.classList.remove('copied');
-                            this.innerHTML = '<i class="fas fa-copy"></i>';
-                        }, 2000);
-                    }).catch(() => { fallbackCopy(text); });
-                } else {
-                    fallbackCopy(text);
-                }
-            });
-
-            function fallbackCopy(text) {
-                const textarea = document.createElement('textarea');
-                textarea.value = text;
-                textarea.style.position = 'fixed';
-                textarea.style.opacity = '0';
-                document.body.appendChild(textarea);
-                textarea.select();
-                try {
-                    document.execCommand('copy');
-                    copyBtn.classList.add('copied');
-                    copyBtn.innerHTML = '<i class="fas fa-check"></i>';
-                    setTimeout(() => {
-                        copyBtn.classList.remove('copied');
-                        copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
-                    }, 2000);
-                } catch (err) {
-                    alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
-                }
-                document.body.removeChild(textarea);
-            }
-
-            receiptInput.addEventListener('change', function() {
-                if (this.files && this.files[0]) {
-                    const file = this.files[0];
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        previewImage.src = e.target.result;
-                    };
-                    reader.readAsDataURL(file);
-                    previewFileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
-                    fileUploadBox.classList.add('has-file');
-                } else {
-                    fileUploadBox.classList.remove('has-file');
-                    previewImage.src = '#';
-                    previewFileName.textContent = '';
-                }
-            });
-
-            confirmBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                const amount = amountInput.value.trim();
-                const transactionId = transactionIdInput.value.trim();
-
-                if (!amount) {
-                    alert('⚠️ يرجى إدخال المبلغ المطلوب.');
-                    amountInput.focus();
-                    return;
-                }
-                if (parseFloat(amount) <= 0) {
-                    alert('⚠️ يرجى إدخال مبلغ صحيح أكبر من صفر.');
-                    amountInput.focus();
-                    return;
-                }
-                if (!transactionId) {
-                    alert('⚠️ يرجى إدخال رقم العملية أو التحويل.');
-                    transactionIdInput.focus();
-                    return;
-                }
-
-                this.classList.add('loading');
-
-                setTimeout(() => {
-                    this.classList.remove('loading');
-                    detailBody.style.display = 'none';
-                    stickyBottom.style.display = 'none';
-                    successMessage.classList.add('active');
-                    successMessage.style.display = 'block';
-                }, 1500);
-            });
-
-            backHomeBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                depositDetailPage.classList.add('slide-out');
-                setTimeout(() => {
-                    depositDetailPage.classList.remove('active');
-                    depositDetailPage.style.display = 'none';
-                    depositDetailPage.classList.remove('slide-out');
-                    const homePage = document.getElementById('page-home');
-                    if (homePage) {
-                        homePage.style.display = 'block';
-                        homePage.classList.add('active');
-                    }
-                    detailBody.style.display = 'flex';
-                    stickyBottom.style.display = 'block';
-                    successMessage.classList.remove('active');
-                    successMessage.style.display = 'none';
-                    confirmBtn.classList.remove('loading');
-                    confirmBtn.querySelector('.btn-text').style.display = 'block';
-                    amountInput.value = '';
-                    transactionIdInput.value = '';
-                    receiptInput.value = '';
-                    fileUploadBox.classList.remove('has-file');
-                    previewImage.src = '#';
-                    previewFileName.textContent = '';
-                    resetAllPacks();
-                }, 350);
-            });
-
-            // ============================================
-            // ===== باقات PUBG =====
-            // ============================================
-            const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
-            const shippingForm = document.getElementById('shippingForm');
-            const gameIdInput = document.getElementById('gameIdInput');
-            const whatsappInput = document.getElementById('whatsappInput');
-            
-            // Initialize variables
-            window.selectedPack = null;
-            window.selectedPrice = null;
-
-            packBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    // Remove selected from all
-                    packBtns.forEach(b => b.classList.remove('selected'));
-                    // Add selected to clicked
-                    this.classList.add('selected');
-                    window.selectedPack = this.dataset.uc;
-                    window.selectedPrice = this.dataset.price;
-                    if (shippingForm.classList.contains('hidden')) {
-                        shippingForm.classList.remove('hidden');
-                        setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
-                    }
-                    setTimeout(() => {
-                        shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        setTimeout(() => { gameIdInput.focus(); }, 600);
-                    }, 150);
-                });
-            });
-
-            document.getElementById('buyNowBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const gameId = gameIdInput.value.trim();
-                const whatsapp = whatsappInput.value.trim();
-                if (!window.selectedPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                    return;
-                }
-                if (!gameId) {
-                    alert('⚠️ يرجى إدخال ID اللعبة.');
-                    return;
-                }
-                if (!whatsapp) {
-                    alert('⚠️ يرجى إدخال رقم واتساب.');
-                    return;
-                }
-                const btn = e.target;
-                btn.textContent = 'جاري المعالجة...';
-                btn.style.opacity = '0.7';
-                setTimeout(() => {
-                    alert(
-                        `✅ تم تقديم طلب شراء باقة ${window.selectedPack} UC\n💰 السعر: $${window.selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
-                    btn.textContent = 'شراء الآن';
-                    btn.style.opacity = '1';
+            // WhatsApp Card
+            document.getElementById('whatsappCard').addEventListener('click', function(e) {
+                if (e.target.tagName !== 'BUTTON') {
                     openWhatsApp();
-                }, 500);
+                }
+            });
+            document.querySelector('#whatsappCard .contact-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                createRippleBtn(e, this);
+                openWhatsApp();
             });
 
-            // ============================================
-            // ===== باقات Call of Duty =====
-            // ============================================
-            const codPackBtns = document.querySelectorAll('.cod-pack-btn');
-            const codShippingForm = document.getElementById('codShippingForm');
-            const codPlayerIdInput = document.getElementById('codPlayerIdInput');
-            const codWhatsappInput = document.getElementById('codWhatsappInput');
-            
-            window.selectedCodPack = null;
-            window.selectedCodPrice = null;
-
-            codPackBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    codPackBtns.forEach(b => b.classList.remove('selected'));
-                    this.classList.add('selected');
-                    window.selectedCodPack = this.dataset.cp;
-                    window.selectedCodPrice = this.dataset.price;
-                    if (codShippingForm.classList.contains('hidden')) {
-                        codShippingForm.classList.remove('hidden');
-                        setTimeout(() => { codShippingForm.classList.add('visible'); }, 50);
-                    }
-                    setTimeout(() => {
-                        codShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        setTimeout(() => { codPlayerIdInput.focus(); }, 600);
-                    }, 150);
-                });
+            // Telegram Card
+            document.getElementById('telegramCard').addEventListener('click', function(e) {
+                if (e.target.tagName !== 'BUTTON') {
+                    openTelegram();
+                }
+            });
+            document.querySelector('#telegramCard .contact-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                createRippleBtn(e, this);
+                openTelegram();
             });
 
-            document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const playerId = codPlayerIdInput.value.trim();
-                const whatsapp = codWhatsappInput.value.trim();
-                if (!window.selectedCodPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                    return;
+            // Facebook Card
+            document.getElementById('facebookCard').addEventListener('click', function(e) {
+                if (e.target.tagName !== 'BUTTON') {
+                    openFacebook();
                 }
-                if (!playerId) {
-                    alert('⚠️ يرجى إدخال معرف اللاعب.');
-                    return;
-                }
-                if (!whatsapp) {
-                    alert('⚠️ يرجى إدخال رقم واتساب.');
-                    return;
-                }
-                const btn = e.target;
-                btn.textContent = 'جاري المعالجة...';
-                btn.style.opacity = '0.7';
-                setTimeout(() => {
-                    alert(
-                        `✅ تم تقديم طلب شراء باقة ${window.selectedCodPack} CP\n💰 السعر: $${window.selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
-                    btn.textContent = 'شراء الآن';
-                    btn.style.opacity = '1';
-                    openWhatsApp();
-                }, 500);
+            });
+            document.querySelector('#facebookCard .contact-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                createRippleBtn(e, this);
+                openFacebook();
             });
 
-            // ============================================
-            // ===== باقات Mobile Legends =====
-            // ============================================
-            const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
-            const mlShippingForm = document.getElementById('mlShippingForm');
-            const mlAccountIdInput = document.getElementById('mlAccountIdInput');
-            const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-            
-            window.selectedMlPack = null;
-            window.selectedMlPrice = null;
-
-            mlPackBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    mlPackBtns.forEach(b => b.classList.remove('selected'));
-                    this.classList.add('selected');
-                    window.selectedMlPack = this.dataset.diamond;
-                    window.selectedMlPrice = this.dataset.price;
-                    if (mlShippingForm.classList.contains('hidden')) {
-                        mlShippingForm.classList.remove('hidden');
-                        setTimeout(() => { mlShippingForm.classList.add('visible'); }, 50);
-                    }
-                    setTimeout(() => {
-                        mlShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        setTimeout(() => { mlAccountIdInput.focus(); }, 600);
-                    }, 150);
-                });
+            // Email Card
+            document.getElementById('emailCard').addEventListener('click', function(e) {
+                if (e.target.tagName !== 'BUTTON') {
+                    openEmail();
+                }
+            });
+            document.querySelector('#emailCard .contact-btn').addEventListener('click', function(e) {
+                e.stopPropagation();
+                createRippleBtn(e, this);
+                openEmail();
             });
 
-            document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const accountId = mlAccountIdInput.value.trim();
-                const regionId = mlRegionIdInput.value.trim();
-                if (!window.selectedMlPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                    return;
-                }
-                if (!accountId) {
-                    alert('⚠️ يرجى إدخال معرف الحساب.');
-                    return;
-                }
-                if (!regionId) {
-                    alert('⚠️ يرجى إدخال معرف المنطقة.');
-                    return;
-                }
-                const btn = e.target;
-                btn.textContent = 'جاري المعالجة...';
-                btn.style.opacity = '0.7';
-                setTimeout(() => {
-                    alert(
-                        `✅ تم تقديم طلب شراء باقة ${window.selectedMlPack} 💎\n💰 السعر: $${window.selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`
-                        );
-                    btn.textContent = 'شراء الآن';
-                    btn.style.opacity = '1';
-                    openWhatsApp();
-                }, 500);
-            });
-
-            // ============================================
-            // ===== باقات eFootball =====
-            // ============================================
-            const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
-            const efootballShippingForm = document.getElementById('efootballShippingForm');
-            const efootballUidInput = document.getElementById('efootballUidInput');
-            const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-            
-            window.selectedEfootballPack = null;
-            window.selectedEfootballPrice = null;
-
-            efootballPackBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    efootballPackBtns.forEach(b => b.classList.remove('selected'));
-                    this.classList.add('selected');
-                    window.selectedEfootballPack = this.dataset.fc;
-                    window.selectedEfootballPrice = this.dataset.price;
-                    if (efootballShippingForm.classList.contains('hidden')) {
-                        efootballShippingForm.classList.remove('hidden');
-                        setTimeout(() => { efootballShippingForm.classList.add('visible'); }, 50);
-                    }
-                    setTimeout(() => {
-                        efootballShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        setTimeout(() => { efootballUidInput.focus(); }, 600);
-                    }, 150);
-                });
-            });
-
-            document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const uid = efootballUidInput.value.trim();
-                const whatsapp = efootballWhatsappInput.value.trim();
-                if (!window.selectedEfootballPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                    return;
-                }
-                if (!uid) {
-                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
-                    return;
-                }
-                if (!whatsapp) {
-                    alert('⚠️ يرجى إدخال رقم واتساب.');
-                    return;
-                }
-                const btn = e.target;
-                btn.textContent = 'جاري المعالجة...';
-                btn.style.opacity = '0.7';
-                setTimeout(() => {
-                    alert(
-                        `✅ تم تقديم طلب شراء ${window.selectedEfootballPack} FC\n💰 السعر: $${window.selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
-                    btn.textContent = 'شراء الآن';
-                    btn.style.opacity = '1';
-                    openWhatsApp();
-                }, 500);
-            });
-
-            // ============================================
-            // ===== باقات Clash of Clans =====
-            // ============================================
-            const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
-            const cocShippingForm = document.getElementById('cocShippingForm');
-            const cocSupercellInput = document.getElementById('cocSupercellInput');
-            const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-            
-            window.selectedCocPack = null;
-            window.selectedCocPrice = null;
-
-            cocPackBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    createRipple(e, this);
-                    cocPackBtns.forEach(b => b.classList.remove('selected'));
-                    this.classList.add('selected');
-                    window.selectedCocPack = this.dataset.gems;
-                    window.selectedCocPrice = this.dataset.price;
-                    if (cocShippingForm.classList.contains('hidden')) {
-                        cocShippingForm.classList.remove('hidden');
-                        setTimeout(() => { cocShippingForm.classList.add('visible'); }, 50);
-                    }
-                    setTimeout(() => {
-                        cocShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        setTimeout(() => { cocSupercellInput.focus(); }, 600);
-                    }, 150);
-                });
-            });
-
-            document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const supercell = cocSupercellInput.value.trim();
-                const whatsapp = cocWhatsappInput.value.trim();
-                if (!window.selectedCocPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
-                    return;
-                }
-                if (!supercell) {
-                    alert('⚠️ يرجى إدخال حساب Supercell.');
-                    return;
-                }
-                if (!whatsapp) {
-                    alert('⚠️ يرجى إدخال رقم واتساب.');
-                    return;
-                }
-                const btn = e.target;
-                btn.textContent = 'جاري المعالجة...';
-                btn.style.opacity = '0.7';
-                setTimeout(() => {
-                    alert(
-                        `✅ تم تقديم طلب شراء ${window.selectedCocPack} 💎\n💰 السعر: $${window.selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
-                    btn.textContent = 'شراء الآن';
-                    btn.style.opacity = '1';
-                    openWhatsApp();
-                }, 500);
-            });
-
-            // ============================================
-            // ===== زر بدء المحادثة =====
-            // ============================================
-            document.getElementById('startChatBtn').addEventListener('click', (e) => {
-                createRippleBtn(e, e.target);
-                const card = e.target.closest('.support-card');
-                card.style.transition = 'all 0.25s ease';
-                card.style.opacity = '0.7';
-                card.style.transform = 'scale(0.98)';
-                setTimeout(() => {
-                    openWhatsApp();
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 150);
-                }, 250);
+            // Fixed Support Button
+            document.getElementById('supportFixedBtn').addEventListener('click', function(e) {
+                createRippleBtn(e, this);
+                openWhatsApp();
             });
 
             // ============================================
@@ -4553,7 +2112,7 @@
 
             faqQuestions.forEach(btn => {
                 btn.addEventListener('click', (e) => {
-                    createRippleFaq(e, btn);
+                    createRipple(e, btn);
                     const targetId = btn.dataset.target;
                     const answer = document.getElementById(targetId);
                     const icon = btn.querySelector('.faq-icon');
@@ -4580,36 +2139,30 @@
             });
 
             // ============================================
-            // ===== MODAL =====
+            // ===== حالة الدعم (Status) =====
             // ============================================
-            const modalOverlay = document.getElementById('mlHelpModal');
-            const modalCloseBtn = document.getElementById('mlModalCloseBtn');
-            const helpBtn = document.getElementById('mlHelpBtn');
+            function updateSupportStatus() {
+                const statusDot = document.getElementById('statusDot');
+                const statusText = document.getElementById('statusText');
+                const statusBadge = document.getElementById('statusBadge');
 
-            helpBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                modalOverlay.classList.add('open');
-                document.body.style.overflow = 'hidden';
-            });
+                // يمكن تغيير هذه القيمة لاختبار حالة غير متصل
+                const isOnline = true;
 
-            modalCloseBtn.addEventListener('click', () => {
-                modalOverlay.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-
-            modalOverlay.addEventListener('click', (e) => {
-                if (e.target === modalOverlay) {
-                    modalOverlay.classList.remove('open');
-                    document.body.style.overflow = '';
+                if (isOnline) {
+                    statusDot.className = 'status-dot online';
+                    statusText.textContent = 'الدعم متاح الآن';
+                    statusBadge.textContent = '🟢 متصل';
+                    statusBadge.style.color = '#10B981';
+                } else {
+                    statusDot.className = 'status-dot offline';
+                    statusText.textContent = 'الدعم غير متاح حالياً';
+                    statusBadge.textContent = '🔴 غير متصل';
+                    statusBadge.style.color = '#EF4444';
                 }
-            });
+            }
 
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
-                    modalOverlay.classList.remove('open');
-                    document.body.style.overflow = '';
-                }
-            });
+            updateSupportStatus();
 
             // ============================================
             // ===== المحفظة =====
@@ -4699,6 +2252,10 @@
                     });
                 });
 
+                document.getElementById('depositBtn').addEventListener('click', function() {
+                    alert('💳 سيتم توجيهك إلى صفحة الإيداع قريباً.');
+                });
+
                 document.getElementById('withdrawBtn').addEventListener('click', function() {
                     alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
                 });
@@ -4713,17 +2270,11 @@
             document.querySelectorAll('button').forEach(b => {
                 b.addEventListener('click', (e) => {
                     if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') ||
-                        b.closest('.faq-item') || b.closest('.pack-btn') ||
-                        b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
-                        b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
-                        b.id === 'startChatBtn' || b.id === 'buyNowBtn' ||
-                        b.id === 'codBuyNowBtn' || b.id === 'mlBuyNowBtn' ||
-                        b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
-                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
-                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
-                        b.classList.contains('method-item')) {
+                        b.closest('.faq-item') || b.closest('.product-card') ||
+                        b.id === 'supportFixedBtn' ||
+                        b.classList.contains('contact-btn') ||
+                        b.closest('.contact-card') ||
+                        b.id === 'depositBtn' || b.id === 'withdrawBtn') {
                         e.preventDefault();
                     }
                 });
@@ -4734,16 +2285,13 @@
             // ============================================
             setTimeout(() => {
                 updateNavActive('page-home');
-                const firstMethod = document.querySelector('.method-item');
-                if (firstMethod) firstMethod.classList.add('selected');
-                // Ensure all packs are reset on initial load
-                resetAllPacks();
             }, 200);
 
-            console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إصلاح مشكلة تحديد الباقات');
-            console.log('✅ جميع الباقات تبدأ بدون تحديد');
-            console.log('✅ يتم إعادة تهيئة الحالة عند مغادرة الصفحة');
+            console.log('🚀 REDEEM STORE - Version 2.0 جاهز!');
+            console.log('✅ الصفحة الرئيسية مع قائمة الألعاب');
+            console.log('✅ صفحة المحفظة مع المعاملات');
+            console.log('✅ مركز الدعم الاحترافي');
+            console.log('✅ جميع الوظائف تعمل بشكل متكامل');
 
         })();
     </script>
