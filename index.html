@@ -187,7 +187,7 @@
         }
 
         /* ============================================ */
-        /* ===== PAGES - خلفية بيضاء ===== */
+        /* ===== PAGES ===== */
         /* ============================================ */
         .page {
             display: none;
@@ -1717,7 +1717,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT METHOD SELECTION - أبيض ===== */
+        /* ===== DEPOSIT METHOD SELECTION ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
@@ -1915,7 +1915,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT DETAIL PAGE - خلفية F5F7FA ===== */
+        /* ===== DEPOSIT DETAIL PAGE ===== */
         /* ============================================ */
         .deposit-detail-page {
             display: none;
@@ -1939,7 +1939,7 @@
             opacity: 0;
         }
 
-        /* ===== إخفاء الهيدر من صفحة تفاصيل الإيداع ===== */
+        /* ===== إخفاء الهيدر ===== */
         .deposit-detail-page .detail-header-simple {
             display: none;
         }
@@ -1964,8 +1964,8 @@
 
         .account-card .account-label {
             font-size: 12px;
-            font-weight: 600;
-            color: #8895A7;
+            font-weight: 700;
+            color: #1A1A2E;
             margin-bottom: 6px;
             letter-spacing: 0.3px;
         }
@@ -2018,8 +2018,13 @@
             margin-top: 6px;
             padding-top: 6px;
             border-top: 1px solid #F0F2F5;
-            text-align: center;
+            text-align: right;
             letter-spacing: 0.2px;
+        }
+
+        .account-card .account-holder .holder-label {
+            font-weight: 600;
+            color: #1A1A2E;
         }
 
         /* ===== FORM FIELDS ===== */
@@ -2037,7 +2042,7 @@
         }
 
         .field-group label .required {
-            color: #EF4444;
+            display: none;
         }
 
         .field-input-wrapper {
@@ -2057,12 +2062,15 @@
             color: #1A1A2E;
             border-radius: 10px;
             height: 48px;
+            text-align: right;
+            direction: rtl;
         }
 
         .field-input-wrapper input::placeholder {
             color: #B0B8C4;
             font-weight: 400;
             font-size: 14px;
+            text-align: right;
         }
 
         .field-input-wrapper input:focus {
@@ -2072,8 +2080,12 @@
         }
 
         .field-input-wrapper input.input-ltr {
-            direction: ltr;
-            text-align: left;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .field-input-wrapper input.input-ltr::placeholder {
+            text-align: right;
         }
 
         /* ===== FILE UPLOAD ===== */
@@ -2522,6 +2534,9 @@
             .account-card .account-number {
                 font-size: 17px;
             }
+            .account-card .account-holder {
+                font-size: 13px;
+            }
             .field-input-wrapper input {
                 padding: 10px 14px;
                 font-size: 14px;
@@ -2915,8 +2930,6 @@
         <!-- ===== صفحة تفاصيل الإيداع ===== -->
         <!-- ============================================ -->
         <div class="deposit-detail-page" id="depositDetailPage">
-            <!-- تم إخفاء الهيدر -->
-            
             <div class="detail-body" id="detailBody">
                 <div class="account-card">
                     <div class="account-label">رقم الحساب / المحفظة</div>
@@ -2926,20 +2939,22 @@
                             <i class="fas fa-copy"></i>
                         </button>
                     </div>
-                    <div class="account-holder" id="accountHolder">نـافع نصر الدين سليمان</div>
+                    <div class="account-holder" id="accountHolder">
+                        <span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان
+                    </div>
                 </div>
 
                 <div class="field-group">
-                    <label>المبلغ <span class="required">*</span></label>
+                    <label>المبلغ</label>
                     <div class="field-input-wrapper">
                         <input type="number" placeholder="أدخل المبلغ المطلوب" id="amountInput" class="input-ltr" />
                     </div>
                 </div>
 
                 <div class="field-group">
-                    <label>رقم العملية <span class="required">*</span></label>
+                    <label>رقم العملية</label>
                     <div class="field-input-wrapper">
-                        <input type="text" placeholder="أدخل رقم العملية" id="transactionIdInput" />
+                        <input type="text" placeholder="رقـم العمـليـه مـن الـتطبـيـق" id="transactionIdInput" />
                     </div>
                 </div>
 
@@ -3728,7 +3743,6 @@
             // ============================================
             // ===== صفحة تفاصيل الإيداع =====
             // ============================================
-            const detailBackBtn = document.getElementById('detailBackBtn');
             const accountNumber = document.getElementById('accountNumber');
             const accountHolder = document.getElementById('accountHolder');
             const copyBtn = document.getElementById('copyBtn');
@@ -3748,14 +3762,13 @@
                 const data = methodsData[method];
                 if (data) {
                     accountNumber.textContent = data.account;
-                    accountHolder.textContent = data.holder;
+                    // تحديث اسم الحساب
+                    accountHolder.innerHTML = `<span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان`;
                 }
             }
 
             const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
             updateAccount(savedMethod);
-
-            // تم إزالة زر الرجوع لأنه تم حذف الهيدر
 
             copyBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
@@ -4398,12 +4411,10 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إرجاع جميع الصفحات إلى الخلفية البيضاء');
-            console.log('✅ تم حذف الهيدر من صفحة تفاصيل الإيداع');
-            console.log('✅ تم تقريب زر الإيداع من حقل رفع الصورة');
+            console.log('✅ تم تطبيق جميع التعديلات المطلوبة');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
