@@ -30,7 +30,7 @@
         .page-container {
             max-width: 480px;
             margin: 0 auto;
-            background: #F5F7FA;
+            background: #FFFFFF;
             min-height: 100vh;
             position: relative;
             overflow: hidden;
@@ -187,13 +187,13 @@
         }
 
         /* ============================================ */
-        /* ===== PAGES ===== */
+        /* ===== PAGES - خلفية بيضاء ===== */
         /* ============================================ */
         .page {
             display: none;
             padding: 20px 16px 30px;
             animation: fadeUp 0.3s ease;
-            background: #F5F7FA;
+            background: #FFFFFF;
         }
 
         .page.active {
@@ -233,7 +233,7 @@
 
         .tabs-wrapper {
             position: relative;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 50px;
             padding: 6px;
             margin: 16px 0 20px;
@@ -414,7 +414,7 @@
             align-items: center;
             gap: 20px;
             padding: 16px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             margin-bottom: 24px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -524,7 +524,7 @@
             align-items: center;
             gap: 20px;
             padding: 16px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             margin-bottom: 24px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -637,7 +637,7 @@
             align-items: center;
             gap: 20px;
             padding: 16px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             margin-bottom: 24px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -811,7 +811,7 @@
             align-items: center;
             gap: 20px;
             padding: 16px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             margin-bottom: 24px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -924,7 +924,7 @@
             align-items: center;
             gap: 20px;
             padding: 16px 20px;
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             margin-bottom: 24px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
@@ -1047,7 +1047,7 @@
         /* ===== SHIPPING FORM ===== */
         /* ============================================ */
         .shipping-form {
-            background: #ffffff;
+            background: #f8f9fa;
             border-radius: 24px;
             padding: 24px 20px;
             margin-top: 20px;
@@ -1325,7 +1325,7 @@
         /* ============================================ */
         #page-wallet {
             padding: 0 !important;
-            background: #F5F7FA;
+            background: #FFFFFF;
         }
 
         .wallet-card-wrapper {
@@ -1717,12 +1717,12 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT METHOD SELECTION ===== */
+        /* ===== DEPOSIT METHOD SELECTION - أبيض ===== */
         /* ============================================ */
         .deposit-page {
             display: none;
             padding: 0;
-            background: #F5F7FA;
+            background: #FFFFFF;
             min-height: 100vh;
             position: relative;
             transform: translateX(100%);
@@ -1746,7 +1746,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            background: #F5F7FA;
+            background: #FFFFFF;
         }
 
         .deposit-top-bar .back-btn {
@@ -1754,7 +1754,7 @@
             height: 40px;
             border-radius: 12px;
             border: none;
-            background: #ffffff;
+            background: #f0f0f0;
             color: #333;
             font-size: 18px;
             cursor: pointer;
@@ -1785,7 +1785,7 @@
 
         .deposit-body {
             padding: 16px 16px 30px;
-            background: #F5F7FA;
+            background: #FFFFFF;
         }
 
         .section-title {
@@ -1915,7 +1915,7 @@
         }
 
         /* ============================================ */
-        /* ===== DEPOSIT DETAIL PAGE ===== */
+        /* ===== DEPOSIT DETAIL PAGE - خلفية F5F7FA ===== */
         /* ============================================ */
         .deposit-detail-page {
             display: none;
@@ -1939,49 +1939,17 @@
             opacity: 0;
         }
 
-        /* ===== الهيدر البسيط ===== */
-        .detail-header-simple {
-            padding: 16px 16px 12px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #F5F7FA;
-        }
-
-        .detail-header-simple .back-btn {
-            width: 36px;
-            height: 36px;
-            border: none;
-            background: #FFFFFF;
-            color: #1A1A2E;
-            font-size: 16px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .detail-header-simple .back-btn:active {
-            background: #E8EAED;
-            transform: scale(0.95);
-        }
-
-        .detail-header-simple .header-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #1A1A2E;
-            letter-spacing: 0.2px;
+        /* ===== إخفاء الهيدر من صفحة تفاصيل الإيداع ===== */
+        .deposit-detail-page .detail-header-simple {
+            display: none;
         }
 
         /* ===== BODY ===== */
         .detail-body {
-            padding: 8px 16px 80px;
+            padding: 16px 16px 70px;
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
             background: #F5F7FA;
         }
 
@@ -2121,6 +2089,7 @@
             transition: all 0.2s ease;
             border-radius: 10px;
             min-height: 48px;
+            margin-bottom: 4px;
         }
 
         .file-upload-mini:active {
@@ -2200,7 +2169,7 @@
             right: 0;
             max-width: 480px;
             margin: 0 auto;
-            padding: 12px 16px 20px;
+            padding: 8px 16px 16px;
             background: #FFFFFF;
             border-top: 1px solid #F0F2F5;
             z-index: 50;
@@ -2221,7 +2190,7 @@
             overflow: hidden;
             border-radius: 12px;
             letter-spacing: 0.3px;
-            height: 52px;
+            height: 50px;
             box-shadow: 0 4px 16px rgba(26, 115, 232, 0.25);
         }
 
@@ -2346,7 +2315,7 @@
             min-height: 60vh;
             color: #999;
             font-size: 18px;
-            background: #F5F7FA;
+            background: #FFFFFF;
         }
 
         .placeholder-page i {
@@ -2543,15 +2512,9 @@
                 top: 6px;
                 right: 6px;
             }
-            .detail-header-simple {
-                padding: 12px 14px 10px;
-            }
-            .detail-header-simple .header-title {
-                font-size: 16px;
-            }
             .detail-body {
-                padding: 6px 12px 72px;
-                gap: 12px;
+                padding: 12px 12px 60px;
+                gap: 10px;
             }
             .account-card {
                 padding: 14px 14px;
@@ -2569,7 +2532,7 @@
                 min-height: 44px;
             }
             .sticky-bottom {
-                padding: 10px 12px 16px;
+                padding: 6px 12px 14px;
             }
             .btn-confirm {
                 height: 48px;
@@ -2721,8 +2684,8 @@
                 font-size: 13px;
             }
             .detail-body {
-                padding: 12px 24px 80px;
-                gap: 16px;
+                padding: 20px 24px 70px;
+                gap: 14px;
             }
             .account-card {
                 padding: 20px 24px;
@@ -2736,10 +2699,10 @@
                 padding: 14px 18px;
             }
             .sticky-bottom {
-                padding: 16px 24px 24px;
+                padding: 10px 24px 20px;
             }
             .btn-confirm {
-                height: 56px;
+                height: 54px;
                 font-size: 17px;
             }
             .wallet-balance-card {
@@ -2952,13 +2915,8 @@
         <!-- ===== صفحة تفاصيل الإيداع ===== -->
         <!-- ============================================ -->
         <div class="deposit-detail-page" id="depositDetailPage">
-            <div class="detail-header-simple">
-                <button class="back-btn" id="detailBackBtn">
-                    <i class="fas fa-arrow-right"></i>
-                </button>
-                <span class="header-title">إيداع الرصيد</span>
-            </div>
-
+            <!-- تم إخفاء الهيدر -->
+            
             <div class="detail-body" id="detailBody">
                 <div class="account-card">
                     <div class="account-label">رقم الحساب / المحفظة</div>
@@ -3797,33 +3755,7 @@
             const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
             updateAccount(savedMethod);
 
-            detailBackBtn.addEventListener('click', function(e) {
-                createRipple(e, this);
-                depositDetailPage.classList.add('slide-out');
-                setTimeout(() => {
-                    depositDetailPage.classList.remove('active');
-                    depositDetailPage.style.display = 'none';
-                    depositDetailPage.classList.remove('slide-out');
-                    depositPage.style.display = 'block';
-                    depositPage.style.animation = 'none';
-                    requestAnimationFrame(() => {
-                        depositPage.style.animation = 'none';
-                        depositPage.classList.add('active');
-                    });
-                    detailBody.style.display = 'flex';
-                    stickyBottom.style.display = 'block';
-                    successMessage.classList.remove('active');
-                    successMessage.style.display = 'none';
-                    confirmBtn.classList.remove('loading');
-                    confirmBtn.querySelector('.btn-text').style.display = 'block';
-                    amountInput.value = '';
-                    transactionIdInput.value = '';
-                    receiptInput.value = '';
-                    fileUploadBox.classList.remove('has-file');
-                    previewImage.src = '#';
-                    previewFileName.textContent = '';
-                }, 350);
-            });
+            // تم إزالة زر الرجوع لأنه تم حذف الهيدر
 
             copyBtn.addEventListener('click', function(e) {
                 createRipple(e, this);
@@ -4448,9 +4380,9 @@
                         b.id === 'efootballBuyNowBtn' || b.id === 'cocBuyNowBtn' ||
                         b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
                         b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'detailBackBtn' ||
-                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
-                        b.id === 'backHomeBtn' || b.classList.contains('method-item')) {
+                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
+                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
+                        b.classList.contains('method-item')) {
                         e.preventDefault();
                     }
                 });
@@ -4466,12 +4398,12 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إزالة شريط الخطوات والهيدر الرئيسي');
-            console.log('✅ خلفية الصفحة #F5F7FA');
-            console.log('✅ تصميم حديث مع زوايا دائرية ناعمة');
+            console.log('✅ تم إرجاع جميع الصفحات إلى الخلفية البيضاء');
+            console.log('✅ تم حذف الهيدر من صفحة تفاصيل الإيداع');
+            console.log('✅ تم تقريب زر الإيداع من حقل رفع الصورة');
 
         })();
     </script>
 
 </body>
-    </html>
+</html>
