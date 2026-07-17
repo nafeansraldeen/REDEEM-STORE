@@ -405,6 +405,297 @@
         }
 
         /* ============================================ */
+        /* ===== FREE FIRE PAGE ===== */
+        /* ============================================ */
+        .ff-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .ff-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .ff-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .ff-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        /* ===== Free Fire Navigation Tabs ===== */
+        .ff-tabs-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #F5F7FB;
+            padding: 8px 12px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            height: 52px;
+            align-items: center;
+        }
+
+        .ff-tab-btn {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ff-tab-btn i {
+            font-size: 16px;
+        }
+
+        .ff-tab-btn.active {
+            background: #2F80ED;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(47, 128, 237, 0.25);
+        }
+
+        .ff-tab-btn:active {
+            transform: scale(0.97);
+        }
+
+        @media (max-width: 420px) {
+            .ff-tabs-wrapper {
+                height: 48px;
+                padding: 6px 10px;
+                border-radius: 14px;
+            }
+            .ff-tab-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+                border-radius: 14px;
+            }
+            .ff-tab-btn i {
+                font-size: 14px;
+            }
+        }
+
+        /* ===== Free Fire Packs Container ===== */
+        .ff-packs-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+        }
+
+        .ff-packs-slider {
+            display: flex;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .ff-packs-slide {
+            min-width: 100%;
+            padding: 0 2px;
+        }
+
+        .ff-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        @media (min-width: 500px) {
+            .ff-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .ff-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .ff-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ff-pack-btn .ff-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .ff-pack-btn .ff-price {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .ff-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .ff-pack-btn.selected .ff-amount {
+            color: #1A73E8;
+        }
+
+        .ff-pack-btn.selected .ff-price {
+            color: #1A73E8;
+        }
+
+        .ff-empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 16px;
+            font-weight: 400;
+            grid-column: 1 / -1;
+        }
+
+        .ff-empty-state i {
+            font-size: 48px;
+            color: #ddd;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* ===== Free Fire Shipping Form ===== */
+        .ff-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .ff-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ff-shipping-form.hidden {
+            display: none;
+        }
+
+        .ff-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .ff-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .ff-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .ff-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .ff-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .ff-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .ff-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
         /* ===== PUBG PAGE ===== */
         /* ============================================ */
         .pubg-header {
@@ -3075,6 +3366,21 @@
                 font-size: 14px;
                 padding: 14px 16px;
             }
+
+            /* Free Fire Responsive */
+            .ff-tabs-wrapper {
+                height: 48px;
+                padding: 6px 10px;
+                border-radius: 14px;
+            }
+            .ff-tab-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+                border-radius: 14px;
+            }
+            .ff-tab-btn i {
+                font-size: 14px;
+            }
         }
 
         @media (min-width: 600px) {
@@ -3105,6 +3411,10 @@
             }
             .coc-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+            }
+            .ff-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
             .deposit-body {
@@ -3228,6 +3538,10 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
+            }
+            .ff-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
             }
         }
     </style>
@@ -3453,6 +3767,65 @@
                         جاري المعالجة...
                     </span>
                 </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== FREE FIRE PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-freefire" class="page">
+            <div class="ff-header">
+                <img src="https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg" alt="Free Fire" />
+                <div class="game-info">
+                    <h2>Free Fire</h2>
+                    <p>اختر باقة الشحن المناسبة</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="ff-tabs-wrapper" id="ffTabsWrapper">
+                <button class="ff-tab-btn active" data-tab="codes">
+                    <i class="fas fa-ticket-alt"></i> أكواد
+                </button>
+                <button class="ff-tab-btn" data-tab="id">
+                    <i class="fas fa-id-card"></i> عبر ID
+                </button>
+                <button class="ff-tab-btn" data-tab="account">
+                    <i class="fas fa-user-circle"></i> عبر الحساب
+                </button>
+            </div>
+
+            <!-- Packs Container -->
+            <div class="ff-packs-container" id="ffPacksContainer">
+                <div class="ff-packs-slider" id="ffPacksSlider">
+                    <!-- Slide 1: أكواد -->
+                    <div class="ff-packs-slide" data-slide="codes">
+                        <div class="ff-packs-grid" id="ffCodesGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                    <!-- Slide 2: عبر ID -->
+                    <div class="ff-packs-slide" data-slide="id">
+                        <div class="ff-packs-grid" id="ffIdGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                    <!-- Slide 3: عبر الحساب -->
+                    <div class="ff-packs-slide" data-slide="account">
+                        <div class="ff-packs-grid" id="ffAccountGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Form -->
+            <div class="ff-shipping-form hidden" id="ffShippingForm">
+                <label>معرف اللاعب / الحساب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="ffPlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="ffWhatsappInput" />
+                <button class="ff-btn-buy" id="ffBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -4046,7 +4419,7 @@
             // ============================================
             const gamesList = [
                 { name: 'PUBG Mobile', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', page: 'page-pubg' },
-                { name: 'Free Fire', img: 'https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg', page: null },
+                { name: 'Free Fire', img: 'https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg', page: 'page-freefire' },
                 { name: 'Call of Duty', img: 'https://i.postimg.cc/2yX8qYVc/file-0000000011ec71f49c0f89afaf8c887d.png', page: 'page-cod' },
                 { name: 'Mobile Legends', img: 'https://i.postimg.cc/sf8rZwnf/file-00000000f01471f4a53e7eefd0edd681.png', page: 'page-ml' },
                 { name: 'eFootball', img: 'https://i.postimg.cc/hGySZg0z/file-00000000bfa871f4b2ac3e5d0f81e744.png', page: 'page-efootball' },
@@ -4058,6 +4431,36 @@
                 { name: 'Yalla Ludo', img: 'https://i.postimg.cc/dVFrwmcT/file-0000000000a072439a7832276cfdc878.png', page: 'page-yallaludo' },
                 { name: 'Minecraft', img: 'https://i.postimg.cc/BQTPYLP5/file-00000000e78071f4883e51f0bed60c47.png', page: 'page-minecraft' }
             ];
+
+            // ============================================
+            // ===== FREE FIRE DATA =====
+            // ============================================
+            const ffPacksData = {
+                codes: [
+                    { amount: '100', price: '1.00' },
+                    { amount: '200', price: '2.00' },
+                    { amount: '500', price: '4.50' },
+                    { amount: '1000', price: '8.50' },
+                    { amount: '2000', price: '16.00' },
+                    { amount: '5000', price: '38.00' },
+                ],
+                id: [
+                    { amount: '100', price: '1.50' },
+                    { amount: '300', price: '4.00' },
+                    { amount: '600', price: '7.50' },
+                    { amount: '1200', price: '14.00' },
+                    { amount: '2500', price: '28.00' },
+                    { amount: '6000', price: '65.00' },
+                ],
+                account: [
+                    { amount: '150', price: '2.50' },
+                    { amount: '400', price: '6.00' },
+                    { amount: '800', price: '11.00' },
+                    { amount: '1600', price: '21.00' },
+                    { amount: '3500', price: '44.00' },
+                    { amount: '8000', price: '95.00' },
+                ]
+            };
 
             // ============================================
             // ===== RIPPLE EFFECTS =====
@@ -4125,6 +4528,87 @@
             // ============================================
             function openWhatsApp() {
                 window.open(WHATSAPP_URL, '_blank');
+            }
+
+            // ============================================
+            // ===== FREE FIRE FUNCTIONS =====
+            // ============================================
+            let ffCurrentTab = 'codes';
+            let ffSelectedPack = null;
+            let ffSelectedPrice = null;
+
+            function renderFFPacks(tab) {
+                const data = ffPacksData[tab];
+                const gridId = tab === 'codes' ? 'ffCodesGrid' : tab === 'id' ? 'ffIdGrid' : 'ffAccountGrid';
+                const grid = document.getElementById(gridId);
+                
+                if (!grid) return;
+                
+                if (!data || data.length === 0) {
+                    grid.innerHTML = `
+                        <div class="ff-empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <p>لا توجد باقات متاحة حالياً</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                // Reset selected pack when switching tabs
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                document.getElementById('ffShippingForm').classList.add('hidden');
+                document.getElementById('ffShippingForm').classList.remove('visible');
+
+                grid.innerHTML = data.map(pack => `
+                    <button class="ff-pack-btn" data-amount="${pack.amount}" data-price="${pack.price}">
+                        <span class="ff-amount">${pack.amount}</span>
+                        <span class="ff-price">$${pack.price}</span>
+                    </button>
+                `).join('');
+
+                // Add click events to new buttons
+                grid.querySelectorAll('.ff-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        // Remove selected from all buttons in this grid
+                        grid.querySelectorAll('.ff-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        ffSelectedPack = this.dataset.amount;
+                        ffSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('ffShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('ffPlayerIdInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function switchFFTab(tab) {
+                if (ffCurrentTab === tab) return;
+                
+                ffCurrentTab = tab;
+                const slider = document.getElementById('ffPacksSlider');
+                const tabs = document.querySelectorAll('.ff-tab-btn');
+                
+                // Update tab buttons
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector(`.ff-tab-btn[data-tab="${tab}"]`).classList.add('active');
+                
+                // Slide animation
+                const index = tab === 'codes' ? 0 : tab === 'id' ? 1 : 2;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                
+                // Render packs for the selected tab after animation
+                setTimeout(() => {
+                    renderFFPacks(tab);
+                }, 50);
             }
 
             // ============================================
@@ -4210,12 +4694,31 @@
                 window.selectedCocPrice = null;
             }
 
+            function resetFFPacks() {
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                // Reset to codes tab
+                ffCurrentTab = 'codes';
+                const slider = document.getElementById('ffPacksSlider');
+                slider.style.transform = 'translateX(0%)';
+                const tabs = document.querySelectorAll('.ff-tab-btn');
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector('.ff-tab-btn[data-tab="codes"]').classList.add('active');
+                renderFFPacks('codes');
+                const shippingForm = document.getElementById('ffShippingForm');
+                shippingForm.classList.add('hidden');
+                shippingForm.classList.remove('visible');
+                document.getElementById('ffPlayerIdInput').value = '';
+                document.getElementById('ffWhatsappInput').value = '';
+            }
+
             function resetAllPacks() {
                 resetPubgPacks();
                 resetCodPacks();
                 resetMlPacks();
                 resetEfootballPacks();
                 resetCocPacks();
+                resetFFPacks();
             }
 
             // ============================================
@@ -4239,6 +4742,14 @@
                             setTimeout(() => {
                                 switchPage(game.page);
                                 updateNavActive('page-home');
+                                // If Free Fire page, initialize tabs
+                                if (game.page === 'page-freefire') {
+                                    setTimeout(() => {
+                                        renderFFPacks('codes');
+                                        const slider = document.getElementById('ffPacksSlider');
+                                        slider.style.transform = 'translateX(0%)';
+                                    }, 100);
+                                }
                             }, 150);
                         } else {
                             card.classList.add('fade-out');
@@ -4331,6 +4842,55 @@
                         updateNavActive(pageId);
                     }
                 });
+            });
+
+            // ============================================
+            // ===== FREE FIRE TAB EVENTS =====
+            // ============================================
+            document.querySelectorAll('.ff-tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.dataset.tab;
+                    // Reset selected pack when switching tabs
+                    ffSelectedPack = null;
+                    ffSelectedPrice = null;
+                    document.getElementById('ffShippingForm').classList.add('hidden');
+                    document.getElementById('ffShippingForm').classList.remove('visible');
+                    switchFFTab(tab);
+                });
+            });
+
+            // ============================================
+            // ===== FREE FIRE BUY BUTTON =====
+            // ============================================
+            document.getElementById('ffBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = document.getElementById('ffPlayerIdInput').value.trim();
+                const whatsapp = document.getElementById('ffWhatsappInput').value.trim();
+                
+                if (!ffSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${ffSelectedPack}\n💰 السعر: $${ffSelectedPrice}\n🆔 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
 
             // ============================================
@@ -5051,13 +5611,15 @@
                         b.closest('.faq-item') || b.closest('.pack-btn') ||
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
+                        b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
-                        b.id === 'cocBuyNowBtn' || b.id === 'mlHelpBtn' ||
-                        b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
-                        b.id === 'withdrawBtn' || b.id === 'depositBackBtn' ||
-                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
-                        b.id === 'backHomeBtn' || b.classList.contains('method-item') ||
+                        b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
+                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
+                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
+                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
+                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
+                        b.classList.contains('method-item') ||
                         b.closest('.faq-item-support') ||
                         b.closest('.contact-full-btn')) {
                         e.preventDefault();
@@ -5081,14 +5643,18 @@
                         firstFaqBtn.click();
                     }, 300);
                 }
+
+                // Initialize Free Fire tabs
+                renderFFPacks('codes');
+                const slider = document.getElementById('ffPacksSlider');
+                if (slider) slider.style.transform = 'translateX(0%)';
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إعادة تصميم صفحة الدعم بالكامل');
-            console.log('✅ مركز دعم احترافي ومتكامل');
+            console.log('✅ تم إضافة صفحة Free Fire مع شريط تنقل علوي');
 
         })();
     </script>
 
 </body>
-    </html>
+</html>
