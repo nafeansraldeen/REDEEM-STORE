@@ -5007,22 +5007,18 @@
                 const slider = document.getElementById('genshinPacksSlider');
                 const tabs = document.querySelectorAll('.genshin-tab-btn');
                 
-                // Update tab buttons
                 tabs.forEach(t => t.classList.remove('active'));
                 document.querySelector(`.genshin-tab-btn[data-tab="${tab}"]`).classList.add('active');
                 
-                // Slide animation
                 const index = tab === 'crystals' ? 0 : tab === 'nexus' ? 1 : 2;
                 slider.style.transform = `translateX(-${index * 100}%)`;
 
-                // Reset selection
                 genshinSelectedPack = null;
                 genshinSelectedPrice = null;
                 genshinSelectedType = null;
                 document.getElementById('genshinShippingForm').classList.add('hidden');
                 document.getElementById('genshinShippingForm').classList.remove('visible');
 
-                // Render appropriate content
                 if (tab === 'crystals') {
                     renderGenshinCrystals();
                 } else if (tab === 'nexus') {
@@ -6353,10 +6349,10 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة شريط التصنيف في صفحة Genshin Impact');
+            console.log('✅ تم إصلاح شريط التصنيف في صفحة Genshin Impact');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
