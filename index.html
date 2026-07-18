@@ -414,7 +414,7 @@
             padding: 16px 20px;
             background: #f8f9fa;
             border-radius: 24px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
         }
 
@@ -441,11 +441,95 @@
             font-weight: 400;
         }
 
+        /* ===== Genshin Navigation Tabs ===== */
+        .genshin-tabs-wrapper {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: #F5F7FB;
+            padding: 8px 12px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            height: 52px;
+            align-items: center;
+        }
+
+        .genshin-tab-btn {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 16px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #444;
+            background: transparent;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .genshin-tab-btn i {
+            font-size: 16px;
+        }
+
+        .genshin-tab-btn.active {
+            background: #2F80ED;
+            color: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(47, 128, 237, 0.25);
+        }
+
+        .genshin-tab-btn:active {
+            transform: scale(0.97);
+        }
+
+        @media (max-width: 420px) {
+            .genshin-tabs-wrapper {
+                height: 48px;
+                padding: 6px 10px;
+                border-radius: 14px;
+            }
+            .genshin-tab-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+                border-radius: 14px;
+            }
+            .genshin-tab-btn i {
+                font-size: 14px;
+            }
+        }
+
+        /* ===== Genshin Packs Container ===== */
+        .genshin-packs-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 200px;
+        }
+
+        .genshin-packs-slider {
+            display: flex;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .genshin-packs-slide {
+            min-width: 100%;
+            padding: 0 2px;
+        }
+
         .genshin-packs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 14px;
-            margin: 16px 0 20px;
         }
 
         @media (min-width: 500px) {
@@ -544,6 +628,76 @@
             color: #1A73E8;
         }
 
+        /* ===== Genshin Element Product ===== */
+        .genshin-element-product {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 16px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px;
+        }
+
+        .genshin-element-product img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            padding: 4px;
+        }
+
+        .genshin-element-product .element-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .genshin-element-product .element-price {
+            font-size: 14px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        .genshin-element-product.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+        }
+
+        .genshin-element-product:active {
+            transform: scale(0.97);
+        }
+
+        .genshin-empty-state {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 16px;
+            font-weight: 400;
+            grid-column: 1 / -1;
+        }
+
+        .genshin-empty-state i {
+            font-size: 48px;
+            color: #ddd;
+            display: block;
+            margin-bottom: 12px;
+        }
+
+        /* ===== Genshin Shipping Form ===== */
         .genshin-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -3590,6 +3744,20 @@
                 font-size: 14px;
             }
 
+            .genshin-tabs-wrapper {
+                height: 48px;
+                padding: 6px 10px;
+                border-radius: 14px;
+            }
+            .genshin-tab-btn {
+                font-size: 12px;
+                padding: 8px 10px;
+                border-radius: 14px;
+            }
+            .genshin-tab-btn i {
+                font-size: 14px;
+            }
+
             .genshin-pack-btn {
                 min-height: 100px;
                 padding: 16px 10px;
@@ -3608,6 +3776,13 @@
                 padding: 2px 6px;
                 top: 4px;
                 left: 4px;
+            }
+            .genshin-element-product img {
+                width: 60px;
+                height: 60px;
+            }
+            .genshin-element-product .element-name {
+                font-size: 14px;
             }
         }
 
@@ -4017,38 +4192,44 @@
                 </div>
             </div>
 
-            <div class="genshin-packs-grid" id="genshinPacksGrid">
-                <button class="genshin-pack-btn" data-crystals="60" data-price="0.99">
-                    <span class="crystal-amount">60 بلورة</span>
-                    <span class="crystal-price">$0.99</span>
+            <!-- Navigation Tabs -->
+            <div class="genshin-tabs-wrapper" id="genshinTabsWrapper">
+                <button class="genshin-tab-btn active" data-tab="crystals">
+                    <i class="fas fa-gem"></i> بلورات التكوين
                 </button>
-                <button class="genshin-pack-btn" data-crystals="330" data-price="4.99" data-bonus="30+300 هدية 🎁">
-                    <span class="crystal-amount">330 بلورة</span>
-                    <span class="crystal-bonus">30+300 هدية 🎁</span>
-                    <span class="crystal-price">$4.99</span>
+                <button class="genshin-tab-btn" data-tab="nexus">
+                    <i class="fas fa-star"></i> كرونال نيكسوس
                 </button>
-                <button class="genshin-pack-btn" data-crystals="1090" data-price="14.99">
-                    <span class="crystal-amount">1,090 بلورة</span>
-                    <span class="crystal-price">$14.99</span>
-                </button>
-                <button class="genshin-pack-btn" data-crystals="2240" data-price="29.99" data-bonus="260+1980 هدية 🎁">
-                    <span class="crystal-amount">2,240 بلورة</span>
-                    <span class="crystal-bonus">260+1980 هدية 🎁</span>
-                    <span class="crystal-price">$29.99</span>
-                </button>
-                <button class="genshin-pack-btn" data-crystals="3880" data-price="49.99" data-bonus="3280+600 هدية 🎁">
-                    <span class="crystal-amount">3,880 بلورة</span>
-                    <span class="crystal-bonus">3280+600 هدية 🎁</span>
-                    <span class="crystal-price">$49.99</span>
-                    <span class="crystal-badge">★ الأكثر مبيعاً</span>
-                </button>
-                <button class="genshin-pack-btn" data-crystals="8080" data-price="99.99" data-bonus="6480+1600 هدية 🎁">
-                    <span class="crystal-amount">8,080 بلورة</span>
-                    <span class="crystal-bonus">6480+1600 هدية 🎁</span>
-                    <span class="crystal-price">$99.99</span>
+                <button class="genshin-tab-btn" data-tab="elements">
+                    <i class="fas fa-fire"></i> عناصر
                 </button>
             </div>
 
+            <!-- Packs Container -->
+            <div class="genshin-packs-container" id="genshinPacksContainer">
+                <div class="genshin-packs-slider" id="genshinPacksSlider">
+                    <!-- Slide 1: بلورات التكوين -->
+                    <div class="genshin-packs-slide" data-slide="crystals">
+                        <div class="genshin-packs-grid" id="genshinCrystalsGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                    <!-- Slide 2: كرونال نيكسوس -->
+                    <div class="genshin-packs-slide" data-slide="nexus">
+                        <div class="genshin-packs-grid" id="genshinNexusGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                    <!-- Slide 3: عناصر -->
+                    <div class="genshin-packs-slide" data-slide="elements">
+                        <div class="genshin-packs-grid" id="genshinElementsGrid">
+                            <!-- Will be populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Form -->
             <div class="genshin-shipping-form hidden" id="genshinShippingForm">
                 <label>معرف UID الخاص بك</label>
                 <input type="text" placeholder="أدخل معرف UID" id="genshinUidInput" />
@@ -4720,13 +4901,30 @@
             // ============================================
             // ===== GENSHIN IMPACT DATA =====
             // ============================================
-            const genshinPacks = [
-                { crystals: '60', price: '0.99', bonus: null },
-                { crystals: '330', price: '4.99', bonus: '30+300 هدية 🎁' },
-                { crystals: '1,090', price: '14.99', bonus: null },
-                { crystals: '2,240', price: '29.99', bonus: '260+1980 هدية 🎁' },
-                { crystals: '3,880', price: '49.99', bonus: '3280+600 هدية 🎁', bestseller: true },
-                { crystals: '8,080', price: '99.99', bonus: '6480+1600 هدية 🎁' },
+            const genshinCrystalsData = [
+                { amount: '60 بلورة', price: '$0.99', bonus: null },
+                { amount: '330 بلورة', price: '$4.99', bonus: '30+300 هدية 🎁' },
+                { amount: '1,090 بلورة', price: '$14.99', bonus: null },
+                { amount: '2,240 بلورة', price: '$29.99', bonus: '260+1980 هدية 🎁' },
+                { amount: '3,880 بلورة', price: '$49.99', bonus: '3280+600 هدية 🎁', bestseller: true },
+                { amount: '8,080 بلورة', price: '$99.99', bonus: '6480+1600 هدية 🎁' },
+            ];
+
+            const genshinNexusData = [
+                { amount: '60 كرونال نيكسوس', price: '$0.99' },
+                { amount: '300 كرونال نيكسوس', price: '$4.99' },
+                { amount: '980 كرونال نيكسوس', price: '$14.99' },
+                { amount: '1,980 كرونال نيكسوس', price: '$29.99' },
+                { amount: '3,280 كرونال نيكسوس', price: '$49.99' },
+                { amount: '6,480 كرونال نيكسوس', price: '$99.99' },
+            ];
+
+            const genshinElementsData = [
+                { 
+                    name: 'بركة قمر ويلكين', 
+                    price: '$4.99',
+                    image: 'https://i.postimg.cc/GmPWWV4t/d9effed3e312be1e4cb056fc325d291a.jpg'
+                }
             ];
 
             // ============================================
@@ -4800,38 +4998,64 @@
             // ============================================
             // ===== GENSHIN IMPACT FUNCTIONS =====
             // ============================================
+            let genshinCurrentTab = 'crystals';
             let genshinSelectedPack = null;
             let genshinSelectedPrice = null;
+            let genshinSelectedType = null;
 
-            function initGenshinPacks() {
-                const grid = document.getElementById('genshinPacksGrid');
+            function renderGenshinPacks(tab) {
+                const slider = document.getElementById('genshinPacksSlider');
+                const tabs = document.querySelectorAll('.genshin-tab-btn');
+                
+                // Update tab buttons
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector(`.genshin-tab-btn[data-tab="${tab}"]`).classList.add('active');
+                
+                // Slide animation
+                const index = tab === 'crystals' ? 0 : tab === 'nexus' ? 1 : 2;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+
+                // Reset selection
+                genshinSelectedPack = null;
+                genshinSelectedPrice = null;
+                genshinSelectedType = null;
+                document.getElementById('genshinShippingForm').classList.add('hidden');
+                document.getElementById('genshinShippingForm').classList.remove('visible');
+
+                // Render appropriate content
+                if (tab === 'crystals') {
+                    renderGenshinCrystals();
+                } else if (tab === 'nexus') {
+                    renderGenshinNexus();
+                } else if (tab === 'elements') {
+                    renderGenshinElements();
+                }
+            }
+
+            function renderGenshinCrystals() {
+                const grid = document.getElementById('genshinCrystalsGrid');
                 if (!grid) return;
 
-                grid.innerHTML = '';
-
-                genshinPacks.forEach(pack => {
-                    const btn = document.createElement('button');
-                    btn.className = 'genshin-pack-btn';
-                    btn.dataset.crystals = pack.crystals.replace(/,/g, '');
-                    btn.dataset.price = pack.price;
-
-                    let html = `<span class="crystal-amount">${pack.crystals} بلورة</span>`;
+                grid.innerHTML = genshinCrystalsData.map(pack => {
+                    let html = `<span class="crystal-amount">${pack.amount}</span>`;
                     if (pack.bonus) {
                         html += `<span class="crystal-bonus">${pack.bonus}</span>`;
                     }
-                    html += `<span class="crystal-price">$${pack.price}</span>`;
+                    html += `<span class="crystal-price">${pack.price}</span>`;
                     if (pack.bestseller) {
                         html += `<span class="crystal-badge">★ الأكثر مبيعاً</span>`;
                     }
+                    return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="crystals">${html}</button>`;
+                }).join('');
 
-                    btn.innerHTML = html;
-
+                grid.querySelectorAll('.genshin-pack-btn').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         createRipple(e, this);
                         grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
                         this.classList.add('selected');
-                        genshinSelectedPack = this.dataset.crystals;
+                        genshinSelectedPack = this.dataset.amount;
                         genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
 
                         const shippingForm = document.getElementById('genshinShippingForm');
                         if (shippingForm.classList.contains('hidden')) {
@@ -4843,18 +5067,102 @@
                             setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
                         }, 150);
                     });
+                });
+            }
 
-                    grid.appendChild(btn);
+            function renderGenshinNexus() {
+                const grid = document.getElementById('genshinNexusGrid');
+                if (!grid) return;
+
+                grid.innerHTML = genshinNexusData.map(pack => {
+                    return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="nexus">
+                        <span class="crystal-amount">${pack.amount}</span>
+                        <span class="crystal-price">${pack.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.genshin-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.amount;
+                        genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function renderGenshinElements() {
+                const grid = document.getElementById('genshinElementsGrid');
+                if (!grid) return;
+
+                if (!genshinElementsData || genshinElementsData.length === 0) {
+                    grid.innerHTML = `
+                        <div class="genshin-empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <p>لا توجد منتجات متاحة حالياً</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = genshinElementsData.map(product => {
+                    return `<button class="genshin-element-product" data-name="${product.name}" data-price="${product.price.replace('$', '')}" data-type="element">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                        <span class="element-name">${product.name}</span>
+                        <span class="element-price">${product.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.genshin-element-product').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-element-product').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.name;
+                        genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
                 });
             }
 
             function resetGenshinPacks() {
                 genshinSelectedPack = null;
                 genshinSelectedPrice = null;
-                const grid = document.getElementById('genshinPacksGrid');
-                if (grid) {
-                    grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
-                }
+                genshinSelectedType = null;
+                genshinCurrentTab = 'crystals';
+                
+                const slider = document.getElementById('genshinPacksSlider');
+                if (slider) slider.style.transform = 'translateX(0%)';
+                
+                const tabs = document.querySelectorAll('.genshin-tab-btn');
+                tabs.forEach(t => t.classList.remove('active'));
+                const firstTab = document.querySelector('.genshin-tab-btn[data-tab="crystals"]');
+                if (firstTab) firstTab.classList.add('active');
+                
+                renderGenshinCrystals();
+                
                 const shippingForm = document.getElementById('genshinShippingForm');
                 if (shippingForm) {
                     shippingForm.classList.add('hidden');
@@ -5086,7 +5394,9 @@
                                 }
                                 if (game.page === 'page-genshin') {
                                     setTimeout(() => {
-                                        initGenshinPacks();
+                                        renderGenshinCrystals();
+                                        const slider = document.getElementById('genshinPacksSlider');
+                                        if (slider) slider.style.transform = 'translateX(0%)';
                                     }, 100);
                                 }
                             }, 150);
@@ -5184,6 +5494,22 @@
             });
 
             // ============================================
+            // ===== GENSHIN TAB EVENTS =====
+            // ============================================
+            document.querySelectorAll('.genshin-tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.dataset.tab;
+                    genshinSelectedPack = null;
+                    genshinSelectedPrice = null;
+                    genshinSelectedType = null;
+                    document.getElementById('genshinShippingForm').classList.add('hidden');
+                    document.getElementById('genshinShippingForm').classList.remove('visible');
+                    genshinCurrentTab = tab;
+                    renderGenshinPacks(tab);
+                });
+            });
+
+            // ============================================
             // ===== FREE FIRE TAB EVENTS =====
             // ============================================
             document.querySelectorAll('.ff-tab-btn').forEach(btn => {
@@ -5240,7 +5566,7 @@
                 const whatsapp = document.getElementById('genshinWhatsappInput').value.trim();
                 
                 if (!genshinSelectedPack) {
-                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    alert('⚠️ يرجى اختيار باقة أو منتج أولاً.');
                     return;
                 }
                 if (!uid) {
@@ -5257,7 +5583,7 @@
                 btn.style.opacity = '0.7';
                 setTimeout(() => {
                     alert(
-                        `✅ تم تقديم طلب شراء ${genshinSelectedPack} بلورة\n💰 السعر: $${genshinSelectedPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        `✅ تم تقديم طلب شراء ${genshinSelectedPack}\n💰 السعر: $${genshinSelectedPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -5984,7 +6310,8 @@
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
-                        b.closest('.genshin-pack-btn') ||
+                        b.closest('.genshin-pack-btn') || b.closest('.genshin-tab-btn') ||
+                        b.closest('.genshin-element-product') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
@@ -6017,13 +6344,16 @@
                 }
 
                 renderFFPacks('codes');
-                const slider = document.getElementById('ffPacksSlider');
-                if (slider) slider.style.transform = 'translateX(0%)';
-                initGenshinPacks();
+                const ffSlider = document.getElementById('ffPacksSlider');
+                if (ffSlider) ffSlider.style.transform = 'translateX(0%)';
+                
+                renderGenshinCrystals();
+                const genshinSlider = document.getElementById('genshinPacksSlider');
+                if (genshinSlider) genshinSlider.style.transform = 'translateX(0%)';
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة صفحة Genshin Impact مع الباقات المطلوبة');
+            console.log('✅ تم إضافة شريط التصنيف في صفحة Genshin Impact');
 
         })();
     </script>
