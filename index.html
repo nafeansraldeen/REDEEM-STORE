@@ -405,6 +405,222 @@
         }
 
         /* ============================================ */
+        /* ===== Genshin Impact PAGE ===== */
+        /* ============================================ */
+        .genshin-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .genshin-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .genshin-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .genshin-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .genshin-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .genshin-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .genshin-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .genshin-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .genshin-pack-btn .crystal-amount {
+            display: block;
+            font-size: 24px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .genshin-pack-btn .crystal-bonus {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #10B981;
+            margin-top: 2px;
+            transition: color 0.25s ease;
+        }
+
+        .genshin-pack-btn .crystal-price {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .genshin-pack-btn .crystal-badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: linear-gradient(145deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 50px;
+            letter-spacing: 0.3px;
+        }
+
+        .genshin-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .genshin-pack-btn.selected .crystal-amount {
+            color: #1A73E8;
+        }
+
+        .genshin-pack-btn.selected .crystal-bonus {
+            color: #1A73E8;
+        }
+
+        .genshin-pack-btn.selected .crystal-price {
+            color: #1A73E8;
+        }
+
+        .genshin-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .genshin-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .genshin-shipping-form.hidden {
+            display: none;
+        }
+
+        .genshin-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .genshin-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .genshin-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .genshin-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .genshin-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .genshin-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .genshin-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
         /* ===== FREE FIRE PAGE ===== */
         /* ============================================ */
         .ff-header {
@@ -441,7 +657,6 @@
             font-weight: 400;
         }
 
-        /* ===== Free Fire Navigation Tabs ===== */
         .ff-tabs-wrapper {
             position: sticky;
             top: 0;
@@ -508,7 +723,6 @@
             }
         }
 
-        /* ===== Free Fire Packs Container ===== */
         .ff-packs-container {
             position: relative;
             overflow: hidden;
@@ -614,7 +828,6 @@
             margin-bottom: 12px;
         }
 
-        /* ===== Free Fire Shipping Form ===== */
         .ff-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -1648,7 +1861,6 @@
             background: #FFFFFF;
         }
 
-        /* Support Header */
         .support-header-hero {
             background: linear-gradient(145deg, #1A73E8, #0D47A1);
             padding: 40px 24px 48px;
@@ -1723,12 +1935,10 @@
             letter-spacing: 0.2px;
         }
 
-        /* Support Body */
         .support-body {
             padding: 0 16px;
         }
 
-        /* Welcome Card */
         .welcome-card {
             background: #FFFFFF;
             border-radius: 20px;
@@ -1770,7 +1980,6 @@
             margin: 0 auto;
         }
 
-        /* Hours Card */
         .hours-card {
             background: #FFFFFF;
             border-radius: 20px;
@@ -1848,7 +2057,6 @@
             margin-top: 12px;
         }
 
-        /* ===== Contact Full Button ===== */
         .contact-full-btn {
             display: flex;
             align-items: center;
@@ -1897,7 +2105,6 @@
             transform: translateX(-4px);
         }
 
-        /* FAQ Section */
         .faq-section-support {
             margin-bottom: 24px;
         }
@@ -1997,7 +2204,6 @@
             font-weight: 400;
         }
 
-        /* Support Footer */
         .support-footer-support {
             text-align: center;
             padding: 20px 0 10px;
@@ -3329,7 +3535,6 @@
                 font-size: 14px;
             }
 
-            /* Support Responsive */
             .support-header-hero {
                 padding: 32px 20px 40px;
             }
@@ -3367,7 +3572,6 @@
                 padding: 14px 16px;
             }
 
-            /* Free Fire Responsive */
             .ff-tabs-wrapper {
                 height: 48px;
                 padding: 6px 10px;
@@ -3380,6 +3584,24 @@
             }
             .ff-tab-btn i {
                 font-size: 14px;
+            }
+
+            .genshin-pack-btn {
+                min-height: 100px;
+                padding: 16px 10px;
+            }
+            .genshin-pack-btn .crystal-amount {
+                font-size: 18px;
+            }
+            .genshin-pack-btn .crystal-bonus {
+                font-size: 11px;
+            }
+            .genshin-pack-btn .crystal-price {
+                font-size: 13px;
+            }
+            .genshin-pack-btn .crystal-badge {
+                font-size: 8px;
+                padding: 2px 8px;
             }
         }
 
@@ -3414,6 +3636,10 @@
                 gap: 16px;
             }
             .ff-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .genshin-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
@@ -3499,7 +3725,6 @@
                 font-size: 22px;
             }
 
-            /* Support Responsive */
             .support-header-hero {
                 padding: 48px 32px 56px;
             }
@@ -3540,6 +3765,10 @@
                 min-height: 120px;
             }
             .ff-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .genshin-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 18px;
             }
@@ -3771,6 +4000,59 @@
         </div>
 
         <!-- ============================================ -->
+        <!-- ===== GENSHIN IMPACT PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-genshin" class="page">
+            <div class="genshin-header">
+                <img src="https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png" alt="Genshin Impact" />
+                <div class="game-info">
+                    <h2>Genshin Impact</h2>
+                    <p>بلورات التكوين - اختر الباقة المناسبة</p>
+                </div>
+            </div>
+
+            <div class="genshin-packs-grid" id="genshinPacksGrid">
+                <button class="genshin-pack-btn" data-crystals="60" data-price="0.99">
+                    <span class="crystal-amount">60 بلورة</span>
+                    <span class="crystal-price">$0.99</span>
+                </button>
+                <button class="genshin-pack-btn" data-crystals="330" data-price="4.99" data-bonus="مكافأة 30 + 300">
+                    <span class="crystal-amount">330 بلورة</span>
+                    <span class="crystal-bonus">🎁 مكافأة 30 + 300</span>
+                    <span class="crystal-price">$4.99</span>
+                </button>
+                <button class="genshin-pack-btn" data-crystals="1090" data-price="14.99">
+                    <span class="crystal-amount">1,090 بلورة</span>
+                    <span class="crystal-price">$14.99</span>
+                </button>
+                <button class="genshin-pack-btn" data-crystals="2240" data-price="29.99" data-bonus="مكافأة 260 + 1980">
+                    <span class="crystal-amount">2,240 بلورة</span>
+                    <span class="crystal-bonus">🎁 مكافأة 260 + 1980</span>
+                    <span class="crystal-price">$29.99</span>
+                </button>
+                <button class="genshin-pack-btn" data-crystals="3880" data-price="49.99" data-bonus="مكافأة 3280 + 600">
+                    <span class="crystal-amount">3,880 بلورة</span>
+                    <span class="crystal-bonus">🎁 مكافأة 3280 + 600</span>
+                    <span class="crystal-price">$49.99</span>
+                    <span class="crystal-badge">★ الأكثر مبيعات</span>
+                </button>
+                <button class="genshin-pack-btn" data-crystals="8080" data-price="99.99" data-bonus="مكافأة 6480 + 1600">
+                    <span class="crystal-amount">8,080 بلورة</span>
+                    <span class="crystal-bonus">🎁 مكافأة 6480 + 1600</span>
+                    <span class="crystal-price">$99.99</span>
+                </button>
+            </div>
+
+            <div class="genshin-shipping-form hidden" id="genshinShippingForm">
+                <label>معرف UID الخاص بك</label>
+                <input type="text" placeholder="أدخل معرف UID" id="genshinUidInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="genshinWhatsappInput" />
+                <button class="genshin-btn-buy" id="genshinBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
         <!-- ===== FREE FIRE PAGE ===== -->
         <!-- ============================================ -->
         <div id="page-freefire" class="page">
@@ -3782,7 +4064,6 @@
                 </div>
             </div>
 
-            <!-- Navigation Tabs -->
             <div class="ff-tabs-wrapper" id="ffTabsWrapper">
                 <button class="ff-tab-btn active" data-tab="codes">
                     <i class="fas fa-ticket-alt"></i> أكواد
@@ -3795,31 +4076,20 @@
                 </button>
             </div>
 
-            <!-- Packs Container -->
             <div class="ff-packs-container" id="ffPacksContainer">
                 <div class="ff-packs-slider" id="ffPacksSlider">
-                    <!-- Slide 1: أكواد -->
                     <div class="ff-packs-slide" data-slide="codes">
-                        <div class="ff-packs-grid" id="ffCodesGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="ff-packs-grid" id="ffCodesGrid"></div>
                     </div>
-                    <!-- Slide 2: عبر ID -->
                     <div class="ff-packs-slide" data-slide="id">
-                        <div class="ff-packs-grid" id="ffIdGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="ff-packs-grid" id="ffIdGrid"></div>
                     </div>
-                    <!-- Slide 3: عبر الحساب -->
                     <div class="ff-packs-slide" data-slide="account">
-                        <div class="ff-packs-grid" id="ffAccountGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="ff-packs-grid" id="ffAccountGrid"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Shipping Form -->
             <div class="ff-shipping-form hidden" id="ffShippingForm">
                 <label>معرف اللاعب / الحساب</label>
                 <input type="text" placeholder="أدخل معرف اللاعب" id="ffPlayerIdInput" />
@@ -4166,21 +4436,6 @@
             </div>
         </div>
 
-        <!-- Genshin Impact -->
-        <div id="page-genshin" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png" alt="Genshin Impact" />
-                <div class="game-info">
-                    <h2>Genshin Impact</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
         <!-- Blood Strike -->
         <div id="page-bloodstrike" class="page">
             <div class="pubg-header">
@@ -4230,7 +4485,6 @@
         <!-- ===== SUPPORT PAGE (REDESIGNED) ===== -->
         <!-- ============================================ -->
         <div id="page-support" class="page">
-            <!-- Hero Header -->
             <div class="support-header-hero">
                 <div class="hero-icon">
                     <i class="fas fa-headset"></i>
@@ -4240,7 +4494,6 @@
             </div>
 
             <div class="support-body">
-                <!-- Welcome Card -->
                 <div class="welcome-card">
                     <div class="welcome-icon">
                         <i class="fas fa-hands-helping"></i>
@@ -4249,7 +4502,6 @@
                     <p>فريق <strong>REDEEM STORE</strong> جاهز للإجابة على جميع استفساراتك وحل أي مشكلة تواجهك.</p>
                 </div>
 
-                <!-- Hours Card -->
                 <div class="hours-card">
                     <div class="hours-icon">
                         <i class="fas fa-clock"></i>
@@ -4271,14 +4523,12 @@
                     </span>
                 </div>
 
-                <!-- Contact Full Button -->
                 <a href="https://wa.me/249901839168" target="_blank" class="contact-full-btn" id="contactFullBtn">
                     <i class="fab fa-whatsapp"></i>
                     <span>تواصل معنا الآن</span>
                     <i class="fas fa-arrow-left"></i>
                 </a>
 
-                <!-- FAQ Section -->
                 <div class="faq-section-support">
                     <div class="faq-title-support">
                         <i class="fas fa-question-circle"></i>
@@ -4346,7 +4596,6 @@
                     </div>
                 </div>
 
-                <!-- Footer -->
                 <div class="support-footer-support">
                     <i class="fas fa-heart"></i>
                     صنع بحب من فريق REDEEM STORE
@@ -4463,6 +4712,18 @@
             };
 
             // ============================================
+            // ===== GENSHIN IMPACT DATA =====
+            // ============================================
+            const genshinPacks = [
+                { crystals: '60', price: '0.99', bonus: null },
+                { crystals: '330', price: '4.99', bonus: '🎁 مكافأة 30 + 300' },
+                { crystals: '1,090', price: '14.99', bonus: null },
+                { crystals: '2,240', price: '29.99', bonus: '🎁 مكافأة 260 + 1980' },
+                { crystals: '3,880', price: '49.99', bonus: '🎁 مكافأة 3280 + 600', bestseller: true },
+                { crystals: '8,080', price: '99.99', bonus: '🎁 مكافأة 6480 + 1600' },
+            ];
+
+            // ============================================
             // ===== RIPPLE EFFECTS =====
             // ============================================
             function createRipple(e, element) {
@@ -4531,6 +4792,76 @@
             }
 
             // ============================================
+            // ===== GENSHIN IMPACT FUNCTIONS =====
+            // ============================================
+            let genshinSelectedPack = null;
+            let genshinSelectedPrice = null;
+
+            function initGenshinPacks() {
+                const grid = document.getElementById('genshinPacksGrid');
+                if (!grid) return;
+
+                // Clear existing buttons
+                grid.innerHTML = '';
+
+                genshinPacks.forEach(pack => {
+                    const btn = document.createElement('button');
+                    btn.className = 'genshin-pack-btn';
+                    btn.dataset.crystals = pack.crystals.replace(/,/g, '');
+                    btn.dataset.price = pack.price;
+
+                    let html = `<span class="crystal-amount">${pack.crystals} بلورة</span>`;
+                    if (pack.bonus) {
+                        html += `<span class="crystal-bonus">${pack.bonus}</span>`;
+                    }
+                    html += `<span class="crystal-price">$${pack.price}</span>`;
+                    if (pack.bestseller) {
+                        html += `<span class="crystal-badge">★ الأكثر مبيعات</span>`;
+                    }
+
+                    btn.innerHTML = html;
+
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.crystals;
+                        genshinSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
+
+                    grid.appendChild(btn);
+                });
+            }
+
+            function resetGenshinPacks() {
+                genshinSelectedPack = null;
+                genshinSelectedPrice = null;
+                const grid = document.getElementById('genshinPacksGrid');
+                if (grid) {
+                    grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
+                }
+                const shippingForm = document.getElementById('genshinShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const uidInput = document.getElementById('genshinUidInput');
+                const whatsappInput = document.getElementById('genshinWhatsappInput');
+                if (uidInput) uidInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== FREE FIRE FUNCTIONS =====
             // ============================================
             let ffCurrentTab = 'codes';
@@ -4554,7 +4885,6 @@
                     return;
                 }
 
-                // Reset selected pack when switching tabs
                 ffSelectedPack = null;
                 ffSelectedPrice = null;
                 document.getElementById('ffShippingForm').classList.add('hidden');
@@ -4567,11 +4897,9 @@
                     </button>
                 `).join('');
 
-                // Add click events to new buttons
                 grid.querySelectorAll('.ff-pack-btn').forEach(btn => {
                     btn.addEventListener('click', function(e) {
                         createRipple(e, this);
-                        // Remove selected from all buttons in this grid
                         grid.querySelectorAll('.ff-pack-btn').forEach(b => b.classList.remove('selected'));
                         this.classList.add('selected');
                         ffSelectedPack = this.dataset.amount;
@@ -4597,18 +4925,37 @@
                 const slider = document.getElementById('ffPacksSlider');
                 const tabs = document.querySelectorAll('.ff-tab-btn');
                 
-                // Update tab buttons
                 tabs.forEach(t => t.classList.remove('active'));
                 document.querySelector(`.ff-tab-btn[data-tab="${tab}"]`).classList.add('active');
                 
-                // Slide animation
                 const index = tab === 'codes' ? 0 : tab === 'id' ? 1 : 2;
                 slider.style.transform = `translateX(-${index * 100}%)`;
                 
-                // Render packs for the selected tab after animation
                 setTimeout(() => {
                     renderFFPacks(tab);
                 }, 50);
+            }
+
+            function resetFFPacks() {
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                ffCurrentTab = 'codes';
+                const slider = document.getElementById('ffPacksSlider');
+                if (slider) slider.style.transform = 'translateX(0%)';
+                const tabs = document.querySelectorAll('.ff-tab-btn');
+                tabs.forEach(t => t.classList.remove('active'));
+                const firstTab = document.querySelector('.ff-tab-btn[data-tab="codes"]');
+                if (firstTab) firstTab.classList.add('active');
+                renderFFPacks('codes');
+                const shippingForm = document.getElementById('ffShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const playerInput = document.getElementById('ffPlayerIdInput');
+                const whatsappInput = document.getElementById('ffWhatsappInput');
+                if (playerInput) playerInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
             }
 
             // ============================================
@@ -4694,24 +5041,6 @@
                 window.selectedCocPrice = null;
             }
 
-            function resetFFPacks() {
-                ffSelectedPack = null;
-                ffSelectedPrice = null;
-                // Reset to codes tab
-                ffCurrentTab = 'codes';
-                const slider = document.getElementById('ffPacksSlider');
-                slider.style.transform = 'translateX(0%)';
-                const tabs = document.querySelectorAll('.ff-tab-btn');
-                tabs.forEach(t => t.classList.remove('active'));
-                document.querySelector('.ff-tab-btn[data-tab="codes"]').classList.add('active');
-                renderFFPacks('codes');
-                const shippingForm = document.getElementById('ffShippingForm');
-                shippingForm.classList.add('hidden');
-                shippingForm.classList.remove('visible');
-                document.getElementById('ffPlayerIdInput').value = '';
-                document.getElementById('ffWhatsappInput').value = '';
-            }
-
             function resetAllPacks() {
                 resetPubgPacks();
                 resetCodPacks();
@@ -4719,6 +5048,7 @@
                 resetEfootballPacks();
                 resetCocPacks();
                 resetFFPacks();
+                resetGenshinPacks();
             }
 
             // ============================================
@@ -4742,12 +5072,16 @@
                             setTimeout(() => {
                                 switchPage(game.page);
                                 updateNavActive('page-home');
-                                // If Free Fire page, initialize tabs
                                 if (game.page === 'page-freefire') {
                                     setTimeout(() => {
                                         renderFFPacks('codes');
                                         const slider = document.getElementById('ffPacksSlider');
-                                        slider.style.transform = 'translateX(0%)';
+                                        if (slider) slider.style.transform = 'translateX(0%)';
+                                    }, 100);
+                                }
+                                if (game.page === 'page-genshin') {
+                                    setTimeout(() => {
+                                        initGenshinPacks();
                                     }, 100);
                                 }
                             }, 150);
@@ -4850,7 +5184,6 @@
             document.querySelectorAll('.ff-tab-btn').forEach(btn => {
                 btn.addEventListener('click', function() {
                     const tab = this.dataset.tab;
-                    // Reset selected pack when switching tabs
                     ffSelectedPack = null;
                     ffSelectedPrice = null;
                     document.getElementById('ffShippingForm').classList.add('hidden');
@@ -4886,6 +5219,40 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء باقة ${ffSelectedPack}\n💰 السعر: $${ffSelectedPrice}\n🆔 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== GENSHIN IMPACT BUY BUTTON =====
+            // ============================================
+            document.getElementById('genshinBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const uid = document.getElementById('genshinUidInput').value.trim();
+                const whatsapp = document.getElementById('genshinWhatsappInput').value.trim();
+                
+                if (!genshinSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!uid) {
+                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${genshinSelectedPack} بلورة\n💰 السعر: $${genshinSelectedPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -5612,14 +5979,15 @@
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
+                        b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
-                        b.id === 'mlHelpBtn' || b.id === 'mlModalCloseBtn' ||
-                        b.id === 'depositBtn' || b.id === 'withdrawBtn' ||
-                        b.id === 'depositBackBtn' || b.id === 'copyBtn' ||
-                        b.id === 'confirmBtn' || b.id === 'backHomeBtn' ||
-                        b.classList.contains('method-item') ||
+                        b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
+                        b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
+                        b.id === 'withdrawBtn' || b.id === 'depositBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item') ||
                         b.closest('.faq-item-support') ||
                         b.closest('.contact-full-btn')) {
                         e.preventDefault();
@@ -5636,7 +6004,6 @@
                 if (firstMethod) firstMethod.classList.add('selected');
                 resetAllPacks();
 
-                // Open first FAQ by default
                 const firstFaqBtn = document.querySelector('.faq-question-support');
                 if (firstFaqBtn) {
                     setTimeout(() => {
@@ -5644,17 +6011,17 @@
                     }, 300);
                 }
 
-                // Initialize Free Fire tabs
                 renderFFPacks('codes');
                 const slider = document.getElementById('ffPacksSlider');
                 if (slider) slider.style.transform = 'translateX(0%)';
+                initGenshinPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة صفحة Free Fire مع شريط تنقل علوي');
+            console.log('✅ تم إضافة صفحة Genshin Impact مع الباقات المطلوبة');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
