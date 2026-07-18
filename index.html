@@ -441,7 +441,7 @@
             font-weight: 400;
         }
 
-        /* ===== Genshin Navigation Tabs ===== */
+        /* ===== Genshin Navigation Tabs - WITHOUT ICONS ===== */
         .genshin-tabs-wrapper {
             position: sticky;
             top: 0;
@@ -475,13 +475,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
+            gap: 0px;
             -webkit-tap-highlight-color: transparent;
             min-width: 0;
-        }
-
-        .genshin-tab-btn i {
-            font-size: 16px;
         }
 
         .genshin-tab-btn.active {
@@ -504,9 +500,6 @@
                 font-size: 12px;
                 padding: 8px 10px;
                 border-radius: 14px;
-            }
-            .genshin-tab-btn i {
-                font-size: 14px;
             }
         }
 
@@ -3756,9 +3749,6 @@
                 padding: 8px 10px;
                 border-radius: 14px;
             }
-            .genshin-tab-btn i {
-                font-size: 14px;
-            }
 
             .genshin-pack-btn {
                 min-height: 100px;
@@ -4194,16 +4184,16 @@
                 </div>
             </div>
 
-            <!-- Navigation Tabs - WITHOUT EMOJIS -->
+            <!-- Navigation Tabs - WITHOUT ICONS AND EMOJIS -->
             <div class="genshin-tabs-wrapper" id="genshinTabsWrapper">
                 <button class="genshin-tab-btn active" data-tab="crystals">
-                    <i class="fas fa-gem"></i> بلورات التكوين
+                    بلورات التكوين
                 </button>
                 <button class="genshin-tab-btn" data-tab="nexus">
-                    <i class="fas fa-star"></i> كرونال نيكسوس
+                    كرونال نيكسوس
                 </button>
                 <button class="genshin-tab-btn" data-tab="elements">
-                    <i class="fas fa-fire"></i> عناصر
+                    عناصر
                 </button>
             </div>
 
@@ -6346,7 +6336,7 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إصلاح شريط التصنيف في صفحة Genshin Impact');
+            console.log('✅ تم حذف الأيقونات من شريط التصنيف في صفحة Genshin Impact');
 
         })();
     </script>
