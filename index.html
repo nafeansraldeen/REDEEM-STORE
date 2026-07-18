@@ -3992,8 +3992,834 @@
             </div>
         </div>
 
-        <!-- ===== باقي الصفحات (نفس الكود السابق) ===== -->
-        <!-- ... (تم اختصار باقي الكود للحفاظ على المساحة) ... -->
+        <!-- صفحة المحفظة -->
+        <div id="page-wallet" class="page">
+            <div class="wallet-card-wrapper">
+                <div class="wallet-balance-card">
+                    <div class="wallet-balance-top">
+                        <div class="wallet-balance-icon">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="wallet-balance-header">
+                            <h2 class="wallet-balance-title">رصيد المحفظة</h2>
+                            <span class="wallet-balance-sub">الرصيد المتاح</span>
+                        </div>
+                    </div>
+                    <div class="wallet-balance-amount">
+                        <span class="currency-symbol">ج.س</span>
+                        <span class="amount-number" id="walletBalanceDisplay">0.00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="wallet-actions">
+                <button class="action-card deposit-card" id="depositBtn">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-down"></i>
+                    </div>
+                    <span class="card-title">إيداع</span>
+                    <span class="card-sub">أضف رصيد</span>
+                </button>
+                <button class="action-card withdraw-card" id="withdrawBtn">
+                    <div class="card-icon">
+                        <i class="fas fa-arrow-up"></i>
+                    </div>
+                    <span class="card-title">سحب</span>
+                    <span class="card-sub">اسحب رصيد</span>
+                </button>
+            </div>
+
+            <div class="transactions-header-wallet">
+                <div class="wallet-section-title">المعاملات</div>
+            </div>
+
+            <div class="filter-scroll-wallet" id="filterContainer">
+                <button class="filter-btn-wallet active" data-filter="all">الكل</button>
+                <button class="filter-btn-wallet" data-filter="deposit">إيداع</button>
+                <button class="filter-btn-wallet" data-filter="withdraw">سحب</button>
+                <button class="filter-btn-wallet" data-filter="purchase">شراء</button>
+                <button class="filter-btn-wallet" data-filter="refund">استرداد</button>
+            </div>
+
+            <div class="transactions-list-wallet" id="transactionsList">
+                <div class="empty-state-wallet" id="emptyState">
+                    <i class="fas fa-inbox"></i>
+                    <p>لا توجد معاملات</p>
+                </div>
+                <div id="transactionsContainer"></div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة اختيار طريقة الإيداع ===== -->
+        <!-- ============================================ -->
+        <div class="deposit-page" id="depositPage">
+            <div class="deposit-top-bar">
+                <button class="back-btn" id="depositBackBtn">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+                <div>
+                    <div class="page-title">إيداع الرصيد</div>
+                    <div class="page-sub">اختر طريقة الإيداع</div>
+                </div>
+            </div>
+
+            <div class="deposit-body">
+                <div class="method-selection" id="methodSelection">
+                    <div class="section-title">اختر طريقة الإيداع</div>
+                    <div class="method-grid">
+                        <button class="method-item" data-method="bank">
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/KjVrmC3P/a45834997dcd4a0c032c542bc4750c2b.jpg" alt="بنكك" />
+                            </div>
+                            <span class="method-name">بنكك</span>
+                            <span class="method-desc">تحويل بنكي</span>
+                        </button>
+                        <button class="method-item" data-method="redotpay">
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/zvTLbfdj/6feb9ec0dc4a917f20ee4499659d56ce.jpg" alt="RedotPay" />
+                            </div>
+                            <span class="method-name">RedotPay</span>
+                            <span class="method-desc">محفظة رقمية</span>
+                        </button>
+                        <button class="method-item" data-method="mycash">
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/Jzg8yH0w/Screenshot-20260715-144026.jpg" alt="ماي كاشي" />
+                            </div>
+                            <span class="method-name">ماي كاشي</span>
+                            <span class="method-desc">محفظة إلكترونية</span>
+                        </button>
+                        <button class="method-item" data-method="binance">
+                            <span class="check-mark"><i class="fas fa-check"></i></span>
+                            <div class="method-icon-wrapper">
+                                <img src="https://i.postimg.cc/yd6bxJvV/1fabe356-bb69-4bc4-a307-19b28ee8dd35-780x470.webp" alt="بـيدي" />
+                            </div>
+                            <span class="method-name">بـيدي</span>
+                            <span class="method-desc">محفظة إلكترونية</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة تفاصيل الإيداع ===== -->
+        <!-- ============================================ -->
+        <div class="deposit-detail-page" id="depositDetailPage">
+            <div class="detail-body" id="detailBody">
+                <div class="account-card">
+                    <div class="account-label">رقم الحساب / المحفظة</div>
+                    <div class="account-row">
+                        <span class="account-number" id="accountNumber">7610732</span>
+                        <button class="copy-btn" id="copyBtn">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="account-holder" id="accountHolder">
+                        <span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label>المبلغ</label>
+                    <div class="field-input-wrapper">
+                        <input type="number" placeholder="أدخل المـبـلـغ الـمـطـلـوب" id="amountInput" class="input-ltr" />
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label>رقم العملية</label>
+                    <div class="field-input-wrapper">
+                        <input type="text" placeholder="رقـم العمـليـه مـن الـتطبـيـق" id="transactionIdInput" />
+                    </div>
+                </div>
+
+                <div class="field-group">
+                    <label>صورة الإيصال</label>
+                    <div class="file-upload-mini" id="fileUploadBox">
+                        <input type="file" accept="image/*" id="receiptInput" />
+                        <span class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></span>
+                        <span class="upload-text">رفع صورة الإيصال</span>
+                        <div class="upload-preview" id="uploadPreview">
+                            <img id="previewImage" src="#" alt="معاينة" />
+                            <span class="preview-name" id="previewFileName"></span>
+                            <span class="preview-check"><i class="fas fa-check-circle"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="success-message" id="successMessage">
+                    <div class="success-icon">
+                        <i class="fas fa-check"></i>
+                    </div>
+                    <h2>تم الإيداع بنجاح</h2>
+                    <p>تم استلام طلب الإيداع بنجاح، وسيتم مراجعته خلال دقائق.</p>
+                    <button class="btn-back-home" id="backHomeBtn">العودة للرئيسية</button>
+                </div>
+            </div>
+
+            <div class="sticky-bottom" id="stickyBottom">
+                <button class="btn-confirm" id="confirmBtn">
+                    <span class="btn-text">تأكيد الإيداع</span>
+                    <span class="loader">
+                        <span class="loader-spinner"></span>
+                        جاري المعالجة...
+                    </span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== GENSHIN IMPACT PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-genshin" class="page">
+            <div class="genshin-header">
+                <img src="https://i.postimg.cc/sgW7R6L3/file-000000003c587243be96323811e84ca5.png" alt="Genshin Impact" />
+                <div class="game-info">
+                    <h2>Genshin Impact</h2>
+                    <p>بلورات التكوين - اختر الباقة المناسبة</p>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs - WITHOUT ICONS AND EMOJIS -->
+            <div class="genshin-tabs-wrapper" id="genshinTabsWrapper">
+                <button class="genshin-tab-btn active" data-tab="crystals">
+                    بلورات التكوين
+                </button>
+                <button class="genshin-tab-btn" data-tab="nexus">
+                    كرونال نيكسوس
+                </button>
+                <button class="genshin-tab-btn" data-tab="elements">
+                    عناصر
+                </button>
+            </div>
+
+            <!-- Packs Container -->
+            <div class="genshin-packs-container" id="genshinPacksContainer">
+                <div class="genshin-packs-slider" id="genshinPacksSlider">
+                    <!-- Slide 1: بلورات التكوين -->
+                    <div class="genshin-packs-slide" data-slide="crystals">
+                        <div class="genshin-packs-grid" id="genshinCrystalsGrid"></div>
+                    </div>
+                    <!-- Slide 2: كرونال نيكسوس -->
+                    <div class="genshin-packs-slide" data-slide="nexus">
+                        <div class="genshin-packs-grid" id="genshinNexusGrid"></div>
+                    </div>
+                    <!-- Slide 3: عناصر -->
+                    <div class="genshin-packs-slide" data-slide="elements">
+                        <div class="genshin-packs-grid" id="genshinElementsGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Form -->
+            <div class="genshin-shipping-form hidden" id="genshinShippingForm">
+                <label>معرف UID الخاص بك</label>
+                <input type="text" placeholder="أدخل معرف UID" id="genshinUidInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="genshinWhatsappInput" />
+                <button class="genshin-btn-buy" id="genshinBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== FREE FIRE PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-freefire" class="page">
+            <div class="ff-header">
+                <img src="https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg" alt="Free Fire" />
+                <div class="game-info">
+                    <h2>Free Fire</h2>
+                    <p>اختر باقة الشحن المناسبة</p>
+                </div>
+            </div>
+
+            <div class="ff-tabs-wrapper" id="ffTabsWrapper">
+                <button class="ff-tab-btn active" data-tab="codes">
+                    <i class="fas fa-ticket-alt"></i> أكواد
+                </button>
+                <button class="ff-tab-btn" data-tab="id">
+                    <i class="fas fa-id-card"></i> عبر ID
+                </button>
+                <button class="ff-tab-btn" data-tab="account">
+                    <i class="fas fa-user-circle"></i> عبر الحساب
+                </button>
+            </div>
+
+            <div class="ff-packs-container" id="ffPacksContainer">
+                <div class="ff-packs-slider" id="ffPacksSlider">
+                    <div class="ff-packs-slide" data-slide="codes">
+                        <div class="ff-packs-grid" id="ffCodesGrid"></div>
+                    </div>
+                    <div class="ff-packs-slide" data-slide="id">
+                        <div class="ff-packs-grid" id="ffIdGrid"></div>
+                    </div>
+                    <div class="ff-packs-slide" data-slide="account">
+                        <div class="ff-packs-grid" id="ffAccountGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ff-shipping-form hidden" id="ffShippingForm">
+                <label>معرف اللاعب / الحساب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="ffPlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="ffWhatsappInput" />
+                <button class="ff-btn-buy" id="ffBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== PUBG PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-pubg" class="page">
+            <div class="pubg-header">
+                <img src="https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg" alt="PUBG Mobile" />
+                <div class="game-info">
+                    <h2>PUBG Mobile</h2>
+                    <p>اختر باقة UC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="packs-grid" id="packsGrid">
+                <button class="pack-btn" data-uc="60" data-price="0.93">
+                    <span class="uc-amount">60UC</span>
+                    <span class="price-amount">$0.93</span>
+                </button>
+                <button class="pack-btn" data-uc="325" data-price="4.65">
+                    <span class="uc-amount">325UC</span>
+                    <span class="price-amount">$4.65</span>
+                </button>
+                <button class="pack-btn" data-uc="660" data-price="9.30">
+                    <span class="uc-amount">660UC</span>
+                    <span class="price-amount">$9.30</span>
+                </button>
+                <button class="pack-btn" data-uc="985" data-price="14.65">
+                    <span class="uc-amount">985UC</span>
+                    <span class="price-amount">$14.65</span>
+                </button>
+                <button class="pack-btn" data-uc="1320" data-price="19.50">
+                    <span class="uc-amount">1,320UC</span>
+                    <span class="price-amount">$19.50</span>
+                </button>
+                <button class="pack-btn" data-uc="1800" data-price="23.95">
+                    <span class="uc-amount">1,800UC</span>
+                    <span class="price-amount">$23.95</span>
+                </button>
+                <button class="pack-btn" data-uc="2460" data-price="33.50">
+                    <span class="uc-amount">2,460UC</span>
+                    <span class="price-amount">$33.50</span>
+                </button>
+                <button class="pack-btn" data-uc="3850" data-price="47.50">
+                    <span class="uc-amount">3,850UC</span>
+                    <span class="price-amount">$47.50</span>
+                </button>
+                <button class="pack-btn" data-uc="5650" data-price="70.50">
+                    <span class="uc-amount">5,650UC</span>
+                    <span class="price-amount">$70.50</span>
+                </button>
+                <button class="pack-btn" data-uc="8100" data-price="93.50">
+                    <span class="uc-amount">8,100UC</span>
+                    <span class="price-amount">$93.50</span>
+                </button>
+                <button class="pack-btn" data-uc="11950" data-price="150.00">
+                    <span class="uc-amount">11,950UC</span>
+                    <span class="price-amount">$150.00</span>
+                </button>
+                <button class="pack-btn" data-uc="16200" data-price="200.00">
+                    <span class="uc-amount">16,200UC</span>
+                    <span class="price-amount">$200.00</span>
+                </button>
+            </div>
+
+            <div class="shipping-form hidden" id="shippingForm">
+                <label>ID اللعبة</label>
+                <input type="text" placeholder="أدخل ID الخاص بك" id="gameIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="whatsappInput" />
+                <button class="btn-buy" id="buyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== CALL OF DUTY PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-cod" class="page">
+            <div class="cod-header">
+                <img src="https://i.postimg.cc/2yX8qYVc/file-0000000011ec71f49c0f89afaf8c887d.png" alt="Call of Duty" />
+                <div class="game-info">
+                    <h2>Call of Duty</h2>
+                    <p>اختر باقة CP المناسبة</p>
+                </div>
+            </div>
+
+            <div class="cod-packs-grid" id="codPacksGrid">
+                <button class="cod-pack-btn" data-cp="88" data-price="1.50">
+                    <span class="cp-amount">88CP</span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="176" data-price="3.00">
+                    <span class="cp-amount">176CP</span>
+                    <span class="price-amount">$3.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="264" data-price="4.50">
+                    <span class="cp-amount">264CP</span>
+                    <span class="price-amount">$4.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="352" data-price="6.00">
+                    <span class="cp-amount">352CP</span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="440" data-price="7.50">
+                    <span class="cp-amount">440CP</span>
+                    <span class="price-amount">$7.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="528" data-price="9.00">
+                    <span class="cp-amount">528CP</span>
+                    <span class="price-amount">$9.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="616" data-price="10.50">
+                    <span class="cp-amount">616CP</span>
+                    <span class="price-amount">$10.50</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="704" data-price="12.00">
+                    <span class="cp-amount">704CP</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="cod-pack-btn" data-cp="880" data-price="15.00">
+                    <span class="cp-amount">880CP</span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+            </div>
+
+            <div class="cod-shipping-form hidden" id="codShippingForm">
+                <label>معرف اللاعب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="codPlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="codWhatsappInput" />
+                <button class="btn-buy" id="codBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== MOBILE LEGENDS PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-ml" class="page">
+            <div class="ml-header">
+                <img src="https://i.postimg.cc/sf8rZwnf/file-00000000f01471f4a53e7eefd0edd681.png" alt="Mobile Legends" />
+                <div class="game-info">
+                    <h2>Mobile Legends</h2>
+                    <p>اختر باقة الألماس المناسبة</p>
+                </div>
+            </div>
+
+            <div class="ml-packs-grid" id="mlPacksGrid">
+                <button class="ml-pack-btn" data-diamond="74" data-price="1.50">
+                    <span class="diamond-amount">74 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$1.50</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="296" data-price="6.00">
+                    <span class="diamond-amount">296 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$6.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="741" data-price="15.00">
+                    <span class="diamond-amount">741 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$15.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1186" data-price="24.00">
+                    <span class="diamond-amount">1,186 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$24.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="1471" data-price="30.00">
+                    <span class="diamond-amount">1,471 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$30.00</span>
+                </button>
+                <button class="ml-pack-btn" data-diamond="2205" data-price="45.00">
+                    <span class="diamond-amount">2,205 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.5 3 8 9l4 13 4-13-2.5-6"/><path d="M17 3a2 2 0 0 1 1.6.8l3 4a2 2 0 0 1 .013 2.382l-7.99 10.986a2 2 0 0 1-3.247 0l-7.99-10.986A2 2 0 0 1 2.4 7.8l2.998-3.997A2 2 0 0 1 7 3z"/><path d="M2 9h20"/></svg></span>
+                    <span class="price-amount">$45.00</span>
+                </button>
+            </div>
+
+            <div class="ml-shipping-form hidden" id="mlShippingForm">
+                <div class="ml-form-label">
+                    <span>معرف الحساب</span>
+                    <button class="ml-help-icon" id="mlHelpBtn" aria-label="مساعدة في معرف الحساب">
+                        <i class="fas fa-question"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="أدخل معرف الحساب" id="mlAccountIdInput" />
+                <label style="display:block; font-weight:900; color:#000000; margin:12px 0 6px; font-size:14px; text-align:right;">معرف المنطقة</label>
+                <input type="text" placeholder="أدخل معرف المنطقة" id="mlRegionIdInput" />
+                <button class="btn-buy" id="mlBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== eFOOTBALL PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-efootball" class="page">
+            <div class="efootball-header">
+                <img src="https://i.postimg.cc/hGySZg0z/file-00000000bfa871f4b2ac3e5d0f81e744.png" alt="eFootball" />
+                <div class="game-info">
+                    <h2>eFootball</h2>
+                    <p>اختر باقة FC المناسبة</p>
+                </div>
+            </div>
+
+            <div class="efootball-packs-grid" id="efootballPacksGrid">
+                <button class="efootball-pack-btn" data-fc="40" data-price="1.00">
+                    <span class="fc-amount">40 FC</span>
+                    <span class="price-amount">$1.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="100" data-price="2.50">
+                    <span class="fc-amount">100 FC</span>
+                    <span class="price-amount">$2.50</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="520" data-price="12.00">
+                    <span class="fc-amount">520 FC</span>
+                    <span class="price-amount">$12.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="1070" data-price="25.00">
+                    <span class="fc-amount">1,070 FC</span>
+                    <span class="price-amount">$25.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="2200" data-price="50.00">
+                    <span class="fc-amount">2,200 FC</span>
+                    <span class="price-amount">$50.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="5750" data-price="130.00">
+                    <span class="fc-amount">5,750 FC</span>
+                    <span class="price-amount">$130.00</span>
+                </button>
+                <button class="efootball-pack-btn" data-fc="12000" data-price="270.00">
+                    <span class="fc-amount">12,000 FC</span>
+                    <span class="price-amount">$270.00</span>
+                </button>
+            </div>
+
+            <div class="efootball-shipping-form hidden" id="efootballShippingForm">
+                <label>معرف UID الخاص بك</label>
+                <input type="text" placeholder="أدخل معرف UID" id="efootballUidInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="efootballWhatsappInput" />
+                <button class="btn-buy" id="efootballBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== CLASH OF CLANS PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-coc" class="page">
+            <div class="coc-header">
+                <img src="https://i.postimg.cc/pV8HzK39/IMG-20260705-WA0101.jpg" alt="Clash of Clans" />
+                <div class="game-info">
+                    <h2>Clash of Clans</h2>
+                    <p>اختر باقة الجواهر المناسبة</p>
+                </div>
+            </div>
+
+            <div class="coc-packs-grid" id="cocPacksGrid">
+                <button class="coc-pack-btn" data-gems="80" data-price="0.65">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">80</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$0.65</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="500" data-price="3.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$3.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="1200" data-price="6.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">1,200</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$6.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="2500" data-price="11.90">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">2,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$11.90</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="6500" data-price="28.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">6,500</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$28.00</span>
+                </button>
+                <button class="coc-pack-btn" data-gems="14000" data-price="54.00">
+                    <span class="coc-amount-wrapper">
+                        <span class="coc-amount">14,000</span>
+                        <i class="fas fa-gem coc-icon"></i>
+                    </span>
+                    <span class="coc-price">$54.00</span>
+                </button>
+            </div>
+
+            <div class="coc-shipping-form hidden" id="cocShippingForm">
+                <label>حساب Supercell</label>
+                <input type="text" placeholder="أدخل حساب Supercell" id="cocSupercellInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="أدخل رقم واتساب" id="cocWhatsappInput" />
+                <button class="btn-buy" id="cocBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحات الألعاب الإضافية ===== -->
+        <!-- ============================================ -->
+
+        <!-- Clash Royale -->
+        <div id="page-clashroyale" class="page">
+            <div class="pubg-header">
+                <img src="https://i.postimg.cc/tC58Nkks/file-00000000c9fc7243b9a5fec212e270da.png" alt="Clash Royale" />
+                <div class="game-info">
+                    <h2>Clash Royale</h2>
+                    <p>قريباً</p>
+                </div>
+            </div>
+            <div class="placeholder-page" style="min-height:30vh;">
+                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
+                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
+            </div>
+        </div>
+
+        <!-- Brawl Stars -->
+        <div id="page-brawlstars" class="page">
+            <div class="pubg-header">
+                <img src="https://i.postimg.cc/YqqdMH6J/file-0000000059747243a17be8d1be4bad6a.png" alt="Brawl Stars" />
+                <div class="game-info">
+                    <h2>Brawl Stars</h2>
+                    <p>قريباً</p>
+                </div>
+            </div>
+            <div class="placeholder-page" style="min-height:30vh;">
+                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
+                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
+            </div>
+        </div>
+
+        <!-- Blood Strike -->
+        <div id="page-bloodstrike" class="page">
+            <div class="pubg-header">
+                <img src="https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png" alt="Blood Strike" />
+                <div class="game-info">
+                    <h2>Blood Strike</h2>
+                    <p>قريباً</p>
+                </div>
+            </div>
+            <div class="placeholder-page" style="min-height:30vh;">
+                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
+                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
+            </div>
+        </div>
+
+        <!-- Yalla Ludo -->
+        <div id="page-yallaludo" class="page">
+            <div class="pubg-header">
+                <img src="https://i.postimg.cc/dVFrwmcT/file-0000000000a072439a7832276cfdc878.png" alt="Yalla Ludo" />
+                <div class="game-info">
+                    <h2>Yalla Ludo</h2>
+                    <p>قريباً</p>
+                </div>
+            </div>
+            <div class="placeholder-page" style="min-height:30vh;">
+                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
+                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
+            </div>
+        </div>
+
+        <!-- Minecraft -->
+        <div id="page-minecraft" class="page">
+            <div class="pubg-header">
+                <img src="https://i.postimg.cc/BQTPYLP5/file-00000000e78071f4883e51f0bed60c47.png" alt="Minecraft" />
+                <div class="game-info">
+                    <h2>Minecraft</h2>
+                    <p>قريباً</p>
+                </div>
+            </div>
+            <div class="placeholder-page" style="min-height:30vh;">
+                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
+                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== SUPPORT PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-support" class="page">
+            <div class="support-header-hero">
+                <div class="hero-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h1>الـدعـم <span>الـفـنـي</span></h1>
+                <p>نـحن هنـا لـمساعدتك في أي وقـت</p>
+            </div>
+
+            <div class="support-body">
+                <div class="welcome-card">
+                    <div class="welcome-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h2>هل تحتاج إلى مساعدة؟</h2>
+                    <p>فريق <strong>REDEEM STORE</strong> جاهز للإجابة على جميع استفساراتك وحل أي مشكلة تواجهك.</p>
+                </div>
+
+                <div class="hours-card">
+                    <div class="hours-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>أوقات الدعم</h3>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="day">الأيام العادية</span>
+                            <span class="time">4 صباحاً ← 11 مساءً</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="day">يوم الجمعة</span>
+                            <span class="time"><span class="highlight-friday">12 ظهراً ← 11 مساءً</span></span>
+                        </div>
+                    </div>
+                    <span class="hours-status">
+                        <i class="fas fa-circle" style="font-size:8px; margin-left:6px; color:#10B981;"></i>
+                        متوفر الآن
+                    </span>
+                </div>
+
+                <a href="https://wa.me/249901839168" target="_blank" class="contact-full-btn" id="contactFullBtn">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>تواصل معنا الآن</span>
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+
+                <div class="faq-section-support">
+                    <div class="faq-title-support">
+                        <i class="fas fa-question-circle"></i>
+                        <span>الأسئلة الشائعة</span>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq1">
+                            <span>كيف أقوم بالشحن؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq1">
+                            <p>يمكنك الشحن بسهولة عن طريق اختيار اللعبة المطلوبة، ثم اختيار الباقة المناسبة، وإدخال البيانات المطلوبة (معرف اللاعب ورقم واتساب)، ثم الضغط على زر "شراء الآن".</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq2">
+                            <span>كيف أستلم الطلب؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq2">
+                            <p>سيتم إرسال الشحنة مباشرة إلى حسابك في اللعبة خلال دقائق من تأكيد الدفع. ستتلقى رسالة تأكيد عبر واتساب عند اكتمال العملية.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq3">
+                            <span>كم تستغرق عملية التنفيذ؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq3">
+                            <p>تتراوح مدة التنفيذ بين 5 إلى 30 دقيقة في الأوقات العادية، وقد تصل إلى ساعة في أوقات الذروة. نحرص على تنفيذ جميع الطلبات بأسرع وقت ممكن.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq4">
+                            <span>ماذا أفعل إذا واجهت مشكلة؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq4">
+                            <p>إذا واجهت أي مشكلة، تواصل معنا فوراً عبر واتساب أو البريد الإلكتروني. فريق الدعم جاهز لحل أي استفسار أو مشكلة تواجهك في أي وقت.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq5">
+                            <span>هل يمكن استرداد الرصيد؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq5">
+                            <p>نعم، يمكن استرداد الرصيد في حالات معينة مثل فشل عملية الشحن أو خطأ في البيانات. يرجى التواصل مع الدعم للحصول على المساعدة في استرداد المبلغ.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item-support">
+                        <button class="faq-question-support" data-target="faq6">
+                            <span>كيف أتواصل مع الدعم؟</span>
+                            <span class="faq-icon-support"><i class="fas fa-chevron-down"></i></span>
+                        </button>
+                        <div class="faq-answer-support" id="faq6">
+                            <p>يمكنك التواصل معنا عبر واتساب على الرقم <strong>249901839168+</strong> أو عبر البريد الإلكتروني <strong>support@redeemstore.com</strong>.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="support-footer-support">
+                    <i class="fas fa-heart"></i>
+                    صنع بحب من فريق REDEEM STORE
+                </div>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== MODAL ===== -->
+        <!-- ============================================ -->
+        <div class="modal-overlay" id="mlHelpModal">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="mlModalCloseBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <img src="data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAA/wAA/wAAVlA4IG4AAABQBACdASoAAQABPm00lkikIqWhIAQAdogAAQMoAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/u7s3ftlPmU+ZT4AAAD+/v9O//+jsrsVT0X9JXq9Dp4QnDEa6BHj9d6w1j1ZWB/y7BktVdNvZBrBwUVAD+9pI+f1UjH57PmBNFg6PhLxO0jTnxI0AB4iyexQgnpzr2/M5lVWH9nI5+cGz/c7kifn8+dz8AAAA==" alt="كيفية العثور على معرف الحساب ومعرف المنطقة في Mobile Legends" />
+                <ol class="modal-instructions">
+                    <li>افتح لعبة Mobile Legends ثم اضغط على صورة ملفك الشخصي.</li>
+                    <li>ستجد في صفحة الملف الشخصي رقمين بالشكل التالي:<br>
+                        <span class="highlight">ID: XXXXXXXX (XXXX)</span>
+                    </li>
+                    <li>الرقم الموجود <strong>قبل</strong> القوس هو <strong>معرف الحساب (Account ID)</strong>.</li>
+                    <li>الرقم الموجود <strong>داخل</strong> القوس هو <strong>معرف المنطقة (Zone ID)</strong>.</li>
+                    <li>أدخل كلا الرقمين في الحقول المخصصة ثم تابع عملية الشراء.</li>
+                </ol>
+            </div>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- ===== شريط التنقل السفلي ===== -->
+        <!-- ============================================= -->
+        <nav class="bottom-nav" id="bottomNav">
+            <div class="nav-indicator" id="navIndicator"></div>
+
+            <button class="nav-item active" data-page="page-home">
+                <i class="fas fa-home"></i>
+                <span>الرئيسية</span>
+            </button>
+            <button class="nav-item" data-page="page-wallet">
+                <i class="fas fa-wallet"></i>
+                <span>المحفظة</span>
+            </button>
+            <button class="nav-item" data-page="page-support">
+                <i class="fas fa-headset"></i>
+                <span>الدعم</span>
+            </button>
+            <button class="nav-item" data-page="page-account">
+                <i class="fas fa-user"></i>
+                <span>الحساب</span>
+            </button>
+        </nav>
 
     </div>
 
@@ -4070,6 +4896,7 @@
                 { amount: '8,080 بلورة', price: '$99.99', bonus: '6480+1600 هدية 🎁' },
             ];
 
+            // تحديث بيانات كرونال نيكسوس لتظهر الباقات المطلوبة
             const genshinNexusData = [
                 { amount: '60 كرونال نيكسوس', price: '$0.99' },
                 { amount: '300 كرونال نيكسوس', price: '$4.99' },
@@ -4132,7 +4959,1358 @@
                 setTimeout(() => ripple.remove(), 600);
             }
 
-            // ... (باقي الكود كما هو في الكود الأصلي، مع تصحيح الخطأ في النهاية)
+            document.querySelectorAll('.action-card').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const ripple = document.createElement('span');
+                    ripple.className = 'ripple-btn';
+                    const size = Math.max(rect.width, rect.height);
+                    ripple.style.width = ripple.style.height = size + 'px';
+                    const x = e.clientX - rect.left - size / 2;
+                    const y = e.clientY - rect.top - size / 2;
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    this.appendChild(ripple);
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+
+            // ============================================
+            // ===== دوال مساعدة =====
+            // ============================================
+            function openWhatsApp() {
+                window.open(WHATSAPP_URL, '_blank');
+            }
+
+            // ============================================
+            // ===== GENSHIN IMPACT FUNCTIONS =====
+            // ============================================
+            let genshinCurrentTab = 'crystals';
+            let genshinSelectedPack = null;
+            let genshinSelectedPrice = null;
+            let genshinSelectedType = null;
+
+            function renderGenshinPacks(tab) {
+                const slider = document.getElementById('genshinPacksSlider');
+                const tabs = document.querySelectorAll('.genshin-tab-btn');
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                const activeTab = document.querySelector(`.genshin-tab-btn[data-tab="${tab}"]`);
+                if (activeTab) activeTab.classList.add('active');
+                
+                const index = tab === 'crystals' ? 0 : tab === 'nexus' ? 1 : 2;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+
+                genshinSelectedPack = null;
+                genshinSelectedPrice = null;
+                genshinSelectedType = null;
+                document.getElementById('genshinShippingForm').classList.add('hidden');
+                document.getElementById('genshinShippingForm').classList.remove('visible');
+
+                if (tab === 'crystals') {
+                    renderGenshinCrystals();
+                } else if (tab === 'nexus') {
+                    renderGenshinNexus();
+                } else if (tab === 'elements') {
+                    renderGenshinElements();
+                }
+            }
+
+            function renderGenshinCrystals() {
+                const grid = document.getElementById('genshinCrystalsGrid');
+                if (!grid) return;
+
+                grid.innerHTML = genshinCrystalsData.map(pack => {
+                    let html = `<span class="crystal-amount">${pack.amount}</span>`;
+                    if (pack.bonus) {
+                        html += `<span class="crystal-bonus">${pack.bonus}</span>`;
+                    }
+                    html += `<span class="crystal-price">${pack.price}</span>`;
+                    if (pack.bestseller) {
+                        html += `<span class="crystal-badge">★ الأكثر مبيعاً</span>`;
+                    }
+                    return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="crystals">${html}</button>`;
+                }).join('');
+
+                grid.querySelectorAll('.genshin-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.amount;
+                        genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function renderGenshinNexus() {
+                const grid = document.getElementById('genshinNexusGrid');
+                if (!grid) return;
+
+                // استخدام بيانات كرونال نيكسوس المحدثة لعرض الباقات المطلوبة
+                grid.innerHTML = genshinNexusData.map(pack => {
+                    return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="nexus">
+                        <span class="crystal-amount">${pack.amount}</span>
+                        <span class="crystal-price">${pack.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.genshin-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.amount;
+                        genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function renderGenshinElements() {
+                const grid = document.getElementById('genshinElementsGrid');
+                if (!grid) return;
+
+                if (!genshinElementsData || genshinElementsData.length === 0) {
+                    grid.innerHTML = `
+                        <div class="genshin-empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <p>لا توجد منتجات متاحة حالياً</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                grid.innerHTML = genshinElementsData.map(product => {
+                    return `<button class="genshin-element-product" data-name="${product.name}" data-price="${product.price.replace('$', '')}" data-type="element">
+                        <img src="${product.image}" alt="${product.name}" loading="lazy" />
+                        <span class="element-name">${product.name}</span>
+                        <span class="element-price">${product.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.genshin-element-product').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.genshin-element-product').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        genshinSelectedPack = this.dataset.name;
+                        genshinSelectedPrice = this.dataset.price;
+                        genshinSelectedType = this.dataset.type;
+
+                        const shippingForm = document.getElementById('genshinShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('genshinUidInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetGenshinPacks() {
+                genshinSelectedPack = null;
+                genshinSelectedPrice = null;
+                genshinSelectedType = null;
+                genshinCurrentTab = 'crystals';
+                
+                const slider = document.getElementById('genshinPacksSlider');
+                if (slider) slider.style.transform = 'translateX(0%)';
+                
+                const tabs = document.querySelectorAll('.genshin-tab-btn');
+                tabs.forEach(t => t.classList.remove('active'));
+                const firstTab = document.querySelector('.genshin-tab-btn[data-tab="crystals"]');
+                if (firstTab) firstTab.classList.add('active');
+                
+                renderGenshinCrystals();
+                
+                const shippingForm = document.getElementById('genshinShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const uidInput = document.getElementById('genshinUidInput');
+                const whatsappInput = document.getElementById('genshinWhatsappInput');
+                if (uidInput) uidInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
+            // ===== FREE FIRE FUNCTIONS =====
+            // ============================================
+            let ffCurrentTab = 'codes';
+            let ffSelectedPack = null;
+            let ffSelectedPrice = null;
+
+            function renderFFPacks(tab) {
+                const data = ffPacksData[tab];
+                const gridId = tab === 'codes' ? 'ffCodesGrid' : tab === 'id' ? 'ffIdGrid' : 'ffAccountGrid';
+                const grid = document.getElementById(gridId);
+                
+                if (!grid) return;
+                
+                if (!data || data.length === 0) {
+                    grid.innerHTML = `
+                        <div class="ff-empty-state">
+                            <i class="fas fa-box-open"></i>
+                            <p>لا توجد باقات متاحة حالياً</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                document.getElementById('ffShippingForm').classList.add('hidden');
+                document.getElementById('ffShippingForm').classList.remove('visible');
+
+                grid.innerHTML = data.map(pack => `
+                    <button class="ff-pack-btn" data-amount="${pack.amount}" data-price="${pack.price}">
+                        <span class="ff-amount">${pack.amount}</span>
+                        <span class="ff-price">$${pack.price}</span>
+                    </button>
+                `).join('');
+
+                grid.querySelectorAll('.ff-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.ff-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        ffSelectedPack = this.dataset.amount;
+                        ffSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('ffShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('ffPlayerIdInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function switchFFTab(tab) {
+                if (ffCurrentTab === tab) return;
+                
+                ffCurrentTab = tab;
+                const slider = document.getElementById('ffPacksSlider');
+                const tabs = document.querySelectorAll('.ff-tab-btn');
+                
+                tabs.forEach(t => t.classList.remove('active'));
+                document.querySelector(`.ff-tab-btn[data-tab="${tab}"]`).classList.add('active');
+                
+                const index = tab === 'codes' ? 0 : tab === 'id' ? 1 : 2;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+                
+                setTimeout(() => {
+                    renderFFPacks(tab);
+                }, 50);
+            }
+
+            function resetFFPacks() {
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                ffCurrentTab = 'codes';
+                const slider = document.getElementById('ffPacksSlider');
+                if (slider) slider.style.transform = 'translateX(0%)';
+                const tabs = document.querySelectorAll('.ff-tab-btn');
+                tabs.forEach(t => t.classList.remove('active'));
+                const firstTab = document.querySelector('.ff-tab-btn[data-tab="codes"]');
+                if (firstTab) firstTab.classList.add('active');
+                renderFFPacks('codes');
+                const shippingForm = document.getElementById('ffShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const playerInput = document.getElementById('ffPlayerIdInput');
+                const whatsappInput = document.getElementById('ffWhatsappInput');
+                if (playerInput) playerInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
+            // ===== دوال إعادة تهيئة الباقات =====
+            // ============================================
+            function resetPubgPacks() {
+                const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+                const shippingForm = document.getElementById('shippingForm');
+                const gameIdInput = document.getElementById('gameIdInput');
+                const whatsappInput = document.getElementById('whatsappInput');
+                
+                packBtns.forEach(b => b.classList.remove('selected'));
+                shippingForm.classList.add('hidden');
+                shippingForm.classList.remove('visible');
+                if (gameIdInput) gameIdInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+                
+                window.selectedPack = null;
+                window.selectedPrice = null;
+            }
+
+            function resetCodPacks() {
+                const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+                const codShippingForm = document.getElementById('codShippingForm');
+                const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+                const codWhatsappInput = document.getElementById('codWhatsappInput');
+                
+                codPackBtns.forEach(b => b.classList.remove('selected'));
+                codShippingForm.classList.add('hidden');
+                codShippingForm.classList.remove('visible');
+                if (codPlayerIdInput) codPlayerIdInput.value = '';
+                if (codWhatsappInput) codWhatsappInput.value = '';
+                
+                window.selectedCodPack = null;
+                window.selectedCodPrice = null;
+            }
+
+            function resetMlPacks() {
+                const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+                const mlShippingForm = document.getElementById('mlShippingForm');
+                const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+                const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+                
+                mlPackBtns.forEach(b => b.classList.remove('selected'));
+                mlShippingForm.classList.add('hidden');
+                mlShippingForm.classList.remove('visible');
+                if (mlAccountIdInput) mlAccountIdInput.value = '';
+                if (mlRegionIdInput) mlRegionIdInput.value = '';
+                
+                window.selectedMlPack = null;
+                window.selectedMlPrice = null;
+            }
+
+            function resetEfootballPacks() {
+                const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+                const efootballShippingForm = document.getElementById('efootballShippingForm');
+                const efootballUidInput = document.getElementById('efootballUidInput');
+                const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+                
+                efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                efootballShippingForm.classList.add('hidden');
+                efootballShippingForm.classList.remove('visible');
+                if (efootballUidInput) efootballUidInput.value = '';
+                if (efootballWhatsappInput) efootballWhatsappInput.value = '';
+                
+                window.selectedEfootballPack = null;
+                window.selectedEfootballPrice = null;
+            }
+
+            function resetCocPacks() {
+                const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
+                const cocShippingForm = document.getElementById('cocShippingForm');
+                const cocSupercellInput = document.getElementById('cocSupercellInput');
+                const cocWhatsappInput = document.getElementById('cocWhatsappInput');
+                
+                cocPackBtns.forEach(b => b.classList.remove('selected'));
+                cocShippingForm.classList.add('hidden');
+                cocShippingForm.classList.remove('visible');
+                if (cocSupercellInput) cocSupercellInput.value = '';
+                if (cocWhatsappInput) cocWhatsappInput.value = '';
+                
+                window.selectedCocPack = null;
+                window.selectedCocPrice = null;
+            }
+
+            function resetAllPacks() {
+                resetPubgPacks();
+                resetCodPacks();
+                resetMlPacks();
+                resetEfootballPacks();
+                resetCocPacks();
+                resetFFPacks();
+                resetGenshinPacks();
+            }
+
+            // ============================================
+            // ===== عرض الألعاب =====
+            // ============================================
+            const productsGrid = document.getElementById('productsGrid');
+
+            function renderGames() {
+                productsGrid.innerHTML = '';
+                gamesList.forEach(game => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <img src="${game.img}" alt="${game.name}" loading="lazy" />
+                        <h4>${game.name}</h4>
+                    `;
+                    card.addEventListener('click', (e) => {
+                        createRipple(e, card);
+                        if (game.page) {
+                            resetAllPacks();
+                            setTimeout(() => {
+                                switchPage(game.page);
+                                updateNavActive('page-home');
+                                if (game.page === 'page-freefire') {
+                                    setTimeout(() => {
+                                        renderFFPacks('codes');
+                                        const slider = document.getElementById('ffPacksSlider');
+                                        if (slider) slider.style.transform = 'translateX(0%)';
+                                    }, 100);
+                                }
+                                if (game.page === 'page-genshin') {
+                                    setTimeout(() => {
+                                        renderGenshinCrystals();
+                                        const slider = document.getElementById('genshinPacksSlider');
+                                        if (slider) slider.style.transform = 'translateX(0%)';
+                                    }, 100);
+                                }
+                            }, 150);
+                        } else {
+                            card.classList.add('fade-out');
+                            setTimeout(() => {
+                                openWhatsApp();
+                                setTimeout(() => {
+                                    card.classList.remove('fade-out');
+                                }, 100);
+                            }, 250);
+                        }
+                    });
+                    productsGrid.appendChild(card);
+                });
+            }
+            renderGames();
+
+            // ============================================
+            // ===== التصنيفات الرئيسية =====
+            // ============================================
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabSlider = document.getElementById('tabSlider');
+
+            tabBtns.forEach((btn, index) => {
+                btn.addEventListener('click', () => {
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    const percent = index * 25;
+                    tabSlider.style.right = percent + '%';
+                    productsGrid.style.opacity = '0.6';
+                    productsGrid.style.transform = 'translateY(8px)';
+                    setTimeout(() => {
+                        productsGrid.style.opacity = '1';
+                        productsGrid.style.transform = 'translateY(0)';
+                    }, 250);
+                });
+            });
+
+            // ============================================
+            // ===== شريط التنقل =====
+            // ============================================
+            const navItems = document.querySelectorAll('.nav-item');
+
+            function switchPage(pageId) {
+                document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+                document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+                const target = document.getElementById(pageId);
+                if (target) {
+                    target.style.display = 'block';
+                    target.classList.add('active');
+                }
+            }
+
+            function updateNavActive(pageId) {
+                const navItems = document.querySelectorAll('.nav-item');
+                const navIndicator = document.getElementById('navIndicator');
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.dataset.page === pageId) {
+                        item.classList.add('active');
+                    }
+                });
+                const activeItem = document.querySelector('.nav-item.active');
+                if (activeItem) {
+                    const navRect = document.querySelector('.bottom-nav').getBoundingClientRect();
+                    const itemRect = activeItem.getBoundingClientRect();
+                    const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                    navIndicator.style.left = leftPos + 'px';
+                    navIndicator.style.width = '30px';
+                    navIndicator.classList.add('show');
+                }
+            }
+
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const pageId = item.dataset.page;
+                    if (pageId === 'page-wallet' || pageId === 'page-support' ||
+                        pageId === 'page-account' || pageId === 'page-home') {
+                        const depositPage = document.getElementById('depositPage');
+                        const depositDetailPage = document.getElementById('depositDetailPage');
+                        if (depositPage && depositPage.classList.contains('active')) {
+                            depositPage.classList.remove('active');
+                            depositPage.style.display = 'none';
+                        }
+                        if (depositDetailPage && depositDetailPage.classList.contains('active')) {
+                            depositDetailPage.classList.remove('active');
+                            depositDetailPage.style.display = 'none';
+                        }
+                        resetAllPacks();
+                        switchPage(pageId);
+                        updateNavActive(pageId);
+                    }
+                });
+            });
+
+            // ============================================
+            // ===== GENSHIN TAB EVENTS =====
+            // ============================================
+            document.querySelectorAll('.genshin-tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.dataset.tab;
+                    genshinSelectedPack = null;
+                    genshinSelectedPrice = null;
+                    genshinSelectedType = null;
+                    document.getElementById('genshinShippingForm').classList.add('hidden');
+                    document.getElementById('genshinShippingForm').classList.remove('visible');
+                    genshinCurrentTab = tab;
+                    renderGenshinPacks(tab);
+                });
+            });
+
+            // ============================================
+            // ===== FREE FIRE TAB EVENTS =====
+            // ============================================
+            document.querySelectorAll('.ff-tab-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tab = this.dataset.tab;
+                    ffSelectedPack = null;
+                    ffSelectedPrice = null;
+                    document.getElementById('ffShippingForm').classList.add('hidden');
+                    document.getElementById('ffShippingForm').classList.remove('visible');
+                    switchFFTab(tab);
+                });
+            });
+
+            // ============================================
+            // ===== FREE FIRE BUY BUTTON =====
+            // ============================================
+            document.getElementById('ffBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = document.getElementById('ffPlayerIdInput').value.trim();
+                const whatsapp = document.getElementById('ffWhatsappInput').value.trim();
+                
+                if (!ffSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${ffSelectedPack}\n💰 السعر: $${ffSelectedPrice}\n🆔 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== GENSHIN IMPACT BUY BUTTON =====
+            // ============================================
+            document.getElementById('genshinBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const uid = document.getElementById('genshinUidInput').value.trim();
+                const whatsapp = document.getElementById('genshinWhatsappInput').value.trim();
+                
+                if (!genshinSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة أو منتج أولاً.');
+                    return;
+                }
+                if (!uid) {
+                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${genshinSelectedPack}\n💰 السعر: $${genshinSelectedPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== زر الإيداع =====
+            // ============================================
+            const depositPage = document.getElementById('depositPage');
+            const depositBackBtn = document.getElementById('depositBackBtn');
+            const methodItems = document.querySelectorAll('.method-item');
+            const depositDetailPage = document.getElementById('depositDetailPage');
+
+            document.getElementById('depositBtn').addEventListener('click', function(e) {
+                this.style.transform = 'scale(0.98)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 200);
+
+                document.querySelectorAll('.page').forEach(p => {
+                    p.classList.remove('active');
+                    p.style.display = 'none';
+                });
+
+                depositPage.style.display = 'block';
+                depositPage.style.animation = 'none';
+                requestAnimationFrame(() => {
+                    depositPage.style.animation = 'none';
+                    depositPage.classList.add('active');
+                });
+
+                depositDetailPage.classList.remove('active');
+                depositDetailPage.style.display = 'none';
+
+                navItems.forEach(item => item.classList.remove('active'));
+                document.getElementById('navIndicator').classList.remove('show');
+
+                methodItems.forEach((item, index) => {
+                    if (index === 0) item.classList.add('selected');
+                    else item.classList.remove('selected');
+                });
+            });
+
+            depositBackBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                depositPage.classList.add('slide-out');
+                setTimeout(() => {
+                    depositPage.classList.remove('active');
+                    depositPage.style.display = 'none';
+                    depositPage.classList.remove('slide-out');
+                    resetAllPacks();
+                    switchPage('page-wallet');
+                    updateNavActive('page-wallet');
+                }, 350);
+            });
+
+            methodItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    methodItems.forEach(btn => btn.classList.remove('selected'));
+                    this.classList.add('selected');
+
+                    const method = this.dataset.method;
+                    localStorage.setItem('selectedDepositMethod', method);
+
+                    depositPage.classList.add('slide-out');
+                    setTimeout(() => {
+                        depositPage.classList.remove('active');
+                        depositPage.style.display = 'none';
+                        depositPage.classList.remove('slide-out');
+
+                        depositDetailPage.style.display = 'block';
+                        depositDetailPage.style.animation = 'none';
+                        requestAnimationFrame(() => {
+                            depositDetailPage.style.animation = 'none';
+                            depositDetailPage.classList.add('active');
+                        });
+
+                        updateAccount(method);
+                    }, 350);
+                });
+            });
+
+            // ============================================
+            // ===== بيانات طرق الدفع =====
+            // ============================================
+            const methodsData = {
+                bank: {
+                    name: 'بنكك',
+                    account: '7610732',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                redotpay: {
+                    name: 'RedotPay',
+                    account: 'RP12 3456 7890 1234',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                mycash: {
+                    name: 'ماي كاشي',
+                    account: '401401294',
+                    holder: 'نـافع نصر الدين سليمان'
+                },
+                binance: {
+                    name: 'بـيدي',
+                    account: '0901839168',
+                    holder: 'نـافع نصر الدين سليمان'
+                }
+            };
+
+            // ============================================
+            // ===== صفحة تفاصيل الإيداع =====
+            // ============================================
+            const accountNumber = document.getElementById('accountNumber');
+            const accountHolder = document.getElementById('accountHolder');
+            const copyBtn = document.getElementById('copyBtn');
+            const amountInput = document.getElementById('amountInput');
+            const transactionIdInput = document.getElementById('transactionIdInput');
+            const receiptInput = document.getElementById('receiptInput');
+            const fileUploadBox = document.getElementById('fileUploadBox');
+            const previewImage = document.getElementById('previewImage');
+            const previewFileName = document.getElementById('previewFileName');
+            const confirmBtn = document.getElementById('confirmBtn');
+            const successMessage = document.getElementById('successMessage');
+            const backHomeBtn = document.getElementById('backHomeBtn');
+            const detailBody = document.getElementById('detailBody');
+            const stickyBottom = document.getElementById('stickyBottom');
+
+            function updateAccount(method) {
+                const data = methodsData[method];
+                if (data) {
+                    accountNumber.textContent = data.account;
+                    accountHolder.innerHTML = `<span class="holder-label">الاسم:</span> نـافـع نـصـرالديـن سلـيمـان`;
+                }
+            }
+
+            const savedMethod = localStorage.getItem('selectedDepositMethod') || 'bank';
+            updateAccount(savedMethod);
+
+            copyBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                const text = accountNumber.textContent;
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.classList.add('copied');
+                        this.innerHTML = '<i class="fas fa-check"></i>';
+                        setTimeout(() => {
+                            this.classList.remove('copied');
+                            this.innerHTML = '<i class="fas fa-copy"></i>';
+                        }, 2000);
+                    }).catch(() => { fallbackCopy(text); });
+                } else {
+                    fallbackCopy(text);
+                }
+            });
+
+            function fallbackCopy(text) {
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+                document.body.appendChild(textarea);
+                textarea.select();
+                try {
+                    document.execCommand('copy');
+                    copyBtn.classList.add('copied');
+                    copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                    setTimeout(() => {
+                        copyBtn.classList.remove('copied');
+                        copyBtn.innerHTML = '<i class="fas fa-copy"></i>';
+                    }, 2000);
+                } catch (err) {
+                    alert('⚠️ تعذر نسخ الرقم. يرجى نسخه يدوياً.');
+                }
+                document.body.removeChild(textarea);
+            }
+
+            receiptInput.addEventListener('change', function() {
+                if (this.files && this.files[0]) {
+                    const file = this.files[0];
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        previewImage.src = e.target.result;
+                    };
+                    reader.readAsDataURL(file);
+                    previewFileName.textContent = file.name.length > 20 ? file.name.slice(0, 20) + '...' : file.name;
+                    fileUploadBox.classList.add('has-file');
+                } else {
+                    fileUploadBox.classList.remove('has-file');
+                    previewImage.src = '#';
+                    previewFileName.textContent = '';
+                }
+            });
+
+            confirmBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                const amount = amountInput.value.trim();
+                const transactionId = transactionIdInput.value.trim();
+
+                if (!amount) {
+                    alert('⚠️ يرجى إدخال المبلغ المطلوب.');
+                    amountInput.focus();
+                    return;
+                }
+                if (parseFloat(amount) <= 0) {
+                    alert('⚠️ يرجى إدخال مبلغ صحيح أكبر من صفر.');
+                    amountInput.focus();
+                    return;
+                }
+                if (!transactionId) {
+                    alert('⚠️ يرجى إدخال رقم العملية أو التحويل.');
+                    transactionIdInput.focus();
+                    return;
+                }
+
+                this.classList.add('loading');
+
+                setTimeout(() => {
+                    this.classList.remove('loading');
+                    detailBody.style.display = 'none';
+                    stickyBottom.style.display = 'none';
+                    successMessage.classList.add('active');
+                    successMessage.style.display = 'block';
+                }, 1500);
+            });
+
+            backHomeBtn.addEventListener('click', function(e) {
+                createRipple(e, this);
+                depositDetailPage.classList.add('slide-out');
+                setTimeout(() => {
+                    depositDetailPage.classList.remove('active');
+                    depositDetailPage.style.display = 'none';
+                    depositDetailPage.classList.remove('slide-out');
+                    const homePage = document.getElementById('page-home');
+                    if (homePage) {
+                        homePage.style.display = 'block';
+                        homePage.classList.add('active');
+                    }
+                    detailBody.style.display = 'flex';
+                    stickyBottom.style.display = 'block';
+                    successMessage.classList.remove('active');
+                    successMessage.style.display = 'none';
+                    confirmBtn.classList.remove('loading');
+                    confirmBtn.querySelector('.btn-text').style.display = 'block';
+                    amountInput.value = '';
+                    transactionIdInput.value = '';
+                    receiptInput.value = '';
+                    fileUploadBox.classList.remove('has-file');
+                    previewImage.src = '#';
+                    previewFileName.textContent = '';
+                    resetAllPacks();
+                }, 350);
+            });
+
+            // ============================================
+            // ===== باقات PUBG =====
+            // ============================================
+            const packBtns = document.querySelectorAll('#packsGrid .pack-btn');
+            const shippingForm = document.getElementById('shippingForm');
+            const gameIdInput = document.getElementById('gameIdInput');
+            const whatsappInput = document.getElementById('whatsappInput');
+            
+            window.selectedPack = null;
+            window.selectedPrice = null;
+
+            packBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    packBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedPack = this.dataset.uc;
+                    window.selectedPrice = this.dataset.price;
+                    if (shippingForm.classList.contains('hidden')) {
+                        shippingForm.classList.remove('hidden');
+                        setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { gameIdInput.focus(); }, 600);
+                    }, 150);
+                });
+            });
+
+            document.getElementById('buyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const gameId = gameIdInput.value.trim();
+                const whatsapp = whatsappInput.value.trim();
+                if (!window.selectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!gameId) {
+                    alert('⚠️ يرجى إدخال ID اللعبة.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedPack} UC\n💰 السعر: $${window.selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات Call of Duty =====
+            // ============================================
+            const codPackBtns = document.querySelectorAll('.cod-pack-btn');
+            const codShippingForm = document.getElementById('codShippingForm');
+            const codPlayerIdInput = document.getElementById('codPlayerIdInput');
+            const codWhatsappInput = document.getElementById('codWhatsappInput');
+            
+            window.selectedCodPack = null;
+            window.selectedCodPrice = null;
+
+            codPackBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    codPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedCodPack = this.dataset.cp;
+                    window.selectedCodPrice = this.dataset.price;
+                    if (codShippingForm.classList.contains('hidden')) {
+                        codShippingForm.classList.remove('hidden');
+                        setTimeout(() => { codShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        codShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { codPlayerIdInput.focus(); }, 600);
+                    }, 150);
+                });
+            });
+
+            document.getElementById('codBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = codPlayerIdInput.value.trim();
+                const whatsapp = codWhatsappInput.value.trim();
+                if (!window.selectedCodPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedCodPack} CP\n💰 السعر: $${window.selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات Mobile Legends =====
+            // ============================================
+            const mlPackBtns = document.querySelectorAll('.ml-pack-btn');
+            const mlShippingForm = document.getElementById('mlShippingForm');
+            const mlAccountIdInput = document.getElementById('mlAccountIdInput');
+            const mlRegionIdInput = document.getElementById('mlRegionIdInput');
+            
+            window.selectedMlPack = null;
+            window.selectedMlPrice = null;
+
+            mlPackBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    mlPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedMlPack = this.dataset.diamond;
+                    window.selectedMlPrice = this.dataset.price;
+                    if (mlShippingForm.classList.contains('hidden')) {
+                        mlShippingForm.classList.remove('hidden');
+                        setTimeout(() => { mlShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        mlShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { mlAccountIdInput.focus(); }, 600);
+                    }, 150);
+                });
+            });
+
+            document.getElementById('mlBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const accountId = mlAccountIdInput.value.trim();
+                const regionId = mlRegionIdInput.value.trim();
+                if (!window.selectedMlPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!accountId) {
+                    alert('⚠️ يرجى إدخال معرف الحساب.');
+                    return;
+                }
+                if (!regionId) {
+                    alert('⚠️ يرجى إدخال معرف المنطقة.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${window.selectedMlPack} 💎\n💰 السعر: $${window.selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`
+                        );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات eFootball =====
+            // ============================================
+            const efootballPackBtns = document.querySelectorAll('.efootball-pack-btn');
+            const efootballShippingForm = document.getElementById('efootballShippingForm');
+            const efootballUidInput = document.getElementById('efootballUidInput');
+            const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
+            
+            window.selectedEfootballPack = null;
+            window.selectedEfootballPrice = null;
+
+            efootballPackBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    efootballPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedEfootballPack = this.dataset.fc;
+                    window.selectedEfootballPrice = this.dataset.price;
+                    if (efootballShippingForm.classList.contains('hidden')) {
+                        efootballShippingForm.classList.remove('hidden');
+                        setTimeout(() => { efootballShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        efootballShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { efootballUidInput.focus(); }, 600);
+                    }, 150);
+                });
+            });
+
+            document.getElementById('efootballBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const uid = efootballUidInput.value.trim();
+                const whatsapp = efootballWhatsappInput.value.trim();
+                if (!window.selectedEfootballPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!uid) {
+                    alert('⚠️ يرجى إدخال معرف UID الخاص بك.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${window.selectedEfootballPack} FC\n💰 السعر: $${window.selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== باقات Clash of Clans =====
+            // ============================================
+            const cocPackBtns = document.querySelectorAll('.coc-pack-btn');
+            const cocShippingForm = document.getElementById('cocShippingForm');
+            const cocSupercellInput = document.getElementById('cocSupercellInput');
+            const cocWhatsappInput = document.getElementById('cocWhatsappInput');
+            
+            window.selectedCocPack = null;
+            window.selectedCocPrice = null;
+
+            cocPackBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    createRipple(e, this);
+                    cocPackBtns.forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    window.selectedCocPack = this.dataset.gems;
+                    window.selectedCocPrice = this.dataset.price;
+                    if (cocShippingForm.classList.contains('hidden')) {
+                        cocShippingForm.classList.remove('hidden');
+                        setTimeout(() => { cocShippingForm.classList.add('visible'); }, 50);
+                    }
+                    setTimeout(() => {
+                        cocShippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        setTimeout(() => { cocSupercellInput.focus(); }, 600);
+                    }, 150);
+                });
+            });
+
+            document.getElementById('cocBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const supercell = cocSupercellInput.value.trim();
+                const whatsapp = cocWhatsappInput.value.trim();
+                if (!window.selectedCocPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!supercell) {
+                    alert('⚠️ يرجى إدخال حساب Supercell.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${window.selectedCocPack} 💎\n💰 السعر: $${window.selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                        );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== الأسئلة الشائعة في صفحة الدعم =====
+            // ============================================
+            const faqSupportQuestions = document.querySelectorAll('.faq-question-support');
+            let openFaqSupport = null;
+
+            faqSupportQuestions.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    createRippleFaq(e, btn);
+                    const targetId = btn.dataset.target;
+                    const answer = document.getElementById(targetId);
+                    const icon = btn.querySelector('.faq-icon-support i');
+                    
+                    if (openFaqSupport === targetId) {
+                        answer.classList.remove('open');
+                        btn.classList.remove('active');
+                        if (icon) {
+                            icon.style.transform = 'rotate(0deg)';
+                        }
+                        openFaqSupport = null;
+                        return;
+                    }
+                    
+                    if (openFaqSupport) {
+                        const prevAnswer = document.getElementById(openFaqSupport);
+                        const prevBtn = document.querySelector(`.faq-question-support[data-target="${openFaqSupport}"]`);
+                        const prevIcon = prevBtn ? prevBtn.querySelector('.faq-icon-support i') : null;
+                        if (prevAnswer) prevAnswer.classList.remove('open');
+                        if (prevBtn) prevBtn.classList.remove('active');
+                        if (prevIcon) {
+                            prevIcon.style.transform = 'rotate(0deg)';
+                        }
+                    }
+                    
+                    answer.classList.add('open');
+                    btn.classList.add('active');
+                    if (icon) {
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                    openFaqSupport = targetId;
+                });
+            });
+
+            // ============================================
+            // ===== MODAL =====
+            // ============================================
+            const modalOverlay = document.getElementById('mlHelpModal');
+            const modalCloseBtn = document.getElementById('mlModalCloseBtn');
+            const helpBtn = document.getElementById('mlHelpBtn');
+
+            helpBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                modalOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
+
+            modalCloseBtn.addEventListener('click', () => {
+                modalOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            });
+
+            modalOverlay.addEventListener('click', (e) => {
+                if (e.target === modalOverlay) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalOverlay.classList.contains('open')) {
+                    modalOverlay.classList.remove('open');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // ============================================
+            // ===== المحفظة =====
+            // ============================================
+            (function() {
+                const filterBtns = document.querySelectorAll('.filter-btn-wallet');
+                const transactionsContainer = document.getElementById('transactionsContainer');
+                const emptyState = document.getElementById('emptyState');
+                const balanceDisplay = document.getElementById('walletBalanceDisplay');
+
+                let transactions = [
+                    { id: 1, type: 'deposit', amount: 50.00, description: 'إيداع عبر باي بال',
+                        date: '2026-07-13 14:30' },
+                    { id: 2, type: 'purchase', amount: 15.00, description: 'شراء باقة PUBG',
+                        date: '2026-07-12 22:15' },
+                    { id: 3, type: 'withdraw', amount: 25.00, description: 'سحب إلى المحفظة',
+                        date: '2026-07-11 09:45' },
+                    { id: 4, type: 'refund', amount: 10.00, description: 'استرداد عملية فاشلة',
+                        date: '2026-07-10 18:20' },
+                    { id: 5, type: 'deposit', amount: 100.00, description: 'إيداع عبر بطاقة ائتمان',
+                        date: '2026-07-09 12:00' },
+                ];
+
+                let currentFilter = 'all';
+
+                function updateBalance() {
+                    const total = transactions.reduce((sum, t) => {
+                        if (t.type === 'deposit' || t.type === 'refund') return sum + t.amount;
+                        else return sum - t.amount;
+                    }, 0);
+                    balanceDisplay.textContent = total.toFixed(2);
+                }
+
+                function renderTransactions(filter) {
+                    let filtered = transactions;
+                    if (filter !== 'all') filtered = transactions.filter(t => t.type === filter);
+                    filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+                    if (filtered.length === 0) {
+                        transactionsContainer.innerHTML = '';
+                        emptyState.style.display = 'flex';
+                        return;
+                    }
+                    emptyState.style.display = 'none';
+                    transactionsContainer.innerHTML = filtered.map(t => {
+                        const isPositive = t.type === 'deposit' || t.type === 'refund';
+                        const sign = isPositive ? '+' : '-';
+                        const amountClass = isPositive ? 'positive' : 'negative';
+                        const iconMap = {
+                            deposit: 'fa-arrow-down',
+                            withdraw: 'fa-arrow-up',
+                            purchase: 'fa-shopping-cart',
+                            refund: 'fa-undo'
+                        };
+                        const labelMap = {
+                            deposit: 'إيداع',
+                            withdraw: 'سحب',
+                            purchase: 'شراء',
+                            refund: 'استرداد'
+                        };
+                        const icon = iconMap[t.type] || 'fa-circle';
+                        const label = labelMap[t.type] || t.type;
+                        return `
+                            <div class="transaction-item-wallet">
+                                <div class="transaction-left-wallet">
+                                    <div class="transaction-icon-wallet ${t.type}">
+                                        <i class="fas ${icon}"></i>
+                                    </div>
+                                    <div class="transaction-info-wallet">
+                                        <h4>${t.description}</h4>
+                                        <span>${label} • ${new Date(t.date).toLocaleDateString('ar-EG')}</span>
+                                    </div>
+                                </div>
+                                <div class="transaction-amount-wallet ${amountClass}">
+                                    ${sign}$${t.amount.toFixed(2)}
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                filterBtns.forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        filterBtns.forEach(b => b.classList.remove('active'));
+                        this.classList.add('active');
+                        currentFilter = this.dataset.filter;
+                        renderTransactions(currentFilter);
+                    });
+                });
+
+                document.getElementById('withdrawBtn').addEventListener('click', function() {
+                    alert('🏦 سيتم توجيهك إلى صفحة السحب قريباً.');
+                });
+
+                updateBalance();
+                renderTransactions('all');
+            })();
+
+            // ============================================
+            // ===== منع إعادة التحميل =====
+            // ============================================
+            document.querySelectorAll('button').forEach(b => {
+                b.addEventListener('click', (e) => {
+                    if (b.closest('.bottom-nav') || b.closest('.tabs-wrapper') ||
+                        b.closest('.faq-item') || b.closest('.pack-btn') ||
+                        b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
+                        b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
+                        b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
+                        b.closest('.genshin-pack-btn') || b.closest('.genshin-tab-btn') ||
+                        b.closest('.genshin-element-product') ||
+                        b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
+                        b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
+                        b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
+                        b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
+                        b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
+                        b.id === 'withdrawBtn' || b.id === 'depositBackBtn' ||
+                        b.id === 'copyBtn' || b.id === 'confirmBtn' ||
+                        b.id === 'backHomeBtn' || b.classList.contains('method-item') ||
+                        b.closest('.faq-item-support') ||
+                        b.closest('.contact-full-btn')) {
+                        e.preventDefault();
+                    }
+                });
+            });
 
             // ============================================
             // ===== التهيئة =====
@@ -4160,10 +6338,10 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة باقات كرونال نيكسوس');
+            console.log('✅ تم تحديث باقات كرونال نيكسوس: 60, 300, 980, 1980, 3280, 6480');
 
-        })();  // <-- تم إصلاح الخطأ هنا (تم حذف الحرف الزائد "ا")
+        })();
     </script>
 
 </body>
-    </html>
+</html>
