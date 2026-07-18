@@ -4896,7 +4896,7 @@
                 { amount: '8,080 بلورة', price: '$99.99', bonus: '6480+1600 هدية 🎁' },
             ];
 
-            // تحديث بيانات كرونال نيكسوس لتظهر الباقات المطلوبة
+            // بيانات كرونال نيكسوس - الباقات المطلوبة
             const genshinNexusData = [
                 { amount: '60 كرونال نيكسوس', price: '$0.99' },
                 { amount: '300 كرونال نيكسوس', price: '$4.99' },
@@ -5058,7 +5058,7 @@
                 const grid = document.getElementById('genshinNexusGrid');
                 if (!grid) return;
 
-                // استخدام بيانات كرونال نيكسوس المحدثة لعرض الباقات المطلوبة
+                // عرض باقات كرونال نيكسوس بنفس تصميم أزرار الباقات الأخرى
                 grid.innerHTML = genshinNexusData.map(pack => {
                     return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="nexus">
                         <span class="crystal-amount">${pack.amount}</span>
@@ -5379,9 +5379,15 @@
                                 }
                                 if (game.page === 'page-genshin') {
                                     setTimeout(() => {
+                                        // عرض باقات بلورات التكوين افتراضياً
                                         renderGenshinCrystals();
                                         const slider = document.getElementById('genshinPacksSlider');
                                         if (slider) slider.style.transform = 'translateX(0%)';
+                                        
+                                        // التأكد من أن زر "بلورات التكوين" هو النشط
+                                        document.querySelectorAll('.genshin-tab-btn').forEach(b => b.classList.remove('active'));
+                                        const firstTab = document.querySelector('.genshin-tab-btn[data-tab="crystals"]');
+                                        if (firstTab) firstTab.classList.add('active');
                                     }, 100);
                                 }
                             }, 150);
@@ -6332,9 +6338,15 @@
                 const ffSlider = document.getElementById('ffPacksSlider');
                 if (ffSlider) ffSlider.style.transform = 'translateX(0%)';
                 
+                // عرض باقات بلورات التكوين افتراضياً
                 renderGenshinCrystals();
                 const genshinSlider = document.getElementById('genshinPacksSlider');
                 if (genshinSlider) genshinSlider.style.transform = 'translateX(0%)';
+                
+                // التأكد من أن زر "بلورات التكوين" هو النشط
+                document.querySelectorAll('.genshin-tab-btn').forEach(b => b.classList.remove('active'));
+                const firstTab = document.querySelector('.genshin-tab-btn[data-tab="crystals"]');
+                if (firstTab) firstTab.classList.add('active');
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
@@ -6344,4 +6356,4 @@
     </script>
 
 </body>
-</html>
+    </html>
