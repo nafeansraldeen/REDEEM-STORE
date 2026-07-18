@@ -405,7 +405,7 @@
         }
 
         /* ============================================ */
-        /* ===== Genshin Impact PAGE ===== */
+        /* ===== GENSHIN IMPACT PAGE ===== */
         /* ============================================ */
         .genshin-header {
             display: flex;
@@ -510,15 +510,19 @@
 
         .genshin-pack-btn .crystal-badge {
             position: absolute;
-            top: 8px;
-            left: 8px;
+            top: 6px;
+            left: 6px;
             background: linear-gradient(145deg, #F59E0B, #D97706);
             color: #FFFFFF;
-            font-size: 10px;
+            font-size: 9px;
             font-weight: 700;
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 50px;
-            letter-spacing: 0.3px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+            line-height: 1.4;
+            text-align: center;
+            z-index: 2;
         }
 
         .genshin-pack-btn.selected {
@@ -3601,7 +3605,9 @@
             }
             .genshin-pack-btn .crystal-badge {
                 font-size: 8px;
-                padding: 2px 8px;
+                padding: 2px 6px;
+                top: 4px;
+                left: 4px;
             }
         }
 
@@ -4016,29 +4022,29 @@
                     <span class="crystal-amount">60 بلورة</span>
                     <span class="crystal-price">$0.99</span>
                 </button>
-                <button class="genshin-pack-btn" data-crystals="330" data-price="4.99" data-bonus="مكافأة 30 + 300">
+                <button class="genshin-pack-btn" data-crystals="330" data-price="4.99" data-bonus="30+300 هدية 🎁">
                     <span class="crystal-amount">330 بلورة</span>
-                    <span class="crystal-bonus">🎁 مكافأة 30 + 300</span>
+                    <span class="crystal-bonus">30+300 هدية 🎁</span>
                     <span class="crystal-price">$4.99</span>
                 </button>
                 <button class="genshin-pack-btn" data-crystals="1090" data-price="14.99">
                     <span class="crystal-amount">1,090 بلورة</span>
                     <span class="crystal-price">$14.99</span>
                 </button>
-                <button class="genshin-pack-btn" data-crystals="2240" data-price="29.99" data-bonus="مكافأة 260 + 1980">
+                <button class="genshin-pack-btn" data-crystals="2240" data-price="29.99" data-bonus="260+1980 هدية 🎁">
                     <span class="crystal-amount">2,240 بلورة</span>
-                    <span class="crystal-bonus">🎁 مكافأة 260 + 1980</span>
+                    <span class="crystal-bonus">260+1980 هدية 🎁</span>
                     <span class="crystal-price">$29.99</span>
                 </button>
-                <button class="genshin-pack-btn" data-crystals="3880" data-price="49.99" data-bonus="مكافأة 3280 + 600">
+                <button class="genshin-pack-btn" data-crystals="3880" data-price="49.99" data-bonus="3280+600 هدية 🎁">
                     <span class="crystal-amount">3,880 بلورة</span>
-                    <span class="crystal-bonus">🎁 مكافأة 3280 + 600</span>
+                    <span class="crystal-bonus">3280+600 هدية 🎁</span>
                     <span class="crystal-price">$49.99</span>
-                    <span class="crystal-badge">★ الأكثر مبيعات</span>
+                    <span class="crystal-badge">★ الأكثر مبيعاً</span>
                 </button>
-                <button class="genshin-pack-btn" data-crystals="8080" data-price="99.99" data-bonus="مكافأة 6480 + 1600">
+                <button class="genshin-pack-btn" data-crystals="8080" data-price="99.99" data-bonus="6480+1600 هدية 🎁">
                     <span class="crystal-amount">8,080 بلورة</span>
-                    <span class="crystal-bonus">🎁 مكافأة 6480 + 1600</span>
+                    <span class="crystal-bonus">6480+1600 هدية 🎁</span>
                     <span class="crystal-price">$99.99</span>
                 </button>
             </div>
@@ -4716,11 +4722,11 @@
             // ============================================
             const genshinPacks = [
                 { crystals: '60', price: '0.99', bonus: null },
-                { crystals: '330', price: '4.99', bonus: '🎁 مكافأة 30 + 300' },
+                { crystals: '330', price: '4.99', bonus: '30+300 هدية 🎁' },
                 { crystals: '1,090', price: '14.99', bonus: null },
-                { crystals: '2,240', price: '29.99', bonus: '🎁 مكافأة 260 + 1980' },
-                { crystals: '3,880', price: '49.99', bonus: '🎁 مكافأة 3280 + 600', bestseller: true },
-                { crystals: '8,080', price: '99.99', bonus: '🎁 مكافأة 6480 + 1600' },
+                { crystals: '2,240', price: '29.99', bonus: '260+1980 هدية 🎁' },
+                { crystals: '3,880', price: '49.99', bonus: '3280+600 هدية 🎁', bestseller: true },
+                { crystals: '8,080', price: '99.99', bonus: '6480+1600 هدية 🎁' },
             ];
 
             // ============================================
@@ -4801,7 +4807,6 @@
                 const grid = document.getElementById('genshinPacksGrid');
                 if (!grid) return;
 
-                // Clear existing buttons
                 grid.innerHTML = '';
 
                 genshinPacks.forEach(pack => {
@@ -4816,7 +4821,7 @@
                     }
                     html += `<span class="crystal-price">$${pack.price}</span>`;
                     if (pack.bestseller) {
-                        html += `<span class="crystal-badge">★ الأكثر مبيعات</span>`;
+                        html += `<span class="crystal-badge">★ الأكثر مبيعاً</span>`;
                     }
 
                     btn.innerHTML = html;
@@ -6024,4 +6029,4 @@
     </script>
 
 </body>
-    </html>
+</html>
