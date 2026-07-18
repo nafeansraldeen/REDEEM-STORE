@@ -455,6 +455,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
             height: 52px;
             align-items: center;
+            overflow: hidden;
         }
 
         .genshin-tab-btn {
@@ -476,6 +477,7 @@
             justify-content: center;
             gap: 6px;
             -webkit-tap-highlight-color: transparent;
+            min-width: 0;
         }
 
         .genshin-tab-btn i {
@@ -2012,7 +2014,7 @@
         }
 
         /* ============================================ */
-        /* ===== SUPPORT PAGE (REDESIGNED) ===== */
+        /* ===== SUPPORT PAGE ===== */
         /* ============================================ */
         #page-support {
             padding: 0 0 30px 0;
@@ -4192,7 +4194,7 @@
                 </div>
             </div>
 
-            <!-- Navigation Tabs -->
+            <!-- Navigation Tabs - WITHOUT EMOJIS -->
             <div class="genshin-tabs-wrapper" id="genshinTabsWrapper">
                 <button class="genshin-tab-btn active" data-tab="crystals">
                     <i class="fas fa-gem"></i> بلورات التكوين
@@ -4210,21 +4212,15 @@
                 <div class="genshin-packs-slider" id="genshinPacksSlider">
                     <!-- Slide 1: بلورات التكوين -->
                     <div class="genshin-packs-slide" data-slide="crystals">
-                        <div class="genshin-packs-grid" id="genshinCrystalsGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="genshin-packs-grid" id="genshinCrystalsGrid"></div>
                     </div>
                     <!-- Slide 2: كرونال نيكسوس -->
                     <div class="genshin-packs-slide" data-slide="nexus">
-                        <div class="genshin-packs-grid" id="genshinNexusGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="genshin-packs-grid" id="genshinNexusGrid"></div>
                     </div>
                     <!-- Slide 3: عناصر -->
                     <div class="genshin-packs-slide" data-slide="elements">
-                        <div class="genshin-packs-grid" id="genshinElementsGrid">
-                            <!-- Will be populated by JS -->
-                        </div>
+                        <div class="genshin-packs-grid" id="genshinElementsGrid"></div>
                     </div>
                 </div>
             </div>
@@ -4669,7 +4665,7 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== SUPPORT PAGE (REDESIGNED) ===== -->
+        <!-- ===== SUPPORT PAGE ===== -->
         <!-- ============================================ -->
         <div id="page-support" class="page">
             <div class="support-header-hero">
@@ -5008,7 +5004,8 @@
                 const tabs = document.querySelectorAll('.genshin-tab-btn');
                 
                 tabs.forEach(t => t.classList.remove('active'));
-                document.querySelector(`.genshin-tab-btn[data-tab="${tab}"]`).classList.add('active');
+                const activeTab = document.querySelector(`.genshin-tab-btn[data-tab="${tab}"]`);
+                if (activeTab) activeTab.classList.add('active');
                 
                 const index = tab === 'crystals' ? 0 : tab === 'nexus' ? 1 : 2;
                 slider.style.transform = `translateX(-${index * 100}%)`;
