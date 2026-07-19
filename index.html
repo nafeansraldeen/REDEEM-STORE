@@ -405,6 +405,190 @@
         }
 
         /* ============================================ */
+        /* ===== BLOOD STRIKE PAGE ===== */
+        /* ============================================ */
+        .bloodstrike-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .bloodstrike-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .bloodstrike-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .bloodstrike-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .bloodstrike-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .bloodstrike-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .bloodstrike-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .bloodstrike-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .bloodstrike-pack-btn .gold-amount {
+            display: block;
+            font-size: 22px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .bloodstrike-pack-btn .price-amount {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .bloodstrike-pack-btn .gold-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: linear-gradient(145deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 50px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+            line-height: 1.4;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .bloodstrike-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .bloodstrike-pack-btn.selected .gold-amount {
+            color: #1A73E8;
+        }
+
+        .bloodstrike-pack-btn.selected .price-amount {
+            color: #1A73E8;
+        }
+
+        .bloodstrike-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .bloodstrike-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bloodstrike-shipping-form.hidden {
+            display: none;
+        }
+
+        .bloodstrike-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .bloodstrike-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .bloodstrike-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .bloodstrike-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .bloodstrike-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
         /* ===== GENSHIN IMPACT PAGE ===== */
         /* ============================================ */
         .genshin-header {
@@ -439,13 +623,6 @@
             color: #777;
             margin-top: 2px;
             font-weight: 400;
-        }
-
-        /* ===== Genshin Packs Container ===== */
-        .genshin-packs-container {
-            position: relative;
-            overflow: hidden;
-            min-height: 200px;
         }
 
         .genshin-packs-grid {
@@ -550,7 +727,6 @@
             color: #1A73E8;
         }
 
-        /* ===== Genshin Shipping Form ===== */
         .genshin-shipping-form {
             background: #f8f9fa;
             border-radius: 24px;
@@ -3597,6 +3773,23 @@
                 font-size: 14px;
             }
 
+            .bloodstrike-pack-btn {
+                min-height: 85px;
+                padding: 16px 10px;
+            }
+            .bloodstrike-pack-btn .gold-amount {
+                font-size: 18px;
+            }
+            .bloodstrike-pack-btn .price-amount {
+                font-size: 13px;
+            }
+            .bloodstrike-pack-btn .gold-badge {
+                font-size: 8px;
+                padding: 2px 6px;
+                top: 4px;
+                left: 4px;
+            }
+
             .genshin-pack-btn {
                 min-height: 100px;
                 padding: 16px 10px;
@@ -3631,6 +3824,10 @@
             }
             .product-card h4 {
                 font-size: 15px;
+            }
+            .bloodstrike-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
             }
             .cod-packs-grid {
                 grid-template-columns: repeat(5, 1fr);
@@ -3776,6 +3973,10 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
+            }
+            .bloodstrike-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
             }
             .ff-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -4013,6 +4214,31 @@
         </div>
 
         <!-- ============================================ -->
+        <!-- ===== BLOOD STRIKE PAGE ===== -->
+        <!-- ============================================ -->
+        <div id="page-bloodstrike" class="page">
+            <div class="bloodstrike-header">
+                <img src="https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png" alt="Blood Strike" />
+                <div class="game-info">
+                    <h2>Blood Strike</h2>
+                    <p>اختر باقة القطع الذهبية المناسبة</p>
+                </div>
+            </div>
+
+            <div class="bloodstrike-packs-grid" id="bloodstrikePacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="bloodstrike-shipping-form hidden" id="bloodstrikeShippingForm">
+                <label>معرف اللاعب</label>
+                <input type="text" placeholder="أدخل معرف اللاعب" id="bloodstrikePlayerIdInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="bloodstrikeWhatsappInput" />
+                <button class="btn-buy" id="bloodstrikeBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
         <!-- ===== GENSHIN IMPACT PAGE ===== -->
         <!-- ============================================ -->
         <div id="page-genshin" class="page">
@@ -4024,14 +4250,8 @@
                 </div>
             </div>
 
-            <!-- تم حذف شريط التصنيف (بلورات التكوين، كرونال نيكسوس، عناصر) -->
+            <div class="genshin-packs-grid" id="genshinCrystalsGrid"></div>
 
-            <!-- Packs Container - عرض باقات بلورات التكوين فقط -->
-            <div class="genshin-packs-container">
-                <div class="genshin-packs-grid" id="genshinCrystalsGrid"></div>
-            </div>
-
-            <!-- Shipping Form -->
             <div class="genshin-shipping-form hidden" id="genshinShippingForm">
                 <label>معرف UID الخاص بك</label>
                 <input type="text" placeholder="أدخل معرف UID" id="genshinUidInput" />
@@ -4425,21 +4645,6 @@
             </div>
         </div>
 
-        <!-- Blood Strike -->
-        <div id="page-bloodstrike" class="page">
-            <div class="pubg-header">
-                <img src="https://i.postimg.cc/Zn1n7Z4g/file-0000000045cc71f488ccf281222f823e.png" alt="Blood Strike" />
-                <div class="game-info">
-                    <h2>Blood Strike</h2>
-                    <p>قريباً</p>
-                </div>
-            </div>
-            <div class="placeholder-page" style="min-height:30vh;">
-                <i class="fas fa-hourglass-half" style="font-size:48px; color:#ddd;"></i>
-                <p style="color:#999; font-size:16px;">سيتم إضافة الباقات قريباً</p>
-            </div>
-        </div>
-
         <!-- Yalla Ludo -->
         <div id="page-yallaludo" class="page">
             <div class="pubg-header">
@@ -4671,6 +4876,18 @@
             ];
 
             // ============================================
+            // ===== BLOOD STRIKE DATA =====
+            // ============================================
+            const bloodstrikePacksData = [
+                { amount: '51 قطعة ذهبية', price: '$0.99' },
+                { amount: '105 قطعة ذهبية', price: '$1.99' },
+                { amount: '320 قطعة ذهبية', price: '$4.99' },
+                { amount: '540 قطعة ذهبية', price: '$8.99' },
+                { amount: '1,100 قطعة ذهبية', price: '$14.99' },
+                { amount: '2,260 قطعة ذهبية', price: '$29.99' },
+            ];
+
+            // ============================================
             // ===== FREE FIRE DATA =====
             // ============================================
             const ffPacksData = {
@@ -4703,7 +4920,6 @@
             // ============================================
             // ===== GENSHIN IMPACT DATA =====
             // ============================================
-            // باقات بلورات التكوين فقط - تم حذف كرونال نيكسوس وبركة القمر
             const genshinCrystalsData = [
                 { amount: '60 بلورة', price: '$0.99', bonus: null },
                 { amount: '330 بلورة', price: '$4.99', bonus: '30+300 هدية 🎁' },
@@ -4782,6 +4998,64 @@
             }
 
             // ============================================
+            // ===== BLOOD STRIKE FUNCTIONS =====
+            // ============================================
+            let bloodstrikeSelectedPack = null;
+            let bloodstrikeSelectedPrice = null;
+
+            function renderBloodstrikePacks() {
+                const grid = document.getElementById('bloodstrikePacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = bloodstrikePacksData.map(pack => {
+                    let badge = '';
+                    if (pack.amount === '2,260 قطعة ذهبية') {
+                        badge = `<span class="gold-badge">★ الأكثر مبيعاً</span>`;
+                    }
+                    return `<button class="bloodstrike-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}">
+                        ${badge}
+                        <span class="gold-amount">${pack.amount}</span>
+                        <span class="price-amount">${pack.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.bloodstrike-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.bloodstrike-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        bloodstrikeSelectedPack = this.dataset.amount;
+                        bloodstrikeSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('bloodstrikeShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('bloodstrikePlayerIdInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetBloodstrikePacks() {
+                bloodstrikeSelectedPack = null;
+                bloodstrikeSelectedPrice = null;
+                renderBloodstrikePacks();
+                const shippingForm = document.getElementById('bloodstrikeShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const playerInput = document.getElementById('bloodstrikePlayerIdInput');
+                const whatsappInput = document.getElementById('bloodstrikeWhatsappInput');
+                if (playerInput) playerInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== GENSHIN IMPACT FUNCTIONS =====
             // ============================================
             let genshinSelectedPack = null;
@@ -4827,9 +5101,7 @@
             function resetGenshinPacks() {
                 genshinSelectedPack = null;
                 genshinSelectedPrice = null;
-                
                 renderGenshinCrystals();
-                
                 const shippingForm = document.getElementById('genshinShippingForm');
                 if (shippingForm) {
                     shippingForm.classList.add('hidden');
@@ -5029,6 +5301,7 @@
                 resetCocPacks();
                 resetFFPacks();
                 resetGenshinPacks();
+                resetBloodstrikePacks();
             }
 
             // ============================================
@@ -5052,6 +5325,11 @@
                             setTimeout(() => {
                                 switchPage(game.page);
                                 updateNavActive('page-home');
+                                if (game.page === 'page-bloodstrike') {
+                                    setTimeout(() => {
+                                        renderBloodstrikePacks();
+                                    }, 100);
+                                }
                                 if (game.page === 'page-freefire') {
                                     setTimeout(() => {
                                         renderFFPacks('codes');
@@ -5170,6 +5448,40 @@
                     document.getElementById('ffShippingForm').classList.remove('visible');
                     switchFFTab(tab);
                 });
+            });
+
+            // ============================================
+            // ===== BLOOD STRIKE BUY BUTTON =====
+            // ============================================
+            document.getElementById('bloodstrikeBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const playerId = document.getElementById('bloodstrikePlayerIdInput').value.trim();
+                const whatsapp = document.getElementById('bloodstrikeWhatsappInput').value.trim();
+                
+                if (!bloodstrikeSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
+                    return;
+                }
+                if (!playerId) {
+                    alert('⚠️ يرجى إدخال معرف اللاعب.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء باقة ${bloodstrikeSelectedPack}\n💰 السعر: $${bloodstrikeSelectedPrice}\n🆔 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
 
             // ============================================
@@ -5959,10 +6271,12 @@
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
+                        b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
+                        b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
                         b.id === 'withdrawBtn' || b.id === 'depositBackBtn' ||
@@ -5996,12 +6310,14 @@
                 if (ffSlider) ffSlider.style.transform = 'translateX(0%)';
                 
                 renderGenshinCrystals();
+                renderBloodstrikePacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
+            console.log('✅ تم إضافة باقات Blood Strike: 51, 105, 320, 540, 1,100, 2,260 قطعة ذهبية');
 
         })();
     </script>
 
 </body>
-    </html>
+</html>
