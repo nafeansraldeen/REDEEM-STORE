@@ -4876,6 +4876,23 @@
             ];
 
             // ============================================
+            // ===== قائمة الاشتراكات =====
+            // ============================================
+            const subscriptionsList = [
+                { name: 'Chat Gpt', img: 'https://i.postimg.cc/qRBjQQtY/chatgpt-icon.png', page: 'page-chatgpt' },
+                { name: 'Canva', img: 'https://i.postimg.cc/tgvHp2Kg/canva-icon.png', page: 'page-canva' },
+                { name: 'CapCut', img: 'https://i.postimg.cc/VLF8j83N/capcut-icon.png', page: 'page-capcut' },
+                { name: 'Starlink', img: 'https://i.postimg.cc/VL95PWNm/starlink-icon.png', page: 'page-starlink' },
+                { name: 'Gemni', img: 'https://i.postimg.cc/mrZb8KSy/gemini-icon.png', page: 'page-gemni' },
+                { name: 'YouTube', img: 'https://i.postimg.cc/xjYWrHLM/youtube-icon.png', page: 'page-youtube' },
+                { name: 'Shahid VIP', img: 'https://i.postimg.cc/T1NTDnhV/shahid-icon.png', page: 'page-shahid' },
+                { name: 'Netflix', img: 'https://i.postimg.cc/QCMMfKkD/netflix-icon.png', page: 'page-netflix' },
+                { name: 'Spotify', img: 'https://i.postimg.cc/SKHLp4Jr/spotify-icon.png', page: 'page-spotify' },
+                { name: 'NordVPN', img: 'https://i.postimg.cc/mkVhZRYB/nordvpn-icon.png', page: 'page-nordvpn' },
+                { name: 'ExpressVPN', img: 'https://i.postimg.cc/P5YpMshk/expressvpn-icon.png', page: 'page-expressvpn' }
+            ];
+
+            // ============================================
             // ===== BLOOD STRIKE DATA =====
             // ============================================
             const bloodstrikePacksData = [
@@ -5309,35 +5326,62 @@
             // ============================================
             const productsGrid = document.getElementById('productsGrid');
 
-            function renderGames() {
-                productsGrid.innerHTML = '';
-                gamesList.forEach(game => {
+            function renderProducts(category) {
+                let items = [];
+                let targetGrid = productsGrid;
+                
+                if (category === 'games') {
+                    items = gamesList;
+                } else if (category === 'subscriptions') {
+                    items = subscriptionsList;
+                } else if (category === 'stores') {
+                    // المتاجر - يمكن إضافتها لاحقاً
+                    items = [];
+                } else if (category === 'services') {
+                    // خدمات مميزة - يمكن إضافتها لاحقاً
+                    items = [];
+                } else {
+                    items = gamesList;
+                }
+
+                if (items.length === 0) {
+                    targetGrid.innerHTML = `
+                        <div style="grid-column:1/-1; text-align:center; padding:40px 20px; color:#999; font-size:16px;">
+                            <i class="fas fa-box-open" style="font-size:48px; color:#ddd; display:block; margin-bottom:12px;"></i>
+                            <p>لا توجد منتجات متاحة حالياً</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                targetGrid.innerHTML = '';
+                items.forEach(item => {
                     const card = document.createElement('div');
                     card.className = 'product-card';
                     card.innerHTML = `
-                        <img src="${game.img}" alt="${game.name}" loading="lazy" />
-                        <h4>${game.name}</h4>
+                        <img src="${item.img}" alt="${item.name}" loading="lazy" />
+                        <h4>${item.name}</h4>
                     `;
                     card.addEventListener('click', (e) => {
                         createRipple(e, card);
-                        if (game.page) {
+                        if (item.page) {
                             resetAllPacks();
                             setTimeout(() => {
-                                switchPage(game.page);
+                                switchPage(item.page);
                                 updateNavActive('page-home');
-                                if (game.page === 'page-bloodstrike') {
+                                if (item.page === 'page-bloodstrike') {
                                     setTimeout(() => {
                                         renderBloodstrikePacks();
                                     }, 100);
                                 }
-                                if (game.page === 'page-freefire') {
+                                if (item.page === 'page-freefire') {
                                     setTimeout(() => {
                                         renderFFPacks('codes');
                                         const slider = document.getElementById('ffPacksSlider');
                                         if (slider) slider.style.transform = 'translateX(0%)';
                                     }, 100);
                                 }
-                                if (game.page === 'page-genshin') {
+                                if (item.page === 'page-genshin') {
                                     setTimeout(() => {
                                         renderGenshinCrystals();
                                     }, 100);
@@ -5353,10 +5397,9 @@
                             }, 250);
                         }
                     });
-                    productsGrid.appendChild(card);
+                    targetGrid.appendChild(card);
                 });
             }
-            renderGames();
 
             // ============================================
             // ===== التصنيفات الرئيسية =====
@@ -5370,9 +5413,13 @@
                     btn.classList.add('active');
                     const percent = index * 25;
                     tabSlider.style.right = percent + '%';
+                    
+                    const category = btn.dataset.tab;
                     productsGrid.style.opacity = '0.6';
                     productsGrid.style.transform = 'translateY(8px)';
+                    
                     setTimeout(() => {
+                        renderProducts(category);
                         productsGrid.style.opacity = '1';
                         productsGrid.style.transform = 'translateY(0)';
                     }, 250);
@@ -6305,6 +6352,7 @@
                     }, 300);
                 }
 
+                renderProducts('games');
                 renderFFPacks('codes');
                 const ffSlider = document.getElementById('ffPacksSlider');
                 if (ffSlider) ffSlider.style.transform = 'translateX(0%)';
@@ -6314,10 +6362,11 @@
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة باقات Blood Strike: 51, 105, 320, 540, 1,100, 2,260 قطعة ذهبية');
+            console.log('✅ تم تحديث قسم الاشتراكات بالأسماء الجديدة');
+            console.log('📋 قائمة الاشتراكات: Chat Gpt, Canva, CapCut, Starlink, Gemni, YouTube, Shahid VIP, Netflix, Spotify, NordVPN, ExpressVPN');
 
         })();
     </script>
 
 </body>
-    </html>
+</html>
