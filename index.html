@@ -5529,9 +5529,8 @@
             let canvaSelectedPrice = null;
 
             function renderCanvaPacks(type) {
-                const slider = document.getElementById('canvaPacksSlider');
+                // تحديث حالة الأزرار
                 const buttons = document.querySelectorAll('.canva-type-btn');
-
                 buttons.forEach(btn => {
                     btn.classList.remove('active');
                     if (btn.dataset.type === type) {
@@ -5539,14 +5538,18 @@
                     }
                 });
 
+                // تحديث المؤشر المنزلق
+                const slider = document.getElementById('canvaPacksSlider');
                 const index = type === 'pro' ? 0 : 1;
                 slider.style.transform = `translateX(-${index * 100}%)`;
 
+                // إعادة تعيين الاختيار
                 canvaSelectedPack = null;
                 canvaSelectedPrice = null;
                 document.getElementById('canvaShippingForm').classList.add('hidden');
                 document.getElementById('canvaShippingForm').classList.remove('visible');
 
+                // عرض الباقات المناسبة
                 if (type === 'pro') {
                     renderCanvaProPacks();
                 } else {
@@ -7154,11 +7157,12 @@
                 renderGenshinCrystals();
                 renderBloodstrikePacks();
                 renderChatGptPacks();
+                // تهيئة صفحة Canva مع عرض Canva Pro افتراضياً
                 renderCanvaPacks('pro');
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم حذف الإيموجيات من صفحة Canva');
+            console.log('✅ تم إصلاح مشكلة ظهور باقات Canva للأعمال');
 
         })();
     </script>
