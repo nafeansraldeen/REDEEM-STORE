@@ -405,6 +405,191 @@
         }
 
         /* ============================================ */
+        /* ===== صفحة خدمات الاشتراكات ===== */
+        /* ============================================ */
+        .subscription-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .subscription-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .subscription-header .sub-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .subscription-header .sub-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        /* ===== باقات الاشتراكات ===== */
+        .sub-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .sub-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .sub-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .sub-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .sub-pack-btn .sub-plan {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .sub-pack-btn .sub-price {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .sub-pack-btn .sub-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: linear-gradient(145deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 50px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+            line-height: 1.4;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .sub-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .sub-pack-btn.selected .sub-plan {
+            color: #1A73E8;
+        }
+
+        .sub-pack-btn.selected .sub-price {
+            color: #1A73E8;
+        }
+
+        .sub-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .sub-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sub-shipping-form.hidden {
+            display: none;
+        }
+
+        .sub-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .sub-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .sub-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .sub-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .sub-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        /* ============================================ */
         /* ===== BLOOD STRIKE PAGE ===== */
         /* ============================================ */
         .bloodstrike-header {
@@ -3759,6 +3944,23 @@
                 padding: 14px 16px;
             }
 
+            .sub-pack-btn {
+                min-height: 85px;
+                padding: 16px 10px;
+            }
+            .sub-pack-btn .sub-plan {
+                font-size: 15px;
+            }
+            .sub-pack-btn .sub-price {
+                font-size: 13px;
+            }
+            .sub-pack-btn .sub-badge {
+                font-size: 8px;
+                padding: 2px 6px;
+                top: 4px;
+                left: 4px;
+            }
+
             .ff-tabs-wrapper {
                 height: 48px;
                 padding: 6px 10px;
@@ -3824,6 +4026,10 @@
             }
             .product-card h4 {
                 font-size: 15px;
+            }
+            .sub-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
             }
             .bloodstrike-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -3973,6 +4179,10 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
+            }
+            .sub-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
             }
             .bloodstrike-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -4210,6 +4420,31 @@
                         جاري المعالجة...
                     </span>
                 </button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة CHAT GPT ===== -->
+        <!-- ============================================ -->
+        <div id="page-chatgpt" class="page">
+            <div class="subscription-header">
+                <img src="https://i.postimg.cc/vZGWCmqF/file-00000000116471f4985d0d52273f5221.png" alt="Chat GPT" />
+                <div class="sub-info">
+                    <h2>Chat GPT</h2>
+                    <p>اختر الباقة المناسبة لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <div class="sub-packs-grid" id="chatgptPacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="sub-shipping-form hidden" id="chatgptShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="chatgptEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="chatgptWhatsappInput" />
+                <button class="btn-buy" id="chatgptBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -4876,7 +5111,7 @@
             ];
 
             // ============================================
-            // ===== قائمة الاشتراكات مع الصور الجديدة =====
+            // ===== قائمة الاشتراكات =====
             // ============================================
             const subscriptionsList = [
                 { name: 'Chat Gpt', img: 'https://i.postimg.cc/vZGWCmqF/file-00000000116471f4985d0d52273f5221.png', page: 'page-chatgpt' },
@@ -4890,6 +5125,14 @@
                 { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' },
                 { name: 'NordVPN', img: 'https://i.postimg.cc/d13Zwkr3/file-0000000024bc81f49fe659c36c8862c6.png', page: 'page-nordvpn' },
                 { name: 'ExpressVPN', img: 'https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png', page: 'page-expressvpn' }
+            ];
+
+            // ============================================
+            // ===== CHAT GPT DATA =====
+            // ============================================
+            const chatgptPacksData = [
+                { plan: 'Chat GPT Go', price: '$0.99' },
+                { plan: 'Chat GPT Plus', price: '$19.99', popular: true },
             ];
 
             // ============================================
@@ -5012,6 +5255,64 @@
             // ============================================
             function openWhatsApp() {
                 window.open(WHATSAPP_URL, '_blank');
+            }
+
+            // ============================================
+            // ===== CHAT GPT FUNCTIONS =====
+            // ============================================
+            let chatgptSelectedPack = null;
+            let chatgptSelectedPrice = null;
+
+            function renderChatGptPacks() {
+                const grid = document.getElementById('chatgptPacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = chatgptPacksData.map(pack => {
+                    let badge = '';
+                    if (pack.popular) {
+                        badge = `<span class="sub-badge">★ الأكثر مبيعاً</span>`;
+                    }
+                    return `<button class="sub-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
+                        ${badge}
+                        <span class="sub-plan">${pack.plan}</span>
+                        <span class="sub-price">${pack.price}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.sub-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.sub-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        chatgptSelectedPack = this.dataset.plan;
+                        chatgptSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('chatgptShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('chatgptEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetChatGptPacks() {
+                chatgptSelectedPack = null;
+                chatgptSelectedPrice = null;
+                renderChatGptPacks();
+                const shippingForm = document.getElementById('chatgptShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('chatgptEmailInput');
+                const whatsappInput = document.getElementById('chatgptWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
             }
 
             // ============================================
@@ -5319,6 +5620,7 @@
                 resetFFPacks();
                 resetGenshinPacks();
                 resetBloodstrikePacks();
+                resetChatGptPacks();
             }
 
             // ============================================
@@ -5367,6 +5669,11 @@
                             setTimeout(() => {
                                 switchPage(item.page);
                                 updateNavActive('page-home');
+                                if (item.page === 'page-chatgpt') {
+                                    setTimeout(() => {
+                                        renderChatGptPacks();
+                                    }, 100);
+                                }
                                 if (item.page === 'page-bloodstrike') {
                                     setTimeout(() => {
                                         renderBloodstrikePacks();
@@ -5493,6 +5800,40 @@
                     document.getElementById('ffShippingForm').classList.remove('visible');
                     switchFFTab(tab);
                 });
+            });
+
+            // ============================================
+            // ===== CHAT GPT BUY BUTTON =====
+            // ============================================
+            document.getElementById('chatgptBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('chatgptEmailInput').value.trim();
+                const whatsapp = document.getElementById('chatgptWhatsappInput').value.trim();
+                
+                if (!chatgptSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${chatgptSelectedPack}\n💰 السعر: $${chatgptSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
             });
 
             // ============================================
@@ -6316,11 +6657,13 @@
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
+                        b.closest('.sub-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
+                        b.id === 'chatgptBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -6357,13 +6700,14 @@
                 
                 renderGenshinCrystals();
                 renderBloodstrikePacks();
+                renderChatGptPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم تحديث صور Canva و Starlink');
+            console.log('✅ تم إضافة باقات Chat GPT: Chat GPT Go, Chat GPT Plus');
 
         })();
     </script>
 
 </body>
-    </html>
+</html>
