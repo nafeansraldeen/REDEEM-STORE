@@ -5390,13 +5390,13 @@
             // ===== CANVA DATA =====
             // ============================================
             const canvaProPacks = [
-                { plan: 'اشتراك شهري', price: '$12.99' },
-                { plan: 'اشتراك سنوي', price: '$119.99', save: 'وفر 40%', popular: true },
+                { plan: 'اشتراك شهري', price: '12.99' },
+                { plan: 'اشتراك سنوي', price: '119.99', save: 'وفر 40%', popular: true },
             ];
 
             const canvaBusinessPacks = [
-                { plan: 'اشتراك شهري', price: '$29.99' },
-                { plan: 'اشتراك سنوي', price: '$299.99', save: 'وفر 35%', popular: true },
+                { plan: 'اشتراك شهري', price: '29.99' },
+                { plan: 'اشتراك سنوي', price: '299.99', save: 'وفر 35%', popular: true },
             ];
 
             // ============================================
@@ -5546,24 +5546,22 @@
                 // إعادة تعيين الاختيار
                 canvaSelectedPack = null;
                 canvaSelectedPrice = null;
-                
+
                 // إخفاء نموذج الشحن
                 const shippingForm = document.getElementById('canvaShippingForm');
                 shippingForm.classList.add('hidden');
                 shippingForm.classList.remove('visible');
-                
+
                 // إفراغ الحقول
                 document.getElementById('canvaEmailInput').value = '';
                 document.getElementById('canvaWhatsappInput').value = '';
 
-                // عرض الباقات المناسبة مع تأخير بسيط
-                setTimeout(() => {
-                    if (type === 'pro') {
-                        renderCanvaProPacks();
-                    } else {
-                        renderCanvaBusinessPacks();
-                    }
-                }, 100);
+                // عرض الباقات المناسبة
+                if (type === 'pro') {
+                    renderCanvaProPacks();
+                } else {
+                    renderCanvaBusinessPacks();
+                }
             }
 
             function renderCanvaProPacks() {
@@ -5579,10 +5577,10 @@
                     if (pack.save) {
                         saveText = `<span class="pack-save">${pack.save}</span>`;
                     }
-                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
+                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
                         ${badge}
                         <span class="pack-plan">${pack.plan}</span>
-                        <span class="pack-price">${pack.price}</span>
+                        <span class="pack-price">$${pack.price}</span>
                         ${saveText}
                     </button>`;
                 }).join('');
@@ -5621,7 +5619,7 @@
                     if (pack.save) {
                         saveText = `<span class="pack-save">${pack.save}</span>`;
                     }
-                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
+                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
                         ${badge}
                         <span class="pack-plan">${pack.plan}</span>
                         <span class="pack-price">$${pack.price}</span>
@@ -5851,9 +5849,9 @@
                 const data = ffPacksData[tab];
                 const gridId = tab === 'codes' ? 'ffCodesGrid' : tab === 'id' ? 'ffIdGrid' : 'ffAccountGrid';
                 const grid = document.getElementById(gridId);
-                
+
                 if (!grid) return;
-                
+
                 if (!data || data.length === 0) {
                     grid.innerHTML = `
                         <div class="ff-empty-state">
@@ -5899,17 +5897,17 @@
 
             function switchFFTab(tab) {
                 if (ffCurrentTab === tab) return;
-                
+
                 ffCurrentTab = tab;
                 const slider = document.getElementById('ffPacksSlider');
                 const tabs = document.querySelectorAll('.ff-tab-btn');
-                
+
                 tabs.forEach(t => t.classList.remove('active'));
                 document.querySelector(`.ff-tab-btn[data-tab="${tab}"]`).classList.add('active');
-                
+
                 const index = tab === 'codes' ? 0 : tab === 'id' ? 1 : 2;
                 slider.style.transform = `translateX(-${index * 100}%)`;
-                
+
                 setTimeout(() => {
                     renderFFPacks(tab);
                 }, 50);
@@ -5945,13 +5943,13 @@
                 const shippingForm = document.getElementById('shippingForm');
                 const gameIdInput = document.getElementById('gameIdInput');
                 const whatsappInput = document.getElementById('whatsappInput');
-                
+
                 packBtns.forEach(b => b.classList.remove('selected'));
                 shippingForm.classList.add('hidden');
                 shippingForm.classList.remove('visible');
                 if (gameIdInput) gameIdInput.value = '';
                 if (whatsappInput) whatsappInput.value = '';
-                
+
                 window.selectedPack = null;
                 window.selectedPrice = null;
             }
@@ -5961,13 +5959,13 @@
                 const codShippingForm = document.getElementById('codShippingForm');
                 const codPlayerIdInput = document.getElementById('codPlayerIdInput');
                 const codWhatsappInput = document.getElementById('codWhatsappInput');
-                
+
                 codPackBtns.forEach(b => b.classList.remove('selected'));
                 codShippingForm.classList.add('hidden');
                 codShippingForm.classList.remove('visible');
                 if (codPlayerIdInput) codPlayerIdInput.value = '';
                 if (codWhatsappInput) codWhatsappInput.value = '';
-                
+
                 window.selectedCodPack = null;
                 window.selectedCodPrice = null;
             }
@@ -5977,13 +5975,13 @@
                 const mlShippingForm = document.getElementById('mlShippingForm');
                 const mlAccountIdInput = document.getElementById('mlAccountIdInput');
                 const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-                
+
                 mlPackBtns.forEach(b => b.classList.remove('selected'));
                 mlShippingForm.classList.add('hidden');
                 mlShippingForm.classList.remove('visible');
                 if (mlAccountIdInput) mlAccountIdInput.value = '';
                 if (mlRegionIdInput) mlRegionIdInput.value = '';
-                
+
                 window.selectedMlPack = null;
                 window.selectedMlPrice = null;
             }
@@ -5993,13 +5991,13 @@
                 const efootballShippingForm = document.getElementById('efootballShippingForm');
                 const efootballUidInput = document.getElementById('efootballUidInput');
                 const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-                
+
                 efootballPackBtns.forEach(b => b.classList.remove('selected'));
                 efootballShippingForm.classList.add('hidden');
                 efootballShippingForm.classList.remove('visible');
                 if (efootballUidInput) efootballUidInput.value = '';
                 if (efootballWhatsappInput) efootballWhatsappInput.value = '';
-                
+
                 window.selectedEfootballPack = null;
                 window.selectedEfootballPrice = null;
             }
@@ -6009,13 +6007,13 @@
                 const cocShippingForm = document.getElementById('cocShippingForm');
                 const cocSupercellInput = document.getElementById('cocSupercellInput');
                 const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-                
+
                 cocPackBtns.forEach(b => b.classList.remove('selected'));
                 cocShippingForm.classList.add('hidden');
                 cocShippingForm.classList.remove('visible');
                 if (cocSupercellInput) cocSupercellInput.value = '';
                 if (cocWhatsappInput) cocWhatsappInput.value = '';
-                
+
                 window.selectedCocPack = null;
                 window.selectedCocPrice = null;
             }
@@ -6063,7 +6061,7 @@
             function renderProducts(category) {
                 let items = [];
                 let targetGrid = productsGrid;
-                
+
                 if (category === 'games') {
                     items = gamesList;
                 } else if (category === 'subscriptions') {
@@ -6155,11 +6153,11 @@
                     btn.classList.add('active');
                     const percent = index * 25;
                     tabSlider.style.right = percent + '%';
-                    
+
                     const category = btn.dataset.tab;
                     productsGrid.style.opacity = '0.6';
                     productsGrid.style.transform = 'translateY(8px)';
-                    
+
                     setTimeout(() => {
                         renderProducts(category);
                         productsGrid.style.opacity = '1';
@@ -6260,7 +6258,7 @@
                 createRippleBtn(e, e.target);
                 const email = document.getElementById('chatgptEmailInput').value.trim();
                 const whatsapp = document.getElementById('chatgptWhatsappInput').value.trim();
-                
+
                 if (!chatgptSelectedPack) {
                     alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
                     return;
@@ -6273,7 +6271,7 @@
                     alert('⚠️ يرجى إدخال رقم واتساب.');
                     return;
                 }
-                
+
                 const btn = e.target;
                 btn.textContent = 'جاري المعالجة...';
                 btn.style.opacity = '0.7';
@@ -6295,7 +6293,7 @@
                 const email = document.getElementById('canvaEmailInput').value.trim();
                 const whatsapp = document.getElementById('canvaWhatsappInput').value.trim();
                 const type = canvaCurrentType === 'pro' ? 'Canva Pro' : 'Canva للأعمال';
-                
+
                 if (!canvaSelectedPack) {
                     alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
                     return;
@@ -6308,7 +6306,7 @@
                     alert('⚠️ يرجى إدخال رقم واتساب.');
                     return;
                 }
-                
+
                 const btn = e.target;
                 btn.textContent = 'جاري المعالجة...';
                 btn.style.opacity = '0.7';
@@ -6329,7 +6327,7 @@
                 createRippleBtn(e, e.target);
                 const playerId = document.getElementById('bloodstrikePlayerIdInput').value.trim();
                 const whatsapp = document.getElementById('bloodstrikeWhatsappInput').value.trim();
-                
+
                 if (!bloodstrikeSelectedPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
@@ -6342,7 +6340,7 @@
                     alert('⚠️ يرجى إدخال رقم واتساب.');
                     return;
                 }
-                
+
                 const btn = e.target;
                 btn.textContent = 'جاري المعالجة...';
                 btn.style.opacity = '0.7';
@@ -6363,7 +6361,7 @@
                 createRippleBtn(e, e.target);
                 const playerId = document.getElementById('ffPlayerIdInput').value.trim();
                 const whatsapp = document.getElementById('ffWhatsappInput').value.trim();
-                
+
                 if (!ffSelectedPack) {
                     alert('⚠️ يرجى اختيار باقة الشحن أولاً.');
                     return;
@@ -6376,7 +6374,7 @@
                     alert('⚠️ يرجى إدخال رقم واتساب.');
                     return;
                 }
-                
+
                 const btn = e.target;
                 btn.textContent = 'جاري المعالجة...';
                 btn.style.opacity = '0.7';
@@ -6397,7 +6395,7 @@
                 createRippleBtn(e, e.target);
                 const uid = document.getElementById('genshinUidInput').value.trim();
                 const whatsapp = document.getElementById('genshinWhatsappInput').value.trim();
-                
+
                 if (!genshinSelectedPack) {
                     alert('⚠️ يرجى اختيار باقة أو منتج أولاً.');
                     return;
@@ -6410,7 +6408,7 @@
                     alert('⚠️ يرجى إدخال رقم واتساب.');
                     return;
                 }
-                
+
                 const btn = e.target;
                 btn.textContent = 'جاري المعالجة...';
                 btn.style.opacity = '0.7';
@@ -6679,7 +6677,7 @@
             const shippingForm = document.getElementById('shippingForm');
             const gameIdInput = document.getElementById('gameIdInput');
             const whatsappInput = document.getElementById('whatsappInput');
-            
+
             window.selectedPack = null;
             window.selectedPrice = null;
 
@@ -6723,7 +6721,7 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء باقة ${window.selectedPack} UC\n💰 السعر: $${window.selectedPrice}\n🆔 ID: ${gameId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
+                    );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
@@ -6737,7 +6735,7 @@
             const codShippingForm = document.getElementById('codShippingForm');
             const codPlayerIdInput = document.getElementById('codPlayerIdInput');
             const codWhatsappInput = document.getElementById('codWhatsappInput');
-            
+
             window.selectedCodPack = null;
             window.selectedCodPrice = null;
 
@@ -6781,7 +6779,7 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء باقة ${window.selectedCodPack} CP\n💰 السعر: $${window.selectedCodPrice}\n🎮 معرف اللاعب: ${playerId}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
+                    );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
@@ -6795,7 +6793,7 @@
             const mlShippingForm = document.getElementById('mlShippingForm');
             const mlAccountIdInput = document.getElementById('mlAccountIdInput');
             const mlRegionIdInput = document.getElementById('mlRegionIdInput');
-            
+
             window.selectedMlPack = null;
             window.selectedMlPrice = null;
 
@@ -6839,7 +6837,7 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء باقة ${window.selectedMlPack} 💎\n💰 السعر: $${window.selectedMlPrice}\n👤 معرف الحساب: ${accountId}\n📍 معرف المنطقة: ${regionId}\n\nسيتم التواصل معك قريباً.`
-                        );
+                    );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
@@ -6853,7 +6851,7 @@
             const efootballShippingForm = document.getElementById('efootballShippingForm');
             const efootballUidInput = document.getElementById('efootballUidInput');
             const efootballWhatsappInput = document.getElementById('efootballWhatsappInput');
-            
+
             window.selectedEfootballPack = null;
             window.selectedEfootballPrice = null;
 
@@ -6897,7 +6895,7 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${window.selectedEfootballPack} FC\n💰 السعر: $${window.selectedEfootballPrice}\n🆔 معرف UID: ${uid}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
+                    );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
@@ -6911,7 +6909,7 @@
             const cocShippingForm = document.getElementById('cocShippingForm');
             const cocSupercellInput = document.getElementById('cocSupercellInput');
             const cocWhatsappInput = document.getElementById('cocWhatsappInput');
-            
+
             window.selectedCocPack = null;
             window.selectedCocPrice = null;
 
@@ -6955,7 +6953,7 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${window.selectedCocPack} 💎\n💰 السعر: $${window.selectedCocPrice}\n👤 حساب Supercell: ${supercell}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
-                        );
+                    );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
                     openWhatsApp();
@@ -6974,7 +6972,7 @@
                     const targetId = btn.dataset.target;
                     const answer = document.getElementById(targetId);
                     const icon = btn.querySelector('.faq-icon-support i');
-                    
+
                     if (openFaqSupport === targetId) {
                         answer.classList.remove('open');
                         btn.classList.remove('active');
@@ -6984,10 +6982,11 @@
                         openFaqSupport = null;
                         return;
                     }
-                    
+
                     if (openFaqSupport) {
                         const prevAnswer = document.getElementById(openFaqSupport);
-                        const prevBtn = document.querySelector(`.faq-question-support[data-target="${openFaqSupport}"]`);
+                        const prevBtn = document.querySelector(
+                            `.faq-question-support[data-target="${openFaqSupport}"]`);
                         const prevIcon = prevBtn ? prevBtn.querySelector('.faq-icon-support i') : null;
                         if (prevAnswer) prevAnswer.classList.remove('open');
                         if (prevBtn) prevBtn.classList.remove('active');
@@ -6995,7 +6994,7 @@
                             prevIcon.style.transform = 'rotate(0deg)';
                         }
                     }
-                    
+
                     answer.classList.add('open');
                     btn.classList.add('active');
                     if (icon) {
@@ -7184,7 +7183,7 @@
                 renderFFPacks('codes');
                 const ffSlider = document.getElementById('ffPacksSlider');
                 if (ffSlider) ffSlider.style.transform = 'translateX(0%)';
-                
+
                 renderGenshinCrystals();
                 renderBloodstrikePacks();
                 renderChatGptPacks();
