@@ -590,6 +590,181 @@
         }
 
         /* ============================================ */
+        /* ===== CANVA SUBSCRIPTION PAGE ===== */
+        /* ============================================ */
+        .canva-type-selector {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .canva-type-btn {
+            padding: 16px 12px;
+            border: 2px solid #e8eaed;
+            border-radius: 16px;
+            background: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-align: center;
+            font-weight: 600;
+            font-size: 16px;
+            color: #444;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        .canva-type-btn:active {
+            transform: scale(0.97);
+        }
+
+        .canva-type-btn.active {
+            border-color: #1A73E8;
+            background: #E8F0FE;
+            color: #1A73E8;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.10);
+        }
+
+        .canva-type-btn .type-icon {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+
+        .canva-type-btn .type-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .canva-type-btn .type-sub {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        .canva-packs-container {
+            position: relative;
+            overflow: hidden;
+            min-height: 150px;
+        }
+
+        .canva-packs-slider {
+            display: flex;
+            transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            width: 100%;
+        }
+
+        .canva-packs-slide {
+            min-width: 100%;
+            padding: 0 2px;
+        }
+
+        .canva-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+        }
+
+        @media (min-width: 500px) {
+            .canva-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .canva-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .canva-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .canva-pack-btn .pack-plan {
+            display: block;
+            font-size: 20px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .canva-pack-btn .pack-price {
+            display: block;
+            font-size: 16px;
+            font-weight: 500;
+            color: #888;
+            margin-top: 6px;
+            transition: color 0.25s ease;
+        }
+
+        .canva-pack-btn .pack-badge {
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            background: linear-gradient(145deg, #F59E0B, #D97706);
+            color: #FFFFFF;
+            font-size: 9px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 50px;
+            letter-spacing: 0.2px;
+            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+            line-height: 1.4;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .canva-pack-btn .pack-save {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #10B981;
+            margin-top: 2px;
+            transition: color 0.25s ease;
+        }
+
+        .canva-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .canva-pack-btn.selected .pack-plan {
+            color: #1A73E8;
+        }
+
+        .canva-pack-btn.selected .pack-price {
+            color: #1A73E8;
+        }
+
+        .canva-pack-btn.selected .pack-save {
+            color: #1A73E8;
+        }
+
+        /* ============================================ */
         /* ===== BLOOD STRIKE PAGE ===== */
         /* ============================================ */
         .bloodstrike-header {
@@ -3741,6 +3916,34 @@
             .product-card h4 {
                 font-size: 12px;
             }
+
+            .canva-type-selector {
+                gap: 10px;
+            }
+            .canva-type-btn {
+                padding: 14px 10px;
+                font-size: 14px;
+            }
+            .canva-type-btn .type-icon {
+                font-size: 24px;
+            }
+            .canva-type-btn .type-label {
+                font-size: 13px;
+            }
+            .canva-type-btn .type-sub {
+                font-size: 11px;
+            }
+            .canva-pack-btn {
+                min-height: 100px;
+                padding: 16px 10px;
+            }
+            .canva-pack-btn .pack-plan {
+                font-size: 17px;
+            }
+            .canva-pack-btn .pack-price {
+                font-size: 14px;
+            }
+
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -4027,6 +4230,11 @@
             .product-card h4 {
                 font-size: 15px;
             }
+
+            .canva-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
             .sub-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
@@ -4179,6 +4387,10 @@
             .wallet-actions .action-card {
                 padding: 24px 24px;
                 min-height: 120px;
+            }
+            .canva-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
             }
             .sub-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -4445,6 +4657,56 @@
                 <label>رقم واتساب</label>
                 <input type="tel" placeholder="مثال: 0912345678" id="chatgptWhatsappInput" />
                 <button class="btn-buy" id="chatgptBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة CANVA ===== -->
+        <!-- ============================================ -->
+        <div id="page-canva" class="page">
+            <div class="subscription-header">
+                <img src="https://i.postimg.cc/dtFFPM8q/file-00000000f68871f4b1f72353ac794c9e.png" alt="Canva" />
+                <div class="sub-info">
+                    <h2>Canva</h2>
+                    <p>اختر نوع الاشتراك المناسب لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <!-- Canva Type Selector -->
+            <div class="canva-type-selector" id="canvaTypeSelector">
+                <button class="canva-type-btn active" data-type="pro">
+                    <span class="type-icon">✨</span>
+                    <span class="type-label">Canva Pro</span>
+                    <span class="type-sub">للأفراد والمصممين</span>
+                </button>
+                <button class="canva-type-btn" data-type="business">
+                    <span class="type-icon">🏢</span>
+                    <span class="type-label">Canva للأعمال</span>
+                    <span class="type-sub">للشركات والفرق</span>
+                </button>
+            </div>
+
+            <!-- Canva Packs Container -->
+            <div class="canva-packs-container">
+                <div class="canva-packs-slider" id="canvaPacksSlider">
+                    <!-- Slide: Canva Pro -->
+                    <div class="canva-packs-slide" data-slide="pro">
+                        <div class="canva-packs-grid" id="canvaProGrid"></div>
+                    </div>
+                    <!-- Slide: Canva للأعمال -->
+                    <div class="canva-packs-slide" data-slide="business">
+                        <div class="canva-packs-grid" id="canvaBusinessGrid"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shipping Form -->
+            <div class="sub-shipping-form hidden" id="canvaShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="canvaEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="canvaWhatsappInput" />
+                <button class="btn-buy" id="canvaBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -5136,6 +5398,19 @@
             ];
 
             // ============================================
+            // ===== CANVA DATA =====
+            // ============================================
+            const canvaProPacks = [
+                { plan: 'اشتراك شهري', price: '$12.99' },
+                { plan: 'اشتراك سنوي', price: '$119.99', save: 'وفر 40%', popular: true },
+            ];
+
+            const canvaBusinessPacks = [
+                { plan: 'اشتراك شهري', price: '$29.99' },
+                { plan: 'اشتراك سنوي', price: '$299.99', save: 'وفر 35%', popular: true },
+            ];
+
+            // ============================================
             // ===== BLOOD STRIKE DATA =====
             // ============================================
             const bloodstrikePacksData = [
@@ -5255,6 +5530,139 @@
             // ============================================
             function openWhatsApp() {
                 window.open(WHATSAPP_URL, '_blank');
+            }
+
+            // ============================================
+            // ===== CANVA FUNCTIONS =====
+            // ============================================
+            let canvaCurrentType = 'pro';
+            let canvaSelectedPack = null;
+            let canvaSelectedPrice = null;
+
+            function renderCanvaPacks(type) {
+                const slider = document.getElementById('canvaPacksSlider');
+                const buttons = document.querySelectorAll('.canva-type-btn');
+
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.type === type) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                const index = type === 'pro' ? 0 : 1;
+                slider.style.transform = `translateX(-${index * 100}%)`;
+
+                canvaSelectedPack = null;
+                canvaSelectedPrice = null;
+                document.getElementById('canvaShippingForm').classList.add('hidden');
+                document.getElementById('canvaShippingForm').classList.remove('visible');
+
+                if (type === 'pro') {
+                    renderCanvaProPacks();
+                } else {
+                    renderCanvaBusinessPacks();
+                }
+            }
+
+            function renderCanvaProPacks() {
+                const grid = document.getElementById('canvaProGrid');
+                if (!grid) return;
+
+                grid.innerHTML = canvaProPacks.map(pack => {
+                    let badge = '';
+                    let saveText = '';
+                    if (pack.popular) {
+                        badge = `<span class="pack-badge">★ الأكثر مبيعاً</span>`;
+                    }
+                    if (pack.save) {
+                        saveText = `<span class="pack-save">${pack.save}</span>`;
+                    }
+                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
+                        ${badge}
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">${pack.price}</span>
+                        ${saveText}
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.canva-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.canva-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        canvaSelectedPack = this.dataset.plan;
+                        canvaSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('canvaShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('canvaEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function renderCanvaBusinessPacks() {
+                const grid = document.getElementById('canvaBusinessGrid');
+                if (!grid) return;
+
+                grid.innerHTML = canvaBusinessPacks.map(pack => {
+                    let badge = '';
+                    let saveText = '';
+                    if (pack.popular) {
+                        badge = `<span class="pack-badge">★ الأكثر مبيعاً</span>`;
+                    }
+                    if (pack.save) {
+                        saveText = `<span class="pack-save">${pack.save}</span>`;
+                    }
+                    return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
+                        ${badge}
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">${pack.price}</span>
+                        ${saveText}
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.canva-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.canva-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        canvaSelectedPack = this.dataset.plan;
+                        canvaSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('canvaShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('canvaEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetCanvaPacks() {
+                canvaSelectedPack = null;
+                canvaSelectedPrice = null;
+                canvaCurrentType = 'pro';
+                renderCanvaPacks('pro');
+                const shippingForm = document.getElementById('canvaShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('canvaEmailInput');
+                const whatsappInput = document.getElementById('canvaWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
             }
 
             // ============================================
@@ -5621,6 +6029,7 @@
                 resetGenshinPacks();
                 resetBloodstrikePacks();
                 resetChatGptPacks();
+                resetCanvaPacks();
             }
 
             // ============================================
@@ -5672,6 +6081,11 @@
                                 if (item.page === 'page-chatgpt') {
                                     setTimeout(() => {
                                         renderChatGptPacks();
+                                    }, 100);
+                                }
+                                if (item.page === 'page-canva') {
+                                    setTimeout(() => {
+                                        renderCanvaPacks('pro');
                                     }, 100);
                                 }
                                 if (item.page === 'page-bloodstrike') {
@@ -5789,6 +6203,20 @@
             });
 
             // ============================================
+            // ===== CANVA TYPE SELECTOR EVENTS =====
+            // ============================================
+            document.querySelectorAll('.canva-type-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const type = this.dataset.type;
+                    canvaSelectedPack = null;
+                    canvaSelectedPrice = null;
+                    document.getElementById('canvaShippingForm').classList.add('hidden');
+                    document.getElementById('canvaShippingForm').classList.remove('visible');
+                    renderCanvaPacks(type);
+                });
+            });
+
+            // ============================================
             // ===== FREE FIRE TAB EVENTS =====
             // ============================================
             document.querySelectorAll('.ff-tab-btn').forEach(btn => {
@@ -5829,6 +6257,41 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${chatgptSelectedPack}\n💰 السعر: $${chatgptSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== CANVA BUY BUTTON =====
+            // ============================================
+            document.getElementById('canvaBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('canvaEmailInput').value.trim();
+                const whatsapp = document.getElementById('canvaWhatsappInput').value.trim();
+                const type = canvaCurrentType === 'pro' ? 'Canva Pro' : 'Canva للأعمال';
+                
+                if (!canvaSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+                
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${type} - ${canvaSelectedPack}\n💰 السعر: $${canvaSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -6657,13 +7120,14 @@
                         b.closest('.cod-pack-btn') || b.closest('.ml-pack-btn') ||
                         b.closest('.efootball-pack-btn') || b.closest('.coc-pack-btn') ||
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
-                        b.closest('.sub-pack-btn') ||
+                        b.closest('.sub-pack-btn') || b.closest('.canva-type-btn') ||
+                        b.closest('.canva-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
-                        b.id === 'chatgptBuyNowBtn' ||
+                        b.id === 'chatgptBuyNowBtn' || b.id === 'canvaBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -6701,10 +7165,11 @@
                 renderGenshinCrystals();
                 renderBloodstrikePacks();
                 renderChatGptPacks();
+                renderCanvaPacks('pro');
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة باقات Chat GPT: Chat GPT Go, Chat GPT Plus');
+            console.log('✅ تم إضافة صفحة Canva مع نوعين من الاشتراك: Canva Pro و Canva للأعمال');
 
         })();
     </script>
