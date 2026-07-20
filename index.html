@@ -4652,7 +4652,7 @@
         </div>
 
         <!-- ============================================ -->
-        <!-- ===== صفحة CANVA (بدون إيموجيات) ===== -->
+        <!-- ===== صفحة CANVA ===== -->
         <!-- ============================================ -->
         <div id="page-canva" class="page">
             <div class="subscription-header">
@@ -4663,7 +4663,7 @@
                 </div>
             </div>
 
-            <!-- Canva Type Selector (بدون إيموجيات) -->
+            <!-- Canva Type Selector -->
             <div class="canva-type-selector" id="canvaTypeSelector">
                 <button class="canva-type-btn active" data-type="pro">
                     <span class="type-label">Canva Pro</span>
@@ -5546,15 +5546,24 @@
                 // إعادة تعيين الاختيار
                 canvaSelectedPack = null;
                 canvaSelectedPrice = null;
-                document.getElementById('canvaShippingForm').classList.add('hidden');
-                document.getElementById('canvaShippingForm').classList.remove('visible');
+                
+                // إخفاء نموذج الشحن
+                const shippingForm = document.getElementById('canvaShippingForm');
+                shippingForm.classList.add('hidden');
+                shippingForm.classList.remove('visible');
+                
+                // إفراغ الحقول
+                document.getElementById('canvaEmailInput').value = '';
+                document.getElementById('canvaWhatsappInput').value = '';
 
-                // عرض الباقات المناسبة
-                if (type === 'pro') {
-                    renderCanvaProPacks();
-                } else {
-                    renderCanvaBusinessPacks();
-                }
+                // عرض الباقات المناسبة مع تأخير بسيط
+                setTimeout(() => {
+                    if (type === 'pro') {
+                        renderCanvaProPacks();
+                    } else {
+                        renderCanvaBusinessPacks();
+                    }
+                }, 100);
             }
 
             function renderCanvaProPacks() {
@@ -5615,7 +5624,7 @@
                     return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
                         ${badge}
                         <span class="pack-plan">${pack.plan}</span>
-                        <span class="pack-price">${pack.price}</span>
+                        <span class="pack-price">$${pack.price}</span>
                         ${saveText}
                     </button>`;
                 }).join('');
@@ -6022,6 +6031,28 @@
                 resetBloodstrikePacks();
                 resetChatGptPacks();
                 resetCanvaPacks();
+
+                // إعادة تعيين جميع المتغيرات العمومية
+                window.selectedPack = null;
+                window.selectedPrice = null;
+                window.selectedCodPack = null;
+                window.selectedCodPrice = null;
+                window.selectedMlPack = null;
+                window.selectedMlPrice = null;
+                window.selectedEfootballPack = null;
+                window.selectedEfootballPrice = null;
+                window.selectedCocPack = null;
+                window.selectedCocPrice = null;
+                ffSelectedPack = null;
+                ffSelectedPrice = null;
+                genshinSelectedPack = null;
+                genshinSelectedPrice = null;
+                bloodstrikeSelectedPack = null;
+                bloodstrikeSelectedPrice = null;
+                chatgptSelectedPack = null;
+                chatgptSelectedPrice = null;
+                canvaSelectedPack = null;
+                canvaSelectedPrice = null;
             }
 
             // ============================================
@@ -7157,7 +7188,6 @@
                 renderGenshinCrystals();
                 renderBloodstrikePacks();
                 renderChatGptPacks();
-                // تهيئة صفحة Canva مع عرض Canva Pro افتراضياً
                 renderCanvaPacks('pro');
             }, 200);
 
