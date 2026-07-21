@@ -500,23 +500,6 @@
             transition: color 0.25s ease;
         }
 
-        .sub-pack-btn .sub-badge {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            background: linear-gradient(145deg, #F59E0B, #D97706);
-            color: #FFFFFF;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 50px;
-            letter-spacing: 0.2px;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
-            line-height: 1.4;
-            text-align: center;
-            z-index: 2;
-        }
-
         .sub-pack-btn.selected {
             border-color: #1A73E8;
             border-width: 2px;
@@ -713,23 +696,6 @@
             transition: color 0.25s ease;
         }
 
-        .canva-pack-btn .pack-badge {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            background: linear-gradient(145deg, #F59E0B, #D97706);
-            color: #FFFFFF;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 50px;
-            letter-spacing: 0.2px;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
-            line-height: 1.4;
-            text-align: center;
-            z-index: 2;
-        }
-
         .canva-pack-btn .pack-save {
             display: block;
             font-size: 12px;
@@ -756,6 +722,217 @@
 
         .canva-pack-btn.selected .pack-save {
             color: #1A73E8;
+        }
+
+        /* ============================================ */
+        /* ===== GEMINI PAGE ===== */
+        /* ============================================ */
+        .gemini-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .gemini-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .gemini-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .gemini-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .gemini-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .gemini-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .gemini-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .gemini-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gemini-pack-btn .pack-plan {
+            display: block;
+            font-size: 20px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .gemini-pack-btn .pack-price {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .gemini-pack-btn .pack-desc {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .gemini-pack-btn .pack-save {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #10B981;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .gemini-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .gemini-pack-btn.selected .pack-plan {
+            color: #1A73E8;
+        }
+
+        .gemini-pack-btn.selected .pack-price {
+            color: #1A73E8;
+        }
+
+        .gemini-pack-btn.selected .pack-save {
+            color: #1A73E8;
+        }
+
+        .gemini-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .gemini-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gemini-shipping-form.hidden {
+            display: none;
+        }
+
+        .gemini-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .gemini-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .gemini-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .gemini-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .gemini-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .gemini-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .gemini-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
         }
 
         /* ============================================ */
@@ -851,23 +1028,6 @@
             color: #888;
             margin-top: 4px;
             transition: color 0.25s ease;
-        }
-
-        .bloodstrike-pack-btn .gold-badge {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            background: linear-gradient(145deg, #F59E0B, #D97706);
-            color: #FFFFFF;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 50px;
-            letter-spacing: 0.2px;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
-            line-height: 1.4;
-            text-align: center;
-            z-index: 2;
         }
 
         .bloodstrike-pack-btn.selected {
@@ -1043,23 +1203,6 @@
             color: #888;
             margin-top: 4px;
             transition: color 0.25s ease;
-        }
-
-        .genshin-pack-btn .crystal-badge {
-            position: absolute;
-            top: 6px;
-            left: 6px;
-            background: linear-gradient(145deg, #F59E0B, #D97706);
-            color: #FFFFFF;
-            font-size: 9px;
-            font-weight: 700;
-            padding: 2px 8px;
-            border-radius: 50px;
-            letter-spacing: 0.2px;
-            box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
-            line-height: 1.4;
-            text-align: center;
-            z-index: 2;
         }
 
         .genshin-pack-btn.selected {
@@ -3935,6 +4078,20 @@
                 font-size: 14px;
             }
 
+            .gemini-pack-btn {
+                min-height: 120px;
+                padding: 16px 10px;
+            }
+            .gemini-pack-btn .pack-plan {
+                font-size: 17px;
+            }
+            .gemini-pack-btn .pack-price {
+                font-size: 16px;
+            }
+            .gemini-pack-btn .pack-desc {
+                font-size: 11px;
+            }
+
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -4148,12 +4305,6 @@
             .sub-pack-btn .sub-price {
                 font-size: 13px;
             }
-            .sub-pack-btn .sub-badge {
-                font-size: 8px;
-                padding: 2px 6px;
-                top: 4px;
-                left: 4px;
-            }
 
             .ff-tabs-wrapper {
                 height: 48px;
@@ -4179,12 +4330,6 @@
             .bloodstrike-pack-btn .price-amount {
                 font-size: 13px;
             }
-            .bloodstrike-pack-btn .gold-badge {
-                font-size: 8px;
-                padding: 2px 6px;
-                top: 4px;
-                left: 4px;
-            }
 
             .genshin-pack-btn {
                 min-height: 100px;
@@ -4198,12 +4343,6 @@
             }
             .genshin-pack-btn .crystal-price {
                 font-size: 13px;
-            }
-            .genshin-pack-btn .crystal-badge {
-                font-size: 8px;
-                padding: 2px 6px;
-                top: 4px;
-                left: 4px;
             }
         }
 
@@ -4223,6 +4362,10 @@
             }
 
             .canva-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
+            .gemini-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
@@ -4380,6 +4523,10 @@
                 min-height: 120px;
             }
             .canva-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .gemini-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 18px;
             }
@@ -4696,6 +4843,31 @@
                 <label>رقم واتساب</label>
                 <input type="tel" placeholder="مثال: 0912345678" id="canvaWhatsappInput" />
                 <button class="btn-buy" id="canvaBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة GEMINI ===== -->
+        <!-- ============================================ -->
+        <div id="page-gemini" class="page">
+            <div class="gemini-header">
+                <img src="https://i.postimg.cc/2y3Qc92g/file-00000000423081f4be082a2d5f3c0add.png" alt="Gemini" />
+                <div class="game-info">
+                    <h2>Gemini</h2>
+                    <p>اختر الباقة المناسبة لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <div class="gemini-packs-grid" id="geminiPacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="gemini-shipping-form hidden" id="geminiShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="geminiEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="geminiWhatsappInput" />
+                <button class="gemini-btn-buy" id="geminiBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -5367,9 +5539,9 @@
             const subscriptionsList = [
                 { name: 'Chat Gpt', img: 'https://i.postimg.cc/vZGWCmqF/file-00000000116471f4985d0d52273f5221.png', page: 'page-chatgpt' },
                 { name: 'Canva', img: 'https://i.postimg.cc/dtFFPM8q/file-00000000f68871f4b1f72353ac794c9e.png', page: 'page-canva' },
+                { name: 'Gemini', img: 'https://i.postimg.cc/2y3Qc92g/file-00000000423081f4be082a2d5f3c0add.png', page: 'page-gemini' },
                 { name: 'CapCut', img: 'https://i.postimg.cc/QtmmnTsK/file-00000000a4388246b46595515c6c40a7.png', page: 'page-capcut' },
                 { name: 'Starlink', img: 'https://i.postimg.cc/3N7c6TPY/file-000000004e7c71f49bacd36cc97e1bd8.png', page: 'page-starlink' },
-                { name: 'Gemni', img: 'https://i.postimg.cc/2y3Qc92g/file-00000000423081f4be082a2d5f3c0add.png', page: 'page-gemni' },
                 { name: 'YouTube', img: 'https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png', page: 'page-youtube' },
                 { name: 'Shahid VIP', img: 'https://i.postimg.cc/8cFvBJzt/file-0000000044ec81f480e3f2badbea9a68.png', page: 'page-shahid' },
                 { name: 'Netflix', img: 'https://i.postimg.cc/G3YG2D6F/IMG-20260705-WA0096.jpg', page: 'page-netflix' },
@@ -5383,7 +5555,7 @@
             // ============================================
             const chatgptPacksData = [
                 { plan: 'Chat GPT Go', price: '$0.99' },
-                { plan: 'Chat GPT Plus', price: '$19.99', popular: true },
+                { plan: 'Chat GPT Plus', price: '$19.99' },
             ];
 
             // ============================================
@@ -5391,12 +5563,29 @@
             // ============================================
             const canvaProPacks = [
                 { plan: 'اشتراك شهري', price: '12.99' },
-                { plan: 'اشتراك سنوي', price: '119.99', save: 'وفر 40%', popular: true },
+                { plan: 'اشتراك سنوي', price: '119.99', save: 'وفر 40%' },
             ];
 
             const canvaBusinessPacks = [
                 { plan: 'اشتراك شهري', price: '29.99' },
-                { plan: 'اشتراك سنوي', price: '299.99', save: 'وفر 35%', popular: true },
+                { plan: 'اشتراك سنوي', price: '299.99', save: 'وفر 35%' },
+            ];
+
+            // ============================================
+            // ===== GEMINI DATA =====
+            // ============================================
+            const geminiPacksData = [
+                { 
+                    plan: 'اشتراك شهري', 
+                    price: '4.99', 
+                    description: 'شهرياً'
+                },
+                { 
+                    plan: 'اشتراك سنوي', 
+                    price: '44.99', 
+                    description: 'سنوياً',
+                    save: 'وفر 16%'
+                },
             ];
 
             // ============================================
@@ -5449,7 +5638,7 @@
                 { amount: '330 بلورة', price: '$4.99', bonus: '30+300 هدية 🎁' },
                 { amount: '1,090 بلورة', price: '$14.99', bonus: null },
                 { amount: '2,240 بلورة', price: '$29.99', bonus: '260+1980 هدية 🎁' },
-                { amount: '3,880 بلورة', price: '$49.99', bonus: '3280+600 هدية 🎁', bestseller: true },
+                { amount: '3,880 بلورة', price: '$49.99', bonus: '3280+600 هدية 🎁' },
                 { amount: '8,080 بلورة', price: '$99.99', bonus: '6480+1600 هدية 🎁' },
             ];
 
@@ -5529,7 +5718,6 @@
             let canvaSelectedPrice = null;
 
             function renderCanvaPacks(type) {
-                // تحديث حالة الأزرار
                 const buttons = document.querySelectorAll('.canva-type-btn');
                 buttons.forEach(btn => {
                     btn.classList.remove('active');
@@ -5538,25 +5726,20 @@
                     }
                 });
 
-                // تحديث المؤشر المنزلق
                 const slider = document.getElementById('canvaPacksSlider');
                 const index = type === 'pro' ? 0 : 1;
                 slider.style.transform = `translateX(-${index * 100}%)`;
 
-                // إعادة تعيين الاختيار
                 canvaSelectedPack = null;
                 canvaSelectedPrice = null;
 
-                // إخفاء نموذج الشحن
                 const shippingForm = document.getElementById('canvaShippingForm');
                 shippingForm.classList.add('hidden');
                 shippingForm.classList.remove('visible');
 
-                // إفراغ الحقول
                 document.getElementById('canvaEmailInput').value = '';
                 document.getElementById('canvaWhatsappInput').value = '';
 
-                // عرض الباقات المناسبة
                 if (type === 'pro') {
                     renderCanvaProPacks();
                 } else {
@@ -5569,16 +5752,11 @@
                 if (!grid) return;
 
                 grid.innerHTML = canvaProPacks.map(pack => {
-                    let badge = '';
                     let saveText = '';
-                    if (pack.popular) {
-                        badge = `<span class="pack-badge">★ الأكثر مبيعاً</span>`;
-                    }
                     if (pack.save) {
                         saveText = `<span class="pack-save">${pack.save}</span>`;
                     }
                     return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
-                        ${badge}
                         <span class="pack-plan">${pack.plan}</span>
                         <span class="pack-price">$${pack.price}</span>
                         ${saveText}
@@ -5611,16 +5789,11 @@
                 if (!grid) return;
 
                 grid.innerHTML = canvaBusinessPacks.map(pack => {
-                    let badge = '';
                     let saveText = '';
-                    if (pack.popular) {
-                        badge = `<span class="pack-badge">★ الأكثر مبيعاً</span>`;
-                    }
                     if (pack.save) {
                         saveText = `<span class="pack-save">${pack.save}</span>`;
                     }
                     return `<button class="canva-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
-                        ${badge}
                         <span class="pack-plan">${pack.plan}</span>
                         <span class="pack-price">$${pack.price}</span>
                         ${saveText}
@@ -5665,6 +5838,65 @@
             }
 
             // ============================================
+            // ===== GEMINI FUNCTIONS =====
+            // ============================================
+            let geminiSelectedPack = null;
+            let geminiSelectedPrice = null;
+
+            function renderGeminiPacks() {
+                const grid = document.getElementById('geminiPacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = geminiPacksData.map(pack => {
+                    let saveText = '';
+                    if (pack.save) {
+                        saveText = `<span class="pack-save">${pack.save}</span>`;
+                    }
+                    return `<button class="gemini-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">$${pack.price}</span>
+                        <span class="pack-desc">${pack.description}</span>
+                        ${saveText}
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.gemini-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.gemini-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        geminiSelectedPack = this.dataset.plan;
+                        geminiSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('geminiShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('geminiEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetGeminiPacks() {
+                geminiSelectedPack = null;
+                geminiSelectedPrice = null;
+                renderGeminiPacks();
+                const shippingForm = document.getElementById('geminiShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('geminiEmailInput');
+                const whatsappInput = document.getElementById('geminiWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== CHAT GPT FUNCTIONS =====
             // ============================================
             let chatgptSelectedPack = null;
@@ -5675,12 +5907,7 @@
                 if (!grid) return;
 
                 grid.innerHTML = chatgptPacksData.map(pack => {
-                    let badge = '';
-                    if (pack.popular) {
-                        badge = `<span class="sub-badge">★ الأكثر مبيعاً</span>`;
-                    }
                     return `<button class="sub-pack-btn" data-plan="${pack.plan}" data-price="${pack.price.replace('$', '')}">
-                        ${badge}
                         <span class="sub-plan">${pack.plan}</span>
                         <span class="sub-price">${pack.price}</span>
                     </button>`;
@@ -5733,12 +5960,7 @@
                 if (!grid) return;
 
                 grid.innerHTML = bloodstrikePacksData.map(pack => {
-                    let badge = '';
-                    if (pack.amount === '2,260 قطعة ذهبية') {
-                        badge = `<span class="gold-badge">★ الأكثر مبيعاً</span>`;
-                    }
                     return `<button class="bloodstrike-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}">
-                        ${badge}
                         <span class="gold-amount">${pack.amount}</span>
                         <span class="price-amount">${pack.price}</span>
                     </button>`;
@@ -5796,9 +6018,6 @@
                         html += `<span class="crystal-bonus">${pack.bonus}</span>`;
                     }
                     html += `<span class="crystal-price">${pack.price}</span>`;
-                    if (pack.bestseller) {
-                        html += `<span class="crystal-badge">★ الأكثر مبيعاً</span>`;
-                    }
                     return `<button class="genshin-pack-btn" data-amount="${pack.amount}" data-price="${pack.price.replace('$', '')}" data-type="crystals">${html}</button>`;
                 }).join('');
 
@@ -6029,8 +6248,8 @@
                 resetBloodstrikePacks();
                 resetChatGptPacks();
                 resetCanvaPacks();
+                resetGeminiPacks();
 
-                // إعادة تعيين جميع المتغيرات العمومية
                 window.selectedPack = null;
                 window.selectedPrice = null;
                 window.selectedCodPack = null;
@@ -6051,6 +6270,8 @@
                 chatgptSelectedPrice = null;
                 canvaSelectedPack = null;
                 canvaSelectedPrice = null;
+                geminiSelectedPack = null;
+                geminiSelectedPrice = null;
             }
 
             // ============================================
@@ -6107,6 +6328,11 @@
                                 if (item.page === 'page-canva') {
                                     setTimeout(() => {
                                         renderCanvaPacks('pro');
+                                    }, 100);
+                                }
+                                if (item.page === 'page-gemini') {
+                                    setTimeout(() => {
+                                        renderGeminiPacks();
                                     }, 100);
                                 }
                                 if (item.page === 'page-bloodstrike') {
@@ -6313,6 +6539,40 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${type} - ${canvaSelectedPack}\n💰 السعر: $${canvaSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== GEMINI BUY BUTTON =====
+            // ============================================
+            document.getElementById('geminiBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('geminiEmailInput').value.trim();
+                const whatsapp = document.getElementById('geminiWhatsappInput').value.trim();
+
+                if (!geminiSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${geminiSelectedPack}\n💰 السعر: $${geminiSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -7144,12 +7404,14 @@
                         b.closest('.ff-pack-btn') || b.closest('.ff-tab-btn') ||
                         b.closest('.sub-pack-btn') || b.closest('.canva-type-btn') ||
                         b.closest('.canva-pack-btn') ||
+                        b.closest('.gemini-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
                         b.id === 'mlBuyNowBtn' || b.id === 'efootballBuyNowBtn' ||
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
                         b.id === 'chatgptBuyNowBtn' || b.id === 'canvaBuyNowBtn' ||
+                        b.id === 'geminiBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -7188,13 +7450,14 @@
                 renderBloodstrikePacks();
                 renderChatGptPacks();
                 renderCanvaPacks('pro');
+                renderGeminiPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إصلاح مشكلة ظهور باقات Canva للأعمال');
+            console.log('✅ تم حذف علامات الأكثر مبيعاً من جميع الباقات');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
