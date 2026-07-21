@@ -1410,6 +1410,217 @@
         }
 
         /* ============================================ */
+        /* ===== EXPRESSVPN PAGE ===== */
+        /* ============================================ */
+        .expressvpn-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .expressvpn-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .expressvpn-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .expressvpn-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .expressvpn-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (max-width: 500px) {
+            .expressvpn-packs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .expressvpn-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .expressvpn-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 130px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .expressvpn-pack-btn .pack-plan {
+            display: block;
+            font-size: 20px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.2;
+            transition: color 0.25s ease;
+        }
+
+        .expressvpn-pack-btn .pack-price {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #888;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .expressvpn-pack-btn .pack-desc {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .expressvpn-pack-btn .pack-save {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: #10B981;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .expressvpn-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .expressvpn-pack-btn.selected .pack-plan {
+            color: #1A73E8;
+        }
+
+        .expressvpn-pack-btn.selected .pack-price {
+            color: #1A73E8;
+        }
+
+        .expressvpn-pack-btn.selected .pack-save {
+            color: #1A73E8;
+        }
+
+        .expressvpn-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .expressvpn-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .expressvpn-shipping-form.hidden {
+            display: none;
+        }
+
+        .expressvpn-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .expressvpn-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .expressvpn-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .expressvpn-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .expressvpn-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .expressvpn-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .expressvpn-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
         /* ===== BLOOD STRIKE PAGE ===== */
         /* ============================================ */
         .bloodstrike-header {
@@ -4598,6 +4809,20 @@
                 font-size: 11px;
             }
 
+            .expressvpn-pack-btn {
+                min-height: 120px;
+                padding: 16px 10px;
+            }
+            .expressvpn-pack-btn .pack-plan {
+                font-size: 17px;
+            }
+            .expressvpn-pack-btn .pack-price {
+                font-size: 16px;
+            }
+            .expressvpn-pack-btn .pack-desc {
+                font-size: 11px;
+            }
+
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -4887,6 +5112,10 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
+            .expressvpn-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 16px;
+            }
             .bloodstrike-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
@@ -5053,6 +5282,10 @@
                 gap: 18px;
             }
             .nordvpn-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .expressvpn-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 18px;
             }
@@ -5444,6 +5677,31 @@
                 <label>رقم واتساب</label>
                 <input type="tel" placeholder="مثال: 0912345678" id="nordvpnWhatsappInput" />
                 <button class="nordvpn-btn-buy" id="nordvpnBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة EXPRESSVPN ===== -->
+        <!-- ============================================ -->
+        <div id="page-expressvpn" class="page">
+            <div class="expressvpn-header">
+                <img src="https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png" alt="ExpressVPN" />
+                <div class="game-info">
+                    <h2>ExpressVPN</h2>
+                    <p>اختر الباقة المناسبة لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <div class="expressvpn-packs-grid" id="expressvpnPacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="expressvpn-shipping-form hidden" id="expressvpnShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="expressvpnEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="expressvpnWhatsappInput" />
+                <button class="expressvpn-btn-buy" id="expressvpnBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -6118,12 +6376,12 @@
                 { name: 'Gemini', img: 'https://i.postimg.cc/2y3Qc92g/file-00000000423081f4be082a2d5f3c0add.png', page: 'page-gemini' },
                 { name: 'Netflix', img: 'https://i.postimg.cc/G3YG2D6F/IMG-20260705-WA0096.jpg', page: 'page-netflix' },
                 { name: 'NordVPN', img: 'https://i.postimg.cc/d13Zwkr3/file-0000000024bc81f49fe659c36c8862c6.png', page: 'page-nordvpn' },
+                { name: 'ExpressVPN', img: 'https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png', page: 'page-expressvpn' },
                 { name: 'CapCut', img: 'https://i.postimg.cc/QtmmnTsK/file-00000000a4388246b46595515c6c40a7.png', page: 'page-capcut' },
                 { name: 'Starlink', img: 'https://i.postimg.cc/3N7c6TPY/file-000000004e7c71f49bacd36cc97e1bd8.png', page: 'page-starlink' },
                 { name: 'YouTube', img: 'https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png', page: 'page-youtube' },
                 { name: 'Shahid VIP', img: 'https://i.postimg.cc/8cFvBJzt/file-0000000044ec81f480e3f2badbea9a68.png', page: 'page-shahid' },
-                { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' },
-                { name: 'ExpressVPN', img: 'https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png', page: 'page-expressvpn' }
+                { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' }
             ];
 
             // ============================================
@@ -6199,6 +6457,28 @@
                     price: '59.88', 
                     description: 'سنوياً',
                     save: 'وفر 58%'
+                },
+            ];
+
+            // ============================================
+            // ===== EXPRESSVPN DATA =====
+            // ============================================
+            const expressvpnPacksData = [
+                { 
+                    plan: 'أسبوعي', 
+                    price: '6.99', 
+                    description: 'لمدة أسبوع'
+                },
+                { 
+                    plan: 'شهري', 
+                    price: '12.99', 
+                    description: 'شهرياً'
+                },
+                { 
+                    plan: 'سنوي', 
+                    price: '99.99', 
+                    description: 'سنوياً',
+                    save: 'وفر 36%'
                 },
             ];
 
@@ -6634,6 +6914,65 @@
             }
 
             // ============================================
+            // ===== EXPRESSVPN FUNCTIONS =====
+            // ============================================
+            let expressvpnSelectedPack = null;
+            let expressvpnSelectedPrice = null;
+
+            function renderExpressvpnPacks() {
+                const grid = document.getElementById('expressvpnPacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = expressvpnPacksData.map(pack => {
+                    let saveText = '';
+                    if (pack.save) {
+                        saveText = `<span class="pack-save">${pack.save}</span>`;
+                    }
+                    return `<button class="expressvpn-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">$${pack.price}</span>
+                        <span class="pack-desc">${pack.description}</span>
+                        ${saveText}
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.expressvpn-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.expressvpn-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        expressvpnSelectedPack = this.dataset.plan;
+                        expressvpnSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('expressvpnShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('expressvpnEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetExpressvpnPacks() {
+                expressvpnSelectedPack = null;
+                expressvpnSelectedPrice = null;
+                renderExpressvpnPacks();
+                const shippingForm = document.getElementById('expressvpnShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('expressvpnEmailInput');
+                const whatsappInput = document.getElementById('expressvpnWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== CHAT GPT FUNCTIONS =====
             // ============================================
             let chatgptSelectedPack = null;
@@ -6988,6 +7327,7 @@
                 resetGeminiPacks();
                 resetNetflixPacks();
                 resetNordvpnPacks();
+                resetExpressvpnPacks();
 
                 window.selectedPack = null;
                 window.selectedPrice = null;
@@ -7015,6 +7355,8 @@
                 netflixSelectedPrice = null;
                 nordvpnSelectedPack = null;
                 nordvpnSelectedPrice = null;
+                expressvpnSelectedPack = null;
+                expressvpnSelectedPrice = null;
             }
 
             // ============================================
@@ -7086,6 +7428,11 @@
                                 if (item.page === 'page-nordvpn') {
                                     setTimeout(() => {
                                         renderNordvpnPacks();
+                                    }, 100);
+                                }
+                                if (item.page === 'page-expressvpn') {
+                                    setTimeout(() => {
+                                        renderExpressvpnPacks();
                                     }, 100);
                                 }
                                 if (item.page === 'page-bloodstrike') {
@@ -7394,6 +7741,40 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${nordvpnSelectedPack}\n💰 السعر: $${nordvpnSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== EXPRESSVPN BUY BUTTON =====
+            // ============================================
+            document.getElementById('expressvpnBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('expressvpnEmailInput').value.trim();
+                const whatsapp = document.getElementById('expressvpnWhatsappInput').value.trim();
+
+                if (!expressvpnSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${expressvpnSelectedPack}\n💰 السعر: $${expressvpnSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -8228,6 +8609,7 @@
                         b.closest('.gemini-pack-btn') ||
                         b.closest('.netflix-pack-btn') ||
                         b.closest('.nordvpn-pack-btn') ||
+                        b.closest('.expressvpn-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
@@ -8235,7 +8617,7 @@
                         b.id === 'cocBuyNowBtn' || b.id === 'ffBuyNowBtn' ||
                         b.id === 'chatgptBuyNowBtn' || b.id === 'canvaBuyNowBtn' ||
                         b.id === 'geminiBuyNowBtn' || b.id === 'netflixBuyNowBtn' ||
-                        b.id === 'nordvpnBuyNowBtn' ||
+                        b.id === 'nordvpnBuyNowBtn' || b.id === 'expressvpnBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -8277,10 +8659,11 @@
                 renderGeminiPacks();
                 renderNetflixPacks();
                 renderNordvpnPacks();
+                renderExpressvpnPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة صفحة NordVPN بنجاح مع الباقات المطلوبة');
+            console.log('✅ تم إضافة صفحة ExpressVPN بنجاح مع الباقات المطلوبة');
 
         })();
     </script>
