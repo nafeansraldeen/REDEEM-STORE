@@ -1824,6 +1824,236 @@
         }
 
         /* ============================================ */
+        /* ===== YOUTUBE PAGE ===== */
+        /* ============================================ */
+        .youtube-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .youtube-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .youtube-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .youtube-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .youtube-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .youtube-packs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .youtube-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .youtube-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .youtube-pack-btn .pack-plan {
+            display: block;
+            font-size: 17px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.3;
+            transition: color 0.25s ease;
+        }
+
+        .youtube-pack-btn .pack-price {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A73E8;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .youtube-pack-btn .pack-desc {
+            display: block;
+            font-size: 12px;
+            font-weight: 400;
+            color: #999;
+            margin-top: 6px;
+            transition: color 0.25s ease;
+        }
+
+        .youtube-pack-btn .pack-features {
+            display: block;
+            font-size: 11px;
+            font-weight: 500;
+            color: #666;
+            margin-top: 4px;
+            line-height: 1.5;
+            max-width: 100%;
+        }
+
+        .youtube-pack-btn .pack-save {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #10B981;
+            margin-top: 2px;
+            transition: color 0.25s ease;
+        }
+
+        .youtube-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .youtube-pack-btn.selected .pack-plan {
+            color: #1A73E8;
+        }
+
+        .youtube-pack-btn.selected .pack-price {
+            color: #1A73E8;
+        }
+
+        .youtube-pack-btn.selected .pack-desc {
+            color: #1A73E8;
+        }
+
+        .youtube-pack-btn.selected .pack-features {
+            color: #1A73E8;
+        }
+
+        .youtube-pack-btn.selected .pack-save {
+            color: #1A73E8;
+        }
+
+        .youtube-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .youtube-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .youtube-shipping-form.hidden {
+            display: none;
+        }
+
+        .youtube-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .youtube-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .youtube-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .youtube-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .youtube-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .youtube-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .youtube-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
         /* ===== BLOOD STRIKE PAGE ===== */
         /* ============================================ */
         .bloodstrike-header {
@@ -5040,6 +5270,23 @@
                 font-size: 12px;
             }
 
+            .youtube-pack-btn {
+                min-height: 120px;
+                padding: 16px 10px;
+            }
+            .youtube-pack-btn .pack-plan {
+                font-size: 15px;
+            }
+            .youtube-pack-btn .pack-price {
+                font-size: 18px;
+            }
+            .youtube-pack-btn .pack-desc {
+                font-size: 11px;
+            }
+            .youtube-pack-btn .pack-features {
+                font-size: 10px;
+            }
+
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -5337,6 +5584,10 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 16px;
             }
+            .youtube-packs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
             .bloodstrike-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
@@ -5482,6 +5733,10 @@
                 grid-template-columns: repeat(4, 1fr);
                 gap: 18px;
             }
+            .youtube-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 18px;
+            }
         }
 
         @media (min-width: 900px) {
@@ -5519,6 +5774,10 @@
             }
             .spotify-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .youtube-packs-grid {
+                grid-template-columns: repeat(3, 1fr);
                 gap: 18px;
             }
             .bloodstrike-packs-grid {
@@ -5959,6 +6218,31 @@
                 <label>رقم واتساب</label>
                 <input type="tel" placeholder="مثال: 0912345678" id="spotifyWhatsappInput" />
                 <button class="spotify-btn-buy" id="spotifyBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة YOUTUBE ===== -->
+        <!-- ============================================ -->
+        <div id="page-youtube" class="page">
+            <div class="youtube-header">
+                <img src="https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png" alt="YouTube" />
+                <div class="game-info">
+                    <h2>YouTube Premium</h2>
+                    <p>اختر الباقة المناسبة لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <div class="youtube-packs-grid" id="youtubePacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="youtube-shipping-form hidden" id="youtubeShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="youtubeEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="youtubeWhatsappInput" />
+                <button class="youtube-btn-buy" id="youtubeBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -6635,9 +6919,9 @@
                 { name: 'NordVPN', img: 'https://i.postimg.cc/d13Zwkr3/file-0000000024bc81f49fe659c36c8862c6.png', page: 'page-nordvpn' },
                 { name: 'ExpressVPN', img: 'https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png', page: 'page-expressvpn' },
                 { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' },
+                { name: 'YouTube', img: 'https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png', page: 'page-youtube' },
                 { name: 'CapCut', img: 'https://i.postimg.cc/QtmmnTsK/file-00000000a4388246b46595515c6c40a7.png', page: 'page-capcut' },
                 { name: 'Starlink', img: 'https://i.postimg.cc/3N7c6TPY/file-000000004e7c71f49bacd36cc97e1bd8.png', page: 'page-starlink' },
-                { name: 'YouTube', img: 'https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png', page: 'page-youtube' },
                 { name: 'Shahid VIP', img: 'https://i.postimg.cc/8cFvBJzt/file-0000000044ec81f480e3f2badbea9a68.png', page: 'page-shahid' }
             ];
 
@@ -6762,6 +7046,43 @@
                     plan: 'اشتراك العائلة', 
                     price: '7.99', 
                     description: 'شهري'
+                },
+            ];
+
+            // ============================================
+            // ===== YOUTUBE DATA =====
+            // ============================================
+            const youtubePacksData = [
+                { 
+                    plan: 'Premium فردي', 
+                    price: '15.99', 
+                    description: 'شهرياً',
+                    features: 'بدون إعلانات • تشغيل في الخلفية • تحميل فيديوهات • YouTube Music'
+                },
+                { 
+                    plan: 'Premium عائلي', 
+                    price: '26.99', 
+                    description: 'شهرياً',
+                    features: 'ما يصل إلى 5 أفراد • جميع مزايا Premium',
+                    save: 'وفر 35%'
+                },
+                { 
+                    plan: 'Premium طلاب', 
+                    price: '8.99', 
+                    description: 'شهرياً',
+                    features: 'جميع مزايا Premium • بسعر مخفض للطلاب'
+                },
+                { 
+                    plan: 'Premium Lite', 
+                    price: '8.99', 
+                    description: 'شهرياً',
+                    features: 'إزالة الإعلانات • بدون YouTube Music'
+                },
+                { 
+                    plan: 'Music Premium', 
+                    price: '11.99', 
+                    description: 'شهرياً',
+                    features: 'موسيقى بدون إعلانات • تشغيل في الخلفية'
                 },
             ];
 
@@ -7310,6 +7631,70 @@
             }
 
             // ============================================
+            // ===== YOUTUBE FUNCTIONS =====
+            // ============================================
+            let youtubeSelectedPack = null;
+            let youtubeSelectedPrice = null;
+
+            function renderYouTubePacks() {
+                const grid = document.getElementById('youtubePacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = youtubePacksData.map(pack => {
+                    let saveText = '';
+                    let featuresHtml = '';
+                    if (pack.save) {
+                        saveText = `<span class="pack-save">${pack.save}</span>`;
+                    }
+                    if (pack.features) {
+                        featuresHtml = `<span class="pack-features">${pack.features}</span>`;
+                    }
+                    return `<button class="youtube-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">$${pack.price}</span>
+                        <span class="pack-desc">${pack.description}</span>
+                        ${featuresHtml}
+                        ${saveText}
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.youtube-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.youtube-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        youtubeSelectedPack = this.dataset.plan;
+                        youtubeSelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('youtubeShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('youtubeEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetYouTubePacks() {
+                youtubeSelectedPack = null;
+                youtubeSelectedPrice = null;
+                renderYouTubePacks();
+                const shippingForm = document.getElementById('youtubeShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('youtubeEmailInput');
+                const whatsappInput = document.getElementById('youtubeWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== CHAT GPT FUNCTIONS =====
             // ============================================
             let chatgptSelectedPack = null;
@@ -7666,6 +8051,7 @@
                 resetNordvpnPacks();
                 resetExpressvpnPacks();
                 resetSpotifyPacks();
+                resetYouTubePacks();
 
                 window.selectedPack = null;
                 window.selectedPrice = null;
@@ -7697,6 +8083,8 @@
                 expressvpnSelectedPrice = null;
                 spotifySelectedPack = null;
                 spotifySelectedPrice = null;
+                youtubeSelectedPack = null;
+                youtubeSelectedPrice = null;
             }
 
             // ============================================
@@ -7778,6 +8166,11 @@
                                 if (item.page === 'page-spotify') {
                                     setTimeout(() => {
                                         renderSpotifyPacks();
+                                    }, 100);
+                                }
+                                if (item.page === 'page-youtube') {
+                                    setTimeout(() => {
+                                        renderYouTubePacks();
                                     }, 100);
                                 }
                                 if (item.page === 'page-bloodstrike') {
@@ -8154,6 +8547,40 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${spotifySelectedPack}\n💰 السعر: $${spotifySelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== YOUTUBE BUY BUTTON =====
+            // ============================================
+            document.getElementById('youtubeBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('youtubeEmailInput').value.trim();
+                const whatsapp = document.getElementById('youtubeWhatsappInput').value.trim();
+
+                if (!youtubeSelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${youtubeSelectedPack}\n💰 السعر: $${youtubeSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -8990,6 +9417,7 @@
                         b.closest('.nordvpn-pack-btn') ||
                         b.closest('.expressvpn-pack-btn') ||
                         b.closest('.spotify-pack-btn') ||
+                        b.closest('.youtube-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
@@ -8998,7 +9426,7 @@
                         b.id === 'chatgptBuyNowBtn' || b.id === 'canvaBuyNowBtn' ||
                         b.id === 'geminiBuyNowBtn' || b.id === 'netflixBuyNowBtn' ||
                         b.id === 'nordvpnBuyNowBtn' || b.id === 'expressvpnBuyNowBtn' ||
-                        b.id === 'spotifyBuyNowBtn' ||
+                        b.id === 'spotifyBuyNowBtn' || b.id === 'youtubeBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -9042,13 +9470,14 @@
                 renderNordvpnPacks();
                 renderExpressvpnPacks();
                 renderSpotifyPacks();
+                renderYouTubePacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة صفحة Spotify بنجاح مع الباقات المطلوبة');
+            console.log('✅ تم إضافة صفحة YouTube Premium بنجاح مع جميع الباقات');
 
         })();
     </script>
 
 </body>
-</html>
+    </html>
