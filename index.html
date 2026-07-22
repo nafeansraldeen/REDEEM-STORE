@@ -1621,6 +1621,209 @@
         }
 
         /* ============================================ */
+        /* ===== SPOTIFY PAGE ===== */
+        /* ============================================ */
+        .spotify-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 16px 20px;
+            background: #f8f9fa;
+            border-radius: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        .spotify-header img {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            border-radius: 16px;
+            background: #FFFFFF;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .spotify-header .game-info h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #222;
+            letter-spacing: 0.3px;
+        }
+
+        .spotify-header .game-info p {
+            font-size: 14px;
+            color: #777;
+            margin-top: 2px;
+            font-weight: 400;
+        }
+
+        .spotify-packs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            margin: 16px 0 20px;
+        }
+
+        @media (min-width: 500px) {
+            .spotify-packs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .spotify-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
+        .spotify-pack-btn {
+            background: #FFFFFF;
+            border: 2px solid #e8eaed;
+            border-radius: 18px;
+            padding: 20px 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: border-color 0.25s ease, box-shadow 0.25s ease, color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            min-height: 140px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .spotify-pack-btn .pack-plan {
+            display: block;
+            font-size: 18px;
+            font-weight: 800;
+            color: #1A1A1A;
+            line-height: 1.3;
+            transition: color 0.25s ease;
+        }
+
+        .spotify-pack-btn .pack-price {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A73E8;
+            margin-top: 4px;
+            transition: color 0.25s ease;
+        }
+
+        .spotify-pack-btn .pack-desc {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            color: #999;
+            margin-top: 6px;
+            transition: color 0.25s ease;
+        }
+
+        .spotify-pack-btn.selected {
+            border-color: #1A73E8;
+            border-width: 2px;
+            box-shadow: 0 2px 12px rgba(26, 115, 232, 0.12);
+            background: #FFFFFF;
+        }
+
+        .spotify-pack-btn.selected .pack-plan {
+            color: #1A73E8;
+        }
+
+        .spotify-pack-btn.selected .pack-price {
+            color: #1A73E8;
+        }
+
+        .spotify-pack-btn.selected .pack-desc {
+            color: #1A73E8;
+        }
+
+        .spotify-shipping-form {
+            background: #f8f9fa;
+            border-radius: 24px;
+            padding: 24px 20px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .spotify-shipping-form.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .spotify-shipping-form.hidden {
+            display: none;
+        }
+
+        .spotify-shipping-form label {
+            display: block;
+            font-weight: 900;
+            color: #000000;
+            margin: 12px 0 6px;
+            font-size: 14px;
+            text-align: right;
+        }
+
+        .spotify-shipping-form label:first-of-type {
+            margin-top: 0;
+        }
+
+        .spotify-shipping-form input {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #eaeaea;
+            border-radius: 16px;
+            font-size: 16px;
+            font-weight: 400;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            text-align: right;
+            direction: rtl;
+        }
+
+        .spotify-shipping-form input::placeholder {
+            text-align: right;
+            direction: rtl;
+            font-weight: 400;
+        }
+
+        .spotify-shipping-form input:focus {
+            border-color: #1A73E8;
+            outline: none;
+            box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);
+        }
+
+        .spotify-btn-buy {
+            width: 100%;
+            padding: 16px 24px;
+            background: #1A73E8;
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);
+            position: relative;
+            overflow: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .spotify-btn-buy:active {
+            transform: scale(0.97);
+            box-shadow: 0 3px 12px rgba(26, 115, 232, 0.15);
+        }
+
+        /* ============================================ */
         /* ===== BLOOD STRIKE PAGE ===== */
         /* ============================================ */
         .bloodstrike-header {
@@ -4823,6 +5026,20 @@
                 font-size: 11px;
             }
 
+            .spotify-pack-btn {
+                min-height: 120px;
+                padding: 16px 10px;
+            }
+            .spotify-pack-btn .pack-plan {
+                font-size: 16px;
+            }
+            .spotify-pack-btn .pack-price {
+                font-size: 18px;
+            }
+            .spotify-pack-btn .pack-desc {
+                font-size: 12px;
+            }
+
             .deposit-top-bar {
                 padding: 12px 12px 0 12px;
             }
@@ -5116,6 +5333,10 @@
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
             }
+            .spotify-packs-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
             .bloodstrike-packs-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 16px;
@@ -5256,6 +5477,13 @@
             }
         }
 
+        @media (min-width: 768px) {
+            .spotify-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+        }
+
         @media (min-width: 900px) {
             .wallet-balance-card {
                 max-width: 420px;
@@ -5286,6 +5514,10 @@
                 gap: 18px;
             }
             .expressvpn-packs-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 18px;
+            }
+            .spotify-packs-grid {
                 grid-template-columns: repeat(4, 1fr);
                 gap: 18px;
             }
@@ -5702,6 +5934,31 @@
                 <label>رقم واتساب</label>
                 <input type="tel" placeholder="مثال: 0912345678" id="expressvpnWhatsappInput" />
                 <button class="expressvpn-btn-buy" id="expressvpnBuyNowBtn">شراء الآن</button>
+            </div>
+        </div>
+
+        <!-- ============================================ -->
+        <!-- ===== صفحة SPOTIFY ===== -->
+        <!-- ============================================ -->
+        <div id="page-spotify" class="page">
+            <div class="spotify-header">
+                <img src="https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png" alt="Spotify" />
+                <div class="game-info">
+                    <h2>Spotify</h2>
+                    <p>اختر الباقة المناسبة لاحتياجاتك</p>
+                </div>
+            </div>
+
+            <div class="spotify-packs-grid" id="spotifyPacksGrid">
+                <!-- سيتم إضافة الباقات عبر JavaScript -->
+            </div>
+
+            <div class="spotify-shipping-form hidden" id="spotifyShippingForm">
+                <label>البريد الإلكتروني</label>
+                <input type="email" placeholder="أدخل بريدك الإلكتروني" id="spotifyEmailInput" />
+                <label>رقم واتساب</label>
+                <input type="tel" placeholder="مثال: 0912345678" id="spotifyWhatsappInput" />
+                <button class="spotify-btn-buy" id="spotifyBuyNowBtn">شراء الآن</button>
             </div>
         </div>
 
@@ -6377,11 +6634,11 @@
                 { name: 'Netflix', img: 'https://i.postimg.cc/G3YG2D6F/IMG-20260705-WA0096.jpg', page: 'page-netflix' },
                 { name: 'NordVPN', img: 'https://i.postimg.cc/d13Zwkr3/file-0000000024bc81f49fe659c36c8862c6.png', page: 'page-nordvpn' },
                 { name: 'ExpressVPN', img: 'https://i.postimg.cc/dQ7n9Dpq/file-0000000050dc824388148dab70f4e0b4.png', page: 'page-expressvpn' },
+                { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' },
                 { name: 'CapCut', img: 'https://i.postimg.cc/QtmmnTsK/file-00000000a4388246b46595515c6c40a7.png', page: 'page-capcut' },
                 { name: 'Starlink', img: 'https://i.postimg.cc/3N7c6TPY/file-000000004e7c71f49bacd36cc97e1bd8.png', page: 'page-starlink' },
                 { name: 'YouTube', img: 'https://i.postimg.cc/R09c5ZgF/file-000000009180824688166f6be8a8134b.png', page: 'page-youtube' },
-                { name: 'Shahid VIP', img: 'https://i.postimg.cc/8cFvBJzt/file-0000000044ec81f480e3f2badbea9a68.png', page: 'page-shahid' },
-                { name: 'Spotify', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', page: 'page-spotify' }
+                { name: 'Shahid VIP', img: 'https://i.postimg.cc/8cFvBJzt/file-0000000044ec81f480e3f2badbea9a68.png', page: 'page-shahid' }
             ];
 
             // ============================================
@@ -6479,6 +6736,32 @@
                     price: '99.99', 
                     description: 'سنوياً',
                     save: 'وفر 36%'
+                },
+            ];
+
+            // ============================================
+            // ===== SPOTIFY DATA =====
+            // ============================================
+            const spotifyPacksData = [
+                { 
+                    plan: 'اشتراك الأفراد', 
+                    price: '4.99', 
+                    description: 'شهري'
+                },
+                { 
+                    plan: 'اشتراك الطلاب', 
+                    price: '2.49', 
+                    description: 'شهري'
+                },
+                { 
+                    plan: 'اشتراك الثنائي', 
+                    price: '6.49', 
+                    description: 'شهري'
+                },
+                { 
+                    plan: 'اشتراك العائلة', 
+                    price: '7.99', 
+                    description: 'شهري'
                 },
             ];
 
@@ -6973,6 +7256,60 @@
             }
 
             // ============================================
+            // ===== SPOTIFY FUNCTIONS =====
+            // ============================================
+            let spotifySelectedPack = null;
+            let spotifySelectedPrice = null;
+
+            function renderSpotifyPacks() {
+                const grid = document.getElementById('spotifyPacksGrid');
+                if (!grid) return;
+
+                grid.innerHTML = spotifyPacksData.map(pack => {
+                    return `<button class="spotify-pack-btn" data-plan="${pack.plan}" data-price="${pack.price}">
+                        <span class="pack-plan">${pack.plan}</span>
+                        <span class="pack-price">$${pack.price}</span>
+                        <span class="pack-desc">${pack.description}</span>
+                    </button>`;
+                }).join('');
+
+                grid.querySelectorAll('.spotify-pack-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        createRipple(e, this);
+                        grid.querySelectorAll('.spotify-pack-btn').forEach(b => b.classList.remove('selected'));
+                        this.classList.add('selected');
+                        spotifySelectedPack = this.dataset.plan;
+                        spotifySelectedPrice = this.dataset.price;
+
+                        const shippingForm = document.getElementById('spotifyShippingForm');
+                        if (shippingForm.classList.contains('hidden')) {
+                            shippingForm.classList.remove('hidden');
+                            setTimeout(() => { shippingForm.classList.add('visible'); }, 50);
+                        }
+                        setTimeout(() => {
+                            shippingForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            setTimeout(() => { document.getElementById('spotifyEmailInput').focus(); }, 600);
+                        }, 150);
+                    });
+                });
+            }
+
+            function resetSpotifyPacks() {
+                spotifySelectedPack = null;
+                spotifySelectedPrice = null;
+                renderSpotifyPacks();
+                const shippingForm = document.getElementById('spotifyShippingForm');
+                if (shippingForm) {
+                    shippingForm.classList.add('hidden');
+                    shippingForm.classList.remove('visible');
+                }
+                const emailInput = document.getElementById('spotifyEmailInput');
+                const whatsappInput = document.getElementById('spotifyWhatsappInput');
+                if (emailInput) emailInput.value = '';
+                if (whatsappInput) whatsappInput.value = '';
+            }
+
+            // ============================================
             // ===== CHAT GPT FUNCTIONS =====
             // ============================================
             let chatgptSelectedPack = null;
@@ -7328,6 +7665,7 @@
                 resetNetflixPacks();
                 resetNordvpnPacks();
                 resetExpressvpnPacks();
+                resetSpotifyPacks();
 
                 window.selectedPack = null;
                 window.selectedPrice = null;
@@ -7357,6 +7695,8 @@
                 nordvpnSelectedPrice = null;
                 expressvpnSelectedPack = null;
                 expressvpnSelectedPrice = null;
+                spotifySelectedPack = null;
+                spotifySelectedPrice = null;
             }
 
             // ============================================
@@ -7433,6 +7773,11 @@
                                 if (item.page === 'page-expressvpn') {
                                     setTimeout(() => {
                                         renderExpressvpnPacks();
+                                    }, 100);
+                                }
+                                if (item.page === 'page-spotify') {
+                                    setTimeout(() => {
+                                        renderSpotifyPacks();
                                     }, 100);
                                 }
                                 if (item.page === 'page-bloodstrike') {
@@ -7775,6 +8120,40 @@
                 setTimeout(() => {
                     alert(
                         `✅ تم تقديم طلب شراء ${expressvpnSelectedPack}\n💰 السعر: $${expressvpnSelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
+                    );
+                    btn.textContent = 'شراء الآن';
+                    btn.style.opacity = '1';
+                    openWhatsApp();
+                }, 500);
+            });
+
+            // ============================================
+            // ===== SPOTIFY BUY BUTTON =====
+            // ============================================
+            document.getElementById('spotifyBuyNowBtn').addEventListener('click', (e) => {
+                createRippleBtn(e, e.target);
+                const email = document.getElementById('spotifyEmailInput').value.trim();
+                const whatsapp = document.getElementById('spotifyWhatsappInput').value.trim();
+
+                if (!spotifySelectedPack) {
+                    alert('⚠️ يرجى اختيار باقة الاشتراك أولاً.');
+                    return;
+                }
+                if (!email) {
+                    alert('⚠️ يرجى إدخال البريد الإلكتروني.');
+                    return;
+                }
+                if (!whatsapp) {
+                    alert('⚠️ يرجى إدخال رقم واتساب.');
+                    return;
+                }
+
+                const btn = e.target;
+                btn.textContent = 'جاري المعالجة...';
+                btn.style.opacity = '0.7';
+                setTimeout(() => {
+                    alert(
+                        `✅ تم تقديم طلب شراء ${spotifySelectedPack}\n💰 السعر: $${spotifySelectedPrice}\n📧 البريد الإلكتروني: ${email}\n📱 واتساب: ${whatsapp}\n\nسيتم التواصل معك قريباً.`
                     );
                     btn.textContent = 'شراء الآن';
                     btn.style.opacity = '1';
@@ -8610,6 +8989,7 @@
                         b.closest('.netflix-pack-btn') ||
                         b.closest('.nordvpn-pack-btn') ||
                         b.closest('.expressvpn-pack-btn') ||
+                        b.closest('.spotify-pack-btn') ||
                         b.closest('.bloodstrike-pack-btn') ||
                         b.closest('.genshin-pack-btn') ||
                         b.id === 'buyNowBtn' || b.id === 'codBuyNowBtn' ||
@@ -8618,6 +8998,7 @@
                         b.id === 'chatgptBuyNowBtn' || b.id === 'canvaBuyNowBtn' ||
                         b.id === 'geminiBuyNowBtn' || b.id === 'netflixBuyNowBtn' ||
                         b.id === 'nordvpnBuyNowBtn' || b.id === 'expressvpnBuyNowBtn' ||
+                        b.id === 'spotifyBuyNowBtn' ||
                         b.id === 'bloodstrikeBuyNowBtn' ||
                         b.id === 'genshinBuyNowBtn' || b.id === 'mlHelpBtn' ||
                         b.id === 'mlModalCloseBtn' || b.id === 'depositBtn' ||
@@ -8660,10 +9041,11 @@
                 renderNetflixPacks();
                 renderNordvpnPacks();
                 renderExpressvpnPacks();
+                renderSpotifyPacks();
             }, 200);
 
             console.log('🚀 REDEEM STORE جاهز بالكامل!');
-            console.log('✅ تم إضافة صفحة ExpressVPN بنجاح مع الباقات المطلوبة');
+            console.log('✅ تم إضافة صفحة Spotify بنجاح مع الباقات المطلوبة');
 
         })();
     </script>
