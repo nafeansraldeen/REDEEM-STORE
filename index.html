@@ -5946,7 +5946,6 @@
             }
         }
     </style>
-    <script src="account-page.js" defer></script>
 </head>
 <body>
 
@@ -7033,6 +7032,12 @@
     <!-- ============================================= -->
     <!-- ===== JAVASCRIPT ===== -->
     <!-- ============================================= -->
+    <!-- ===== ACCOUNT PAGE: PRELOAD INTO SAME DOM ===== -->
+    <!-- These files load once with the store; clicking "الحساب" does not load a new page. -->
+    <script src="translations.js"></script>
+    <script src="i18n.js"></script>
+    <script src="account-page.js"></script>
+
     <script>
         (function() {
             'use strict';
