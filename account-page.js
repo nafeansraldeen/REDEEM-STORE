@@ -1,24 +1,490 @@
 /*
- * REDEEM STORE - Account Page Component
- *
- * هذا الملف يجهز صفحة الحساب مسبقًا داخل نفس الصفحة (DOM) أثناء فتح المتجر.
- * عند الضغط على "الحساب" لا يتم فتح account.html ولا إعادة تحميل الموقع.
- * جميع تأثيرات صفحة الحساب الأصلية وHTML/JS الخاص بها محفوظة.
+ * REDEEM STORE - Account Page + Orders (FULL)
  */
 (function () {
     'use strict';
 
-    const ACCOUNT_CSS = "/* ===== ACCOUNT PAGE ===== */\n/* ============================================ */\n#page-account {\n    padding: 0 0 30px 0;\n    background: #F5F7FA;\n}\n\n.account-hero {\n    background: linear-gradient(145deg, #1A73E8, #0D47A1);\n    padding: 32px 24px 60px;\n    border-radius: 0 0 32px 32px;\n    position: relative;\n    overflow: hidden;\n    text-align: center;\n    margin-bottom: -40px;\n}\n\n.account-hero::after {\n    content: '';\n    position: absolute;\n    top: -60px;\n    right: -60px;\n    width: 180px;\n    height: 180px;\n    background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%);\n    border-radius: 50%;\n    pointer-events: none;\n}\n\n.account-hero::before {\n    content: '';\n    position: absolute;\n    bottom: -50px;\n    left: -50px;\n    width: 140px;\n    height: 140px;\n    background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);\n    border-radius: 50%;\n    pointer-events: none;\n}\n\n.account-avatar-wrapper {\n    position: relative;\n    display: inline-block;\n    z-index: 2;\n    margin-bottom: 12px;\n}\n\n.account-avatar {\n    width: 100px;\n    height: 100px;\n    border-radius: 50%;\n    border: 4px solid rgba(255,255,255,0.25);\n    background: #FFFFFF;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 42px;\n    color: #1A73E8;\n    overflow: hidden;\n    box-shadow: 0 8px 24px rgba(0,0,0,0.2);\n}\n\n.account-avatar img {\n    width: 100%;\n    height: 100%;\n    object-fit: cover;\n}\n\n.account-avatar-edit {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 32px;\n    height: 32px;\n    border-radius: 50%;\n    background: #FFFFFF;\n    color: #1A73E8;\n    border: none;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 13px;\n    cursor: pointer;\n    box-shadow: 0 4px 12px rgba(0,0,0,0.15);\n    transition: all 0.25s ease;\n}\n\n.account-avatar-edit:active {\n    transform: scale(0.9);\n}\n\n.account-name {\n    font-size: 22px;\n    font-weight: 800;\n    color: #FFFFFF;\n    position: relative;\n    z-index: 2;\n    margin: 0;\n}\n\n.account-phone {\n    font-size: 14px;\n    color: rgba(255,255,255,0.8);\n    position: relative;\n    z-index: 2;\n    margin-top: 4px;\n    font-weight: 400;\n    direction: ltr;\n    unicode-bidi: plaintext;\n    text-align: center;\n    display: inline-block;\n    width: 100%;\n}\n\n.account-verified-badge {\n    display: inline-flex;\n    align-items: center;\n    gap: 5px;\n    background: rgba(255,255,255,0.15);\n    color: #FFFFFF;\n    padding: 4px 12px;\n    border-radius: 50px;\n    font-size: 11px;\n    font-weight: 600;\n    margin-top: 10px;\n    position: relative;\n    z-index: 2;\n    backdrop-filter: blur(4px);\n    border: 1px solid rgba(255,255,255,0.12);\n}\n\n.account-verified-badge i {\n    color: #6EF3E8;\n    font-size: 12px;\n}\n\n.account-stats {\n    display: grid;\n    grid-template-columns: repeat(2, 1fr);\n    gap: 12px;\n    padding: 0 16px;\n    margin-bottom: 20px;\n    position: relative;\n    z-index: 3;\n}\n\n.account-stat-card {\n    background: #FFFFFF;\n    border-radius: 16px;\n    padding: 16px 8px;\n    text-align: center;\n    box-shadow: 0 4px 20px rgba(0,0,0,0.08);\n    border: 1px solid #f0f0f0;\n    transition: all 0.25s ease;\n}\n\n.account-stat-card:active {\n    transform: scale(0.97);\n}\n\n.account-stat-icon {\n    width: 42px;\n    height: 42px;\n    border-radius: 12px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    margin: 0 auto 8px;\n    font-size: 18px;\n    background: #E8F0FE;\n    color: #1A73E8;\n}\n\n.account-stat-card:nth-child(2) .account-stat-icon {\n    background: rgba(245, 158, 11, 0.12);\n    color: #F59E0B;\n}\n\n.account-stat-value {\n    font-size: 18px;\n    font-weight: 800;\n    color: #1A1A2E;\n}\n\n.account-stat-label {\n    font-size: 11px;\n    color: #888;\n    font-weight: 500;\n    margin-top: 2px;\n}\n\n.account-body {\n    padding: 0 16px;\n}\n\n.account-section {\n    background: #FFFFFF;\n    border-radius: 18px;\n    margin-bottom: 16px;\n    box-shadow: 0 2px 12px rgba(0,0,0,0.05);\n    border: 1px solid #f0f0f0;\n    overflow: hidden;\n}\n\n.account-section-title {\n    font-size: 14px;\n    font-weight: 800;\n    color: #1A1A2E;\n    padding: 16px 18px 10px;\n    display: flex;\n    align-items: center;\n    gap: 8px;\n}\n\n.account-section-title i {\n    color: #1A73E8;\n    font-size: 15px;\n}\n\n.account-item {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: 14px 18px;\n    border-top: 1px solid #f5f5f5;\n    cursor: pointer;\n    transition: all 0.2s ease;\n    -webkit-tap-highlight-color: transparent;\n}\n\n.account-item:active {\n    background: #f8f9fa;\n}\n\n.account-item-left {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    flex: 1;\n    min-width: 0;\n}\n\n.account-item-icon {\n    width: 38px;\n    height: 38px;\n    border-radius: 11px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 15px;\n    flex-shrink: 0;\n    background: #E8F0FE;\n    color: #1A73E8;\n}\n\n.account-item-icon.green { background: rgba(16,185,129,0.12); color: #10B981; }\n.account-item-icon.orange { background: rgba(245,158,11,0.12); color: #F59E0B; }\n.account-item-icon.red { background: rgba(239,68,68,0.10); color: #EF4444; }\n.account-item-icon.purple { background: rgba(139,92,246,0.12); color: #8B5CF6; }\n.account-item-icon.cyan { background: rgba(0,188,212,0.12); color: #00BCD4; }\n\n.account-item-info {\n    flex: 1;\n    min-width: 0;\n}\n\n.account-item-info h4 {\n    font-size: 14px;\n    font-weight: 600;\n    color: #1A1A2E;\n    margin: 0 0 2px;\n}\n\n.account-item-info p {\n    font-size: 12px;\n    color: #999;\n    margin: 0;\n    font-weight: 400;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n.account-item-right {\n    display: flex;\n    align-items: center;\n    gap: 8px;\n    flex-shrink: 0;\n}\n\n.account-item-right i.fa-chevron-left {\n    color: #bbb;\n    font-size: 13px;\n    transition: all 0.2s ease;\n}\n\n.account-item:active .account-item-right i.fa-chevron-left {\n    transform: translateX(-3px);\n    color: #1A73E8;\n}\n\n.account-logout {\n    margin: 8px 0 0;\n    width: 100%;\n    padding: 15px 20px;\n    background: #FFFFFF;\n    color: #EF4444;\n    border: 1.5px solid rgba(239,68,68,0.25);\n    border-radius: 14px;\n    font-size: 15px;\n    font-weight: 700;\n    cursor: pointer;\n    transition: all 0.25s ease;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 10px;\n    font-family: inherit;\n}\n\n.account-logout:active {\n    background: rgba(239,68,68,0.06);\n    transform: scale(0.98);\n}\n\n.account-footer-note {\n    text-align: center;\n    padding: 20px 0 10px;\n    font-size: 11px;\n    color: #bbb;\n}\n\n.account-footer-note i {\n    color: #1A73E8;\n    margin: 0 3px;\n}\n\n/* ============================================ */\n/* ===== MODAL BASE ===== */\n/* ============================================ */\n.acc-modal-overlay {\n    position: fixed;\n    inset: 0;\n    background: rgba(0, 0, 0, 0.6);\n    backdrop-filter: blur(4px);\n    z-index: 9999;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    opacity: 0;\n    visibility: hidden;\n    transition: opacity 0.25s ease, visibility 0.25s ease;\n    padding: 20px;\n}\n\n.acc-modal-overlay.open {\n    opacity: 1;\n    visibility: visible;\n}\n\n.acc-modal {\n    background: #FFFFFF;\n    border-radius: 20px;\n    max-width: 400px;\n    width: 100%;\n    max-height: 90vh;\n    overflow-y: auto;\n    padding: 24px 20px 20px;\n    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);\n    transform: scale(0.9) translateY(10px);\n    opacity: 0;\n    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.25s ease;\n}\n\n.acc-modal-overlay.open .acc-modal {\n    transform: scale(1) translateY(0);\n    opacity: 1;\n}\n\n.acc-modal-header {\n    text-align: center;\n    margin-bottom: 20px;\n}\n\n.acc-modal-icon {\n    width: 56px;\n    height: 56px;\n    border-radius: 16px;\n    background: #E8F0FE;\n    color: #1A73E8;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 22px;\n    margin: 0 auto 12px;\n}\n\n.acc-modal-title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #1A1A2E;\n    margin: 0 0 4px;\n}\n\n.acc-modal-subtitle {\n    font-size: 13px;\n    color: #999;\n    font-weight: 400;\n    margin: 0;\n}\n\n.acc-modal-input-wrapper {\n    position: relative;\n    margin-bottom: 20px;\n}\n\n.acc-modal-input-wrapper i {\n    position: absolute;\n    right: 16px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #1A73E8;\n    font-size: 15px;\n    pointer-events: none;\n}\n\n.acc-modal-input {\n    width: 100%;\n    padding: 14px 44px 14px 16px;\n    border: 2px solid #E8EAED;\n    border-radius: 14px;\n    font-size: 15px;\n    font-weight: 500;\n    color: #1A1A2E;\n    background: #FFFFFF;\n    outline: none;\n    transition: all 0.25s ease;\n    text-align: right;\n    direction: rtl;\n    font-family: inherit;\n}\n\n.acc-modal-input:focus {\n    border-color: #1A73E8;\n    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.10);\n}\n\n.acc-modal-actions {\n    display: flex;\n    gap: 10px;\n}\n\n.acc-modal-btn {\n    flex: 1;\n    padding: 13px 16px;\n    border-radius: 12px;\n    font-size: 15px;\n    font-weight: 700;\n    cursor: pointer;\n    border: none;\n    transition: all 0.2s ease;\n    font-family: inherit;\n}\n\n.acc-modal-btn.cancel {\n    background: #F5F7FA;\n    color: #666;\n}\n\n.acc-modal-btn.confirm {\n    background: #1A73E8;\n    color: #FFFFFF;\n    box-shadow: 0 4px 14px rgba(26, 115, 232, 0.30);\n}\n\n.acc-modal-btn.confirm:active {\n    transform: scale(0.97);\n    background: #1557B0;\n}\n\n/* ============================================ */\n/* ===== TOGGLE SWITCH ===== */\n/* ============================================ */\n.acc-toggle {\n    position: relative;\n    display: inline-block;\n    width: 48px;\n    height: 26px;\n    flex-shrink: 0;\n    cursor: pointer;\n}\n\n.acc-toggle input {\n    opacity: 0;\n    width: 0;\n    height: 0;\n    position: absolute;\n}\n\n.acc-toggle-track {\n    position: absolute;\n    inset: 0;\n    background: #D1D5DB;\n    border-radius: 50px;\n    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n}\n\n.acc-toggle-thumb {\n    position: absolute;\n    top: 2px;\n    left: 2px;\n    width: 22px;\n    height: 22px;\n    background: #FFFFFF;\n    border-radius: 50%;\n    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);\n    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);\n    z-index: 2;\n}\n\n.acc-toggle input:checked ~ .acc-toggle-track {\n    background: #1A73E8;\n}\n\n.acc-toggle input:checked ~ .acc-toggle-thumb {\n    transform: translateX(22px);\n    box-shadow: 0 2px 6px rgba(26, 115, 232, 0.35);\n}\n\n/* ============================================ */\n/* ===== LANGUAGE MODAL ===== */\n/* ============================================ */\n.acc-lang-list {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    margin-bottom: 4px;\n}\n\n.acc-lang-option {\n    display: flex;\n    align-items: center;\n    gap: 14px;\n    padding: 14px 16px;\n    background: #FFFFFF;\n    border: 2px solid #E8EAED;\n    border-radius: 14px;\n    cursor: pointer;\n    transition: all 0.25s ease;\n    text-align: right;\n    width: 100%;\n    font-family: inherit;\n}\n\n.acc-lang-option:active {\n    transform: scale(0.98);\n}\n\n.acc-lang-option.selected {\n    border-color: #1A73E8;\n    background: #F5F9FF;\n    box-shadow: 0 4px 14px rgba(26, 115, 232, 0.10);\n}\n\n.acc-lang-flag {\n    width: 44px;\n    height: 44px;\n    border-radius: 50%;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 24px;\n    background: #F5F7FA;\n    flex-shrink: 0;\n    border: 2px solid #F0F2F5;\n}\n\n.acc-lang-option.selected .acc-lang-flag {\n    border-color: #1A73E8;\n}\n\n.acc-lang-info {\n    flex: 1;\n    min-width: 0;\n}\n\n.acc-lang-info h5 {\n    font-size: 15px;\n    font-weight: 700;\n    color: #1A1A2E;\n    margin: 0 0 3px;\n}\n\n.acc-lang-info p {\n    font-size: 12px;\n    color: #888;\n    margin: 0;\n    font-weight: 400;\n    direction: ltr;\n    text-align: right;\n}\n\n.acc-lang-check {\n    width: 24px;\n    height: 24px;\n    border-radius: 50%;\n    border: 2px solid #D1D5DB;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 12px;\n    color: transparent;\n    transition: all 0.25s ease;\n    flex-shrink: 0;\n}\n\n.acc-lang-option.selected .acc-lang-check {\n    background: #1A73E8;\n    border-color: #1A73E8;\n    color: #FFFFFF;\n}\n\n.acc-lang-note {\n    background: #F5F9FF;\n    border: 1px solid #D6E8F8;\n    border-radius: 12px;\n    padding: 12px 14px;\n    font-size: 12px;\n    color: #1A73E8;\n    line-height: 1.6;\n    display: flex;\n    gap: 10px;\n    text-align: right;\n    font-weight: 500;\n    margin-top: 8px;\n}\n\n/* ============================================ */\n/* ===== ABOUT MODAL ===== */\n/* ============================================ */\n.acc-about-hero {\n    text-align: center;\n    padding: 8px 0 20px;\n}\n\n.acc-about-logo {\n    font-size: 32px;\n    font-weight: 900;\n    letter-spacing: 1.5px;\n    color: #1A73E8;\n    margin-bottom: 6px;\n}\n\n.acc-about-logo span {\n    color: #00BCD4;\n}\n\n.acc-about-tagline {\n    font-size: 13px;\n    color: #888;\n    font-weight: 500;\n    margin-top: 2px;\n}\n\n.acc-about-divider {\n    height: 2px;\n    background: linear-gradient(90deg, transparent, #1A73E8, transparent);\n    margin: 16px 0;\n    border-radius: 2px;\n    opacity: 0.6;\n}\n\n.acc-about-pattern {\n    text-align: center;\n    color: #B5D4F0;\n    font-size: 10px;\n    letter-spacing: 2px;\n    margin: 12px 0;\n    overflow: hidden;\n    white-space: nowrap;\n    user-select: none;\n}\n\n.acc-about-content {\n    background: linear-gradient(145deg, #F5F9FF, #FFFFFF);\n    border: 1px solid #E8F0FE;\n    border-radius: 16px;\n    padding: 18px 16px;\n    margin-bottom: 12px;\n    position: relative;\n    overflow: hidden;\n}\n\n.acc-about-text {\n    font-size: 13.5px;\n    color: #1A1A2E;\n    line-height: 2;\n    text-align: center;\n    font-weight: 500;\n}\n\n.acc-about-text p {\n    margin: 0 0 8px;\n}\n\n.acc-about-text p:last-child {\n    margin-bottom: 0;\n}\n\n.acc-about-text .highlight {\n    color: #1A73E8;\n    font-weight: 800;\n}\n\n.acc-about-text .cyan {\n    color: #00BCD4;\n    font-weight: 800;\n}\n\n.acc-about-features {\n    display: flex;\n    flex-direction: column;\n    gap: 10px;\n    margin: 16px 0;\n}\n\n.acc-about-feature {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    padding: 12px 14px;\n    background: #FFFFFF;\n    border: 1px solid #E8F0FE;\n    border-radius: 12px;\n}\n\n.acc-about-feature-icon {\n    width: 38px;\n    height: 38px;\n    border-radius: 11px;\n    background: #E8F0FE;\n    color: #1A73E8;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 15px;\n    flex-shrink: 0;\n}\n\n.acc-about-feature-icon.cyan {\n    background: rgba(0, 188, 212, 0.12);\n    color: #00BCD4;\n}\n\n.acc-about-feature-icon.green {\n    background: rgba(16, 185, 129, 0.12);\n    color: #10B981;\n}\n\n.acc-about-feature-icon.orange {\n    background: rgba(245, 158, 11, 0.12);\n    color: #F59E0B;\n}\n\n.acc-about-feature-info h5 {\n    font-size: 13px;\n    font-weight: 700;\n    color: #1A1A2E;\n    margin: 0 0 2px;\n}\n\n.acc-about-feature-info p {\n    font-size: 11.5px;\n    color: #888;\n    margin: 0;\n    font-weight: 400;\n}\n\n.acc-about-slogan {\n    background: linear-gradient(145deg, #1A73E8, #0D47A1);\n    border-radius: 14px;\n    padding: 16px 18px;\n    margin: 16px 0 12px;\n    color: #FFFFFF;\n    text-align: center;\n    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);\n}\n\n.acc-about-slogan-text {\n    font-size: 15px;\n    font-weight: 800;\n    line-height: 1.7;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 6px;\n    flex-wrap: wrap;\n}\n\n.acc-about-slogan-text .brand {\n    color: #6EF3E8;\n    font-weight: 900;\n}\n\n.acc-about-slogan-heart {\n    color: #FF6B9D;\n    font-size: 16px;\n    animation: heartBeat 1.5s infinite;\n    display: inline-block;\n}\n\n@keyframes heartBeat {\n    0%, 100% { transform: scale(1); }\n    50% { transform: scale(1.15); }\n}\n\n.acc-about-footer {\n    text-align: center;\n    padding: 16px 0 8px;\n    font-size: 11.5px;\n    color: #B0B8C4;\n    line-height: 1.8;\n}\n\n.acc-about-footer .blue-heart {\n    color: #1A73E8;\n    font-size: 14px;\n    margin: 0 4px;\n    display: inline-block;\n    animation: heartBeat 1.8s infinite;\n}\n\n.acc-about-version {\n    display: inline-block;\n    background: #F5F7FA;\n    color: #888;\n    padding: 4px 12px;\n    border-radius: 50px;\n    font-size: 10.5px;\n    font-weight: 700;\n    margin-top: 8px;\n    border: 1px solid #E8EAED;\n}\n\n.acc-about-close-btn {\n    width: 100%;\n    padding: 14px 20px;\n    background: #1A73E8;\n    color: #FFFFFF;\n    border: none;\n    border-radius: 14px;\n    font-size: 15px;\n    font-weight: 700;\n    cursor: pointer;\n    font-family: inherit;\n    transition: all 0.25s ease;\n    margin-top: 6px;\n    box-shadow: 0 6px 20px rgba(26, 115, 232, 0.25);\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    gap: 8px;\n}\n\n.acc-about-close-btn:active {\n    transform: scale(0.97);\n    background: #1557B0;\n}\n\n/* ============================================ */\n/* ===== ORDERS PAGE ===== */\n/* ============================================ */\n.acc-orders-page,\n.acc-order-detail-page {\n    position: fixed;\n    inset: 0;\n    background: #F5F7FA;\n    z-index: 9998;\n    display: flex;\n    flex-direction: column;\n    transform: translateX(100%);\n    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);\n    max-width: 480px;\n    margin: 0 auto;\n    box-shadow: 0 0 40px rgba(0,0,0,0.1);\n}\n\n.acc-orders-page.active,\n.acc-order-detail-page.active {\n    transform: translateX(0);\n}\n\n.acc-order-detail-page { z-index: 9999; }\n\n.acc-orders-header {\n    background: #FFFFFF;\n    padding: 14px 16px;\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    border-bottom: 1px solid #F0F2F5;\n}\n\n.acc-orders-back {\n    width: 40px;\n    height: 40px;\n    border-radius: 12px;\n    border: none;\n    background: #F0F2F5;\n    color: #1A1A2E;\n    font-size: 16px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.acc-orders-title {\n    font-size: 18px;\n    font-weight: 800;\n    color: #1A1A2E;\n    margin: 0;\n}\n\n.acc-orders-count {\n    font-size: 12px;\n    color: #888;\n    margin-top: 2px;\n}\n\n.acc-orders-search { padding: 12px 16px 4px; }\n\n.acc-orders-search-wrapper { position: relative; }\n\n.acc-orders-search-wrapper i {\n    position: absolute;\n    right: 14px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #B0B8C4;\n    font-size: 14px;\n    pointer-events: none;\n}\n\n.acc-orders-search-input {\n    width: 100%;\n    padding: 12px 42px 12px 16px;\n    border: 2px solid #E8EAED;\n    border-radius: 12px;\n    font-size: 14px;\n    font-weight: 500;\n    color: #1A1A2E;\n    outline: none;\n    font-family: inherit;\n    text-align: right;\n    direction: rtl;\n}\n\n.acc-orders-search-input:focus {\n    border-color: #1A73E8;\n    box-shadow: 0 0 0 4px rgba(26, 115, 232, 0.08);\n}\n\n.acc-orders-filters {\n    display: flex;\n    gap: 8px;\n    padding: 12px 16px;\n    overflow-x: auto;\n    scrollbar-width: none;\n}\n\n.acc-orders-filters::-webkit-scrollbar { display: none; }\n\n.acc-orders-filter {\n    padding: 8px 14px;\n    border-radius: 50px;\n    border: 1px solid #E8EAED;\n    background: #FFFFFF;\n    color: #555;\n    font-size: 12px;\n    font-weight: 600;\n    cursor: pointer;\n    white-space: nowrap;\n    flex-shrink: 0;\n    font-family: inherit;\n    display: flex;\n    align-items: center;\n    gap: 6px;\n}\n\n.acc-orders-filter.active {\n    background: #1A73E8;\n    color: #FFFFFF;\n    border-color: #1A73E8;\n}\n\n.acc-orders-filter .badge {\n    background: rgba(255,255,255,0.25);\n    color: #FFFFFF;\n    padding: 1px 7px;\n    border-radius: 50px;\n    font-size: 10px;\n    font-weight: 700;\n}\n\n.acc-orders-filter:not(.active) .badge {\n    background: #E8F0FE;\n    color: #1A73E8;\n}\n\n.acc-orders-list {\n    flex: 1;\n    overflow-y: auto;\n    padding: 4px 16px 24px;\n}\n\n.acc-order-card {\n    background: #FFFFFF;\n    border-radius: 16px;\n    padding: 14px;\n    margin-bottom: 12px;\n    box-shadow: 0 2px 12px rgba(0,0,0,0.04);\n    border: 1px solid #F0F2F5;\n    cursor: pointer;\n}\n\n.acc-order-top {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    margin-bottom: 12px;\n    padding-bottom: 10px;\n    border-bottom: 1px dashed #F0F2F5;\n    gap: 8px;\n}\n\n.acc-order-id {\n    font-size: 12px;\n    font-weight: 800;\n    color: #1A1A2E;\n    direction: ltr;\n    font-family: 'SF Mono', 'Courier New', monospace;\n}\n\n.acc-order-status {\n    font-size: 10px;\n    font-weight: 700;\n    padding: 4px 10px;\n    border-radius: 50px;\n    display: inline-flex;\n    align-items: center;\n    gap: 4px;\n    white-space: nowrap;\n}\n\n.acc-order-status.pending { background: rgba(245,158,11,0.12); color: #F59E0B; }\n.acc-order-status.processing { background: rgba(26,115,232,0.12); color: #1A73E8; }\n.acc-order-status.completed { background: rgba(16,185,129,0.12); color: #10B981; }\n.acc-order-status.cancelled { background: rgba(239,68,68,0.10); color: #EF4444; }\n\n.acc-order-body {\n    display: flex;\n    align-items: center;\n    gap: 12px;\n    margin-bottom: 12px;\n}\n\n.acc-order-thumb {\n    width: 54px;\n    height: 54px;\n    border-radius: 12px;\n    background: #F5F7FA;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-shrink: 0;\n    padding: 5px;\n}\n\n.acc-order-thumb img {\n    width: 100%;\n    height: 100%;\n    object-fit: contain;\n}\n\n.acc-order-info { flex: 1; min-width: 0; }\n\n.acc-order-name {\n    font-size: 13px;\n    font-weight: 700;\n    color: #1A1A2E;\n    margin: 0 0 3px;\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n\n.acc-order-desc {\n    font-size: 11px;\n    color: #888;\n    margin: 0 0 4px;\n}\n\n.acc-order-date {\n    font-size: 10px;\n    color: #B0B8C4;\n    display: flex;\n    align-items: center;\n    gap: 4px;\n}\n\n.acc-order-footer {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding-top: 10px;\n    border-top: 1px dashed #F0F2F5;\n    gap: 8px;\n}\n\n.acc-order-total-label {\n    font-size: 10px;\n    color: #999;\n    display: block;\n    margin-bottom: 2px;\n}\n\n.acc-order-total {\n    font-size: 16px;\n    font-weight: 800;\n    color: #1A73E8;\n    direction: ltr;\n}\n\n.acc-order-actions { display: flex; gap: 6px; }\n\n.acc-order-btn {\n    width: 34px;\n    height: 34px;\n    border-radius: 10px;\n    border: 1px solid #E8EAED;\n    background: #FFFFFF;\n    color: #666;\n    font-size: 13px;\n    cursor: pointer;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n}\n\n.acc-order-btn.primary {\n    background: #1A73E8;\n    color: #FFFFFF;\n    border-color: #1A73E8;\n}\n\n.acc-orders-empty {\n    text-align: center;\n    padding: 60px 20px;\n    display: none;\n}\n\n.acc-orders-empty.show { display: block; }\n\n.acc-orders-empty-icon {\n    width: 90px;\n    height: 90px;\n    border-radius: 50%;\n    background: #F0F2F5;\n    color: #B0B8C4;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    font-size: 36px;\n    margin: 0 auto 16px;\n}\n\n.acc-orders-empty h3 {\n    font-size: 17px;\n    font-weight: 700;\n    color: #1A1A2E;\n    margin: 0 0 6px;\n}\n\n.acc-orders-empty p {\n    font-size: 13px;\n    color: #999;\n    margin: 0 0 16px;\n}\n\n/* ============================================ */\n/* ===== TOAST ===== */\n/* ============================================ */\n#accToast {\n    position: fixed;\n    top: 24px;\n    left: 50%;\n    transform: translateX(-50%) translateY(-100px);\n    background: #1A1A2E;\n    color: #FFFFFF;\n    padding: 14px 22px;\n    border-radius: 14px;\n    font-size: 14px;\n    font-weight: 600;\n    box-shadow: 0 10px 40px rgba(0,0,0,0.25);\n    z-index: 99999;\n    opacity: 0;\n    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);\n    max-width: 90%;\n    text-align: center;\n    pointer-events: none;\n}\n\n/* ============================================ */\n/* ===== RESPONSIVE ===== */\n/* ============================================ */\n@media (max-width: 420px) {\n    .account-hero { padding: 24px 18px 52px; }\n    .account-avatar { width: 88px; height: 88px; font-size: 36px; }\n    .account-name { font-size: 19px; }\n    .account-stat-card { padding: 13px 6px; }\n    .account-stat-icon { width: 36px; height: 36px; font-size: 15px; }\n    .account-stat-value { font-size: 16px; }\n    .account-item { padding: 12px 14px; }\n    .account-item-info h4 { font-size: 13px; }\n    .account-section-title { padding: 14px 14px 8px; font-size: 13px; }\n    .acc-about-logo { font-size: 26px; }\n    .acc-about-text { font-size: 12.5px; }\n}";
-    const ACCOUNT_HTML = '<div class="page active" id="page-account">\n<!-- Hero -->\n<div class="account-hero">\n<div class="account-avatar-wrapper">\n<div class="account-avatar" id="accountAvatar">\n<i class="fas fa-user"></i>\n</div>\n<button aria-label="تغيير الصورة" class="account-avatar-edit" id="avatarEditBtn">\n<i class="fas fa-camera"></i>\n</button>\n</div>\n<h2 class="account-name" id="accountName">مستخدم REDEEM</h2>\n<p class="account-phone">\n<bdi id="accountPhone">+249901839168</bdi>\n</p>\n<span class="account-verified-badge">\n<i class="fas fa-check-circle"></i>\n<span data-i18n="account.verified">حساب موثّق</span>\n</span>\n</div>\n<!-- Stats -->\n<div class="account-stats">\n<div class="account-stat-card">\n<div class="account-stat-icon">\n<i class="fas fa-shopping-bag"></i>\n</div>\n<div class="account-stat-value" id="statOrders">12</div>\n<div class="account-stat-label" data-i18n="account.orders_count">الطلبات</div>\n</div>\n<div class="account-stat-card">\n<div class="account-stat-icon">\n<i class="fas fa-star"></i>\n</div>\n<div class="account-stat-value" id="statPoints">250</div>\n<div class="account-stat-label" data-i18n="account.points">النقاط</div>\n</div>\n</div>\n<!-- Body -->\n<div class="account-body">\n<!-- معلومات الحساب -->\n<div class="account-section">\n<div class="account-section-title">\n<i class="fas fa-user-circle"></i>\n<span data-i18n="account.info_section">معلومات الحساب</span>\n</div>\n<div class="account-item" data-action="edit-name">\n<div class="account-item-left">\n<div class="account-item-icon">\n<i class="fas fa-user"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.full_name">الاسم الكامل</h4>\n<p id="infoName">مستخدم REDEEM</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n<div class="account-item" data-action="edit-email">\n<div class="account-item-left">\n<div class="account-item-icon cyan">\n<i class="fas fa-envelope"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.email">البريد الإلكتروني</h4>\n<p id="infoEmail">user@redeemstore.com</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n<div class="account-item" data-action="edit-phone">\n<div class="account-item-left">\n<div class="account-item-icon green">\n<i class="fab fa-whatsapp"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.whatsapp">رقم واتساب</h4>\n<p><bdi id="infoPhone">+249901839168</bdi></p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n</div>\n<!-- الأمان -->\n<div class="account-section">\n<div class="account-section-title">\n<i class="fas fa-shield-alt"></i>\n<span data-i18n="account.security_section">الأمان والخصوصية</span>\n</div>\n<div class="account-item" data-action="change-password">\n<div class="account-item-left">\n<div class="account-item-icon orange">\n<i class="fas fa-lock"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.change_password">تغيير كلمة المرور</h4>\n<p data-i18n="account.change_password_desc">آخر تحديث قبل 30 يوم</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n<div class="account-item" data-action="two-factor" style="cursor:default;">\n<div class="account-item-left">\n<div class="account-item-icon purple">\n<i class="fas fa-fingerprint"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.two_factor">التحقق بخطوتين</h4>\n<p data-i18n="account.two_factor_desc">حماية إضافية لحسابك</p>\n</div>\n</div>\n<div class="account-item-right">\n<label class="acc-toggle">\n<input data-key="two-factor" id="toggleTwoFactor" type="checkbox"/>\n<span class="acc-toggle-track"></span>\n<span class="acc-toggle-thumb"></span>\n</label>\n</div>\n</div>\n</div>\n<!-- الطلبات والإعدادات -->\n<div class="account-section">\n<div class="account-section-title">\n<i class="fas fa-cog"></i>\n<span data-i18n="account.settings_section">الطلبات والإعدادات</span>\n</div>\n<div class="account-item" data-action="my-orders">\n<div class="account-item-left">\n<div class="account-item-icon">\n<i class="fas fa-receipt"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.my_orders">طلباتي</h4>\n<p data-i18n="account.my_orders_desc">عرض جميع طلباتك السابقة</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n<div class="account-item" style="cursor:default;">\n<div class="account-item-left">\n<div class="account-item-icon orange">\n<i class="fas fa-bell"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.notifications">الإشعارات</h4>\n<p data-i18n="account.notifications_desc">إدارة تنبيهاتك</p>\n</div>\n</div>\n<div class="account-item-right">\n<label class="acc-toggle">\n<input checked="" data-key="notifications" type="checkbox"/>\n<span class="acc-toggle-track"></span>\n<span class="acc-toggle-thumb"></span>\n</label>\n</div>\n</div>\n<div class="account-item" data-action="language">\n<div class="account-item-left">\n<div class="account-item-icon cyan">\n<i class="fas fa-globe"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.language">اللغة</h4>\n<p id="currentLanguageLabel">العربية</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n<div class="account-item" data-action="about">\n<div class="account-item-left">\n<div class="account-item-icon">\n<i class="fas fa-info-circle"></i>\n</div>\n<div class="account-item-info">\n<h4 data-i18n="account.about">عن التطبيق</h4>\n<p data-i18n="account.about_desc">REDEEM STORE v1.0.0</p>\n</div>\n</div>\n<div class="account-item-right">\n<i class="fas fa-chevron-left"></i>\n</div>\n</div>\n</div>\n<!-- Logout -->\n<button class="account-logout" id="accountLogoutBtn">\n<i class="fas fa-sign-out-alt"></i>\n<span data-i18n="account.logout">تسجيل الخروج</span>\n</button>\n<div class="account-footer-note">\n<i class="fas fa-heart"></i>\n<span data-i18n="account.footer">REDEEM STORE © 2026</span>\n</div>\n</div>\n</div>\n<div class="acc-modal-overlay" id="accInputModal">\n<div class="acc-modal">\n<div class="acc-modal-header">\n<div class="acc-modal-icon" id="accModalIcon"><i class="fas fa-user"></i></div>\n<h3 class="acc-modal-title" id="accModalTitle">تعديل</h3>\n<p class="acc-modal-subtitle" id="accModalSubtitle">أدخل القيمة الجديدة</p>\n</div>\n<div class="acc-modal-input-wrapper">\n<i class="fas fa-pen" id="accModalInputIcon"></i>\n<input class="acc-modal-input" id="accModalInput" type="text"/>\n</div>\n<div class="acc-modal-actions">\n<button class="acc-modal-btn cancel" data-i18n="modal.cancel" id="accModalCancel">إلغاء</button>\n<button class="acc-modal-btn confirm" data-i18n="modal.save" id="accModalConfirm">حسناً</button>\n</div>\n</div>\n</div>\n<div class="acc-modal-overlay" id="accPasswordModal">\n<div class="acc-modal">\n<div class="acc-modal-header">\n<div class="acc-modal-icon" style="background: rgba(245,158,11,0.12); color:#F59E0B;">\n<i class="fas fa-lock"></i>\n</div>\n<h3 class="acc-modal-title" data-i18n="pass.title">تغيير كلمة المرور</h3>\n<p class="acc-modal-subtitle" data-i18n="pass.subtitle">أدخل بياناتك</p>\n</div>\n<div class="acc-modal-input-wrapper">\n<i class="fas fa-lock"></i>\n<input class="acc-modal-input" id="oldPassword" placeholder="كلمة المرور الحالية" type="password"/>\n</div>\n<div class="acc-modal-input-wrapper">\n<i class="fas fa-key"></i>\n<input class="acc-modal-input" id="newPassword" placeholder="كلمة المرور الجديدة" type="password"/>\n</div>\n<div class="acc-modal-input-wrapper">\n<i class="fas fa-check-circle"></i>\n<input class="acc-modal-input" id="confirmPassword" placeholder="تأكيد كلمة المرور" type="password"/>\n</div>\n<div class="acc-modal-actions">\n<button class="acc-modal-btn cancel" data-i18n="modal.cancel" id="passCancelBtn">إلغاء</button>\n<button class="acc-modal-btn confirm" data-i18n="modal.update" id="passSaveBtn">تحديث</button>\n</div>\n</div>\n</div>\n<div class="acc-modal-overlay" id="acc2faModal">\n<div class="acc-modal">\n<div class="acc-modal-header">\n<div class="acc-modal-icon" style="background: rgba(139,92,246,0.12); color:#8B5CF6;">\n<i class="fas fa-fingerprint"></i>\n</div>\n<h3 class="acc-modal-title" id="acc2faTitle">تفعيل التحقق بخطوتين</h3>\n<p class="acc-modal-subtitle" id="acc2faSubtitle">اختر طريقة استقبال الرمز</p>\n</div>\n<div id="acc2faStep1">\n<button class="acc-lang-option selected" data-method="sms" style="margin-bottom:10px;">\n<div class="acc-lang-flag"><i class="fas fa-sms"></i></div>\n<div class="acc-lang-info">\n<h5>رسالة نصية SMS</h5>\n<p>استقبل الرمز عبر رسالة</p>\n</div>\n<div class="acc-lang-check"><i class="fas fa-check"></i></div>\n</button>\n<button class="acc-lang-option" data-method="app" style="margin-bottom:10px;">\n<div class="acc-lang-flag"><i class="fas fa-mobile-alt"></i></div>\n<div class="acc-lang-info">\n<h5>تطبيق المصادقة</h5>\n<p>Google Authenticator</p>\n</div>\n<div class="acc-lang-check"><i class="fas fa-check"></i></div>\n</button>\n</div>\n<div id="acc2faStep2" style="display:none;">\n<div class="acc-modal-input-wrapper">\n<i class="fas fa-key"></i>\n<input class="acc-modal-input" id="otpCode" maxlength="6" placeholder="أدخل الرمز المكوّن من 6 أرقام" style="direction:ltr; text-align:center; letter-spacing:8px; font-size:20px;" type="text"/>\n</div>\n</div>\n<div id="acc2faStep3" style="display:none; text-align:center;">\n<div style="width:80px; height:80px; border-radius:50%; background:rgba(16,185,129,0.12); color:#10B981; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px;">\n<i class="fas fa-check"></i>\n</div>\n<h4 style="font-size:18px; font-weight:800; color:#1A1A2E; margin:0 0 6px;">تم التفعيل بنجاح!</h4>\n<p style="font-size:13px; color:#888; margin:0 0 20px;">احفظ الرموز الاحتياطية</p>\n<div style="background:#F5F9FF; border:2px dashed #B5D4F0; border-radius:14px; padding:16px; margin-bottom:12px;">\n<div style="font-size:13px; font-weight:700; margin-bottom:10px;">الرموز الاحتياطية</div>\n<div id="backupCodesList" style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px; direction:ltr; font-family:monospace; font-size:12px;"></div>\n</div>\n</div>\n<div class="acc-modal-actions" style="margin-top:16px;">\n<button class="acc-modal-btn cancel" data-i18n="modal.cancel" id="acc2faCancelBtn">إلغاء</button>\n<button class="acc-modal-btn confirm" id="acc2faNextBtn">\n<span class="btn-text" data-i18n="modal.continue">متابعة</span>\n</button>\n</div>\n</div>\n</div>\n<div class="acc-modal-overlay" id="accLangModal">\n<div class="acc-modal">\n<div class="acc-modal-header">\n<div class="acc-modal-icon" style="background: rgba(0,188,212,0.12); color:#00BCD4;">\n<i class="fas fa-globe"></i>\n</div>\n<h3 class="acc-modal-title" data-i18n="lang.title">اختيار اللغة</h3>\n<p class="acc-modal-subtitle" data-i18n="lang.subtitle">اختر اللغة المفضلة</p>\n</div>\n<div class="acc-lang-list" id="accLangList">\n<button class="acc-lang-option" data-lang="ar" type="button">\n<div class="acc-lang-flag">🇸🇦</div>\n<div class="acc-lang-info">\n<h5 data-i18n="lang.arabic">العربية</h5>\n<p data-i18n="lang.arabic_en">Arabic</p>\n</div>\n<div class="acc-lang-check"><i class="fas fa-check"></i></div>\n</button>\n<button class="acc-lang-option" data-lang="en" type="button">\n<div class="acc-lang-flag">🇬🇧</div>\n<div class="acc-lang-info">\n<h5 data-i18n="lang.english">English</h5>\n<p data-i18n="lang.english_ar">الإنجليزية</p>\n</div>\n<div class="acc-lang-check"><i class="fas fa-check"></i></div>\n</button>\n</div>\n<div class="acc-lang-note">\n<i class="fas fa-info-circle"></i>\n<div data-i18n="lang.note">سيتم تحديث التطبيق مباشرة</div>\n</div>\n</div>\n</div>\n<div class="acc-modal-overlay" id="accAboutModal">\n<div class="acc-modal">\n<div class="acc-about-hero">\n<div class="acc-about-logo">RE<span>DEM</span> STORE</div>\n<div class="acc-about-tagline" data-i18n="about.tagline">متجرك الرقمي الموثوق 🩵</div>\n</div>\n<div class="acc-about-divider"></div>\n<div class="acc-about-content">\n<div class="acc-about-text">\n<p data-i18n="about.intro">متجر متخصص في شحن الألعاب والبطاقات الإلكترونية!</p>\n</div>\n</div>\n<div class="acc-about-pattern">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</div>\n<div class="acc-about-features">\n<div class="acc-about-feature">\n<div class="acc-about-feature-icon"><i class="fas fa-gamepad"></i></div>\n<div class="acc-about-feature-info">\n<h5 data-i18n="about.feature1_title">بطاقات الألعاب</h5>\n<p data-i18n="about.feature1_desc">شحن فوري لجميع الألعاب</p>\n</div>\n</div>\n<div class="acc-about-feature">\n<div class="acc-about-feature-icon cyan"><i class="fas fa-store"></i></div>\n<div class="acc-about-feature-info">\n<h5 data-i18n="about.feature2_title">بطاقات المتاجر</h5>\n<p data-i18n="about.feature2_desc">Amazon, Noon, SHEIN</p>\n</div>\n</div>\n<div class="acc-about-feature">\n<div class="acc-about-feature-icon green"><i class="fas fa-credit-card"></i></div>\n<div class="acc-about-feature-info">\n<h5 data-i18n="about.feature3_title">البطاقات الإلكترونية</h5>\n<p data-i18n="about.feature3_desc">Google Play, iTunes, PSN</p>\n</div>\n</div>\n<div class="acc-about-feature">\n<div class="acc-about-feature-icon orange"><i class="fas fa-crown"></i></div>\n<div class="acc-about-feature-info">\n<h5 data-i18n="about.feature4_title">الاشتراكات الرقمية</h5>\n<p data-i18n="about.feature4_desc">Canva, Netflix, Starlink</p>\n</div>\n</div>\n</div>\n<div class="acc-about-pattern">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</div>\n<div class="acc-about-content">\n<div class="acc-about-text">\n<p data-i18n="about.extra1">كما تتوفر لدينا خدمة الاشتراكات الرقمية مثل Canva، Netflix، Starlink وغيرها.</p>\n<p data-i18n="about.extra2">كل بطاقات المتاجر، بطاقات الألعاب، والبطاقات الإلكترونية في مكان واحد 😊</p>\n<p data-i18n="about.extra3"><span class="cyan">"وغيرها من البطاقات النادرة فقط اطلب 😉!"</span></p>\n</div>\n</div>\n<div class="acc-about-slogan">\n<div class="acc-about-slogan-text">\n<i class="fas fa-bolt" style="color:#FCD34D;"></i>\n<span data-i18n="about.slogan_1">مع</span>\n<span class="brand">Redeem</span>\n<span data-i18n="about.slogan_2">اشحن وإنت مطمن</span>\n<i class="fas fa-heart acc-about-slogan-heart"></i>\n</div>\n</div>\n<div class="acc-about-footer">\n<i class="fas fa-heart blue-heart"></i>\n<span data-i18n="about.made_with">صنع بحب من فريق</span>\n<strong style="color:#1A73E8;"> REDEEM STORE</strong>\n<i class="fas fa-heart blue-heart"></i>\n<br/>\n<span class="acc-about-version">v1.0.0</span>\n</div>\n<button class="acc-about-close-btn" id="accAboutCloseBtn">\n<i class="fas fa-check-circle"></i>\n<span data-i18n="about.close">تم، شكراً</span>\n</button>\n</div>\n</div>\n<div class="acc-modal-overlay" id="accConfirmModal">\n<div class="acc-modal">\n<div class="acc-modal-header">\n<div class="acc-modal-icon" id="confirmIcon" style="background: rgba(239,68,68,0.10); color:#EF4444;">\n<i class="fas fa-exclamation-triangle"></i>\n</div>\n<h3 class="acc-modal-title" data-i18n="confirm.are_you_sure" id="confirmTitle">هل أنت متأكد؟</h3>\n<p class="acc-modal-subtitle" data-i18n="confirm.cannot_undo" id="confirmSubtitle">لا يمكن التراجع</p>\n</div>\n<div class="acc-modal-actions">\n<button class="acc-modal-btn cancel" data-i18n="modal.cancel" id="confirmCancelBtn">إلغاء</button>\n<button class="acc-modal-btn confirm" data-i18n="modal.confirm" id="confirmOkBtn" style="background:#EF4444;">تأكيد</button>\n</div>\n</div>\n</div>';
+    console.log('🔧 Account Page: Starting...');
 
+    // ============================================
+    // ===== CSS =====
+    // ============================================
+    const ACCOUNT_CSS = `
+        #page-account { padding: 0 0 30px 0; background: #F5F7FA; }
+        .account-hero { background: linear-gradient(145deg, #1A73E8, #0D47A1); padding: 32px 24px 60px; border-radius: 0 0 32px 32px; position: relative; overflow: hidden; text-align: center; margin-bottom: -40px; }
+        .account-hero::after { content: ''; position: absolute; top: -60px; right: -60px; width: 180px; height: 180px; background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 70%); border-radius: 50%; pointer-events: none; }
+        .account-hero::before { content: ''; position: absolute; bottom: -50px; left: -50px; width: 140px; height: 140px; background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%); border-radius: 50%; pointer-events: none; }
+        .account-avatar-wrapper { position: relative; display: inline-block; z-index: 2; margin-bottom: 12px; }
+        .account-avatar { width: 100px; height: 100px; border-radius: 50%; border: 4px solid rgba(255,255,255,0.25); background: #FFF; display: flex; align-items: center; justify-content: center; font-size: 42px; color: #1A73E8; overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .account-avatar img { width: 100%; height: 100%; object-fit: cover; }
+        .account-avatar-edit { position: absolute; bottom: 0; left: 0; width: 32px; height: 32px; border-radius: 50%; background: #FFF; color: #1A73E8; border: none; display: flex; align-items: center; justify-content: center; font-size: 13px; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .account-name { font-size: 22px; font-weight: 800; color: #FFF; position: relative; z-index: 2; margin: 0; }
+        .account-phone { font-size: 14px; color: rgba(255,255,255,0.8); position: relative; z-index: 2; margin-top: 4px; direction: ltr; unicode-bidi: plaintext; text-align: center; display: inline-block; width: 100%; }
+        .account-verified-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.15); color: #FFF; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 600; margin-top: 10px; position: relative; z-index: 2; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.12); }
+        .account-verified-badge i { color: #6EF3E8; font-size: 12px; }
+        .account-stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 16px; margin-bottom: 20px; position: relative; z-index: 3; }
+        .account-stat-card { background: #FFF; border-radius: 16px; padding: 16px 8px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; }
+        .account-stat-icon { width: 42px; height: 42px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; font-size: 18px; background: #E8F0FE; color: #1A73E8; }
+        .account-stat-card:nth-child(2) .account-stat-icon { background: rgba(245,158,11,0.12); color: #F59E0B; }
+        .account-stat-value { font-size: 18px; font-weight: 800; color: #1A1A2E; }
+        .account-stat-label { font-size: 11px; color: #888; font-weight: 500; margin-top: 2px; }
+        .account-body { padding: 0 16px; }
+        .account-section { background: #FFF; border-radius: 18px; margin-bottom: 16px; box-shadow: 0 2px 12px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; overflow: hidden; }
+        .account-section-title { font-size: 14px; font-weight: 800; color: #1A1A2E; padding: 16px 18px 10px; display: flex; align-items: center; gap: 8px; }
+        .account-section-title i { color: #1A73E8; font-size: 15px; }
+        .account-item { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px; border-top: 1px solid #f5f5f5; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+        .account-item:active { background: #f8f9fa; }
+        .account-item-left { display: flex; align-items: center; gap: 12px; flex: 1; min-width: 0; }
+        .account-item-icon { width: 38px; height: 38px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; background: #E8F0FE; color: #1A73E8; }
+        .account-item-icon.green { background: rgba(16,185,129,0.12); color: #10B981; }
+        .account-item-icon.orange { background: rgba(245,158,11,0.12); color: #F59E0B; }
+        .account-item-icon.purple { background: rgba(139,92,246,0.12); color: #8B5CF6; }
+        .account-item-icon.cyan { background: rgba(0,188,212,0.12); color: #00BCD4; }
+        .account-item-info { flex: 1; min-width: 0; }
+        .account-item-info h4 { font-size: 14px; font-weight: 600; color: #1A1A2E; margin: 0 0 2px; }
+        .account-item-info p { font-size: 12px; color: #999; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .account-item-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
+        .account-item-right i.fa-chevron-left { color: #bbb; font-size: 13px; }
+        .account-logout { margin: 8px 0 0; width: 100%; padding: 15px 20px; background: #FFF; color: #EF4444; border: 1.5px solid rgba(239,68,68,0.25); border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: inherit; }
+        .account-logout:active { background: rgba(239,68,68,0.06); }
+        .account-footer-note { text-align: center; padding: 20px 0 10px; font-size: 11px; color: #bbb; }
+        .account-footer-note i { color: #1A73E8; margin: 0 3px; }
+
+        /* Modals */
+        .acc-modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; display: flex; align-items: center; justify-content: center; opacity: 0; visibility: hidden; transition: opacity 0.25s ease, visibility 0.25s ease; padding: 20px; }
+        .acc-modal-overlay.open { opacity: 1; visibility: visible; }
+        .acc-modal { background: #FFF; border-radius: 20px; max-width: 400px; width: 100%; max-height: 90vh; overflow-y: auto; padding: 24px 20px 20px; box-shadow: 0 20px 60px rgba(0,0,0,0.25); transform: scale(0.9); opacity: 0; transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.25s ease; }
+        .acc-modal-overlay.open .acc-modal { transform: scale(1); opacity: 1; }
+        .acc-modal-header { text-align: center; margin-bottom: 20px; }
+        .acc-modal-icon { width: 56px; height: 56px; border-radius: 16px; background: #E8F0FE; color: #1A73E8; display: flex; align-items: center; justify-content: center; font-size: 22px; margin: 0 auto 12px; }
+        .acc-modal-title { font-size: 18px; font-weight: 800; color: #1A1A2E; margin: 0 0 4px; }
+        .acc-modal-subtitle { font-size: 13px; color: #999; margin: 0; }
+        .acc-modal-input-wrapper { position: relative; margin-bottom: 20px; }
+        .acc-modal-input-wrapper i { position: absolute; right: 16px; top: 50%; transform: translateY(-50%); color: #1A73E8; font-size: 15px; pointer-events: none; }
+        .acc-modal-input { width: 100%; padding: 14px 44px 14px 16px; border: 2px solid #E8EAED; border-radius: 14px; font-size: 15px; font-weight: 500; color: #1A1A2E; background: #FFF; outline: none; text-align: right; direction: rtl; font-family: inherit; }
+        .acc-modal-input:focus { border-color: #1A73E8; box-shadow: 0 0 0 4px rgba(26,115,232,0.10); }
+        .acc-modal-actions { display: flex; gap: 10px; }
+        .acc-modal-btn { flex: 1; padding: 13px 16px; border-radius: 12px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; font-family: inherit; }
+        .acc-modal-btn.cancel { background: #F5F7FA; color: #666; }
+        .acc-modal-btn.confirm { background: #1A73E8; color: #FFF; box-shadow: 0 4px 14px rgba(26,115,232,0.30); }
+
+        /* Toggle */
+        .acc-toggle { position: relative; display: inline-block; width: 48px; height: 26px; flex-shrink: 0; cursor: pointer; }
+        .acc-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+        .acc-toggle-track { position: absolute; inset: 0; background: #D1D5DB; border-radius: 50px; transition: background 0.3s; }
+        .acc-toggle-thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; background: #FFF; border-radius: 50%; transition: transform 0.3s; box-shadow: 0 2px 4px rgba(0,0,0,0.15); z-index: 2; }
+        .acc-toggle input:checked ~ .acc-toggle-track { background: #1A73E8; }
+        .acc-toggle input:checked ~ .acc-toggle-thumb { transform: translateX(22px); }
+
+        /* Language */
+        .acc-lang-list { display: flex; flex-direction: column; gap: 10px; }
+        .acc-lang-option { display: flex; align-items: center; gap: 14px; padding: 14px 16px; background: #FFF; border: 2px solid #E8EAED; border-radius: 14px; cursor: pointer; text-align: right; width: 100%; font-family: inherit; }
+        .acc-lang-option.selected { border-color: #1A73E8; background: #F5F9FF; }
+        .acc-lang-flag { width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 24px; background: #F5F7FA; flex-shrink: 0; border: 2px solid #F0F2F5; }
+        .acc-lang-option.selected .acc-lang-flag { border-color: #1A73E8; }
+        .acc-lang-info { flex: 1; min-width: 0; }
+        .acc-lang-info h5 { font-size: 15px; font-weight: 700; color: #1A1A2E; margin: 0 0 3px; }
+        .acc-lang-info p { font-size: 12px; color: #888; margin: 0; direction: ltr; text-align: right; }
+        .acc-lang-check { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #D1D5DB; display: flex; align-items: center; justify-content: center; font-size: 12px; color: transparent; flex-shrink: 0; }
+        .acc-lang-option.selected .acc-lang-check { background: #1A73E8; border-color: #1A73E8; color: #FFF; }
+        .acc-lang-note { background: #F5F9FF; border: 1px solid #D6E8F8; border-radius: 12px; padding: 12px 14px; font-size: 12px; color: #1A73E8; display: flex; gap: 10px; margin-top: 8px; }
+
+        /* About */
+        .acc-about-hero { text-align: center; padding: 8px 0 20px; }
+        .acc-about-logo { font-size: 32px; font-weight: 900; letter-spacing: 1.5px; color: #1A73E8; }
+        .acc-about-logo span { color: #00BCD4; }
+        .acc-about-tagline { font-size: 13px; color: #888; margin-top: 2px; }
+        .acc-about-divider { height: 2px; background: linear-gradient(90deg, transparent, #1A73E8, transparent); margin: 16px 0; opacity: 0.6; }
+        .acc-about-pattern { text-align: center; color: #B5D4F0; font-size: 10px; letter-spacing: 2px; margin: 12px 0; overflow: hidden; white-space: nowrap; user-select: none; }
+        .acc-about-content { background: linear-gradient(145deg, #F5F9FF, #FFF); border: 1px solid #E8F0FE; border-radius: 16px; padding: 18px 16px; margin-bottom: 12px; }
+        .acc-about-text { font-size: 13.5px; color: #1A1A2E; line-height: 2; text-align: center; font-weight: 500; }
+        .acc-about-text p { margin: 0 0 8px; }
+        .acc-about-text p:last-child { margin-bottom: 0; }
+        .acc-about-text .cyan { color: #00BCD4; font-weight: 800; }
+        .acc-about-features { display: flex; flex-direction: column; gap: 10px; margin: 16px 0; }
+        .acc-about-feature { display: flex; align-items: center; gap: 12px; padding: 12px 14px; background: #FFF; border: 1px solid #E8F0FE; border-radius: 12px; }
+        .acc-about-feature-icon { width: 38px; height: 38px; border-radius: 11px; background: #E8F0FE; color: #1A73E8; display: flex; align-items: center; justify-content: center; font-size: 15px; flex-shrink: 0; }
+        .acc-about-feature-icon.cyan { background: rgba(0,188,212,0.12); color: #00BCD4; }
+        .acc-about-feature-icon.green { background: rgba(16,185,129,0.12); color: #10B981; }
+        .acc-about-feature-icon.orange { background: rgba(245,158,11,0.12); color: #F59E0B; }
+        .acc-about-feature-info h5 { font-size: 13px; font-weight: 700; color: #1A1A2E; margin: 0 0 2px; }
+        .acc-about-feature-info p { font-size: 11.5px; color: #888; margin: 0; }
+        .acc-about-slogan { background: linear-gradient(145deg, #1A73E8, #0D47A1); border-radius: 14px; padding: 16px 18px; margin: 16px 0 12px; color: #FFF; text-align: center; box-shadow: 0 6px 20px rgba(26,115,232,0.25); }
+        .acc-about-slogan-text { font-size: 15px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+        .acc-about-slogan-text .brand { color: #6EF3E8; font-weight: 900; }
+        .acc-about-slogan-heart { color: #FF6B9D; font-size: 16px; animation: heartBeat 1.5s infinite; display: inline-block; }
+        @keyframes heartBeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.15); } }
+        .acc-about-footer { text-align: center; padding: 16px 0 8px; font-size: 11.5px; color: #B0B8C4; line-height: 1.8; }
+        .acc-about-footer .blue-heart { color: #1A73E8; font-size: 14px; margin: 0 4px; display: inline-block; animation: heartBeat 1.8s infinite; }
+        .acc-about-version { display: inline-block; background: #F5F7FA; color: #888; padding: 4px 12px; border-radius: 50px; font-size: 10.5px; font-weight: 700; margin-top: 8px; border: 1px solid #E8EAED; }
+        .acc-about-close-btn { width: 100%; padding: 14px 20px; background: #1A73E8; color: #FFF; border: none; border-radius: 14px; font-size: 15px; font-weight: 700; cursor: pointer; font-family: inherit; margin-top: 6px; box-shadow: 0 6px 20px rgba(26,115,232,0.25); display: flex; align-items: center; justify-content: center; gap: 8px; }
+
+        /* Toast */
+        #accToast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #1A1A2E; color: #FFF; padding: 14px 22px; border-radius: 14px; font-size: 14px; font-weight: 600; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 99999; opacity: 0; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); max-width: 90%; text-align: center; pointer-events: none; }
+
+        /* Orders Page */
+        .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        .acc-orders-page.active, .acc-order-detail-page.active { transform: translateX(0); }
+        .acc-order-detail-page { z-index: 9999; }
+        .acc-orders-header { background: #FFF; padding: 14px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #F0F2F5; }
+        .acc-orders-back { width: 40px; height: 40px; border-radius: 12px; border: none; background: #F0F2F5; color: #1A1A2E; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .acc-orders-title { font-size: 18px; font-weight: 800; color: #1A1A2E; margin: 0; }
+        .acc-orders-count { font-size: 12px; color: #888; margin-top: 2px; }
+        .acc-orders-filters { display: flex; gap: 8px; padding: 12px 16px; overflow-x: auto; scrollbar-width: none; }
+        .acc-orders-filters::-webkit-scrollbar { display: none; }
+        .acc-orders-filter { padding: 8px 14px; border-radius: 50px; border: 1px solid #E8EAED; background: #FFF; color: #555; font-size: 12px; font-weight: 600; cursor: pointer; white-space: nowrap; flex-shrink: 0; font-family: inherit; display: flex; align-items: center; gap: 6px; }
+        .acc-orders-filter.active { background: #1A73E8; color: #FFF; border-color: #1A73E8; }
+        .acc-orders-filter .badge { background: rgba(255,255,255,0.25); color: #FFF; padding: 1px 7px; border-radius: 50px; font-size: 10px; font-weight: 700; }
+        .acc-orders-filter:not(.active) .badge { background: #E8F0FE; color: #1A73E8; }
+        .acc-orders-list { flex: 1; overflow-y: auto; padding: 4px 16px 24px; }
+        .acc-order-card { background: #FFF; border-radius: 16px; padding: 14px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #F0F2F5; cursor: pointer; animation: fadeUpOrd 0.3s ease; }
+        .acc-order-card:active { transform: scale(0.98); }
+        @keyframes fadeUpOrd { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .acc-order-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #F0F2F5; gap: 8px; }
+        .acc-order-id { font-size: 12px; font-weight: 800; color: #1A1A2E; direction: ltr; font-family: 'SF Mono', 'Courier New', monospace; }
+        .acc-order-status { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 50px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+        .acc-order-status.pending { background: rgba(245,158,11,0.12); color: #F59E0B; }
+        .acc-order-status.processing { background: rgba(26,115,232,0.12); color: #1A73E8; }
+        .acc-order-status.completed { background: rgba(16,185,129,0.12); color: #10B981; }
+        .acc-order-status.cancelled { background: rgba(239,68,68,0.10); color: #EF4444; }
+        .acc-order-body { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .acc-order-thumb { width: 54px; height: 54px; border-radius: 12px; background: #F5F7FA; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 5px; }
+        .acc-order-thumb img { width: 100%; height: 100%; object-fit: contain; }
+        .acc-order-info { flex: 1; min-width: 0; }
+        .acc-order-name { font-size: 13px; font-weight: 700; color: #1A1A2E; margin: 0 0 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .acc-order-desc { font-size: 11px; color: #888; margin: 0 0 4px; }
+        .acc-order-date { font-size: 10px; color: #B0B8C4; display: flex; align-items: center; gap: 4px; }
+        .acc-order-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px dashed #F0F2F5; gap: 8px; }
+        .acc-order-total-label { font-size: 10px; color: #999; display: block; margin-bottom: 2px; }
+        .acc-order-total { font-size: 16px; font-weight: 800; color: #1A73E8; direction: ltr; }
+        .acc-order-actions { display: flex; gap: 6px; }
+        .acc-order-btn { width: 34px; height: 34px; border-radius: 10px; border: 1px solid #E8EAED; background: #FFF; color: #666; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .acc-order-btn.primary { background: #1A73E8; color: #FFF; border-color: #1A73E8; }
+        .acc-orders-empty { text-align: center; padding: 60px 20px; display: none; }
+        .acc-orders-empty.show { display: block; }
+        .acc-orders-empty-icon { width: 90px; height: 90px; border-radius: 50%; background: #F0F2F5; color: #B0B8C4; display: flex; align-items: center; justify-content: center; font-size: 36px; margin: 0 auto 16px; }
+        .acc-orders-empty h3 { font-size: 17px; font-weight: 700; color: #1A1A2E; margin: 0 0 6px; }
+        .acc-orders-empty p { font-size: 13px; color: #999; margin: 0 0 16px; }
+        .acc-orders-empty-btn { padding: 11px 24px; background: #1A73E8; color: #FFF; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; font-family: inherit; }
+
+        /* Order Detail */
+        .acc-order-detail-body { flex: 1; overflow-y: auto; padding: 12px 16px 100px; }
+        .acc-detail-status-card { border-radius: 18px; padding: 20px; color: #FFF; margin-bottom: 12px; position: relative; overflow: hidden; background: linear-gradient(145deg, #1A73E8, #0D47A1); }
+        .acc-detail-status-card.status-completed { background: linear-gradient(145deg, #10B981, #047857); }
+        .acc-detail-status-card.status-pending { background: linear-gradient(145deg, #F59E0B, #B45309); }
+        .acc-detail-status-card.status-cancelled { background: linear-gradient(145deg, #EF4444, #991B1B); }
+        .acc-detail-status-icon { width: 48px; height: 48px; border-radius: 14px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 12px; }
+        .acc-detail-status-title { font-size: 19px; font-weight: 800; margin: 0 0 4px; }
+        .acc-detail-status-sub { font-size: 12px; color: rgba(255,255,255,0.85); margin: 0; }
+        .acc-detail-section { background: #FFF; border-radius: 16px; padding: 16px; margin-bottom: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.04); border: 1px solid #F0F2F5; }
+        .acc-detail-section-title { font-size: 13px; font-weight: 800; color: #1A1A2E; margin: 0 0 12px; display: flex; align-items: center; gap: 8px; padding-bottom: 10px; border-bottom: 1px solid #F5F7FA; }
+        .acc-detail-section-title i { color: #1A73E8; font-size: 14px; }
+        .acc-detail-product { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+        .acc-detail-product-thumb { width: 52px; height: 52px; border-radius: 12px; background: #F5F7FA; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 4px; }
+        .acc-detail-product-thumb img { width: 100%; height: 100%; object-fit: contain; }
+        .acc-detail-product-info { flex: 1; min-width: 0; }
+        .acc-detail-product-info h5 { font-size: 13px; font-weight: 700; color: #1A1A2E; margin: 0 0 3px; }
+        .acc-detail-product-info p { font-size: 11px; color: #888; margin: 0; }
+        .acc-detail-product-price { font-size: 14px; font-weight: 800; color: #1A73E8; min-width: 60px; text-align: left; direction: ltr; }
+        .acc-detail-row { display: flex; align-items: center; justify-content: space-between; padding: 8px 0; font-size: 13px; gap: 12px; }
+        .acc-detail-row-label { color: #888; font-weight: 500; flex-shrink: 0; }
+        .acc-detail-row-value { color: #1A1A2E; font-weight: 700; text-align: left; word-break: break-word; }
+        .acc-detail-row-value.ltr { direction: ltr; font-family: 'SF Mono', 'Courier New', monospace; font-size: 12px; }
+        .acc-detail-row.total { padding-top: 12px; border-top: 1px dashed #F0F2F5; margin-top: 4px; }
+        .acc-detail-row.total .acc-detail-row-label { color: #1A1A2E; font-weight: 700; font-size: 15px; }
+        .acc-detail-row.total .acc-detail-row-value { color: #1A73E8; font-size: 18px; font-weight: 800; }
+        .acc-detail-actions { position: absolute; bottom: 0; left: 0; right: 0; background: #FFF; padding: 12px 16px; box-shadow: 0 -4px 20px rgba(0,0,0,0.06); border-top: 1px solid #F0F2F5; display: flex; gap: 10px; z-index: 100; }
+        .acc-detail-btn { flex: 1; padding: 13px 12px; border-radius: 12px; font-size: 13px; font-weight: 700; cursor: pointer; border: none; display: flex; align-items: center; justify-content: center; gap: 6px; font-family: inherit; }
+        .acc-detail-btn.secondary { background: #F5F7FA; color: #1A73E8; border: 1.5px solid #E8EAED; }
+        .acc-detail-btn.primary { background: #1A73E8; color: #FFF; box-shadow: 0 4px 14px rgba(26,115,232,0.25); }
+        .acc-progress-steps { position: relative; padding-right: 26px; }
+        .acc-progress-line { position: absolute; right: 9px; top: 8px; bottom: 8px; width: 2px; background: #F0F2F5; border-radius: 2px; }
+        .acc-progress-step { position: relative; padding-bottom: 18px; padding-right: 18px; }
+        .acc-progress-step:last-child { padding-bottom: 0; }
+        .acc-progress-step-dot { position: absolute; right: -26px; top: 2px; width: 20px; height: 20px; border-radius: 50%; background: #F0F2F5; color: #B0B8C4; display: flex; align-items: center; justify-content: center; font-size: 9px; border: 3px solid #FFF; box-shadow: 0 0 0 2px #F0F2F5; z-index: 2; }
+        .acc-progress-step.done .acc-progress-step-dot { background: #10B981; color: #FFF; box-shadow: 0 0 0 2px #10B981; }
+        .acc-progress-step.current .acc-progress-step-dot { background: #1A73E8; color: #FFF; box-shadow: 0 0 0 3px rgba(26,115,232,0.25); }
+        .acc-progress-step-label { font-size: 13px; font-weight: 700; color: #1A1A2E; margin: 0 0 2px; }
+        .acc-progress-step.done .acc-progress-step-label { color: #10B981; }
+        .acc-progress-step.current .acc-progress-step-label { color: #1A73E8; }
+        .acc-progress-step-date { font-size: 11px; color: #999; }
+    `;
+
+    // ============================================
+    // ===== HTML =====
+    // ============================================
+    const ACCOUNT_HTML = `
+        <div class="page" id="page-account">
+            <div class="account-hero">
+                <div class="account-avatar-wrapper">
+                    <div class="account-avatar" id="accountAvatar"><i class="fas fa-user"></i></div>
+                    <button class="account-avatar-edit" id="avatarEditBtn"><i class="fas fa-camera"></i></button>
+                </div>
+                <h2 class="account-name" id="accountName">مستخدم REDEEM</h2>
+                <p class="account-phone"><bdi id="accountPhone">+249901839168</bdi></p>
+                <span class="account-verified-badge"><i class="fas fa-check-circle"></i><span>حساب موثّق</span></span>
+            </div>
+            <div class="account-stats">
+                <div class="account-stat-card">
+                    <div class="account-stat-icon"><i class="fas fa-shopping-bag"></i></div>
+                    <div class="account-stat-value" id="statOrders">5</div>
+                    <div class="account-stat-label">الطلبات</div>
+                </div>
+                <div class="account-stat-card">
+                    <div class="account-stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="account-stat-value" id="statPoints">250</div>
+                    <div class="account-stat-label">النقاط</div>
+                </div>
+            </div>
+            <div class="account-body">
+                <div class="account-section">
+                    <div class="account-section-title"><i class="fas fa-user-circle"></i><span>معلومات الحساب</span></div>
+                    <div class="account-item" data-action="edit-name">
+                        <div class="account-item-left"><div class="account-item-icon"><i class="fas fa-user"></i></div><div class="account-item-info"><h4>الاسم الكامل</h4><p id="infoName">مستخدم REDEEM</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                    <div class="account-item" data-action="edit-email">
+                        <div class="account-item-left"><div class="account-item-icon cyan"><i class="fas fa-envelope"></i></div><div class="account-item-info"><h4>البريد الإلكتروني</h4><p id="infoEmail">user@redeemstore.com</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                    <div class="account-item" data-action="edit-phone">
+                        <div class="account-item-left"><div class="account-item-icon green"><i class="fab fa-whatsapp"></i></div><div class="account-item-info"><h4>رقم واتساب</h4><p><bdi id="infoPhone">+249901839168</bdi></p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
+                <div class="account-section">
+                    <div class="account-section-title"><i class="fas fa-shield-alt"></i><span>الأمان والخصوصية</span></div>
+                    <div class="account-item" data-action="change-password">
+                        <div class="account-item-left"><div class="account-item-icon orange"><i class="fas fa-lock"></i></div><div class="account-item-info"><h4>تغيير كلمة المرور</h4><p>آخر تحديث قبل 30 يوم</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                    <div class="account-item" style="cursor:default;">
+                        <div class="account-item-left"><div class="account-item-icon purple"><i class="fas fa-fingerprint"></i></div><div class="account-item-info"><h4>التحقق بخطوتين</h4><p>حماية إضافية</p></div></div>
+                        <div class="account-item-right"><label class="acc-toggle"><input data-key="two-factor" id="toggleTwoFactor" type="checkbox"/><span class="acc-toggle-track"></span><span class="acc-toggle-thumb"></span></label></div>
+                    </div>
+                </div>
+                <div class="account-section">
+                    <div class="account-section-title"><i class="fas fa-cog"></i><span>الطلبات والإعدادات</span></div>
+                    <div class="account-item" data-action="my-orders">
+                        <div class="account-item-left"><div class="account-item-icon"><i class="fas fa-receipt"></i></div><div class="account-item-info"><h4>طلباتي</h4><p>عرض جميع طلباتك السابقة</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                    <div class="account-item" style="cursor:default;">
+                        <div class="account-item-left"><div class="account-item-icon orange"><i class="fas fa-bell"></i></div><div class="account-item-info"><h4>الإشعارات</h4><p>إدارة تنبيهاتك</p></div></div>
+                        <div class="account-item-right"><label class="acc-toggle"><input checked data-key="notifications" type="checkbox"/><span class="acc-toggle-track"></span><span class="acc-toggle-thumb"></span></label></div>
+                    </div>
+                    <div class="account-item" data-action="language">
+                        <div class="account-item-left"><div class="account-item-icon cyan"><i class="fas fa-globe"></i></div><div class="account-item-info"><h4>اللغة</h4><p id="currentLanguageLabel">العربية</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                    <div class="account-item" data-action="about">
+                        <div class="account-item-left"><div class="account-item-icon"><i class="fas fa-info-circle"></i></div><div class="account-item-info"><h4>عن التطبيق</h4><p>REDEEM STORE v1.0.0</p></div></div>
+                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
+                    </div>
+                </div>
+                <button class="account-logout" id="accountLogoutBtn"><i class="fas fa-sign-out-alt"></i><span>تسجيل الخروج</span></button>
+                <div class="account-footer-note"><i class="fas fa-heart"></i><span>REDEEM STORE © 2026</span></div>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="accInputModal">
+            <div class="acc-modal">
+                <div class="acc-modal-header">
+                    <div class="acc-modal-icon" id="accModalIcon"><i class="fas fa-user"></i></div>
+                    <h3 class="acc-modal-title" id="accModalTitle">تعديل</h3>
+                    <p class="acc-modal-subtitle" id="accModalSubtitle">أدخل القيمة الجديدة</p>
+                </div>
+                <div class="acc-modal-input-wrapper"><i class="fas fa-pen" id="accModalInputIcon"></i><input class="acc-modal-input" id="accModalInput" type="text"/></div>
+                <div class="acc-modal-actions">
+                    <button class="acc-modal-btn cancel" id="accModalCancel">إلغاء</button>
+                    <button class="acc-modal-btn confirm" id="accModalConfirm">حسناً</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="accPasswordModal">
+            <div class="acc-modal">
+                <div class="acc-modal-header">
+                    <div class="acc-modal-icon" style="background: rgba(245,158,11,0.12); color:#F59E0B;"><i class="fas fa-lock"></i></div>
+                    <h3 class="acc-modal-title">تغيير كلمة المرور</h3>
+                    <p class="acc-modal-subtitle">أدخل بياناتك</p>
+                </div>
+                <div class="acc-modal-input-wrapper"><i class="fas fa-lock"></i><input class="acc-modal-input" id="oldPassword" placeholder="كلمة المرور الحالية" type="password"/></div>
+                <div class="acc-modal-input-wrapper"><i class="fas fa-key"></i><input class="acc-modal-input" id="newPassword" placeholder="كلمة المرور الجديدة" type="password"/></div>
+                <div class="acc-modal-input-wrapper"><i class="fas fa-check-circle"></i><input class="acc-modal-input" id="confirmPassword" placeholder="تأكيد كلمة المرور" type="password"/></div>
+                <div class="acc-modal-actions">
+                    <button class="acc-modal-btn cancel" id="passCancelBtn">إلغاء</button>
+                    <button class="acc-modal-btn confirm" id="passSaveBtn">تحديث</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="acc2faModal">
+            <div class="acc-modal">
+                <div class="acc-modal-header">
+                    <div class="acc-modal-icon" style="background: rgba(139,92,246,0.12); color:#8B5CF6;"><i class="fas fa-fingerprint"></i></div>
+                    <h3 class="acc-modal-title">تفعيل التحقق بخطوتين</h3>
+                    <p class="acc-modal-subtitle">اختر طريقة استقبال الرمز</p>
+                </div>
+                <div id="acc2faStep1">
+                    <button class="acc-lang-option selected" data-method="sms" style="margin-bottom:10px;">
+                        <div class="acc-lang-flag"><i class="fas fa-sms"></i></div>
+                        <div class="acc-lang-info"><h5>رسالة نصية SMS</h5><p>استقبل الرمز عبر رسالة</p></div>
+                        <div class="acc-lang-check"><i class="fas fa-check"></i></div>
+                    </button>
+                    <button class="acc-lang-option" data-method="app" style="margin-bottom:10px;">
+                        <div class="acc-lang-flag"><i class="fas fa-mobile-alt"></i></div>
+                        <div class="acc-lang-info"><h5>تطبيق المصادقة</h5><p>Google Authenticator</p></div>
+                        <div class="acc-lang-check"><i class="fas fa-check"></i></div>
+                    </button>
+                </div>
+                <div id="acc2faStep2" style="display:none;">
+                    <div class="acc-modal-input-wrapper"><i class="fas fa-key"></i><input class="acc-modal-input" id="otpCode" maxlength="6" placeholder="أدخل الرمز المكوّن من 6 أرقام" style="direction:ltr; text-align:center; letter-spacing:8px; font-size:20px;" type="text"/></div>
+                </div>
+                <div id="acc2faStep3" style="display:none; text-align:center;">
+                    <div style="width:80px; height:80px; border-radius:50%; background:rgba(16,185,129,0.12); color:#10B981; display:flex; align-items:center; justify-content:center; font-size:38px; margin:0 auto 16px;"><i class="fas fa-check"></i></div>
+                    <h4 style="font-size:18px; font-weight:800; color:#1A1A2E; margin:0 0 6px;">تم التفعيل بنجاح!</h4>
+                    <p style="font-size:13px; color:#888; margin:0 0 20px;">احفظ الرموز الاحتياطية</p>
+                    <div style="background:#F5F9FF; border:2px dashed #B5D4F0; border-radius:14px; padding:16px; margin-bottom:12px;">
+                        <div style="font-size:13px; font-weight:700; margin-bottom:10px;">الرموز الاحتياطية</div>
+                        <div id="backupCodesList" style="display:grid; grid-template-columns:repeat(2,1fr); gap:8px; direction:ltr; font-family:monospace; font-size:12px;"></div>
+                    </div>
+                </div>
+                <div class="acc-modal-actions" style="margin-top:16px;">
+                    <button class="acc-modal-btn cancel" id="acc2faCancelBtn">إلغاء</button>
+                    <button class="acc-modal-btn confirm" id="acc2faNextBtn"><span class="btn-text">متابعة</span></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="accLangModal">
+            <div class="acc-modal">
+                <div class="acc-modal-header">
+                    <div class="acc-modal-icon" style="background: rgba(0,188,212,0.12); color:#00BCD4;"><i class="fas fa-globe"></i></div>
+                    <h3 class="acc-modal-title">اختيار اللغة</h3>
+                    <p class="acc-modal-subtitle">اختر اللغة المفضلة</p>
+                </div>
+                <div class="acc-lang-list">
+                    <button class="acc-lang-option" data-lang="ar" type="button">
+                        <div class="acc-lang-flag">🇸🇦</div>
+                        <div class="acc-lang-info"><h5>العربية</h5><p>Arabic</p></div>
+                        <div class="acc-lang-check"><i class="fas fa-check"></i></div>
+                    </button>
+                    <button class="acc-lang-option" data-lang="en" type="button">
+                        <div class="acc-lang-flag">🇬🇧</div>
+                        <div class="acc-lang-info"><h5>English</h5><p>الإنجليزية</p></div>
+                        <div class="acc-lang-check"><i class="fas fa-check"></i></div>
+                    </button>
+                </div>
+                <div class="acc-lang-note"><i class="fas fa-info-circle"></i><div>سيتم تحديث التطبيق مباشرة</div></div>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="accAboutModal">
+            <div class="acc-modal">
+                <div class="acc-about-hero">
+                    <div class="acc-about-logo">RE<span>DEM</span> STORE</div>
+                    <div class="acc-about-tagline">متجرك الرقمي الموثوق 🩵</div>
+                </div>
+                <div class="acc-about-divider"></div>
+                <div class="acc-about-content"><div class="acc-about-text"><p>متجر متخصص في شحن الألعاب والبطاقات الإلكترونية!</p></div></div>
+                <div class="acc-about-pattern">▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬</div>
+                <div class="acc-about-features">
+                    <div class="acc-about-feature"><div class="acc-about-feature-icon"><i class="fas fa-gamepad"></i></div><div class="acc-about-feature-info"><h5>بطاقات الألعاب</h5><p>شحن فوري لجميع الألعاب</p></div></div>
+                    <div class="acc-about-feature"><div class="acc-about-feature-icon cyan"><i class="fas fa-store"></i></div><div class="acc-about-feature-info"><h5>بطاقات المتاجر</h5><p>Amazon, Noon, SHEIN</p></div></div>
+                    <div class="acc-about-feature"><div class="acc-about-feature-icon green"><i class="fas fa-credit-card"></i></div><div class="acc-about-feature-info"><h5>البطاقات الإلكترونية</h5><p>Google Play, iTunes, PSN</p></div></div>
+                    <div class="acc-about-feature"><div class="acc-about-feature-icon orange"><i class="fas fa-crown"></i></div><div class="acc-about-feature-info"><h5>الاشتراكات الرقمية</h5><p>Canva, Netflix, Starlink</p></div></div>
+                </div>
+                <div class="acc-about-pattern">▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓</div>
+                <div class="acc-about-content">
+                    <div class="acc-about-text">
+                        <p>كما تتوفر لدينا خدمة الاشتراكات الرقمية مثل Canva، Netflix، Starlink وغيرها.</p>
+                        <p>كل بطاقات المتاجر، بطاقات الألعاب، والبطاقات الإلكترونية في مكان واحد 😊</p>
+                        <p><span class="cyan">"وغيرها من البطاقات النادرة فقط اطلب 😉!"</span></p>
+                    </div>
+                </div>
+                <div class="acc-about-slogan">
+                    <div class="acc-about-slogan-text">
+                        <i class="fas fa-bolt" style="color:#FCD34D;"></i>
+                        <span>مع</span>
+                        <span class="brand">Redeem</span>
+                        <span>اشحن وإنت مطمن</span>
+                        <i class="fas fa-heart acc-about-slogan-heart"></i>
+                    </div>
+                </div>
+                <div class="acc-about-footer">
+                    <i class="fas fa-heart blue-heart"></i>
+                    <span>صنع بحب من فريق</span>
+                    <strong style="color:#1A73E8;"> REDEEM STORE</strong>
+                    <i class="fas fa-heart blue-heart"></i>
+                    <br/>
+                    <span class="acc-about-version">v1.0.0</span>
+                </div>
+                <button class="acc-about-close-btn" id="accAboutCloseBtn"><i class="fas fa-check-circle"></i><span>تم، شكراً</span></button>
+            </div>
+        </div>
+
+        <div class="acc-modal-overlay" id="accConfirmModal">
+            <div class="acc-modal">
+                <div class="acc-modal-header">
+                    <div class="acc-modal-icon" id="confirmIcon" style="background: rgba(239,68,68,0.10); color:#EF4444;"><i class="fas fa-exclamation-triangle"></i></div>
+                    <h3 class="acc-modal-title" id="confirmTitle">هل أنت متأكد؟</h3>
+                    <p class="acc-modal-subtitle" id="confirmSubtitle">لا يمكن التراجع</p>
+                </div>
+                <div class="acc-modal-actions">
+                    <button class="acc-modal-btn cancel" id="confirmCancelBtn">إلغاء</button>
+                    <button class="acc-modal-btn confirm" id="confirmOkBtn" style="background:#EF4444;">تأكيد</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="acc-orders-page" id="accOrdersPage">
+            <div class="acc-orders-header">
+                <button class="acc-orders-back" id="accOrdersBackBtn"><i class="fas fa-arrow-right"></i></button>
+                <div>
+                    <h2 class="acc-orders-title">طلباتي</h2>
+                    <div class="acc-orders-count" id="accOrdersCount">0 طلب</div>
+                </div>
+            </div>
+            <div class="acc-orders-filters">
+                <button class="acc-orders-filter active" data-filter="all"><i class="fas fa-list"></i> الكل <span class="badge" id="fAll">0</span></button>
+                <button class="acc-orders-filter" data-filter="pending"><i class="fas fa-clock"></i> قيد الانتظار <span class="badge" id="fPending">0</span></button>
+                <button class="acc-orders-filter" data-filter="processing"><i class="fas fa-spinner"></i> قيد التنفيذ <span class="badge" id="fProcessing">0</span></button>
+                <button class="acc-orders-filter" data-filter="completed"><i class="fas fa-check"></i> مكتمل <span class="badge" id="fCompleted">0</span></button>
+                <button class="acc-orders-filter" data-filter="cancelled"><i class="fas fa-times"></i> ملغي <span class="badge" id="fCancelled">0</span></button>
+            </div>
+            <div class="acc-orders-list" id="accOrdersList"></div>
+            <div class="acc-orders-empty" id="accOrdersEmpty">
+                <div class="acc-orders-empty-icon"><i class="fas fa-box-open"></i></div>
+                <h3>لا توجد طلبات</h3>
+                <p>لم تقم بأي طلبات بعد. ابدأ التسوق الآن!</p>
+                <button class="acc-orders-empty-btn" id="accOrdersEmptyBtn">ابدأ التسوق</button>
+            </div>
+        </div>
+
+        <div class="acc-order-detail-page" id="accOrderDetailPage">
+            <div class="acc-orders-header">
+                <button class="acc-orders-back" id="accOrderDetailBackBtn"><i class="fas fa-arrow-right"></i></button>
+                <div>
+                    <h2 class="acc-orders-title">تفاصيل الطلب</h2>
+                    <div class="acc-orders-count" id="accOrderDetailId">#—</div>
+                </div>
+            </div>
+            <div class="acc-order-detail-body" id="accOrderDetailBody"></div>
+            <div class="acc-detail-actions" id="accOrderDetailActions"></div>
+        </div>
+    `;
+
+    // ============================================
+    // ===== MOUNT =====
+    // ============================================
     function mountAccountPage() {
         if (document.getElementById('page-account')) return;
-
         const host = document.querySelector('.page-container') || document.body;
 
-        if (!document.getElementById('redeem-account-component-style')) {
+        if (!document.getElementById('redeem-account-style')) {
             const style = document.createElement('style');
-            style.id = 'redeem-account-component-style';
+            style.id = 'redeem-account-style';
             style.textContent = ACCOUNT_CSS;
             document.head.appendChild(style);
         }
@@ -28,272 +494,172 @@
 
         const page = wrapper.querySelector('#page-account');
         const modals = wrapper.querySelectorAll('.acc-modal-overlay');
-
+        const ordersPage = wrapper.querySelector('#accOrdersPage');
+        const detailPage = wrapper.querySelector('#accOrderDetailPage');
         const nav = host.querySelector('#bottomNav');
+
         if (page) {
-            // Keep the account page hidden until the existing main-store switchPage()
-            // opens it. This makes the page ready before the user taps "الحساب".
             page.classList.remove('active');
             page.style.display = 'none';
-            page.style.padding = '0 0 30px 0';
-            page.style.background = '#F5F7FA';
-
             if (nav) host.insertBefore(page, nav);
             else host.appendChild(page);
         }
-
-        // Modals are placed on body so the main page-container's overflow does not clip them.
-        modals.forEach(modal => document.body.appendChild(modal));
-
-        // i18n may have initialized before this component was mounted.
-        if (window.i18n && typeof window.i18n.translatePage === 'function') {
-            window.i18n.translatePage();
-        }
+        modals.forEach(m => document.body.appendChild(m));
+        if (ordersPage) document.body.appendChild(ordersPage);
+        if (detailPage) document.body.appendChild(detailPage);
     }
 
-    // Mount immediately while the main store is still loading, not after a user click.
-    mountAccountPage();
-})();
-
-// ===== ORIGINAL ACCOUNT LOGIC =====
-// ============================================
-// ===== REDEEM STORE - MAIN SCRIPT =====
-// ============================================
-(function () {
-    'use strict';
-
     // ============================================
-    // ===== TOAST =====
+    // ===== DATA =====
     // ============================================
-    window.showToast = function(message, type = 'success') {
+    const accountData = {
+        name: 'مستخدم REDEEM',
+        email: 'user@redeemstore.com',
+        phone: '+249901839168',
+        orders: 5,
+        points: 250,
+        twoFactor: false
+    };
+
+    let accountInitialized = false;
+
+    function showToast(message, type = 'success') {
         let toast = document.getElementById('accToast');
         if (!toast) {
             toast = document.createElement('div');
             toast.id = 'accToast';
             document.body.appendChild(toast);
         }
-
-        // ترجمة الرسالة لو مفتاح
-        const translated = (message.startsWith('toast.') || message.startsWith('otp.'))
-            ? i18n.t(message)
-            : message;
-
         toast.style.background = type === 'error' ? '#EF4444' : '#10B981';
-        toast.textContent = translated;
-
+        toast.textContent = message;
         requestAnimationFrame(() => {
             toast.style.opacity = '1';
             toast.style.transform = 'translateX(-50%) translateY(0)';
         });
-
         clearTimeout(window.__accToastTimer);
         window.__accToastTimer = setTimeout(() => {
             toast.style.opacity = '0';
             toast.style.transform = 'translateX(-50%) translateY(-100px)';
         }, 2500);
-    };
-
-    // ============================================
-    // ===== ACCOUNT DATA =====
-    // ============================================
-    const accountData = {
-        name: 'مستخدم REDEEM',
-        email: 'user@redeemstore.com',
-        phone: '+249901839168',
-        orders: 12,
-        points: 250,
-        twoFactor: false
-    };
-
-    // ============================================
-    // ===== RENDER ACCOUNT =====
-    // ============================================
-    function renderAccountStats() {
-        const statOrders = document.getElementById('statOrders');
-        const statPoints = document.getElementById('statPoints');
-        if (statOrders) statOrders.textContent = accountData.orders;
-        if (statPoints) statPoints.textContent = accountData.points;
     }
 
     function renderAccountInfo() {
-        const ids = {
-            infoName: accountData.name,
-            infoEmail: accountData.email,
-            infoPhone: accountData.phone,
-            accountName: accountData.name,
-            accountPhone: accountData.phone
-        };
-        Object.keys(ids).forEach(id => {
+        const map = { infoName: accountData.name, infoEmail: accountData.email, infoPhone: accountData.phone, accountName: accountData.name, accountPhone: accountData.phone };
+        Object.keys(map).forEach(id => {
             const el = document.getElementById(id);
-            if (el) el.textContent = ids[id];
+            if (el) el.textContent = map[id];
         });
+        const so = document.getElementById('statOrders');
+        if (so) so.textContent = accountData.orders;
     }
 
-    // ============================================
-    // ===== INPUT MODAL =====
-    // ============================================
+    // ===== MODALS =====
     const accModal = {
-        overlay: null,
-        currentField: null,
-        currentType: 'text',
-
+        overlay: null, currentField: null, currentType: 'text',
         init() {
             this.overlay = document.getElementById('accInputModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             document.getElementById('accModalCancel').addEventListener('click', () => this.close());
             document.getElementById('accModalConfirm').addEventListener('click', () => this.save());
-
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
-
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
             document.getElementById('accModalInput').addEventListener('keydown', (e) => {
                 if (e.key === 'Enter') this.save();
                 if (e.key === 'Escape') this.close();
             });
         },
-
         open(config) {
+            if (!this.overlay) this.overlay = document.getElementById('accInputModal');
+            if (!this.overlay) return;
             document.getElementById('accModalTitle').textContent = config.title;
             document.getElementById('accModalSubtitle').textContent = config.subtitle || '';
             document.getElementById('accModalIcon').innerHTML = `<i class="${config.icon || 'fas fa-pen'}"></i>`;
             document.getElementById('accModalInputIcon').className = config.inputIcon || 'fas fa-pen';
-
             const input = document.getElementById('accModalInput');
             input.value = config.value || '';
             input.placeholder = config.placeholder || '';
             input.type = config.type || 'text';
             this.currentField = config.field;
             this.currentType = config.type || 'text';
-
             if (config.type === 'email' || config.type === 'tel') {
-                input.style.direction = 'ltr';
-                input.style.textAlign = 'left';
+                input.style.direction = 'ltr'; input.style.textAlign = 'left';
             } else {
-                input.style.direction = 'rtl';
-                input.style.textAlign = 'right';
+                input.style.direction = 'rtl'; input.style.textAlign = 'right';
             }
-
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
             setTimeout(() => { input.focus(); if (input.value) input.select(); }, 250);
         },
-
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        },
-
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } },
         save() {
             const input = document.getElementById('accModalInput');
             const value = input.value.trim();
-
-            if (!value) {
-                input.style.borderColor = '#EF4444';
-                setTimeout(() => { input.style.borderColor = ''; }, 800);
-                return;
-            }
-
+            if (!value) { input.style.borderColor = '#EF4444'; setTimeout(() => input.style.borderColor = '', 800); return; }
             if (this.currentType === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
-                showToast('toast.enter_valid_email', 'error');
+                showToast('⚠️ أدخل بريد إلكتروني صحيح', 'error');
                 input.style.borderColor = '#EF4444';
-                setTimeout(() => { input.style.borderColor = ''; }, 800);
+                setTimeout(() => input.style.borderColor = '', 800);
                 return;
             }
-
-            const field = this.currentField;
-            if (field === 'name') {
-                accountData.name = value;
-                showToast('✅ ' + i18n.t('toast.name_updated'));
-            }
-            if (field === 'email') {
-                accountData.email = value;
-                showToast('✅ ' + i18n.t('toast.email_updated'));
-            }
-            if (field === 'phone') {
-                accountData.phone = value;
-                showToast('✅ ' + i18n.t('toast.phone_updated'));
-            }
-
+            if (this.currentField === 'name') { accountData.name = value; showToast('✅ تم تحديث الاسم'); }
+            if (this.currentField === 'email') { accountData.email = value; showToast('✅ تم تحديث البريد'); }
+            if (this.currentField === 'phone') { accountData.phone = value; showToast('✅ تم تحديث الرقم'); }
             renderAccountInfo();
             this.close();
         }
     };
 
-    // ============================================
-    // ===== PASSWORD MODAL =====
-    // ============================================
     const passModal = {
         overlay: null,
-
         init() {
             this.overlay = document.getElementById('accPasswordModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             document.getElementById('passCancelBtn').addEventListener('click', () => this.close());
             document.getElementById('passSaveBtn').addEventListener('click', () => this.save());
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
         },
-
         open() {
+            if (!this.overlay) this.overlay = document.getElementById('accPasswordModal');
             ['oldPassword', 'newPassword', 'confirmPassword'].forEach(id => {
-                document.getElementById(id).value = '';
+                const el = document.getElementById(id);
+                if (el) el.value = '';
             });
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
-            setTimeout(() => document.getElementById('oldPassword').focus(), 250);
         },
-
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        },
-
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } },
         save() {
-            const oldPass = document.getElementById('oldPassword').value;
-            const newPass = document.getElementById('newPassword').value;
-            const confirmPass = document.getElementById('confirmPassword').value;
-
-            if (!oldPass) { showToast('otp.enter_pass', 'error'); return; }
-            if (!newPass || newPass.length < 6) { showToast('otp.pass_short', 'error'); return; }
-            if (newPass !== confirmPass) { showToast('otp.pass_mismatch', 'error'); return; }
-
+            const o = document.getElementById('oldPassword').value;
+            const n = document.getElementById('newPassword').value;
+            const c = document.getElementById('confirmPassword').value;
+            if (!o || n.length < 6 || n !== c) {
+                showToast('⚠️ تحقق من البيانات (6 أحرف على الأقل + تطابق)', 'error');
+                return;
+            }
             this.close();
-            showToast('✅ ' + i18n.t('otp.success_pass'));
+            showToast('✅ تم تغيير كلمة المرور بنجاح');
         }
     };
 
-    // ============================================
-    // ===== 2FA MODAL =====
-    // ============================================
     const twoFAModal = {
-        overlay: null,
-        step: 1,
-        method: 'sms',
-
+        overlay: null, step: 1,
         init() {
             this.overlay = document.getElementById('acc2faModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             this.overlay.querySelectorAll('[data-method]').forEach(btn => {
                 btn.addEventListener('click', () => {
                     this.overlay.querySelectorAll('[data-method]').forEach(b => b.classList.remove('selected'));
                     btn.classList.add('selected');
-                    this.method = btn.dataset.method;
                 });
             });
-
             document.getElementById('acc2faCancelBtn').addEventListener('click', () => this.close());
             document.getElementById('acc2faNextBtn').addEventListener('click', () => this.next());
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
         },
-
         open() {
+            if (!this.overlay) this.overlay = document.getElementById('acc2faModal');
             this.step = 1;
             document.getElementById('acc2faStep1').style.display = 'block';
             document.getElementById('acc2faStep2').style.display = 'none';
@@ -302,12 +668,7 @@
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         },
-
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        },
-
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } },
         next() {
             if (this.step === 1) {
                 this.step = 2;
@@ -316,52 +677,35 @@
                 setTimeout(() => document.getElementById('otpCode').focus(), 200);
             } else if (this.step === 2) {
                 const code = document.getElementById('otpCode').value.trim();
-                if (code.length !== 6) {
-                    showToast('otp.enter_6', 'error');
-                    return;
+                if (code.length !== 6) { showToast('⚠️ أدخل 6 أرقام', 'error'); return; }
+                const codes = [];
+                const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+                for (let i = 0; i < 8; i++) {
+                    let c = '';
+                    for (let j = 0; j < 8; j++) { c += chars[Math.floor(Math.random() * chars.length)]; if (j === 3) c += '-'; }
+                    codes.push(c);
                 }
-                this.showBackupCodes();
+                const list = document.getElementById('backupCodesList');
+                if (list) list.innerHTML = codes.map(cc => `<div style="background:#FFF;border:1px solid #E8EAED;border-radius:8px;padding:8px;font-weight:700;text-align:center;">${cc}</div>`).join('');
                 this.step = 3;
                 document.getElementById('acc2faStep2').style.display = 'none';
                 document.getElementById('acc2faStep3').style.display = 'block';
                 accountData.twoFactor = true;
-                document.getElementById('toggleTwoFactor').checked = true;
-                showToast('✅ ' + i18n.t('otp.success_2fa_on'));
-            } else {
-                this.close();
-            }
-        },
-
-        showBackupCodes() {
-            const codes = [];
-            const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-            for (let i = 0; i < 8; i++) {
-                let code = '';
-                for (let j = 0; j < 8; j++) {
-                    code += chars[Math.floor(Math.random() * chars.length)];
-                    if (j === 3) code += '-';
-                }
-                codes.push(code);
-            }
-            const list = document.getElementById('backupCodesList');
-            list.innerHTML = codes.map(c => `<div style="background:#FFF;border:1px solid #E8EAED;border-radius:8px;padding:8px;font-weight:700;text-align:center;">${c}</div>`).join('');
+                const tg = document.getElementById('toggleTwoFactor');
+                if (tg) tg.checked = true;
+                showToast('✅ تم تفعيل التحقق بخطوتين');
+            } else { this.close(); }
         }
     };
 
-    // ============================================
-    // ===== LANGUAGE MODAL =====
-    // ============================================
     const langModal = {
-        overlay: null,
-        currentLang: 'ar',
-
+        overlay: null, currentLang: 'ar',
         init() {
             this.overlay = document.getElementById('accLangModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             this.currentLang = localStorage.getItem('redeem_lang') || 'ar';
             this.updateSelection();
-
             this.overlay.querySelectorAll('.acc-lang-option').forEach(opt => {
                 opt.addEventListener('click', () => {
                     const lang = opt.dataset.lang;
@@ -369,276 +713,637 @@
                     this.changeLang(lang);
                 });
             });
-
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
         },
-
         open() {
+            if (!this.overlay) this.overlay = document.getElementById('accLangModal');
             this.updateSelection();
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         },
-
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        },
-
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } },
         updateSelection() {
+            if (!this.overlay) return;
             this.overlay.querySelectorAll('.acc-lang-option').forEach(opt => {
                 opt.classList.toggle('selected', opt.dataset.lang === this.currentLang);
             });
         },
-
         changeLang(lang) {
             this.currentLang = lang;
             this.updateSelection();
+            localStorage.setItem('redeem_lang', lang);
             document.dispatchEvent(new CustomEvent('language:change', { detail: { lang } }));
-            showToast('✅ ' + (lang === 'ar' ? i18n.t('lang.changed_ar') : i18n.t('lang.changed_en')));
+            if (window.i18n && window.i18n.setLang) window.i18n.setLang(lang);
+            const lbl = document.getElementById('currentLanguageLabel');
+            if (lbl) lbl.textContent = lang === 'ar' ? 'العربية' : 'English';
+            showToast(lang === 'ar' ? '✅ تم تغيير اللغة إلى العربية' : '✅ Language changed to English');
             setTimeout(() => this.close(), 400);
         }
     };
 
-    // ============================================
-    // ===== ABOUT MODAL =====
-    // ============================================
     const aboutModal = {
         overlay: null,
-
         init() {
             this.overlay = document.getElementById('accAboutModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             document.getElementById('accAboutCloseBtn').addEventListener('click', () => this.close());
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && this.overlay.classList.contains('open')) this.close();
-            });
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
         },
-
         open() {
+            if (!this.overlay) this.overlay = document.getElementById('accAboutModal');
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         },
-
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
-        }
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } }
     };
 
-    // ============================================
-    // ===== CONFIRM MODAL =====
-    // ============================================
     const confirmModal = {
-        overlay: null,
-        onConfirm: null,
-
+        overlay: null, onConfirm: null,
         init() {
             this.overlay = document.getElementById('accConfirmModal');
-            if (!this.overlay) return;
-
+            if (!this.overlay || this.overlay.dataset.bound) return;
+            this.overlay.dataset.bound = '1';
             document.getElementById('confirmCancelBtn').addEventListener('click', () => this.close());
             document.getElementById('confirmOkBtn').addEventListener('click', () => {
                 const cb = this.onConfirm;
                 this.close();
                 if (cb) cb();
             });
-
-            this.overlay.addEventListener('click', (e) => {
-                if (e.target === this.overlay) this.close();
-            });
+            this.overlay.addEventListener('click', (e) => { if (e.target === this.overlay) this.close(); });
         },
-
         open(config) {
-            document.getElementById('confirmTitle').textContent = config.title || i18n.t('confirm.are_you_sure');
+            if (!this.overlay) this.overlay = document.getElementById('accConfirmModal');
+            document.getElementById('confirmTitle').textContent = config.title || 'هل أنت متأكد؟';
             document.getElementById('confirmSubtitle').textContent = config.subtitle || '';
             this.onConfirm = config.onConfirm;
             this.overlay.classList.add('open');
             document.body.style.overflow = 'hidden';
         },
+        close() { if (this.overlay) { this.overlay.classList.remove('open'); document.body.style.overflow = ''; } }
+    };
 
-        close() {
-            this.overlay.classList.remove('open');
-            document.body.style.overflow = '';
+    const toggleSystem = {
+        init() {
+            document.querySelectorAll('.acc-toggle input[type="checkbox"]').forEach(input => {
+                if (input.dataset.bound) return;
+                input.dataset.bound = '1';
+                const key = input.dataset.key;
+                if (key === 'two-factor') {
+                    input.addEventListener('change', function (e) {
+                        e.stopPropagation();
+                        if (this.checked) {
+                            this.checked = false;
+                            setTimeout(() => twoFAModal.open(), 50);
+                        } else {
+                            confirmModal.open({
+                                title: 'تعطيل التحقق بخطوتين؟',
+                                subtitle: 'سيقل مستوى حماية حسابك',
+                                onConfirm: () => {
+                                    accountData.twoFactor = false;
+                                    document.getElementById('toggleTwoFactor').checked = false;
+                                    showToast('✅ تم تعطيل التحقق بخطوتين');
+                                }
+                            });
+                        }
+                    });
+                    return;
+                }
+                input.addEventListener('change', (e) => {
+                    if (key === 'notifications') {
+                        showToast(e.target.checked ? '🔔 تم تفعيل الإشعارات' : '🔕 تم تعطيل الإشعارات');
+                    }
+                });
+            });
         }
     };
 
     // ============================================
-    // ===== TOGGLE SYSTEM =====
+    // ===== ORDERS DATA =====
     // ============================================
-    const toggleSystem = {
-        storageKey: 'redeem_toggles',
+    const ordersData = [
+        {
+            id: 'RDM-2026-001248', date: '2026-07-14T14:30:00', status: 'processing',
+            product: { name: 'PUBG Mobile - 660 UC', desc: 'شحن فوري عبر ID', img: 'https://i.ibb.co/GQh2zJnh/IMG-20260705-WA0100.jpg', qty: 1, unitPrice: 9.30 },
+            subtotal: 9.30, discount: 0, tax: 0, total: 9.30,
+            payment: { method: 'المحفظة', status: 'paid' },
+            customer: { name: 'مستخدم REDEEM', playerId: '5182736451', whatsapp: '+249901839168' },
+            timeline: [
+                { label: 'تم استلام الطلب', date: '2026-07-14 14:30', done: true },
+                { label: 'قيد التنفيذ', date: '2026-07-14 14:35', done: true, current: true },
+                { label: 'تم التسليم', date: '—', done: false },
+                { label: 'مكتمل', date: '—', done: false }
+            ]
+        },
+        {
+            id: 'RDM-2026-001247', date: '2026-07-13T22:15:00', status: 'completed',
+            product: { name: 'Netflix - الباقة المميزة', desc: 'اشتراك شهري - 4K UHD', img: 'https://i.postimg.cc/G3YG2D6F/IMG-20260705-WA0096.jpg', qty: 1, unitPrice: 15.99 },
+            subtotal: 15.99, discount: 0, tax: 0, total: 15.99,
+            payment: { method: 'بنكك', status: 'paid' },
+            customer: { name: 'مستخدم REDEEM', playerId: 'user@redeemstore.com', whatsapp: '+249901839168' },
+            timeline: [
+                { label: 'تم استلام الطلب', date: '2026-07-13 22:15', done: true },
+                { label: 'قيد التنفيذ', date: '2026-07-13 22:18', done: true },
+                { label: 'تم التسليم', date: '2026-07-13 22:25', done: true },
+                { label: 'مكتمل', date: '2026-07-13 22:25', done: true, current: true }
+            ]
+        },
+        {
+            id: 'RDM-2026-001246', date: '2026-07-12T18:45:00', status: 'completed',
+            product: { name: 'Free Fire - 1000 جوهرة', desc: 'شحن عبر ID', img: 'https://i.postimg.cc/xjp4XhFM/IMG-20260705-WA0099.jpg', qty: 1, unitPrice: 8.50 },
+            subtotal: 8.50, discount: 0, tax: 0, total: 8.50,
+            payment: { method: 'ماي كاشي', status: 'paid' },
+            customer: { name: 'مستخدم REDEEM', playerId: '882736451', whatsapp: '+249901839168' },
+            timeline: [
+                { label: 'تم استلام الطلب', date: '2026-07-12 18:45', done: true },
+                { label: 'قيد التنفيذ', date: '2026-07-12 18:48', done: true },
+                { label: 'تم التسليم', date: '2026-07-12 18:55', done: true },
+                { label: 'مكتمل', date: '2026-07-12 18:55', done: true, current: true }
+            ]
+        },
+        {
+            id: 'RDM-2026-001245', date: '2026-07-11T09:30:00', status: 'pending',
+            product: { name: 'Clash of Clans - 6500 جوهرة', desc: 'في انتظار تأكيد الدفع', img: 'https://i.postimg.cc/pV8HzK39/IMG-20260705-WA0101.jpg', qty: 1, unitPrice: 28.00 },
+            subtotal: 28.00, discount: 0, tax: 0, total: 28.00,
+            payment: { method: 'بنكك', status: 'pending' },
+            customer: { name: 'مستخدم REDEEM', playerId: 'supercell_xyz', whatsapp: '+249901839168' },
+            timeline: [
+                { label: 'تم استلام الطلب', date: '2026-07-11 09:30', done: true, current: true },
+                { label: 'قيد التنفيذ', date: '—', done: false },
+                { label: 'تم التسليم', date: '—', done: false },
+                { label: 'مكتمل', date: '—', done: false }
+            ]
+        },
+        {
+            id: 'RDM-2026-001244', date: '2026-07-10T16:20:00', status: 'cancelled',
+            product: { name: 'Spotify - اشتراك العائلة', desc: 'تم إلغاء الطلب بناءً على طلبك', img: 'https://i.postimg.cc/N09Lnqcw/file-00000000881c81f4b80e343797332ff6.png', qty: 1, unitPrice: 7.99 },
+            subtotal: 7.99, discount: 0, tax: 0, total: 7.99,
+            payment: { method: 'المحفظة', status: 'failed' },
+            customer: { name: 'مستخدم REDEEM', playerId: 'user@redeemstore.com', whatsapp: '+249901839168' },
+            timeline: [
+                { label: 'تم استلام الطلب', date: '2026-07-10 16:20', done: true },
+                { label: 'قيد التنفيذ', date: '2026-07-10 16:25', done: false },
+                { label: 'ملغي', date: '2026-07-10 16:30', done: true, current: true }
+            ]
+        }
+    ];
+
+    // ============================================
+    // ===== ORDERS PAGE =====
+    // ============================================
+    const ordersPage = {
+        page: null, detailPage: null, currentFilter: 'all', activeOrderId: null,
 
         init() {
-            this.loadSavedStates();
+            this.page = document.getElementById('accOrdersPage');
+            this.detailPage = document.getElementById('accOrderDetailPage');
+            if (!this.page || this.page.dataset.bound) return;
+            this.page.dataset.bound = '1';
 
-            document.querySelectorAll('.acc-toggle input[type="checkbox"]').forEach(input => {
-                const key = input.dataset.key;
-                if (key) {
-                    const saved = this.getState(key);
-                    if (saved !== null) input.checked = saved;
-                }
+            document.getElementById('accOrdersBackBtn').addEventListener('click', () => this.close());
+            document.getElementById('accOrderDetailBackBtn').addEventListener('click', () => {
+                this.detailPage.classList.remove('active');
+            });
 
-                input.addEventListener('change', (e) => {
-                    const isOn = e.target.checked;
-                    const k = e.target.dataset.key;
-                    if (k) this.setState(k, isOn);
-                    this.handleToggle(k, isOn);
+            this.page.querySelectorAll('.acc-orders-filter').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    this.page.querySelectorAll('.acc-orders-filter').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    this.currentFilter = btn.dataset.filter;
+                    this.renderList();
+                });
+            });
+
+            const emptyBtn = document.getElementById('accOrdersEmptyBtn');
+            if (emptyBtn) {
+                emptyBtn.addEventListener('click', () => {
+                    this.close();
+                    if (window.switchPage) window.switchPage('page-home');
+                    if (window.updateNavActive) window.updateNavActive('page-home');
+                });
+            }
+
+            this.updateCounts();
+        },
+
+        open() {
+            if (!this.page) this.init();
+            this.updateCounts();
+            this.renderList();
+            this.page.classList.add('active');
+        },
+
+        close() {
+            if (this.page) this.page.classList.remove('active');
+            if (this.detailPage) this.detailPage.classList.remove('active');
+            document.dispatchEvent(new CustomEvent('orders:closed'));
+        },
+
+        updateCounts() {
+            const counts = {
+                all: ordersData.length,
+                pending: ordersData.filter(o => o.status === 'pending').length,
+                processing: ordersData.filter(o => o.status === 'processing').length,
+                completed: ordersData.filter(o => o.status === 'completed').length,
+                cancelled: ordersData.filter(o => o.status === 'cancelled').length
+            };
+            const set = (id, v) => { const el = document.getElementById(id); if (el) el.textContent = v; };
+            set('fAll', counts.all);
+            set('fPending', counts.pending);
+            set('fProcessing', counts.processing);
+            set('fCompleted', counts.completed);
+            set('fCancelled', counts.cancelled);
+            const totalEl = document.getElementById('accOrdersCount');
+            if (totalEl) totalEl.textContent = counts.all + ' طلب';
+        },
+
+        getStatusInfo(status) {
+            return {
+                pending: { label: 'قيد الانتظار', icon: 'fa-clock' },
+                processing: { label: 'قيد التنفيذ', icon: 'fa-spinner' },
+                completed: { label: 'مكتمل', icon: 'fa-check' },
+                cancelled: { label: 'ملغي', icon: 'fa-times' }
+            }[status] || { label: status, icon: 'fa-circle' };
+        },
+
+        renderList() {
+            const list = document.getElementById('accOrdersList');
+            const empty = document.getElementById('accOrdersEmpty');
+            if (!list) return;
+
+            let filtered = ordersData;
+            if (this.currentFilter !== 'all') {
+                filtered = filtered.filter(o => o.status === this.currentFilter);
+            }
+
+            if (filtered.length === 0) {
+                list.innerHTML = '';
+                if (empty) empty.classList.add('show');
+                return;
+            }
+            if (empty) empty.classList.remove('show');
+
+            list.innerHTML = filtered.map(o => {
+                const s = this.getStatusInfo(o.status);
+                const d = new Date(o.date);
+                const dateStr = d.toLocaleDateString('ar-EG') + ' ' + d.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+                return `
+                    <div class="acc-order-card" data-id="${o.id}">
+                        <div class="acc-order-top">
+                            <span class="acc-order-id">${o.id}</span>
+                            <span class="acc-order-status ${o.status}"><i class="fas ${s.icon}"></i> ${s.label}</span>
+                        </div>
+                        <div class="acc-order-body">
+                            <div class="acc-order-thumb"><img src="${o.product.img}" alt=""></div>
+                            <div class="acc-order-info">
+                                <div class="acc-order-name">${o.product.name}</div>
+                                <div class="acc-order-desc">${o.product.desc}</div>
+                                <div class="acc-order-date"><i class="fas fa-clock"></i> ${dateStr}</div>
+                            </div>
+                        </div>
+                        <div class="acc-order-footer">
+                            <div>
+                                <span class="acc-order-total-label">الإجمالي</span>
+                                <span class="acc-order-total">$${o.total.toFixed(2)}</span>
+                            </div>
+                            <div class="acc-order-actions">
+                                <button class="acc-order-btn" data-action="download" data-id="${o.id}"><i class="fas fa-download"></i></button>
+                                <button class="acc-order-btn primary" data-action="view" data-id="${o.id}"><i class="fas fa-chevron-left"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            list.querySelectorAll('.acc-order-card').forEach(card => {
+                card.addEventListener('click', (e) => {
+                    if (e.target.closest('.acc-order-btn')) return;
+                    this.openDetail(card.dataset.id);
+                });
+            });
+            list.querySelectorAll('.acc-order-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const action = btn.dataset.action;
+                    const id = btn.dataset.id;
+                    if (action === 'download') this.downloadOrder(id);
+                    if (action === 'view') this.openDetail(id);
                 });
             });
         },
 
-        getAll() {
-            try {
-                const raw = localStorage.getItem(this.storageKey);
-                return raw ? JSON.parse(raw) : {};
-            } catch (e) { return {}; }
-        },
+        openDetail(orderId) {
+            this.activeOrderId = orderId;
+            const order = ordersData.find(o => o.id === orderId);
+            if (!order || !this.detailPage) return;
 
-        setState(key, value) {
-            if (!key) return;
-            const all = this.getAll();
-            all[key] = value;
-            try { localStorage.setItem(this.storageKey, JSON.stringify(all)); } catch (e) {}
-        },
+            const s = this.getStatusInfo(order.status);
+            const body = document.getElementById('accOrderDetailBody');
+            const actions = document.getElementById('accOrderDetailActions');
+            const headerId = document.getElementById('accOrderDetailId');
 
-        getState(key) {
-            const all = this.getAll();
-            return key in all ? all[key] : null;
-        },
+            const d = new Date(order.date);
+            const dateStr = d.toLocaleDateString('ar-EG') + ' ' + d.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+            const payStatus = { paid: 'مدفوع', pending: 'قيد الانتظار', failed: 'فشل' }[order.payment.status] || order.payment.status;
 
-        loadSavedStates() {
-            const all = this.getAll();
-            Object.keys(all).forEach(key => {
-                const input = document.querySelector(`.acc-toggle input[data-key="${key}"]`);
-                if (input) input.checked = all[key];
+            if (headerId) headerId.textContent = order.id;
+
+            body.innerHTML = `
+                <div class="acc-detail-status-card status-${order.status}">
+                    <div class="acc-detail-status-icon"><i class="fas ${s.icon}"></i></div>
+                    <h3 class="acc-detail-status-title">${s.label}</h3>
+                    <p class="acc-detail-status-sub">${order.product.desc}</p>
+                </div>
+
+                <div class="acc-detail-section">
+                    <div class="acc-detail-section-title"><i class="fas fa-shipping-fast"></i> مسار الطلب</div>
+                    <div class="acc-progress-steps">
+                        <div class="acc-progress-line"></div>
+                        ${order.timeline.map(t => `
+                            <div class="acc-progress-step ${t.done ? 'done' : ''} ${t.current ? 'current' : ''}">
+                                <div class="acc-progress-step-dot"><i class="fas fa-check"></i></div>
+                                <div class="acc-progress-step-label">${t.label}</div>
+                                <div class="acc-progress-step-date">${t.date}</div>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="acc-detail-section">
+                    <div class="acc-detail-section-title"><i class="fas fa-box"></i> تفاصيل المنتج</div>
+                    <div class="acc-detail-product">
+                        <div class="acc-detail-product-thumb"><img src="${order.product.img}" alt=""></div>
+                        <div class="acc-detail-product-info">
+                            <h5>${order.product.name}</h5>
+                            <p>${order.product.desc} • الكمية: ${order.product.qty}</p>
+                        </div>
+                        <div class="acc-detail-product-price">$${order.product.unitPrice.toFixed(2)}</div>
+                    </div>
+                </div>
+
+                <div class="acc-detail-section">
+                    <div class="acc-detail-section-title"><i class="fas fa-user"></i> بيانات العميل</div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">الاسم:</span><span class="acc-detail-row-value">${order.customer.name}</span></div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">معرف الحساب:</span><span class="acc-detail-row-value ltr">${order.customer.playerId}</span></div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">واتساب:</span><span class="acc-detail-row-value ltr">${order.customer.whatsapp}</span></div>
+                </div>
+
+                <div class="acc-detail-section">
+                    <div class="acc-detail-section-title"><i class="fas fa-receipt"></i> الفاتورة</div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">المجموع الفرعي:</span><span class="acc-detail-row-value">$${order.subtotal.toFixed(2)}</span></div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">الخصم:</span><span class="acc-detail-row-value">-$${order.discount.toFixed(2)}</span></div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">الضريبة:</span><span class="acc-detail-row-value">$${order.tax.toFixed(2)}</span></div>
+                    <div class="acc-detail-row total"><span class="acc-detail-row-label">الإجمالي:</span><span class="acc-detail-row-value">$${order.total.toFixed(2)}</span></div>
+                </div>
+
+                <div class="acc-detail-section">
+                    <div class="acc-detail-section-title"><i class="fas fa-credit-card"></i> الدفع</div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">الطريقة:</span><span class="acc-detail-row-value">${order.payment.method}</span></div>
+                    <div class="acc-detail-row"><span class="acc-detail-row-label">الحالة:</span><span class="acc-detail-row-value">${payStatus}</span></div>
+                </div>
+            `;
+
+            actions.innerHTML = `
+                <button class="acc-detail-btn secondary" data-action="download"><i class="fas fa-download"></i> تحميل</button>
+                <button class="acc-detail-btn primary" data-action="print"><i class="fas fa-print"></i> طباعة</button>
+            `;
+
+            actions.querySelectorAll('.acc-detail-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const a = btn.dataset.action;
+                    if (a === 'download') this.downloadOrder(this.activeOrderId);
+                    if (a === 'print') this.printOrder(this.activeOrderId);
+                });
             });
+
+            this.detailPage.classList.add('active');
         },
 
-        handleToggle(key, value) {
-            if (key === 'notifications') {
-                showToast(value ? '🔔 ' + i18n.t('toast.notifications_on') : '🔕 ' + i18n.t('toast.notifications_off'));
-            }
-            if (key === 'two-factor') {
-                if (value) {
-                    // التفعيل يمر عبر النافذة
-                    const toggle = document.getElementById('toggleTwoFactor');
-                    toggle.checked = false;
-                    setTimeout(() => { twoFAModal.open(); }, 100);
-                } else {
-                    confirmModal.open({
-                        title: i18n.t('account.disabled'),
-                        subtitle: 'هل أنت متأكد من تعطيل التحقق بخطوتين؟',
-                        onConfirm: () => {
-                            accountData.twoFactor = false;
-                            document.getElementById('toggleTwoFactor').checked = false;
-                            this.setState('two-factor', false);
-                            showToast('✅ ' + i18n.t('otp.success_2fa_off'));
-                        }
-                    });
-                }
-            }
+        downloadOrder(orderId) {
+            const order = ordersData.find(o => o.id === orderId);
+            if (!order) return;
+            const statusMap = { pending: 'قيد الانتظار', processing: 'قيد التنفيذ', completed: 'مكتمل', cancelled: 'ملغي' };
+            const payStatusMap = { paid: 'مدفوع ✅', pending: 'قيد الانتظار ⏳', failed: 'فشل ❌' };
+            const line = '════════════════════════════════════════';
+            const dash = '────────────────────────────────────────';
+            const d = new Date(order.date);
+            const dateStr = d.toLocaleDateString('ar-EG');
+            const timeStr = d.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+            const content = `
+${line}
+         REDEEM STORE - فاتورة طلب
+${line}
+
+┌─── معلومات الطلب ──────────────────
+│
+│  🔢 رقم الطلب:        ${order.id}
+│  📅 التاريخ:          ${dateStr}
+│  🕒 الوقت:            ${timeStr}
+│  📌 الحالة:           ${statusMap[order.status]}
+│
+└────────────────────────────────────
+
+┌─── بيانات العميل ──────────────────
+│
+│  👤 اسم العميل:       ${order.customer.name}
+│  🆔 معرف الحساب:      ${order.customer.playerId}
+│  📱 رقم واتساب:       ${order.customer.whatsapp}
+│
+└────────────────────────────────────
+
+┌─── تفاصيل المنتج ──────────────────
+│
+│  📦 المنتج:           ${order.product.name}
+│  📝 الوصف:            ${order.product.desc}
+│  🔢 الكمية:           ${order.product.qty}
+│  💵 سعر الوحدة:       $${order.product.unitPrice.toFixed(2)}
+│  💰 الإجمالي:         $${(order.product.qty * order.product.unitPrice).toFixed(2)}
+│
+└────────────────────────────────────
+
+┌─── الفاتورة ───────────────────────
+│
+│  المجموع الفرعي:     $${order.subtotal.toFixed(2)}
+│  الخصم:              -$${order.discount.toFixed(2)}
+│  الضريبة:            $${order.tax.toFixed(2)}
+│
+${dash}
+│  💵 الإجمالي النهائي: $${order.total.toFixed(2)}
+${dash}
+│
+└────────────────────────────────────
+
+┌─── طريقة الدفع ────────────────────
+│
+│  💳 الطريقة:          ${order.payment.method}
+│  📊 حالة الدفع:       ${payStatusMap[order.payment.status]}
+│
+└────────────────────────────────────
+
+${line}
+      شكراً لتعاملك مع REDEEM STORE
+          📞 wa.me/249901839168
+${line}
+            `;
+
+            const blob = new Blob(['\ufeff' + content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `REDEEM-Invoice-${order.id}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast('📥 تم تحميل الفاتورة');
+        },
+
+        printOrder(orderId) {
+            const order = ordersData.find(o => o.id === orderId);
+            if (!order) return;
+            const statusMap = { pending: 'قيد الانتظار', processing: 'قيد التنفيذ', completed: 'مكتمل', cancelled: 'ملغي' };
+            const payStatusMap = { paid: 'مدفوع', pending: 'قيد الانتظار', failed: 'فشل' };
+            const d = new Date(order.date);
+            const dateStr = d.toLocaleDateString('ar-EG', { year: 'numeric', month: 'long', day: 'numeric' });
+            const timeStr = d.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+            const win = window.open('', '_blank');
+            win.document.write(`
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+<meta charset="UTF-8" />
+<title>فاتورة ${order.id}</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Segoe UI', sans-serif; padding: 40px; color: #1A1A2E; direction: rtl; background: #FFF; }
+.header { text-align: center; padding-bottom: 20px; border-bottom: 3px solid #1A73E8; margin-bottom: 24px; }
+.logo { font-size: 34px; font-weight: 900; color: #1A73E8; letter-spacing: 1px; }
+.logo span { color: #00BCD4; }
+.subtitle { font-size: 13px; color: #888; margin-top: 6px; }
+.info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 24px; padding: 18px; background: #F5F7FA; border-radius: 12px; }
+.info-item label { display: block; font-size: 11px; color: #888; margin-bottom: 4px; font-weight: 600; }
+.info-item .value { font-size: 14px; font-weight: 700; color: #1A1A2E; direction: ltr; text-align: right; }
+.section { margin-bottom: 20px; padding: 16px; border: 1px solid #E8EAED; border-radius: 12px; }
+.section-title { font-size: 13px; font-weight: 800; color: #1A73E8; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px dashed #E8EAED; }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 12px 10px; text-align: right; font-size: 13px; border-bottom: 1px solid #E8EAED; }
+th { background: #1A73E8; color: #FFF; font-weight: 700; font-size: 12px; }
+.total-row { background: #F5F9FF; font-weight: 800; }
+.total-row td { color: #1A73E8; padding: 14px 10px; font-size: 16px; }
+.status-badge { display: inline-block; padding: 4px 12px; border-radius: 50px; font-size: 11px; font-weight: 700; background: #E8F0FE; color: #1A73E8; }
+.status-badge.paid { background: #D1FAE5; color: #065F46; }
+.footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 2px dashed #E8EAED; color: #888; font-size: 12px; line-height: 1.8; }
+@media print { body { padding: 20px; } }
+</style>
+</head>
+<body>
+<div class="header">
+    <div class="logo">RE<span>DEM</span> STORE</div>
+    <div class="subtitle">فاتورة طلب رسمية</div>
+</div>
+<div class="info-grid">
+    <div class="info-item"><label>رقم الطلب</label><div class="value">${order.id}</div></div>
+    <div class="info-item"><label>التاريخ</label><div class="value">${dateStr} - ${timeStr}</div></div>
+    <div class="info-item"><label>حالة الطلب</label><span class="status-badge">${statusMap[order.status]}</span></div>
+    <div class="info-item"><label>طريقة الدفع</label><div class="value">${order.payment.method}</div></div>
+</div>
+<div class="section">
+    <div class="section-title">👤 بيانات العميل</div>
+    <div class="info-grid" style="margin:0;background:transparent;padding:0;">
+        <div class="info-item"><label>الاسم</label><div class="value" style="direction:rtl;">${order.customer.name}</div></div>
+        <div class="info-item"><label>معرف الحساب</label><div class="value">${order.customer.playerId}</div></div>
+        <div class="info-item"><label>واتساب</label><div class="value">${order.customer.whatsapp}</div></div>
+        <div class="info-item"><label>حالة الدفع</label><span class="status-badge ${order.payment.status}">${payStatusMap[order.payment.status]}</span></div>
+    </div>
+</div>
+<div class="section">
+    <div class="section-title">📦 تفاصيل المنتج</div>
+    <table>
+        <thead><tr><th>المنتج</th><th>الكمية</th><th>سعر الوحدة</th><th>الإجمالي</th></tr></thead>
+        <tbody>
+            <tr>
+                <td><strong>${order.product.name}</strong><br/><small style="color:#888;">${order.product.desc}</small></td>
+                <td>${order.product.qty}</td>
+                <td>$${order.product.unitPrice.toFixed(2)}</td>
+                <td>$${(order.product.qty * order.product.unitPrice).toFixed(2)}</td>
+            </tr>
+            <tr><td colspan="3" style="text-align:left;">المجموع الفرعي</td><td>$${order.subtotal.toFixed(2)}</td></tr>
+            <tr><td colspan="3" style="text-align:left;">الخصم</td><td>-$${order.discount.toFixed(2)}</td></tr>
+            <tr><td colspan="3" style="text-align:left;">الضريبة</td><td>$${order.tax.toFixed(2)}</td></tr>
+            <tr class="total-row"><td colspan="3" style="text-align:left;">الإجمالي النهائي</td><td>$${order.total.toFixed(2)}</td></tr>
+        </tbody>
+    </table>
+</div>
+<div class="footer">
+    شكراً لتعاملك مع REDEEM STORE<br/>
+    للتواصل: wa.me/249901839168<br/>
+    © 2026 جميع الحقوق محفوظة
+</div>
+<script>window.onload=()=>{setTimeout(()=>window.print(),400)};<\/script>
+</body>
+</html>
+            `);
+            win.document.close();
         }
     };
 
     // ============================================
-    // ===== ACCOUNT ACTIONS =====
+    // ===== ACTIONS =====
     // ============================================
     function handleAccountAction(action) {
-        const actions = {
-            'edit-name': () => accModal.open({
-                title: i18n.t('modal.edit_name'),
-                subtitle: i18n.t('modal.edit_name_desc'),
-                icon: 'fas fa-user',
-                inputIcon: 'fas fa-user',
-                value: accountData.name,
-                type: 'text',
-                field: 'name'
-            }),
-            'edit-email': () => accModal.open({
-                title: i18n.t('modal.edit_email'),
-                subtitle: i18n.t('modal.edit_email_desc'),
-                icon: 'fas fa-envelope',
-                inputIcon: 'fas fa-envelope',
-                value: accountData.email,
-                type: 'email',
-                field: 'email'
-            }),
-            'edit-phone': () => accModal.open({
-                title: i18n.t('modal.edit_phone'),
-                subtitle: i18n.t('modal.edit_phone_desc'),
-                icon: 'fab fa-whatsapp',
-                inputIcon: 'fab fa-whatsapp',
-                value: accountData.phone,
-                type: 'tel',
-                field: 'phone'
-            }),
-            'change-password': () => passModal.open(),
-            'two-factor': () => {
-                if (accountData.twoFactor) {
-                    confirmModal.open({
-                        title: 'تعطيل التحقق؟',
-                        subtitle: 'سيقل مستوى حماية حسابك',
-                        onConfirm: () => {
-                            accountData.twoFactor = false;
-                            document.getElementById('toggleTwoFactor').checked = false;
-                            showToast('✅ ' + i18n.t('otp.success_2fa_off'));
-                        }
-                    });
-                } else {
-                    twoFAModal.open();
-                }
-            },
-            'my-orders': () => showToast('📦 ' + i18n.t('toast.coming_soon')),
-            'language': () => langModal.open(),
-            'about': () => aboutModal.open()
-        };
-        if (actions[action]) actions[action]();
+        switch (action) {
+            case 'edit-name': accModal.open({ title: 'تعديل الاسم', subtitle: 'أدخل اسمك الكامل الجديد', icon: 'fas fa-user', inputIcon: 'fas fa-user', value: accountData.name, type: 'text', field: 'name' }); break;
+            case 'edit-email': accModal.open({ title: 'تعديل البريد الإلكتروني', subtitle: 'أدخل بريدك الإلكتروني الجديد', icon: 'fas fa-envelope', inputIcon: 'fas fa-envelope', value: accountData.email, type: 'email', field: 'email' }); break;
+            case 'edit-phone': accModal.open({ title: 'تعديل رقم واتساب', subtitle: 'أدخل رقم الواتساب الجديد', icon: 'fab fa-whatsapp', inputIcon: 'fab fa-whatsapp', value: accountData.phone, type: 'tel', field: 'phone' }); break;
+            case 'change-password': passModal.open(); break;
+            case 'my-orders':
+                if (!ordersPage.page) ordersPage.init();
+                ordersPage.open();
+                break;
+            case 'language': langModal.open(); break;
+            case 'about': aboutModal.open(); break;
+        }
     }
 
-    // ============================================
-    // ===== BIND EVENTS =====
-    // ============================================
     function bindEvents() {
-        // عناصر القائمة
         document.querySelectorAll('#page-account .account-item[data-action]').forEach(item => {
-            item.addEventListener('click', function(e) {
-                // لو الضغط على toggle، ما نفتحش النافذة
+            if (item.dataset.bound) return;
+            item.dataset.bound = '1';
+            const action = item.dataset.action;
+            item.addEventListener('click', function (e) {
                 if (e.target.closest('.acc-toggle')) return;
-                const action = this.dataset.action;
-                if (action && action !== 'two-factor') handleAccountAction(action);
+                handleAccountAction(action);
             });
         });
 
-        // Toggle عنصر التحقق بخطوتين
-        const toggle2FA = document.getElementById('toggleTwoFactor');
-        if (toggle2FA) {
-            toggle2FA.addEventListener('change', function(e) {
-                if (this.checked) {
-                    // ملاحظة: toggleSystem بيعالجها، لكن نضيف تأكيد
-                    handleAccountAction('two-factor');
-                }
+        const logoutBtn = document.getElementById('accountLogoutBtn');
+        if (logoutBtn && !logoutBtn.dataset.bound) {
+            logoutBtn.dataset.bound = '1';
+            logoutBtn.addEventListener('click', () => {
+                confirmModal.open({
+                    title: 'تسجيل الخروج؟',
+                    subtitle: 'هل أنت متأكد من تسجيل الخروج؟',
+                    onConfirm: () => showToast('👋 تم تسجيل الخروج بنجاح')
+                });
             });
         }
 
-        // تعديل الصورة
-        const avatarEditBtn = document.getElementById('avatarEditBtn');
-        if (avatarEditBtn) {
-            avatarEditBtn.addEventListener('click', () => {
+        const avatarBtn = document.getElementById('avatarEditBtn');
+        if (avatarBtn && !avatarBtn.dataset.bound) {
+            avatarBtn.dataset.bound = '1';
+            avatarBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
                 const input = document.createElement('input');
-                input.type = 'file';
-                input.accept = 'image/*';
-                input.onchange = (e) => {
-                    const file = e.target.files[0];
+                input.type = 'file'; input.accept = 'image/*';
+                input.onchange = (ev) => {
+                    const file = ev.target.files[0];
                     if (file) {
                         const reader = new FileReader();
-                        reader.onload = (ev) => {
-                            document.getElementById('accountAvatar').innerHTML = `<img src="${ev.target.result}" alt="avatar" />`;
+                        reader.onload = (re) => {
+                            const av = document.getElementById('accountAvatar');
+                            if (av) av.innerHTML = `<img src="${re.target.result}" alt="" />`;
                         };
                         reader.readAsDataURL(file);
                     }
@@ -646,24 +1351,10 @@
                 input.click();
             });
         }
-
-        // تسجيل الخروج
-        const logoutBtn = document.getElementById('accountLogoutBtn');
-        if (logoutBtn) {
-            logoutBtn.addEventListener('click', () => {
-                confirmModal.open({
-                    title: i18n.t('confirm.logout_title'),
-                    subtitle: i18n.t('confirm.logout_desc'),
-                    onConfirm: () => showToast('👋 ' + i18n.t('toast.logged_out'))
-                });
-            });
-        }
     }
 
-    // ============================================
-    // ===== INIT ============================================
-    // ============================================
-    function init() {
+    function initAccount() {
+        if (accountInitialized) { bindEvents(); return; }
         accModal.init();
         passModal.init();
         twoFAModal.init();
@@ -671,15 +1362,69 @@
         aboutModal.init();
         confirmModal.init();
         toggleSystem.init();
-        renderAccountStats();
+        ordersPage.init();
         renderAccountInfo();
         bindEvents();
-        console.log('👤 REDEEM STORE - Account Ready');
+        accountInitialized = true;
     }
 
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
+    // ============================================
+    // ===== EXPOSE + START =====
+    // ============================================
+    window.redeemAccount = { init: initAccount, showToast: showToast };
+
+    // Mount + initialize the account page immediately.
+    // The account UI is prepared before the user can open it, so navigation
+    // does not wait for a fetch, timeout, or a second initialization pass.
+    // No visual effects/transitions are changed here.
+    mountAccountPage();
+    initAccount();
+
+    // ===== زر "طلباتي" في الشريط السفلي =====
+    document.addEventListener('click', function (e) {
+        const ordersBtn = e.target.closest('.nav-item[data-page="orders"]');
+        if (!ordersBtn) return;
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        // حدّث حالة الأزرار
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        ordersBtn.classList.add('active');
+
+        // حرّك المؤشر الأزرق
+        const navIndicator = document.getElementById('navIndicator');
+        const bottomNav = document.querySelector('.bottom-nav');
+        if (navIndicator && bottomNav) {
+            const navRect = bottomNav.getBoundingClientRect();
+            const itemRect = ordersBtn.getBoundingClientRect();
+            const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+            navIndicator.style.left = leftPos + 'px';
+            navIndicator.style.width = '30px';
+            navIndicator.classList.add('show');
+        }
+
+        // افتح صفحة الطلبات
+        if (!ordersPage.page) ordersPage.init();
+        ordersPage.open();
+    }, true);
+
+    // عند إغلاق صفحة الطلبات → رجّع التحديد للحساب
+    document.addEventListener('orders:closed', function () {
+        document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+        const accountBtn = document.querySelector('.nav-item[data-page="page-account"]');
+        if (accountBtn) {
+            accountBtn.classList.add('active');
+            const navIndicator = document.getElementById('navIndicator');
+            const bottomNav = document.querySelector('.bottom-nav');
+            if (navIndicator && bottomNav) {
+                const navRect = bottomNav.getBoundingClientRect();
+                const itemRect = accountBtn.getBoundingClientRect();
+                const leftPos = itemRect.left - navRect.left + (itemRect.width / 2) - 15;
+                navIndicator.style.left = leftPos + 'px';
+            }
+        }
+    });
+
+    console.log('🚀 Account Page Loaded');
 })();
