@@ -126,7 +126,7 @@
         .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
         .acc-orders-page.active, .acc-order-detail-page.active { opacity: 1; visibility: visible; transform: translateY(0); }
         /* Keep the store's fixed bottom navigation visible while browsing the orders list. */
-        .acc-orders-page { bottom: 70px; z-index: 998; }
+        .acc-orders-page { top: 0; right: 0; bottom: 70px; left: 0; z-index: 50; width: 100%; height: auto; overflow: hidden; isolation: isolate; }
         .acc-order-detail-page { z-index: 9999; }
         .acc-orders-hero { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; margin: 14px 16px 4px; padding: 20px 18px; min-height: 116px; color: #FFF; background: linear-gradient(135deg, #1A73E8 0%, #0D47A1 100%); border-radius: 18px; box-shadow: 0 8px 22px rgba(26,115,232,0.16); }
         .acc-orders-hero::after { content: ''; position: absolute; width: 150px; height: 150px; left: -45px; top: -75px; border-radius: 50%; background: rgba(255,255,255,0.08); pointer-events: none; }
@@ -511,7 +511,14 @@
             else host.appendChild(page);
         }
         modals.forEach(m => document.body.appendChild(m));
-        if (ordersPage) document.body.appendChild(ordersPage);
+        // Keep the orders list in the same stacking context as the bottom navigation.
+        // This prevents the page from covering the nav or trapping its clicks on mobile.
+        if (ordersPage) {
+            const navParent = nav && nav.parentElement;
+            if (navParent) navParent.insertBefore(ordersPage, nav);
+            else document.body.appendChild(ordersPage);
+        }
+        // Order details remain a true full-screen layer above the list.
         if (detailPage) document.body.appendChild(detailPage);
     }
 
