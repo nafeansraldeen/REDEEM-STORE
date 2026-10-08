@@ -125,6 +125,8 @@
         /* Orders Page */
         .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
         .acc-orders-page.active, .acc-order-detail-page.active { opacity: 1; visibility: visible; transform: translateY(0); }
+        /* Keep the store's fixed bottom navigation visible while browsing the orders list. */
+        .acc-orders-page { bottom: 70px; z-index: 998; }
         .acc-order-detail-page { z-index: 9999; }
         .acc-orders-hero { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; margin: 14px 16px 4px; padding: 20px 18px; min-height: 116px; color: #FFF; background: linear-gradient(135deg, #1A73E8 0%, #0D47A1 100%); border-radius: 18px; box-shadow: 0 8px 22px rgba(26,115,232,0.16); }
         .acc-orders-hero::after { content: ''; position: absolute; width: 150px; height: 150px; left: -45px; top: -75px; border-radius: 50%; background: rgba(255,255,255,0.08); pointer-events: none; }
@@ -148,7 +150,7 @@
         .acc-order-card:active { transform: scale(0.98); }
         @keyframes fadeUpOrd { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .acc-order-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px dashed #F0F2F5; gap: 8px; }
-        .acc-order-id { font-size: 12px; font-weight: 800; color: #1A1A2E; direction: ltr; font-family: 'SF Mono', 'Courier New', monospace; }
+        .acc-order-id { font-size: 12.5px; font-weight: 800; color: #1A1A2E; direction: ltr; font-family: 'SF Mono', 'Courier New', monospace; }
         .acc-order-status { font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 50px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
         .acc-order-status.pending { background: rgba(245,158,11,0.12); color: #F59E0B; }
         .acc-order-status.processing { background: rgba(26,115,232,0.12); color: #1A73E8; }
@@ -158,11 +160,11 @@
         .acc-order-thumb { width: 54px; height: 54px; border-radius: 12px; background: #F5F7FA; display: flex; align-items: center; justify-content: center; flex-shrink: 0; padding: 5px; }
         .acc-order-thumb img { width: 100%; height: 100%; object-fit: contain; }
         .acc-order-info { flex: 1; min-width: 0; }
-        .acc-order-name { font-size: 13px; font-weight: 700; color: #1A1A2E; margin: 0 0 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-        .acc-order-desc { font-size: 11px; color: #888; margin: 0 0 4px; }
-        .acc-order-date { font-size: 10px; color: #B0B8C4; display: flex; align-items: center; gap: 4px; }
+        .acc-order-name { font-size: 14px; font-weight: 700; color: #1A1A2E; margin: 0 0 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .acc-order-desc { font-size: 13px; color: #6F7782; margin: 0 0 4px; }
+        .acc-order-date { font-size: 12px; color: #737E8C; display: flex; align-items: center; gap: 4px; }
         .acc-order-footer { display: flex; align-items: center; justify-content: space-between; padding-top: 10px; border-top: 1px dashed #F0F2F5; gap: 8px; }
-        .acc-order-total-label { font-size: 10px; color: #999; display: block; margin-bottom: 2px; }
+        .acc-order-total-label { font-size: 11px; color: #888; display: block; margin-bottom: 2px; }
         .acc-order-total { font-size: 16px; font-weight: 800; color: #1A73E8; direction: ltr; }
         .acc-order-actions { display: flex; gap: 6px; }
         .acc-order-btn { width: 34px; height: 34px; border-radius: 10px; border: 1px solid #E8EAED; background: #FFF; color: #666; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
@@ -272,10 +274,6 @@
                 </div>
                 <div class="account-section">
                     <div class="account-section-title"><i class="fas fa-cog"></i><span>الطلبات والإعدادات</span></div>
-                    <div class="account-item" data-action="my-orders">
-                        <div class="account-item-left"><div class="account-item-icon"><i class="fas fa-receipt"></i></div><div class="account-item-info"><h4>طلباتي</h4><p>عرض جميع طلباتك السابقة</p></div></div>
-                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
-                    </div>
                     <div class="account-item" style="cursor:default;">
                         <div class="account-item-left"><div class="account-item-icon orange"><i class="fas fa-bell"></i></div><div class="account-item-info"><h4>الإشعارات</h4><p>إدارة تنبيهاتك</p></div></div>
                         <div class="account-item-right"><label class="acc-toggle"><input checked data-key="notifications" type="checkbox"/><span class="acc-toggle-track"></span><span class="acc-toggle-thumb"></span></label></div>
