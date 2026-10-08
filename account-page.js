@@ -123,9 +123,16 @@
         #accToast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #1A1A2E; color: #FFF; padding: 14px 22px; border-radius: 14px; font-size: 14px; font-weight: 600; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 99999; opacity: 0; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); max-width: 90%; text-align: center; pointer-events: none; }
 
         /* Orders Page */
-        .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; transform: translateX(100%); transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94); max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
-        .acc-orders-page.active, .acc-order-detail-page.active { transform: translateX(0); }
+        .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        .acc-orders-page.active, .acc-order-detail-page.active { opacity: 1; visibility: visible; transform: translateY(0); }
         .acc-order-detail-page { z-index: 9999; }
+        .acc-orders-hero { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; margin: 14px 16px 4px; padding: 20px 18px; min-height: 116px; color: #FFF; background: linear-gradient(135deg, #1A73E8 0%, #0D47A1 100%); border-radius: 18px; box-shadow: 0 8px 22px rgba(26,115,232,0.16); }
+        .acc-orders-hero::after { content: ''; position: absolute; width: 150px; height: 150px; left: -45px; top: -75px; border-radius: 50%; background: rgba(255,255,255,0.08); pointer-events: none; }
+        .acc-orders-hero-icon { flex: 0 0 48px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.17); border: 1px solid rgba(255,255,255,0.22); border-radius: 13px; font-size: 21px; }
+        .acc-orders-hero-copy { position: relative; z-index: 1; }
+        .acc-orders-hero-title { margin: 0 0 5px; font-size: 20px; font-weight: 800; color: #FFF; }
+        .acc-orders-hero-subtitle { margin: 0; font-size: 12px; color: rgba(255,255,255,0.86); }
+        .acc-orders-hero .acc-orders-count { color: rgba(255,255,255,0.9); margin-top: 5px; }
         .acc-orders-header { background: #FFF; padding: 14px 16px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #F0F2F5; }
         .acc-orders-back { width: 40px; height: 40px; border-radius: 12px; border: none; background: #F0F2F5; color: #1A1A2E; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .acc-orders-title { font-size: 18px; font-weight: 800; color: #1A1A2E; margin: 0; }
@@ -439,10 +446,11 @@
         </div>
 
         <div class="acc-orders-page" id="accOrdersPage">
-            <div class="acc-orders-header">
-                <button class="acc-orders-back" id="accOrdersBackBtn"><i class="fas fa-arrow-right"></i></button>
-                <div>
-                    <h2 class="acc-orders-title">طلباتي</h2>
+            <div class="acc-orders-hero">
+                <div class="acc-orders-hero-icon"><i class="fas fa-receipt"></i></div>
+                <div class="acc-orders-hero-copy">
+                    <h2 class="acc-orders-hero-title">طلباتي</h2>
+                    <p class="acc-orders-hero-subtitle">تابع حالة مشترياتك وتفاصيلها بسهولة</p>
                     <div class="acc-orders-count" id="accOrdersCount">0 طلب</div>
                 </div>
             </div>
@@ -900,9 +908,13 @@
             if (!this.page || this.page.dataset.bound) return;
             this.page.dataset.bound = '1';
 
-            document.getElementById('accOrdersBackBtn').addEventListener('click', () => this.close());
+            const ordersBackBtn = document.getElementById('accOrdersBackBtn');
+            if (ordersBackBtn) ordersBackBtn.addEventListener('click', () => this.close());
             document.getElementById('accOrderDetailBackBtn').addEventListener('click', () => {
                 this.detailPage.classList.remove('active');
+            });
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && this.page && this.page.classList.contains('active') && !(this.detailPage && this.detailPage.classList.contains('active'))) this.close();
             });
 
             this.page.querySelectorAll('.acc-orders-filter').forEach(btn => {
@@ -1081,26 +1093,6 @@
                     </div>
                 </div>
 
-                <div class="acc-detail-section">
-                    <div class="acc-detail-section-title"><i class="fas fa-user"></i> بيانات العميل</div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">الاسم:</span><span class="acc-detail-row-value">${order.customer.name}</span></div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">معرف الحساب:</span><span class="acc-detail-row-value ltr">${order.customer.playerId}</span></div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">واتساب:</span><span class="acc-detail-row-value ltr">${order.customer.whatsapp}</span></div>
-                </div>
-
-                <div class="acc-detail-section">
-                    <div class="acc-detail-section-title"><i class="fas fa-receipt"></i> الفاتورة</div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">المجموع الفرعي:</span><span class="acc-detail-row-value">$${order.subtotal.toFixed(2)}</span></div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">الخصم:</span><span class="acc-detail-row-value">-$${order.discount.toFixed(2)}</span></div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">الضريبة:</span><span class="acc-detail-row-value">$${order.tax.toFixed(2)}</span></div>
-                    <div class="acc-detail-row total"><span class="acc-detail-row-label">الإجمالي:</span><span class="acc-detail-row-value">$${order.total.toFixed(2)}</span></div>
-                </div>
-
-                <div class="acc-detail-section">
-                    <div class="acc-detail-section-title"><i class="fas fa-credit-card"></i> الدفع</div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">الطريقة:</span><span class="acc-detail-row-value">${order.payment.method}</span></div>
-                    <div class="acc-detail-row"><span class="acc-detail-row-label">الحالة:</span><span class="acc-detail-row-value">${payStatus}</span></div>
-                </div>
             `;
 
             actions.innerHTML = `
