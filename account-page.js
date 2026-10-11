@@ -122,10 +122,10 @@
         /* Toast */
         #accToast { position: fixed; top: 24px; left: 50%; transform: translateX(-50%) translateY(-100px); background: #1A1A2E; color: #FFF; padding: 14px 22px; border-radius: 14px; font-size: 14px; font-weight: 600; box-shadow: 0 10px 40px rgba(0,0,0,0.25); z-index: 99999; opacity: 0; transition: all 0.35s cubic-bezier(0.34,1.56,0.64,1); max-width: 90%; text-align: center; pointer-events: none; }
 
-        /* Orders Page */
-        .acc-orders-page, .acc-order-detail-page { position: fixed; inset: 0; background: #F5F7FA; z-index: 9998; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
+        /* Orders Page — z-index أقل من bottom-nav (999) ليبقى الشريط فوقها */
+        .acc-orders-page, .acc-order-detail-page { position: fixed; top: 0; bottom: 70px; left: 0; right: 0; background: #F5F7FA; z-index: 998; display: flex; flex-direction: column; opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; max-width: 480px; margin: 0 auto; box-shadow: 0 0 40px rgba(0,0,0,0.1); }
         .acc-orders-page.active, .acc-order-detail-page.active { opacity: 1; visibility: visible; transform: translateY(0); }
-        .acc-order-detail-page { z-index: 9999; }
+        .acc-order-detail-page { z-index: 999; bottom: 70px; }
         .acc-orders-hero { position: relative; overflow: hidden; display: flex; align-items: center; gap: 14px; margin: 14px 16px 4px; padding: 20px 18px; min-height: 116px; color: #FFF; background: linear-gradient(135deg, #1A73E8 0%, #0D47A1 100%); border-radius: 18px; box-shadow: 0 8px 22px rgba(26,115,232,0.16); }
         .acc-orders-hero::after { content: ''; position: absolute; width: 150px; height: 150px; left: -45px; top: -75px; border-radius: 50%; background: rgba(255,255,255,0.08); pointer-events: none; }
         .acc-orders-hero-icon { flex: 0 0 48px; width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.17); border: 1px solid rgba(255,255,255,0.22); border-radius: 13px; font-size: 21px; }
@@ -271,11 +271,7 @@
                     </div>
                 </div>
                 <div class="account-section">
-                    <div class="account-section-title"><i class="fas fa-cog"></i><span>الطلبات والإعدادات</span></div>
-                    <div class="account-item" data-action="my-orders">
-                        <div class="account-item-left"><div class="account-item-icon"><i class="fas fa-receipt"></i></div><div class="account-item-info"><h4>طلباتي</h4><p>عرض جميع طلباتك السابقة</p></div></div>
-                        <div class="account-item-right"><i class="fas fa-chevron-left"></i></div>
-                    </div>
+                    <div class="account-section-title"><i class="fas fa-cog"></i><span>الإعدادات</span></div>
                     <div class="account-item" style="cursor:default;">
                         <div class="account-item-left"><div class="account-item-icon orange"><i class="fas fa-bell"></i></div><div class="account-item-info"><h4>الإشعارات</h4><p>إدارة تنبيهاتك</p></div></div>
                         <div class="account-item-right"><label class="acc-toggle"><input checked data-key="notifications" type="checkbox"/><span class="acc-toggle-track"></span><span class="acc-toggle-thumb"></span></label></div>
@@ -908,8 +904,6 @@
             if (!this.page || this.page.dataset.bound) return;
             this.page.dataset.bound = '1';
 
-            const ordersBackBtn = document.getElementById('accOrdersBackBtn');
-            if (ordersBackBtn) ordersBackBtn.addEventListener('click', () => this.close());
             document.getElementById('accOrderDetailBackBtn').addEventListener('click', () => {
                 this.detailPage.classList.remove('active');
             });
@@ -942,6 +936,7 @@
             if (!this.page) this.init();
             this.updateCounts();
             this.renderList();
+            this.page.style.display = 'flex';
             this.page.classList.add('active');
         },
 
@@ -1053,10 +1048,6 @@
             const body = document.getElementById('accOrderDetailBody');
             const actions = document.getElementById('accOrderDetailActions');
             const headerId = document.getElementById('accOrderDetailId');
-
-            const d = new Date(order.date);
-            const dateStr = d.toLocaleDateString('ar-EG') + ' ' + d.toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
-            const payStatus = { paid: 'مدفوع', pending: 'قيد الانتظار', failed: 'فشل' }[order.payment.status] || order.payment.status;
 
             if (headerId) headerId.textContent = order.id;
 
@@ -1290,10 +1281,6 @@ th { background: #1A73E8; color: #FFF; font-weight: 700; font-size: 12px; }
             case 'edit-email': accModal.open({ title: 'تعديل البريد الإلكتروني', subtitle: 'أدخل بريدك الإلكتروني الجديد', icon: 'fas fa-envelope', inputIcon: 'fas fa-envelope', value: accountData.email, type: 'email', field: 'email' }); break;
             case 'edit-phone': accModal.open({ title: 'تعديل رقم واتساب', subtitle: 'أدخل رقم الواتساب الجديد', icon: 'fab fa-whatsapp', inputIcon: 'fab fa-whatsapp', value: accountData.phone, type: 'tel', field: 'phone' }); break;
             case 'change-password': passModal.open(); break;
-            case 'my-orders':
-                if (!ordersPage.page) ordersPage.init();
-                ordersPage.open();
-                break;
             case 'language': langModal.open(); break;
             case 'about': aboutModal.open(); break;
         }
@@ -1365,10 +1352,6 @@ th { background: #1A73E8; color: #FFF; font-weight: 700; font-size: 12px; }
     // ============================================
     window.redeemAccount = { init: initAccount, showToast: showToast };
 
-    // Mount + initialize the account page immediately.
-    // The account UI is prepared before the user can open it, so navigation
-    // does not wait for a fetch, timeout, or a second initialization pass.
-    // No visual effects/transitions are changed here.
     mountAccountPage();
     initAccount();
 
@@ -1380,11 +1363,9 @@ th { background: #1A73E8; color: #FFF; font-weight: 700; font-size: 12px; }
         e.preventDefault();
         e.stopPropagation();
 
-        // حدّث حالة الأزرار
         document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
         ordersBtn.classList.add('active');
 
-        // حرّك المؤشر الأزرق
         const navIndicator = document.getElementById('navIndicator');
         const bottomNav = document.querySelector('.bottom-nav');
         if (navIndicator && bottomNav) {
@@ -1396,9 +1377,18 @@ th { background: #1A73E8; color: #FFF; font-weight: 700; font-size: 12px; }
             navIndicator.classList.add('show');
         }
 
-        // افتح صفحة الطلبات
         if (!ordersPage.page) ordersPage.init();
         ordersPage.open();
+    }, true);
+
+    // ===== إغلاق صفحة الطلبات عند الضغط على أي زر تنقل آخر =====
+    document.addEventListener('click', function (e) {
+        const navBtn = e.target.closest('.nav-item');
+        if (!navBtn) return;
+        if (navBtn.dataset.page === 'orders') return;
+        if (ordersPage.page && ordersPage.page.classList.contains('active')) {
+            ordersPage.close();
+        }
     }, true);
 
     // عند إغلاق صفحة الطلبات → رجّع التحديد للحساب
